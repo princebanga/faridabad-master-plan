@@ -51,6 +51,19 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+// अल्ट्रा सिक्योरिटी: राइट क्लिक और शॉर्टकट्स पूरी तरह ब्लॉक
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.onkeydown = function(e) {
+    // F12, Ctrl+Shift+I, Ctrl+U (View Source) सबको एक साथ ब्लॉक
+    if (e.keyCode == 123 || 
+        (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || 
+        (e.ctrlKey && e.keyCode == 85)) {
+        return false;
+    }
+};
+    
+      
         // 1. मैप सेटअप
         var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1 });
 
