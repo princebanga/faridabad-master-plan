@@ -146,26 +146,27 @@ document.onkeydown = function(e) {
             text-align: center; border: 1px solid #ddd;
         }
 
-      .search-container {
-    position: absolute; 
-    top: 115px; /* हेडर से थोड़ा नीचे */
-    left: 50%; 
-    transform: translateX(-50%);
-    z-index: 4500; /* हेडर से थोड़ा कम लेकिन मैप से ज्यादा */
-    width: 90%; 
-    max-width: 350px;
+ .search-container {
+    position: fixed !important;
+    top: 110px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 9999 !important; /* इसे सबसे ऊपर रखने के लिए */
+    width: 85%;
+    max-width: 320px;
+    pointer-events: auto !important;
 }
 
 #projectSearch {
-    width: 100%; 
-    padding: 12px 20px; 
+    width: 100%;
+    padding: 12px 18px;
     border-radius: 25px;
-    border: 2px solid #e63946; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    outline: none; 
+    border: 2px solid #e63946;
+    background-color: white !important; /* सफेद बैकग्राउंड */
+    color: black !important; /* काला टेक्स्ट */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     font-size: 16px;
-    background: white; /* सफेद रंग ताकि साफ़ दिखे */
-    color: #333;
+    display: block !important;
 }
 
         .popup-card { text-align: center; width: 210px; padding: 5px; }
