@@ -322,17 +322,5 @@ document.onkeydown = function(e) {
         });
     </script>
 </body>
-</html>        // 5. फिल्टर कंट्रोल (Top Right)
-        L.control.layers(null, layers, { collapsed: false }).addTo(map);
-
-        // 6. Developer Mode (लोकेशन ट्रैक करने के लिए)
-        map.on('click', function(e) {
-            var y = e.latlng.lat.toFixed(1);
-            var x = e.latlng.lng.toFixed(1);
-            document.getElementById('coord-box').innerHTML = "Location for Code: [" + y + ", " + x + "]";
-        });
-
-    </script>
-</body>
-</html>
+</html>       
 
