@@ -146,15 +146,27 @@ document.onkeydown = function(e) {
             text-align: center; border: 1px solid #ddd;
         }
 
-        .search-container {
-            position: absolute; top: 90px; left: 50%; transform: translateX(-50%);
-            z-index: 1100; width: 90%; max-width: 400px;
-        }
-        #projectSearch {
-            width: 100%; padding: 12px 20px; border-radius: 25px;
-            border: 2px solid var(--primary-red); box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            outline: none; font-size: 16px;
-        }
+      .search-container {
+    position: absolute; 
+    top: 115px; /* हेडर से थोड़ा नीचे */
+    left: 50%; 
+    transform: translateX(-50%);
+    z-index: 4500; /* हेडर से थोड़ा कम लेकिन मैप से ज्यादा */
+    width: 90%; 
+    max-width: 350px;
+}
+
+#projectSearch {
+    width: 100%; 
+    padding: 12px 20px; 
+    border-radius: 25px;
+    border: 2px solid #e63946; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    outline: none; 
+    font-size: 16px;
+    background: white; /* सफेद रंग ताकि साफ़ दिखे */
+    color: #333;
+}
 
         .popup-card { text-align: center; width: 210px; padding: 5px; }
         .price-tag { color: var(--primary-red); font-weight: bold; font-size: 15px; margin: 8px 0; display: block; }
