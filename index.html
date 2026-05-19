@@ -146,27 +146,28 @@ document.onkeydown = function(e) {
             text-align: center; border: 1px solid #ddd;
         }
 
- .search-container {
-    position: fixed !important;
-    top: 110px !important;
-    left: 50% !important;
+ /* सर्च टैब को हर हाल में सामने लाने के लिए */
+.search-container {
+    position: fixed !important; /* absolute की जगह fixed करें */
+    top: 100px !important; 
+    left: 50% !important; 
     transform: translateX(-50%) !important;
-    z-index: 9999 !important; /* इसे सबसे ऊपर रखने के लिए */
-    width: 85%;
-    max-width: 320px;
-    pointer-events: auto !important;
+    z-index: 99999 !important; /* इसे सबसे ज्यादा रखें */
+    width: 90%; 
+    max-width: 350px;
+    display: block !important;
 }
 
 #projectSearch {
-    width: 100%;
-    padding: 12px 18px;
+    width: 100%; 
+    padding: 12px 20px; 
     border-radius: 25px;
-    border: 2px solid #e63946;
-    background-color: white !important; /* सफेद बैकग्राउंड */
-    color: black !important; /* काला टेक्स्ट */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    border: 2px solid #e63946; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    background: white !important;
+    color: black !important;
     font-size: 16px;
-    display: block !important;
+    outline: none;
 }
 
         .popup-card { text-align: center; width: 210px; padding: 5px; }
