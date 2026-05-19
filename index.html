@@ -26,45 +26,57 @@
         body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; }
         #map { height: 100vh; width: 100%; background: #f8f9fa; }
         
-        /* हेडर को मोबाइल फ्रेंडली और छोटा बनाना */
-.map-header {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%;
-    max-width: 360px;
-    background: rgba(230, 57, 70, 0.95); /* तुम्हारी रेड थीम */
-    color: white;
-    padding: 8px 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 1000;
-    text-align: center;
-}
+ /* मुख्य हेडर को स्लिम और मोबाइल फ्रेंडली बनाना */
+        .map-header {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            max-width: 360px;
+            background: rgba(230, 57, 70, 0.95); /* तुम्हारी रेड थीम */
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1100;
+            text-align: center;
+        }
 
-.map-header h1 {
-    font-size: 14px; /* नाम को और छोटा किया */
-    margin: 0;
-    font-weight: bold;
-}
+        .map-header h1 {
+            font-size: 15px;
+            margin: 0;
+            font-weight: bold;
+        }
 
-.map-header p {
-    font-size: 10px; /* सब-टाइटल को छोटा किया */
-    margin: 2px 0 5px 0;
-    opacity: 0.9;
-}
+        .map-header p {
+            font-size: 11px;
+            margin: 2px 0 6px 0;
+            opacity: 0.9;
+        }
 
-.video-btn {
-    display: inline-block;
-    padding: 4px 10px;
-    background: white;
-    color: #e63946;
-    text-decoration: none;
-    font-size: 11px;
-    font-weight: bold;
-    border-radius: 15px;
-}
+        .video-btn {
+            display: inline-block;
+            padding: 4px 12px;
+            background: white;
+            color: #e63946;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        /* फ़िल्टर और सर्च बॉक्स को हेडर के नीचे सेट करना */
+        .leaflet-top.leaflet-right {
+            top: 95px !important; /* ताकि हेडर इसे न ढके */
+            margin-right: 10px;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
 
 /* Search Area inside the Control Box */
 .internal-search {
