@@ -21,7 +21,37 @@
     left: 50%; 
     transform: translateX(-50%);
     z-index: 5000; /* बहुत ज्यादा वैल्यू ताकि यह हमेशा ऊपर रहे */
-    background: white; 
+    background: white;
+/* Control Box Styling (Right Side) */
+.leaflet-control-layers {
+    width: 260px !important; 
+    padding: 12px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    border: 2px solid var(--primary-red) !important;
+}
+
+/* Search Area inside the Control Box */
+.internal-search {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 2px solid #eee;
+}
+
+#projectSearch {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#projectSearch:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 5px rgba(230, 57, 70, 0.3);
+}           
     padding: 10px 25px;
     border-radius: 50px; 
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -310,13 +340,15 @@ document.onkeydown = function(e) {
         addProject(579.1, 1076.5, "MDPS Floors", "https://www.youtube.com/shorts/GIu0T7baRpI", "Low-Rise", "Coming Soon", true);
 
         // --- CONTROLS ---
-       var overlayMaps = {
+    var overlayMaps = {
     "<span style='color:green;font-weight:bold'>Plots</span>": currentLayers["Plots"],
     "<span style='color:blue;font-weight:bold'>High-Rise</span>": currentLayers["High-Rise"],
     "<span style='color:#b8860b;font-weight:bold'>Low-Rise</span>": currentLayers["Low-Rise"],
     "<span style='color:orange;font-weight:bold'>Affordable</span>": currentLayers["Affordable"],
-    // यहाँ हमने बोल्ड किया है (FUTURE PROJECTS)
-    "<hr><span style='color:black;font-weight:bold'>FUTURE PROJECTS</span>": futureLayers["Future Projects"]
+    // यहाँ फ्यूचर प्रोजेक्ट्स का चेकबॉक्स
+    "<span style='color:black;font-weight:bold'>Future Projects</span>": futureLayers["Future Projects"],
+    // इसके ठीक नीचे सर्च बार
+    "<div class='internal-search'><input type='text' id='projectSearch' placeholder='Search Project or Sector...' onkeyup='searchProject()'></div>": L.layerGroup()
 };
         L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
 
