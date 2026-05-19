@@ -375,11 +375,51 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 // राइट-क्लिक बंद करने की सुरक्षा
 document.addEventListener('contextmenu', event => event.preventDefault());
 </script>
+<style>
+<div class="map-watermark">Apka Apna Property Advisor</div>
 
+<div class="map-disclaimer">
+    <strong>Disclaimer:</strong> This map is for informational purposes only. Information is based on Faridabad Master Plan 2031. Please verify with RERA authorities before any investment.
+</div>
 
 <style>
+/* वॉटरमार्क - एकदम हल्का और क्लासी */
+.map-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: clamp(30px, 6vw, 60px); 
+    color: rgba(0, 0, 0, 0.03) !important; /* इसे 0.03 किया है ताकि बहुत हल्का दिखे */
+    z-index: 400 !important; /* मैप के ऊपर पर सर्च बॉक्स के नीचे */
+    pointer-events: none;
+    white-space: nowrap;
+    font-weight: bold;
+    user-select: none;
+}
 
+/* डिस्क्लेमर - नीचे कोने में सेट */
+.map-disclaimer {
+    position: fixed;
+    bottom: 15px !important; 
+    left: 15px !important;
+    top: auto !important; 
+    z-index: 9999 !important; 
+    background: rgba(255, 255, 255, 0.9) !important;
+    padding: 8px 12px;
+    font-size: 10px;
+    border-radius: 6px;
+    border: 1px solid #e63946;
+    max-width: 280px;
+    color: #1d3557;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+</style>
 
+<script>
+// राइट-क्लिक प्रोटेक्शन
+document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
 </body>
 </html>       
 
