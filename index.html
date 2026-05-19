@@ -155,13 +155,14 @@ document.onkeydown = function(e) {
  /* सर्च टैब को हर हाल में सामने लाने के लिए */
 .search-container {
     position: fixed !important; /* absolute की जगह fixed करें */
-    top: 100px !important; 
+    top: 115px !important; 
     left: 50% !important; 
     transform: translateX(-50%) !important;
     z-index: 99999 !important; /* इसे सबसे ज्यादा रखें */
     width: 90%; 
     max-width: 350px;
     display: block !important;
+    pointer-events: auto !important; /*so click should work*/
 }
 
 #projectSearch {
@@ -169,11 +170,12 @@ document.onkeydown = function(e) {
     padding: 12px 20px; 
     border-radius: 25px;
     border: 2px solid #e63946; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     background: white !important;
     color: black !important;
     font-size: 16px;
     outline: none;
+    -webkit-appearance: none;
 }
 
         .popup-card { text-align: center; width: 210px; padding: 5px; }
