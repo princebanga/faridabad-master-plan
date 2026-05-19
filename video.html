@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery | Apka Apna Property Advisor</title>
+    <style>
+        :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 0; }
+        
+        .navbar { background: white; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-bottom: 4px solid var(--primary-red); position: sticky; top: 0; z-index: 1000; }
+        .btn-back { text-decoration: none; color: var(--primary-red); font-weight: bold; border: 2px solid var(--primary-red); padding: 5px 15px; border-radius: 20px; float: left; font-size: 14px; }
+        
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
+        
+        /* Section Styling */
+        .section-title { color: var(--dark-blue); border-left: 5px solid var(--primary-red); padding-left: 15px; margin: 40px 0 20px 0; font-size: 24px; }
+        
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        
+        .video-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; position: relative; border: 1px solid #eee; }
+        .video-card:hover { transform: translateY(-5px); }
+        
+        .video-thumb { width: 100%; height: 180px; object-fit: cover; background: #ddd; }
+        
+        .video-info { padding: 15px; }
+        .project-name { font-size: 17px; font-weight: bold; color: var(--dark-blue); display: block; height: 45px; overflow: hidden; }
+        .sector-tag { color: #666; font-size: 13px; display: block; margin-top: 5px; }
+        
+        .watch-btn { display: block; background: var(--primary-red); color: white !important; text-align: center; padding: 10px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: 0.2s; }
+        .watch-btn:hover { background: #c12e3a; }
+
+        /* Monthly Update Highlight */
+        .update-card { border: 2px solid var(--dark-blue); }
+        .update-badge { position: absolute; top: 10px; right: 10px; background: var(--dark-blue); color: white; padding: 5px 10px; border-radius: 5px; font-size: 12px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="index.html" class="btn-back">⬅️ मैप पर जाएँ</a>
+        <h2 style="margin:0; color: var(--dark-blue);">प्रोजेक्ट्स & मार्केट अपडेट्स</h2>
+    </div>
+
+    <div class="container">
+        
+        <h2 class="section-title">📊 मंथली मार्केट अपडेट्स (Latest)</h2>
+        <div class="video-grid" id="market-updates">
+            </div>
+
+        <h2 class="section-title">🏢 प्रोजेक्ट वीडियो लाइब्रेरी</h2>
+        <div class="video-grid" id="project-gallery">
+            </div>
+
+    </div>
+
+    <script>
+        // --- डेटा सेक्शन ---
+        const monthlyUpdates = [
+            { name: "Mega Real Estate Update: Feb 2026", date: "Feb 2026", url: "https://www.youtube.com/watch?v=2kLT5Dqb_dE" },
+            { name: "Why Faridabad Is Heating Up", date: "Dec 2025", url: "https://www.youtube.com/watch?v=RcWK9vrAH3c" },
+            { name: "Faridabad Real Estate Trends", date: "Sept 2025", url: "https://www.youtube.com/watch?v=-jmiUznJNoo" },
+            { name: "Weekly Update: Faridabad Escape", date: "Nov 2025", url: "https://www.youtube.com/watch?v=7tQnq4HpIbs" }
+        ];
+
+        const projects = [
+            { name: "Tarang Atlantis", sector: "Sector 85", url: "https://www.youtube.com/watch?v=M8R6RR9EKp8" },
+            { name: "SOHA Olive Town", sector: "Sector 98", url: "https://www.youtube.com/watch?v=FdvkILluDas" },
+            { name: "Prosper EPIC", sector: "Sector 82", url: "https://www.youtube.com/shorts/iXrhyCeW2nk" },
+            { name: "Omaxe Royal Residency 2", sector: "Sector 79", url: "https://www.youtube.com/shorts/oSOD4yy0n3o" },
+            { name: "NeoLiv RERA Plots", sector: "Sector 12", url: "https://www.youtube.com/shorts/9l6LcFpALBY" },
+            { name: "Emerald Gulmohar", sector: "Sector 97", url: "https://www.youtube.com/watch?v=apYXHrChxEE" },
+            { name: "Dameera Plots", sector: "Sector 114, Gurugram", url: "https://www.youtube.com/watch?v=Sv3XyNjT0h4" },
+            { name: "Coral Park", sector: "Sector 89", url: "https://www.youtube.com/shorts/FFJFlOx2m_w" },
+            { name: "BPTP Parkland Pride", sector: "Sector 77", url: "https://www.youtube.com/shorts/7n0Kss_6mJs" },
+            { name: "Adore Presidential World", sector: "Sector 84", url: "https://www.youtube.com/shorts/cHRfbJGKcXE" },
+            { name: "Adore Prima 1 & 2", sector: "Sector 73", url: "https://www.youtube.com/watch?v=UK0th107Ckg" }
+        ];
+
+        function getThumb(url) {
+            let id = url.includes('shorts/') ? url.split('shorts/')[1] : url.split('v=')[1]?.split('&')[0];
+            return https://img.youtube.com/vi/${id}/hqdefault.jpg;
+        }
+
+        // लोड मार्केट अपडेट्स
+        const updateContainer = document.getElementById('market-updates');
+        monthlyUpdates.forEach(vid => {
+            updateContainer.innerHTML += `
+                <div class="video-card update-card">
+                    <div class="update-badge">NEWS</div>
+                    <img class="video-thumb" src="${getThumb(vid.url)}">
+                    <div class="video-info">
+                        <span class="project-name">${vid.name}</span>
+                        <span class="sector-tag">📅 ${vid.date}</span>
+                        <a href="${vid.url}" target="_blank" class="watch-btn">अभी देखें</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        // लोड प्रोजेक्ट्स
+        const projectContainer = document.getElementById('project-gallery');
+        projects.forEach(vid => {
+            projectContainer.innerHTML += `
+                <div class="video-card">
+                    <img class="video-thumb" src="${getThumb(vid.url)}">
+                    <div class="video-info">
+                        <span class="project-name">${vid.name}</span>
+                        <span class="sector-tag">📍 लोकेशन: ${vid.sector}</span>
+                        <a href="${vid.url}" target="_blank" class="watch-btn">वीडियो प्ले करें</a>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
