@@ -448,6 +448,13 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 // राइट-क्लिक प्रोटेक्शन
 document.addEventListener('contextmenu', event => event.preventDefault());
 </script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
 </body>
 </html>       
 
