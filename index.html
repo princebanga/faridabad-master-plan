@@ -476,24 +476,26 @@ document.addEventListener('contextmenu', event => event.preventDefault());
             navigator.serviceWorker.register('/service-worker.js');
         });
     }
-       function makeDraggable(el) {
+        // इनिशियल पोजीशन सेट करें 
+      function makeDraggable(el) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     
-    // हेडर के नीचे से शुरू करने के लिए इनिशियल पोजीशन फिक्स
-    el.style.position = 'absolute';
-    el.style.top = '100px'; 
-    el.style.right = '10px';
+    // इनिशियल पोजीशन सेट करें ताकि ये हेडर के नीचे दिखे
+    el.style.top = '120px'; 
+    el.style.right = '20px';
+    el.style.left = 'auto';
+    el.style.zIndex = '9999'; // सबसे ऊपर रखने के लिए
 
     el.onmousedown = dragMouseDown;
     el.ontouchstart = dragMouseDown;
 
     function dragMouseDown(e) {
         e = e || window.event;
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+        // चेकबॉक्स और सर्च इनपुट पर क्लिक करने से ड्रैग न हो
+        if (["INPUT", "SELECT", "LABEL"].includes(e.target.tagName)) return;
         
-        // टच और माउस दोनों के लिए सही कोऑर्डिनेट्स
-        pos3 = (e.clientX || e.touches[0].clientX);
-        pos4 = (e.clientY || e.touches[0].clientY);
+        pos3 = e.clientX || e.touches[0].clientX;
+        pos4 = e.clientY || e.touches[0].clientY;
         
         document.onmouseup = closeDragElement;
         document.ontouchend = closeDragElement;
@@ -503,19 +505,17 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 
     function elementDrag(e) {
         e = e || window.event;
-        let clientX = (e.clientX || e.touches[0].clientX);
-        let clientY = (e.clientY || e.touches[0].clientY);
+        let x = e.clientX || e.touches[0].clientX;
+        let y = e.clientY || e.touches[0].clientY;
         
-        pos1 = pos3 - clientX;
-        pos2 = pos4 - clientY;
-        pos3 = clientX;
-        pos4 = clientY;
+        pos1 = pos3 - x;
+        pos2 = pos4 - y;
+        pos3 = x;
+        pos4 = y;
         
-        // बॉक्स को नई जगह पर सेट करना
         el.style.top = (el.offsetTop - pos2) + "px";
         el.style.left = (el.offsetLeft - pos1) + "px";
-        el.style.right = "auto"; // राइट हटाना जरूरी है ताकि लेफ्ट से मूव हो सके
-        el.style.bottom = "auto";
+        el.style.right = "auto";
     }
 
     function closeDragElement() {
@@ -525,7 +525,6 @@ document.addEventListener('contextmenu', event => event.preventDefault());
         document.ontouchmove = null;
     }
 }
-
 // मैप लोड होने के बाद लेयर कंट्रोल को मूव करने योग्य बनाएं
 setTimeout(() => {
     const layerControl = document.querySelector('.leaflet-control-layers');
