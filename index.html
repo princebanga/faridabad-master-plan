@@ -26,20 +26,44 @@
         body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; }
         #map { height: 100vh; width: 100%; background: #f8f9fa; }
         
-        .map-header {
-    position: absolute; 
-    top: 15px; 
-    left: 50%; 
+        /* हेडर को मोबाइल फ्रेंडली और छोटा बनाना */
+.map-header {
+    position: absolute;
+    top: 10px;
+    left: 50%;
     transform: translateX(-50%);
-    z-index: 5000; /* बहुत ज्यादा वैल्यू ताकि यह हमेशा ऊपर रहे */
+    width: 85%;
+    max-width: 360px;
+    background: rgba(230, 57, 70, 0.95); /* तुम्हारी रेड थीम */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-align: center;
+}
+
+.map-header h1 {
+    font-size: 14px; /* नाम को और छोटा किया */
+    margin: 0;
+    font-weight: bold;
+}
+
+.map-header p {
+    font-size: 10px; /* सब-टाइटल को छोटा किया */
+    margin: 2px 0 5px 0;
+    opacity: 0.9;
+}
+
+.video-btn {
+    display: inline-block;
+    padding: 4px 10px;
     background: white;
-         /* Control Box Styling (Right Side) */
-.leaflet-control-layers {
-    width: 260px !important; 
-    padding: 12px !important;
-    border-radius: 12px !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
-    border: 2px solid var(--primary-red) !important;
+    color: #e63946;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 15px;
 }
 
 /* Search Area inside the Control Box */
