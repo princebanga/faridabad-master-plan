@@ -213,7 +213,7 @@ document.onkeydown = function(e) {
     </div>
 
     <div class="search-container">
-        <input type="text" id="projectSearch" placeholder="प्रोजेक्ट का नाम लिखें..." onkeyup="searchProject()">
+        <input type="text" id="projectSearch" placeholder="Search Project or Sector..." onkeyup="searchProject()">
     </div>
 
     <div id="coord-box">Coordinates Locked</div>
@@ -321,13 +321,19 @@ document.onkeydown = function(e) {
         L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
 
         function searchProject() {
-            var input = document.getElementById('projectSearch').value.toLowerCase();
-            if (input.length < 2) return;
-            allMarkers.forEach(function(m) {
-                if (m.projectName.includes(input)) { map.setView(m.getLatLng(), 1); m.openPopup(); }
-            });
+    // 1. यहाँ 'projectSearch' की स्पेलिंग चेक करें
+    var input = document.getElementById('projectSearch').value.toLowerCase();
+    
+    if (input.length < 2) return;
+    
+    allMarkers.forEach(function(m) {
+        // 2. यहाँ 'm.projectName' होना चाहिए
+        if (m.projectName && m.projectName.toLowerCase().includes(input)) { 
+            map.setView(m.getLatLng(), 1); 
+            m.openPopup(); 
         }
-
+    });
+}
         map.on('click', function(e) {
             document.getElementById('coord-box').innerHTML = "[" + e.latlng.lat.toFixed(1) + ", " + e.latlng.lng.toFixed(1) + "]";
         });
