@@ -375,39 +375,7 @@ document.onkeydown = function(e) {
 document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
 
-<style>
-/* वॉटरमार्क को पक्का दिखाने के लिए */
-.map-watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: clamp(30px, 8vw, 70px); 
-    color: rgba(0, 0, 0, 0.1) !important; /* थोड़ा और गहरा किया है ताकि दिखे */
-    z-index: 5000 !important; /* मैप के ऊपर */
-    pointer-events: none;
-    white-space: nowrap;
-    font-weight: bold;
-    user-select: none;
-}
 
-/* डिस्क्लेमर को नीचे कोने में लॉक करने के लिए */
-.map-disclaimer {
-    position: fixed;
-    bottom: 20px !important; 
-    left: 20px !important;
-    top: auto !important; /* ऊपर से रिश्ता खत्म */
-    z-index: 9999 !important; 
-    background: white !important;
-    padding: 10px 15px;
-    font-size: 11px;
-    border-radius: 8px;
-    border: 1px solid #e63946;
-    max-width: 300px;
-    color: #1d3557;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-</style>
 
 <script>
 // राइट-क्लिक बंद करने की सुरक्षा
