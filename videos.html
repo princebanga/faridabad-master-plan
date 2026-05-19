@@ -1,72 +1,66 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Gallery | Apka Apna Property Advisor</title>
+    <title>Property Video Library | Apka Apna Property Advisor</title>
     <style>
         :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f9fa; margin: 0; padding: 0; }
         
         .navbar { background: white; padding: 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-bottom: 4px solid var(--primary-red); position: sticky; top: 0; z-index: 1000; }
-        .btn-back { text-decoration: none; color: var(--primary-red); font-weight: bold; border: 2px solid var(--primary-red); padding: 5px 15px; border-radius: 20px; float: left; font-size: 14px; }
+        .btn-back { text-decoration: none; color: var(--primary-red); font-weight: bold; border: 2px solid var(--primary-red); padding: 6px 18px; border-radius: 20px; float: left; font-size: 14px; transition: 0.3s; }
+        .btn-back:hover { background: var(--primary-red); color: white; }
         
         .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
         
-        /* Section Styling */
-        .section-title { color: var(--dark-blue); border-left: 5px solid var(--primary-red); padding-left: 15px; margin: 40px 0 20px 0; font-size: 24px; }
+        .section-title { color: var(--dark-blue); border-left: 6px solid var(--primary-red); padding-left: 15px; margin: 40px 0 25px 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px; }
         
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         
-        .video-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; position: relative; border: 1px solid #eee; }
-        .video-card:hover { transform: translateY(-5px); }
+        .video-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: 0.3s; border: 1px solid #eee; position: relative; }
+        .video-card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
         
-        .video-thumb { width: 100%; height: 180px; object-fit: cover; background: #ddd; }
+        .video-thumb { width: 100%; height: 200px; object-fit: cover; border-bottom: 3px solid #f1f1f1; }
         
-        .video-info { padding: 15px; }
-        .project-name { font-size: 17px; font-weight: bold; color: var(--dark-blue); display: block; height: 45px; overflow: hidden; }
-        .sector-tag { color: #666; font-size: 13px; display: block; margin-top: 5px; }
+        .video-info { padding: 18px; }
+        .project-name { font-size: 18px; font-weight: bold; color: var(--dark-blue); display: block; margin-bottom: 8px; min-height: 25px; }
+        .sector-tag { background: #f0f2f5; color: #555; font-size: 12px; padding: 4px 12px; border-radius: 12px; display: inline-block; margin-bottom: 15px; font-weight: 500; }
         
-        .watch-btn { display: block; background: var(--primary-red); color: white !important; text-align: center; padding: 10px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: 0.2s; }
-        .watch-btn:hover { background: #c12e3a; }
+        .watch-btn { display: block; background: var(--primary-red); color: white !important; text-align: center; padding: 12px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 14px; transition: 0.2s; }
+        .watch-btn:hover { background: #c12e3a; letter-spacing: 1px; }
 
-        /* Monthly Update Highlight */
-        .update-card { border: 2px solid var(--dark-blue); }
-        .update-badge { position: absolute; top: 10px; right: 10px; background: var(--dark-blue); color: white; padding: 5px 10px; border-radius: 5px; font-size: 12px; font-weight: bold; }
+        .update-badge { position: absolute; top: 12px; right: 12px; background: var(--dark-blue); color: white; padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
     <div class="navbar">
-        <a href="index.html" class="btn-back">⬅️ Backto Map</a>
-        <h2 style="margin:0; color: var(--dark-blue);">Projects and Market updates</h2>
+        <a href="index.html" class="btn-back">← Back to Map</a>
+        <h2 style="margin:0; color: var(--dark-blue); font-size: 22px;">Real Estate Video Library</h2>
     </div>
 
     <div class="container">
         
-        <h2 class="section-title">📊 Monthly market updates (Latest)</h2>
-        <div class="video-grid" id="market-updates">
-            </div>
+        <h2 class="section-title">📊 Monthly Market Insights</h2>
+        <div class="video-grid" id="market-updates"></div>
 
-        <h2 class="section-title">🏢 Project Videos</h2>
-        <div class="video-grid" id="project-gallery">
-            </div>
+        <h2 class="section-title">🏢 Featured Project Tours</h2>
+        <div class="video-grid" id="project-gallery"></div>
 
     </div>
 
     <script>
-        // --- डेटा सेक्शन ---
         const monthlyUpdates = [
-            { name: "Mega Real Estate Update: Feb 2026", date: "Feb 2026", url: "https://www.youtube.com/watch?v=2kLT5Dqb_dE" },
-            { name: "Why Faridabad Is Heating Up", date: "Dec 2025", url: "https://www.youtube.com/watch?v=RcWK9vrAH3c" },
-            { name: "Faridabad Real Estate Trends", date: "Sept 2025", url: "https://www.youtube.com/watch?v=-jmiUznJNoo" },
-            { name: "Weekly Update: Faridabad Escape", date: "Nov 2025", url: "https://www.youtube.com/watch?v=7tQnq4HpIbs" }
+            { name: "Market Update - Feb 2026", date: "Feb 2026", url: "https://www.youtube.com/watch?v=2kLT5Dqb_dE" },
+            { name: "December Market Analysis", date: "Dec 2025", url: "https://www.youtube.com/watch?v=RcWK9vrAH3c" },
+            { name: "Faridabad Price Trends", date: "Sept 2025", url: "https://www.youtube.com/watch?v=-jmiUznJNoo" },
+            { name: "Weekly Real Estate Brief", date: "Nov 2025", url: "https://www.youtube.com/watch?v=7tQnq4HpIbs" }
         ];
 
         const projects = [
             { name: "Tarang Atlantis", sector: "Sector 85", url: "https://www.youtube.com/watch?v=M8R6RR9EKp8" },
             { name: "SOHA Olive Town", sector: "Sector 98", url: "https://www.youtube.com/watch?v=FdvkILluDas" },
-            { name: "Prosper EPIC", sector: "Sector 82", url: "https://www.youtube.com/shorts/iXrhyCeW2nk" },
             { name: "Omaxe Royal Residency 2", sector: "Sector 79", url: "https://www.youtube.com/shorts/oSOD4yy0n3o" },
             { name: "NeoLiv RERA Plots", sector: "Sector 12", url: "https://www.youtube.com/shorts/9l6LcFpALBY" },
             { name: "Emerald Gulmohar", sector: "Sector 97", url: "https://www.youtube.com/watch?v=apYXHrChxEE" },
@@ -77,41 +71,35 @@
             { name: "Adore Prima 1 & 2", sector: "Sector 73", url: "https://www.youtube.com/watch?v=UK0th107Ckg" }
         ];
 
-        function getThumb(url) {
-            let id = url.includes('shorts/') ? url.split('shorts/')[1] : url.split('v=')[1]?.split('&')[0];
-            return https://img.youtube.com/vi/${id}/hqdefault.jpg;
+        // YouTube ID निकालने का सबसे आधुनिक तरीका
+        function getYouTubeId(url) {
+            const regExp = /^.(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=|shorts\/)([^#&?]).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
         }
 
-        // लोड मार्केट अपडेट्स
-        const updateContainer = document.getElementById('market-updates');
-        monthlyUpdates.forEach(vid => {
-            updateContainer.innerHTML += `
-                <div class="video-card update-card">
-                    <div class="update-badge">NEWS</div>
-                    <img class="video-thumb" src="${getThumb(vid.url)}">
-                    <div class="video-info">
-                        <span class="project-name">${vid.name}</span>
-                        <span class="sector-tag">📅 ${vid.date}</span>
-                        <a href="${vid.url}" target="_blank" class="watch-btn">अभी देखें</a>
-                    </div>
-                </div>
-            `;
-        });
+        function createVideoCard(vid, type) {
+            const id = getYouTubeId(vid.url);
+            const thumb = id ? https://img.youtube.com/vi/${id}/mqdefault.jpg : 'https://via.placeholder.com/400x225?text=Video+Not+Found';
+            const locationOrDate = type === 'update' ? 📅 ${vid.date} : 📍 ${vid.sector};
+            const badge = type === 'update' ? '<div class="update-badge">NEWS</div>' : '';
 
-        // लोड प्रोजेक्ट्स
-        const projectContainer = document.getElementById('project-gallery');
-        projects.forEach(vid => {
-            projectContainer.innerHTML += `
+            return `
                 <div class="video-card">
-                    <img class="video-thumb" src="${getThumb(vid.url)}">
+                    ${badge}
+                    <img class="video-thumb" src="${thumb}" alt="${vid.name}">
                     <div class="video-info">
                         <span class="project-name">${vid.name}</span>
-                        <span class="sector-tag">📍 लोकेशन: ${vid.sector}</span>
-                        <a href="${vid.url}" target="_blank" class="watch-btn">वीडियो प्ले करें</a>
+                        <div class="sector-tag">${locationOrDate}</div>
+                        <a href="${vid.url}" target="_blank" class="watch-btn">WATCH NOW</a>
                     </div>
                 </div>
             `;
-        });
+        }
+
+        // रेंडरिंग
+        document.getElementById('market-updates').innerHTML = monthlyUpdates.map(v => createVideoCard(v, 'update')).join('');
+        document.getElementById('project-gallery').innerHTML = projects.map(v => createVideoCard(v, 'project')).join('');
     </script>
 </body>
 </html>
