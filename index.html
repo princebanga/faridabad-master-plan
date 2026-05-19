@@ -310,13 +310,14 @@ document.onkeydown = function(e) {
         addProject(579.1, 1076.5, "MDPS Floors", "https://www.youtube.com/shorts/GIu0T7baRpI", "Low-Rise", "Coming Soon", true);
 
         // --- CONTROLS ---
-        var overlayMaps = {
-            "<span style='color:green;font-weight:bold'>Plots</span>": currentLayers["Plots"],
-            "<span style='color:blue;font-weight:bold'>High-Rise</span>": currentLayers["High-Rise"],
-            "<span style='color:#b8860b;font-weight:bold'>Low-Rise</span>": currentLayers["Low-Rise"],
-            "<span style='color:orange;font-weight:bold'>Affordable</span>": currentLayers["Affordable"],
-            "<hr><span style='color:grey;font-weight:bold'>FUTURE PROJECTS</span>": futureLayers["Future Projects"]
-        };
+       var overlayMaps = {
+    "<span style='color:green;font-weight:bold'>Plots</span>": currentLayers["Plots"],
+    "<span style='color:blue;font-weight:bold'>High-Rise</span>": currentLayers["High-Rise"],
+    "<span style='color:#b8860b;font-weight:bold'>Low-Rise</span>": currentLayers["Low-Rise"],
+    "<span style='color:orange;font-weight:bold'>Affordable</span>": currentLayers["Affordable"],
+    // यहाँ हमने बोल्ड किया है (FUTURE PROJECTS)
+    "<hr><span style='color:black;font-weight:bold'>FUTURE PROJECTS</span>": futureLayers["Future Projects"]
+};
         L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
 
         function searchProject() {
