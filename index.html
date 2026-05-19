@@ -22,38 +22,7 @@
     transform: translateX(-50%);
     z-index: 5000; /* बहुत ज्यादा वैल्यू ताकि यह हमेशा ऊपर रहे */
     background: white;
-            /* 1. वॉटरमार्क - मैप के बीच में हल्का दिखेगा */
-.map-watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: clamp(30px, 5vw, 60px); /* मोबाइल और डेस्कटॉप दोनों पर सही दिखेगा */
-    color: rgba(0, 0, 0, 0.05); /* बहुत हल्का पारदर्शी */
-    z-index: 400; 
-    pointer-events: none; 
-    white-space: nowrap;
-    font-weight: bold;
-    user-select: none;
-}
-
-/* 2. डिस्क्लेमर - नीचे कोने में छोटा सा */
-.map-disclaimer {
-    position: fixed;
-    bottom: 20px !important; /* अब ये नीचे ही रहेगा, ऊपर नहीं आएगा */
-    left: 20px !important;
-    z-index: 9999; 
-    background: rgba(255, 255, 255, 0.95);
-    padding: 10px 15px;
-    font-size: 11px;
-    border-radius: 10px;
-    border: 1px solid #e63946; /* तुम्हारी रेड थीम जैसा */
-    max-width: 320px;
-    color: #1d3557;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    font-weight: 500;
-}
-/* Control Box Styling (Right Side) */
+         /* Control Box Styling (Right Side) */
 .leaflet-control-layers {
     width: 260px !important; 
     padding: 12px !important;
@@ -406,6 +375,52 @@ document.onkeydown = function(e) {
         // राइट-क्लिक डिसेबल करने के लिए
 document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
+
+    <div class="map-watermark">Apka Apna Property Advisor</div>
+
+<div class="map-disclaimer">
+    <strong>Disclaimer:</strong> This map is for informational purposes only. Information is based on Faridabad Master Plan 2031. Please verify with RERA authorities before any investment.
+</div>
+
+<style>
+/* वॉटरमार्क को पक्का दिखाने के लिए */
+.map-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: clamp(30px, 8vw, 70px); 
+    color: rgba(0, 0, 0, 0.1) !important; /* थोड़ा और गहरा किया है ताकि दिखे */
+    z-index: 5000 !important; /* मैप के ऊपर */
+    pointer-events: none;
+    white-space: nowrap;
+    font-weight: bold;
+    user-select: none;
+}
+
+/* डिस्क्लेमर को नीचे कोने में लॉक करने के लिए */
+.map-disclaimer {
+    position: fixed;
+    bottom: 20px !important; 
+    left: 20px !important;
+    top: auto !important; /* ऊपर से रिश्ता खत्म */
+    z-index: 9999 !important; 
+    background: white !important;
+    padding: 10px 15px;
+    font-size: 11px;
+    border-radius: 8px;
+    border: 1px solid #e63946;
+    max-width: 300px;
+    color: #1d3557;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+</style>
+
+<script>
+// राइट-क्लिक बंद करने की सुरक्षा
+document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+    
 </body>
 </html>       
 
