@@ -17,7 +17,17 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="manifest" href="manifest.json">
     <style>
-    
+
+/* चेकबॉक्स सेक्शन को मूव करने के लिए स्टाइल */
+.leaflet-control-layers-expanded {
+    cursor: move; /* इससे यूज़र को पता चलेगा कि यह खिसकाया जा सकता है */
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 10px !important;
+    border: 2px solid #e63946 !important;
+    touch-action: none; /* मोबाइल टच के लिए ज़रूरी */
+}
+
+        
         :root {
             --primary-red: #e63946;
             --dark-blue: #1d3557;
