@@ -476,21 +476,24 @@ document.addEventListener('contextmenu', event => event.preventDefault());
             navigator.serviceWorker.register('/service-worker.js');
         });
     }
-        // चेकबॉक्स सेक्शन को मूव करने वाला फंक्शन
-function makeDraggable(el) {
+       function makeDraggable(el) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     
+    // हेडर के नीचे से शुरू करने के लिए इनिशियल पोजीशन फिक्स
+    el.style.position = 'absolute';
+    el.style.top = '100px'; 
+    el.style.right = '10px';
+
     el.onmousedown = dragMouseDown;
-    el.ontouchstart = dragMouseDown; // मोबाइल टच के लिए
+    el.ontouchstart = dragMouseDown;
 
     function dragMouseDown(e) {
         e = e || window.event;
-        // अगर यूज़र चेकबॉक्स पर क्लिक कर रहा है, तो ड्रैग न करें
-        if (e.target.tagName === 'INPUT') return;
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
         
-        e.preventDefault();
-        pos3 = e.clientX || e.touches[0].clientX;
-        pos4 = e.clientY || e.touches[0].clientY;
+        // टच और माउस दोनों के लिए सही कोऑर्डिनेट्स
+        pos3 = (e.clientX || e.touches[0].clientX);
+        pos4 = (e.clientY || e.touches[0].clientY);
         
         document.onmouseup = closeDragElement;
         document.ontouchend = closeDragElement;
@@ -500,18 +503,19 @@ function makeDraggable(el) {
 
     function elementDrag(e) {
         e = e || window.event;
-        e.preventDefault();
-        let clientX = e.clientX || e.touches[0].clientX;
-        let clientY = e.clientY || e.touches[0].clientY;
+        let clientX = (e.clientX || e.touches[0].clientX);
+        let clientY = (e.clientY || e.touches[0].clientY);
         
         pos1 = pos3 - clientX;
         pos2 = pos4 - clientY;
         pos3 = clientX;
         pos4 = clientY;
         
+        // बॉक्स को नई जगह पर सेट करना
         el.style.top = (el.offsetTop - pos2) + "px";
         el.style.left = (el.offsetLeft - pos1) + "px";
-        el.style.right = "auto"; // राइट अलाइनमेंट हटाना ज़रूरी है
+        el.style.right = "auto"; // राइट हटाना जरूरी है ताकि लेफ्ट से मूव हो सके
+        el.style.bottom = "auto";
     }
 
     function closeDragElement() {
