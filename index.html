@@ -22,6 +22,36 @@
     transform: translateX(-50%);
     z-index: 5000; /* बहुत ज्यादा वैल्यू ताकि यह हमेशा ऊपर रहे */
     background: white;
+            /* 1. वॉटरमार्क - मैप के बीच में हल्का दिखेगा */
+.map-watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: clamp(30px, 5vw, 60px); /* मोबाइल और डेस्कटॉप दोनों पर सही दिखेगा */
+    color: rgba(0, 0, 0, 0.05); /* बहुत हल्का पारदर्शी */
+    z-index: 400; 
+    pointer-events: none; 
+    white-space: nowrap;
+    font-weight: bold;
+    user-select: none;
+}
+
+/* 2. डिस्क्लेमर - नीचे कोने में छोटा सा */
+.map-disclaimer {
+    position: fixed;
+    bottom: 25px;
+    left: 10px;
+    z-index: 1000;
+    background: rgba(255,255,255,0.9);
+    padding: 5px 10px;
+    font-size: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    max-width: 280px;
+    pointer-events: none;
+    color: #444;
+}
 /* Control Box Styling (Right Side) */
 .leaflet-control-layers {
     width: 260px !important; 
@@ -90,7 +120,10 @@
 </div>
 
     <div class="coord-display" id="coord-box">मैप पर क्लिक करें: यहाँ [Y, X] कोऑर्डिनेट्स मिलेंगे</div>
-
+<div class="map-watermark">Apka Apna Property Advisor</div>
+<div class="map-disclaimer">
+    <strong>Disclaimer:</strong> This interactive map is for informational purposes only. Information is based on Faridabad Master Plan 2031. Please verify with RERA authorities before any investment.
+</div>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -369,6 +402,8 @@ document.onkeydown = function(e) {
         map.on('click', function(e) {
             document.getElementById('coord-box').innerHTML = "[" + e.latlng.lat.toFixed(1) + ", " + e.latlng.lng.toFixed(1) + "]";
         });
+        // राइट-क्लिक डिसेबल करने के लिए
+document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
 </body>
 </html>       
