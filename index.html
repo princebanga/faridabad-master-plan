@@ -369,13 +369,6 @@ document.onkeydown = function(e) {
 document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
 
-
-
-<script>
-// राइट-क्लिक बंद करने की सुरक्षा
-document.addEventListener('contextmenu', event => event.preventDefault());
-</script>
-<style>
 <div class="map-watermark">Apka Apna Property Advisor</div>
 
 <div class="map-disclaimer">
@@ -390,7 +383,7 @@ document.addEventListener('contextmenu', event => event.preventDefault());
     left: 50%;
     transform: translate(-50%, -50%) rotate(-30deg);
     font-size: clamp(30px, 6vw, 60px); 
-    color: rgba(0, 0, 0, 0.03) !important; /* इसे 0.03 किया है ताकि बहुत हल्का दिखे */
+    color: rgba(0, 0, 0, 0.05) !important; /* इसे 0.03 किया है ताकि बहुत हल्का दिखे */
     z-index: 400 !important; /* मैप के ऊपर पर सर्च बॉक्स के नीचे */
     pointer-events: none;
     white-space: nowrap;
@@ -401,18 +394,18 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 /* डिस्क्लेमर - नीचे कोने में सेट */
 .map-disclaimer {
     position: fixed;
-    bottom: 15px !important; 
-    left: 15px !important;
+    bottom: 20px !important; 
+    left: 20px !important;
     top: auto !important; 
     z-index: 9999 !important; 
     background: rgba(255, 255, 255, 0.9) !important;
-    padding: 8px 12px;
-    font-size: 10px;
-    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 11px;
+    border-radius: 8px;
     border: 1px solid #e63946;
-    max-width: 280px;
+    max-width: 300px;
     color: #1d3557;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 </style>
 
