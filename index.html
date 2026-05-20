@@ -351,24 +351,7 @@ document.onkeydown = function(e) {
 
         var allMarkers = [];
 
-        function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
-            var iconType = isUpcoming ? "Upcoming" : category;
-            var targetLayer = isUpcoming ? futureLayers["Future Projects"] : currentLayers[category];
-            var marker = L.marker([y, x], { icon: icons[iconType] }).addTo(targetLayer);
-            marker.projectName = name.toLowerCase();
-            
-            var popupContent = `
-                <div class="popup-card">
-                    <strong>${name}</strong><br><small>${category} ${isUpcoming ? '(Upcoming)' : ''}</small>
-                    <span class="price-tag">Current Rate: ${price}</span>
-                    <hr style="border:0.5px solid #eee;">
-                    <a href="${videoUrl}" target="_blank" class="popup-btn btn-video">🎥 वीडियो देखें</a>
-                    <a href="https://wa.me/919818811971?text=Hi, I am interested in ${name}. Current Price: ${price}" target="_blank" class="popup-btn btn-wa">💬 WhatsApp Enquiry</a>
-                </div>
-            `;
-            marker.bindPopup(popupContent);
-            allMarkers.push(marker);
-        }
+        
 
         // --- DATA SECTION (LIVE LINKS UPDATED) ---
         addProject(529.3, 978.0, "Omaxe Royal Residency 2", "https://www.youtube.com/shorts/oSOD4yy0n3o", "High-Rise", "Best Deal");
