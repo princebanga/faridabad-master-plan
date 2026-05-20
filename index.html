@@ -192,41 +192,6 @@ document.onkeydown = function(e) {
         };
 
         // 4. प्रोजेक्ट जोड़ने का मास्टर फंक्शन
-function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
-    var iconType = isUpcoming ? "Upcoming" : category;
-    var targetLayer = isUpcoming ? futureLayers["Future Projects"] : currentLayers[category];
-    
-    // मार्कर को 'opacity: 0' के साथ बनाएं ताकि बाउंस से पहले न दिखे
-    var marker = L.marker([y, x], { 
-        icon: icons[iconType],
-        opacity: 0 
-    });
-
-    // बाउंसिंग लॉजिक: जब भी लेयर मैप पर जुड़ती है
-    marker.on('add', function() {
-        const iconElement = marker._icon;
-        if (iconElement) {
-            iconElement.style.animation = 'none';
-            iconElement.offsetHeight; // Reflow
-            iconElement.style.animation = 'bounceIn 0.8s ease-out forwards';
-        }
-    });
-
-    marker.addTo(targetLayer);
-    marker.projectName = name.toLowerCase();
-    
-    var popupContent = `
-        <div class="popup-card">
-            <strong>${name}</strong><br><small>${category} ${isUpcoming ? '(Upcoming)' : ''}</small>
-            <span class="price-tag">Current Rate: ${price}</span>
-            <hr style="border:0.5px solid #eee;">
-            <a href="${videoUrl}" target="_blank" class="popup-btn btn-video">🎥 वीडियो देखें</a>
-            <a href="https://wa.me/919818811971?text=Hi, I am interested in ${name}. Current Price: ${price}" target="_blank" class="popup-btn btn-wa">💬 WhatsApp Enquiry</a>
-        </div>
-    `;
-    marker.bindPopup(popupContent);
-    allMarkers.push(marker);
-}
         
 
         
@@ -520,10 +485,10 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 
 /* 1. पॉइंट्स के आसमान से गिरने का एनीमेशन */
 @keyframes bounceIn {
-  0% { transform: translateY(-500px) scale(0.3); opacity: 0; }
-  50% { transform: translateY(25px) scale(1.1); opacity: 0.8; }
-  70% { transform: translateY(-10px) scale(0.95); }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
+  0% { transform: translateY(-600px) scale(0.3); opacity: 0; }
+  60% { transform: translateY(30px) scale(1.1); opacity: 1; }
+  80% { transform: translateY(-10px); }
+  100% { transform: translateY(0) opacity: 1; }
 }
 
 /* 2. फिल्टर बॉक्स का लाल हेडर */
