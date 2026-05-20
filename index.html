@@ -13,9 +13,12 @@
     <meta property="og:description" content="View the latest developments and projects in Faridabad with our interactive digital map.">
     <meta property="og:image" content="https://faridabadmasterplan.in/thumbnail.jpg"> 
     <meta property="og:url" content="https://faridabadmasterplan.in">
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e63946">
+<link rel="apple-touch-icon" href="https://img.icons8.com/color/192/map-marker.png">
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="manifest" href="manifest.json">
     <style>
 
 /* चेकबॉक्स सेक्शन को मूव करने के लिए स्टाइल */
@@ -531,7 +534,7 @@ document.addEventListener('contextmenu', event => event.preventDefault());
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js');
+            navigator.serviceWorker.register('service-worker.js');
         });
     }
         // इनिशियल पोजीशन सेट करें 
