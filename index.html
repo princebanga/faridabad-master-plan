@@ -287,6 +287,29 @@ document.onkeydown = function(e) {
             background: rgba(0,0,0,0.85); color: #0f0; padding: 6px 12px;
             border-radius: 5px; font-family: monospace; display: block !important;
         }
+
+// फिल्टर बॉक्स में '−' बटन और मिनिमाइज लॉजिक
+function setupControlBox() {
+    const controlContainer = document.querySelector('.leaflet-control-layers');
+    if (controlContainer && !controlContainer.querySelector('.control-header')) {
+        const header = document.createElement('div');
+        header.className = 'control-header';
+        header.innerHTML = '<span>Map Filters</span><span class="min-btn" style="font-size:22px;">−</span>';
+        
+        controlContainer.prepend(header);
+        
+        header.onclick = function(e) {
+            // बटन या हेडर पर क्लिक करने से ही मिनिमाइज हो
+            controlContainer.classList.toggle('minimized');
+            const btn = header.querySelector('.min-btn');
+            btn.innerText = controlContainer.classList.contains('minimized') ? '+' : '−';
+        };
+    }
+}
+
+// मैप और लेयर्स तैयार होने के बाद इसे चलाएं
+setTimeout(setupControlBox, 1500);
+        
     </style>
 </head>
 <body oncontextmenu="return false;" ondragstart="return false;">
