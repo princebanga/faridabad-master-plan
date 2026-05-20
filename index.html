@@ -192,22 +192,45 @@ document.onkeydown = function(e) {
         };
 
         // 4. प्रोजेक्ट जोड़ने का मास्टर फंक्शन
-        function addProject(y, x, name, videoUrl, category, isFeatured = false) {
-            var selectedIcon = isFeatured ? icons["Featured"] : (icons[category] || icons["High-Rise"]);
-            var marker = L.marker([y, x], { icon: selectedIcon }).addTo(layers[category]);
-            
-            var popupContent = `
-                <div class="popup-card">
-                    <strong style="font-size:16px;">${name}</strong><br>
-                    <span style="color:#666; font-size:12px;">Category: ${category}</span>
-                    <hr>
-                    <a href="${videoUrl}" target="_blank" class="popup-btn btn-video">🎥 वीडियो देखें</a>
-                    <a href="https://wa.me/919818811971?text=Hi, I am interested in ${name}" target="_blank" class="popup-btn btn-wa">💬 WhatsApp करें</a>
-                </div>
-            `;
-            marker.bindPopup(popupContent);
-        }
+function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
+    var iconType = isUpcoming ? "Upcoming" : category;
+    var targetLayer = isUpcoming ? futureLayers["Future Projects"] : currentLayers[category];
+    
+    // मार्कर को 'opacity: 0' के साथ बनाएं ताकि बाउंस से पहले न दिखे
+    var marker = L.marker([y, x], { 
+        icon: icons[iconType],
+        opacity: 0 
+    });
 
+    // बाउंसिंग लॉजिक: जब भी लेयर मैप पर जुड़ती है
+    marker.on('add', function() {
+        const iconElement = marker._icon;
+        if (iconElement) {
+            marker.setOpacity(1);
+            iconElement.style.animation = 'none';
+            iconElement.offsetHeight; // Reflow
+            iconElement.style.animation = 'bounceIn 0.8s ease-out forwards';
+        }
+    });
+
+    marker.addTo(targetLayer);
+    marker.projectName = name.toLowerCase();
+    
+    var popupContent = `
+        <div class="popup-card">
+            <strong>${name}</strong><br><small>${category} ${isUpcoming ? '(Upcoming)' : ''}</small>
+            <span class="price-tag">Current Rate: ${price}</span>
+            <hr style="border:0.5px solid #eee;">
+            <a href="${videoUrl}" target="_blank" class="popup-btn btn-video">🎥 वीडियो देखें</a>
+            <a href="https://wa.me/919818811971?text=Hi, I am interested in ${name}. Current Price: ${price}" target="_blank" class="popup-btn btn-wa">💬 WhatsApp Enquiry</a>
+        </div>
+    `;
+    marker.bindPopup(popupContent);
+    allMarkers.push(marker);
+}
+        
+
+        
         // --- डेटा एंट्री सेक्शन ---
 
 <!DOCTYPE html>
@@ -464,6 +487,41 @@ document.addEventListener('contextmenu', event => event.preventDefault());
     color: #1d3557;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
+
+/* 1. पॉइंट्स के आसमान से गिरने का एनीमेशन */
+@keyframes bounceIn {
+  0% { transform: translateY(-500px) scale(0.3); opacity: 0; }
+  50% { transform: translateY(25px) scale(1.1); opacity: 0.8; }
+  70% { transform: translateY(-10px) scale(0.95); }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* 2. फिल्टर बॉक्स का लाल हेडर */
+.control-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e63946 !important;
+    color: white !important;
+    padding: 8px 12px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin: -10px -10px 10px -10px; /* बॉक्स की पैडिंग को कवर करने के लिए */
+}
+
+/* 3. जब बॉक्स छोटा (Minimize) हो जाए */
+.leaflet-control-layers.minimized .leaflet-control-layers-list,
+.leaflet-control-layers.minimized .internal-search {
+    display: none !important;
+}
+
+.leaflet-control-layers.minimized {
+    min-width: 150px !important;
+    height: auto !important;
+}
+    
 </style>
 
 <script>
@@ -530,6 +588,29 @@ setTimeout(() => {
     const layerControl = document.querySelector('.leaflet-control-layers');
     if(layerControl) makeDraggable(layerControl);
 }, 1000);
+
+// फिल्टर बॉक्स में '−' बटन और मिनिमाइज लॉजिक
+function setupControlBox() {
+    const controlContainer = document.querySelector('.leaflet-control-layers');
+    if (controlContainer && !controlContainer.querySelector('.control-header')) {
+        const header = document.createElement('div');
+        header.className = 'control-header';
+        header.innerHTML = '<span>Map Filters</span><span class="min-btn" style="font-size:22px;">−</span>';
+        
+        controlContainer.prepend(header);
+        
+        header.onclick = function(e) {
+            // बटन या हेडर पर क्लिक करने से ही मिनिमाइज हो
+            controlContainer.classList.toggle('minimized');
+            const btn = header.querySelector('.min-btn');
+            btn.innerText = controlContainer.classList.contains('minimized') ? '+' : '−';
+        };
+    }
+}
+
+// मैप और लेयर्स तैयार होने के बाद इसे चलाएं
+setTimeout(setupControlBox, 1500);
+        
 </script>
 </body>
 </html>       
