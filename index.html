@@ -4,643 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faridabad Master Plan 2031 | Interactive Map</title>
-  
-    <meta name="description" content="Explore the Interactive Faridabad Master Plan 2031. High-quality map with sector-wise projects, plots, and real estate insights by Apka Apna Property Advisor.">
-    <meta name="keywords" content="Faridabad Master Plan 2031, Faridabad Sectors, Real Estate Faridabad, Property Advisor Faridabad, Interactive Map Faridabad">
-    <meta name="author" content="Apka Apna Property Advisor">
-
-    <meta property="og:title" content="Faridabad Master Plan 2031 - Interactive Map">
-    <meta property="og:description" content="View the latest developments and projects in Faridabad with our interactive digital map.">
-    <meta property="og:image" content="https://faridabadmasterplan.in/thumbnail.jpg"> 
-    <meta property="og:url" content="https://faridabadmasterplan.in">
-    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="manifest" href="manifest.json">
     <style>
+        :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; background: #ffffff; }
+        #map { height: 100vh; width: 100%; background: #fff; }
 
-/* चेकबॉक्स सेक्शन को मूव करने के लिए स्टाइल */
-.leaflet-control-layers-expanded {
-    cursor: move;
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-radius: 10px !important;
-    border: 2px solid #e63946 !important;
-    touch-action: none;
-    z-index: 1200 !important; /* ताकि यह सर्च बॉक्स के ऊपर रहे */
-}
-        
-        :root {
-            --primary-red: #e63946;
-            --dark-blue: #1d3557;
-            --wa-green: #25D366;
-        }
-        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; }
-        #map { height: 100vh; width: 100%; background: #f8f9fa; }
-        
- /* मुख्य हेडर को स्लिम और मोबाइल फ्रेंडली बनाना */
+        /* हेडर स्टाइल */
         .map-header {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 85%;
-            max-width: 360px;
-            background: rgba(230, 57, 70, 0.95); /* तुम्हारी रेड थीम */
-            color: white;
-            padding: 8px 12px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 1100;
-            text-align: center;
+            position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+            width: 85%; max-width: 380px; background: rgba(230, 57, 70, 0.95);
+            color: white; padding: 12px; border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1100; text-align: center;
         }
-
-        .map-header h1 {
-            font-size: 15px;
-            margin: 0;
-            font-weight: bold;
-        }
-
-        .map-header p {
-            font-size: 11px;
-            margin: 2px 0 6px 0;
-            opacity: 0.9;
-        }
-
+        .map-header h1 { font-size: 16px; margin: 0; font-weight: bold; }
         .video-btn {
-            display: inline-block;
-            padding: 4px 12px;
-            background: white;
-            color: #e63946;
-            text-decoration: none;
-            font-size: 11px;
-            font-weight: bold;
-            border-radius: 15px;
-            transition: 0.3s;
+            display: inline-block; padding: 6px 15px; background: white;
+            color: #e63946; text-decoration: none; font-size: 12px;
+            font-weight: bold; border-radius: 20px; margin-top: 8px;
         }
 
-        /* फ़िल्टर और सर्च बॉक्स को हेडर के नीचे सेट करना */
-        .leaflet-top.leaflet-right {
-            top: 95px !important; /* ताकि हेडर इसे न ढके */
-            margin-right: 10px;
+        /* वॉटरमार्क */
+        .map-watermark {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 50px; color: rgba(0, 0, 0, 0.05); z-index: 400; pointer-events: none; font-weight: bold; white-space: nowrap;
         }
 
-        #map {
-            height: 100vh;
-            width: 100%;
+        /* डिस्क्लेमर */
+        .map-disclaimer {
+            position: fixed; bottom: 20px; left: 15px; z-index: 1000;
+            background: rgba(255, 255, 255, 0.9); padding: 10px; border-radius: 8px;
+            border: 1px solid var(--primary-red); font-size: 11px; max-width: 260px;
+            color: var(--dark-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-/* Search Area inside the Control Box */
-.internal-search {
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 2px solid #eee;
-}
-
-#projectSearch {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-    outline: none;
-    box-sizing: border-box;
-}
-
-#projectSearch:focus {
-    border-color: var(--primary-red);
-    box-shadow: 0 0 5px rgba(230, 57, 70, 0.3);
-}           
-    padding: 10px 25px;
-    border-radius: 50px; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    text-align: center; 
-    border: 2px solid #e63946;
-    min-width: 280px;
-}
-
-        .popup-card { text-align: center; padding: 5px; width: 180px; }
-        .popup-btn {
-            display: block; margin-top: 8px; padding: 10px;
-            color: white !important; text-decoration: none;
-            border-radius: 5px; font-weight: bold; font-size: 14px;
+        /* फिल्टर बॉक्स */
+        .leaflet-control-layers-expanded {
+            background: white !important; border: 2px solid var(--primary-red) !important;
+            border-radius: 10px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
         }
-        .btn-video { background: var(--primary-red); }
-        .btn-wa { background: var(--wa-green); }
+        .control-header {
+            background: var(--primary-red); color: white; padding: 8px; border-radius: 8px 8px 0 0;
+            cursor: move; font-weight: bold; display: flex; justify-content: space-between; margin: -10px -10px 10px -10px;
+        }
+        .leaflet-control-layers.minimized .leaflet-control-layers-list { display: none; }
+        #projectSearch { width: 100%; padding: 8px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; }
 
-        .coord-display {
-            position: absolute; bottom: 30px; left: 10px; z-index: 1000;
-            background: rgba(0,0,0,0.7); color: yellow; padding: 5px 10px;
-            border-radius: 5px; font-family: monospace; font-size: 12px;
+        @keyframes bounceIn {
+          0% { transform: translateY(-500px); opacity: 0; }
+          60% { transform: translateY(20px); opacity: 1; }
+          100% { transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
- <div class="map-header">
-    <strong style="font-size: 15px; color: var(--dark-blue);">Apka Apna Property Advisor</strong><br>
-    <small style="color: #666;">Faridabad Master Plan 2031 - Interactive Map</small>
-    
-    <div style="margin-top: 10px;">
-        <a href="videos.html" style="background: #e63946; color: white; text-decoration: none; padding: 6px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-            🎥 View Project Videos
-        </a>
-    </div>
+<div class="map-header">
+    <h1>Apka Apna Property Advisor</h1>
+    <a href="videos.html" class="video-btn">🎥 View Project Videos</a>
 </div>
-
-    <div class="coord-display" id="coord-box">मैप पर क्लिक करें: यहाँ [Y, X] कोऑर्डिनेट्स मिलेंगे</div>
-
-    <div id="map"></div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-// अल्ट्रा सिक्योरिटी: राइट क्लिक और शॉर्टकट्स पूरी तरह ब्लॉक
-document.addEventListener('contextmenu', event => event.preventDefault());
-
-document.onkeydown = function(e) {
-    // F12, Ctrl+Shift+I, Ctrl+U (View Source) सबको एक साथ ब्लॉक
-    if (e.keyCode == 123 || 
-        (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || 
-        (e.ctrlKey && e.keyCode == 85)) {
-        return false;
-    }
-};
-    
-      
-        // 1. मैप सेटअप
-        var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1 });
-
-        // इमेज फाइल का नाम यहाँ सुनिश्चित करें
-        var bounds = [[0, 0], [1000, 1500]]; 
-        var image = L.imageOverlay('map.webp', bounds).addTo(map);
-        map.fitBounds(bounds);
-
-        // 2. कैटेगरी के हिसाब से रंगीन आइकन्स
-        var icons = {
-            "Plots": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "High-Rise": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "Low-Rise": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "Affordable": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "Commercial": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "Featured": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [30, 48], iconAnchor: [15, 48], popupAnchor: [1, -34], shadowSize: [41, 41] })
-        };
-
-        // 3. लेयर ग्रुप्स
-        var layers = {
-            "Plots": L.layerGroup().addTo(map),
-            "High-Rise": L.layerGroup().addTo(map),
-            "Low-Rise": L.layerGroup().addTo(map),
-            "Affordable": L.layerGroup().addTo(map),
-            "Commercial": L.layerGroup().addTo(map)
-        };
-
-        // 4. प्रोजेक्ट जोड़ने का मास्टर फंक्शन
-function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
-    var iconType = isUpcoming ? "Upcoming" : category;
-    var targetLayer = isUpcoming ? futureLayers["Future Projects"] : currentLayers[category];
-    
-    // मार्कर को 'opacity: 0' के साथ बनाएं ताकि बाउंस से पहले न दिखे
-    var marker = L.marker([y, x], { 
-        icon: icons[iconType],
-        opacity: 0 
-    });
-
-    // बाउंसिंग लॉजिक: जब भी लेयर मैप पर जुड़ती है
-    marker.on('add', function() {
-        const iconElement = marker._icon;
-        if (iconElement) {
-            iconElement.style.animation = 'none';
-            iconElement.offsetHeight; // Reflow
-            iconElement.style.animation = 'bounceIn 0.8s ease-out forwards';
-        }
-    });
-
-    marker.addTo(targetLayer);
-    marker.projectName = name.toLowerCase();
-    
-    var popupContent = `
-        <div class="popup-card">
-            <strong>${name}</strong><br><small>${category} ${isUpcoming ? '(Upcoming)' : ''}</small>
-            <span class="price-tag">Current Rate: ${price}</span>
-            <hr style="border:0.5px solid #eee;">
-            <a href="${videoUrl}" target="_blank" class="popup-btn btn-video">🎥 वीडियो देखें</a>
-            <a href="https://wa.me/919818811971?text=Hi, I am interested in ${name}. Current Price: ${price}" target="_blank" class="popup-btn btn-wa">💬 WhatsApp Enquiry</a>
-        </div>
-    `;
-    marker.bindPopup(popupContent);
-    allMarkers.push(marker);
-}
-        
-
-        
-        // --- डेटा एंट्री सेक्शन ---
-
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faridabad Master Plan 2031 | Interactive Projects Map</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <style>
-        :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; }
-        body { 
-            margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; 
-            -webkit-user-select: none; user-select: none; background: #f0f2f5;
-        }
-        #map { height: 100vh; width: 100%; cursor: default; }
-        
-        /* Protection Layer: इमेज को सुरक्षित रखने के लिए */
-        #protection-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 500; pointer-events: none;
-        }
-
-        .map-header {
-            position: absolute; top: 15px; left: 50%; transform: translateX(-50%);
-            z-index: 1000; background: white; padding: 8px 25px;
-            border-radius: 50px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-align: center; border: 1px solid #ddd;
-        }
-
- /* सर्च टैब को हर हाल में सामने लाने के लिए */
-.search-container {
-    position: fixed !important; /* absolute की जगह fixed करें */
-    top: 115px !important; 
-    left: 50% !important; 
-    transform: translateX(-50%) !important;
-    z-index: 99999 !important; /* इसे सबसे ज्यादा रखें */
-    width: 90%; 
-    max-width: 350px;
-    display: block !important;
-    pointer-events: auto !important; /*so click should work*/
-}
-
-#projectSearch {
-    width: 100%; 
-    padding: 12px 20px; 
-    border-radius: 25px;
-    border: 2px solid #e63946; 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    background: white !important;
-    color: black !important;
-    font-size: 16px;
-    outline: none;
-    -webkit-appearance: none;
-}
-
-        .popup-card { text-align: center; width: 210px; padding: 5px; }
-        .price-tag { color: var(--primary-red); font-weight: bold; font-size: 15px; margin: 8px 0; display: block; }
-        .popup-btn {
-            display: block; margin-top: 6px; padding: 10px;
-            color: white !important; text-decoration: none;
-            border-radius: 6px; font-weight: bold; font-size: 13px;
-        }
-        .btn-video { background: var(--primary-red); }
-        .btn-wa { background: var(--wa-green); }
-
-        .map-footer {
-            position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
-            z-index: 1000; background: rgba(255, 255, 255, 0.9);
-            padding: 5px 15px; border-radius: 20px; font-size: 10px;
-            color: #333; text-align: center; width: 85%; max-width: 700px;
-            border: 1px solid #ccc; pointer-events: none;
-        }
-
-        #coord-box {
-            position: absolute; bottom: 50px; left: 10px; z-index: 1200;
-            background: rgba(0,0,0,0.85); color: #0f0; padding: 6px 12px;
-            border-radius: 5px; font-family: monospace; display: block !important;
-        }
-    </style>
-</head>
-<body oncontextmenu="return false;" ondragstart="return false;">
-
-    <div id="protection-overlay"></div>
-    
-    <div class="map-header">
-        <strong style="font-size: 15px; color: var(--dark-blue);">Apka Apna Property Advisor</strong><br>
-        <small style="color: #666;">फरीदाबाद मास्टर प्लान 2031 - इंटरएक्टिव मैप</small>
-    </div>
-
-    <div class="search-container">
-        <input type="text" id="projectSearch" placeholder="Search Project or Sector..." onkeyup="searchProject()">
-    </div>
-
-    <div id="coord-box">Coordinates Locked</div>
-    <div id="map"></div>
-
-    
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        // --- POWER SECURITY ---
-        
-        // 1. Domain Lock (अपना डोमेन यहाँ अपडेट करें)
-        var authHost = "faridabadmasterplan.in";
-        if (window.location.hostname !== authHost && window.location.hostname !== "localhost" && !window.location.hostname.includes("github.io")) {
-            document.body.innerHTML = "<div style='display:flex; justify-content:center; align-items:center; height:100vh; background:#fff; color:red; font-family:sans-serif; text-align:center;'><h1>Access Denied!<br>Unauthorized Domain.</h1></div>";
-        }
-
-        // 2. Keyboard Protection (F12, Ctrl+U, etc.)
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || (e.ctrlKey && e.keyCode == 85)) {
-                return false;
-            }
-            if (e.key === "d" || e.key === "D") {
-                var box = document.getElementById('coord-box');
-                box.style.display = box.style.display === "none" ? "block" : "none";
-            }
-        };
-
-        // 3. Console Auto-Clear
-        setInterval(function() { console.clear(); }, 1000);
-
-        // --- MAP INITIALIZATION ---
-        var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1, attributionControl: false });
-        var bounds = [[0, 0], [1000, 1500]]; 
-        var image = L.imageOverlay('map.webp', bounds).addTo(map); 
-        map.fitBounds(bounds);
-
-        var icons = {
-            "Plots": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "High-Rise": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "Low-Rise": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "Affordable": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "Upcoming": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowSize: [41, 41] }),
-            "Featured": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png', shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', iconSize: [30, 48], iconAnchor: [15, 48], popupAnchor: [1, -34], shadowSize: [41, 41] })
-        };
-
-        var currentLayers = { "Plots": L.layerGroup().addTo(map), "High-Rise": L.layerGroup().addTo(map), "Low-Rise": L.layerGroup().addTo(map), "Affordable": L.layerGroup().addTo(map), "Featured": L.layerGroup().addTo(map) };
-        var futureLayers = { "Future Projects": L.layerGroup().addTo(map) };
-
-        var allMarkers = [];
-
-       function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
-    var iconType = isUpcoming ? "Upcoming" : category;
-    var targetLayer = isUpcoming ? futureLayers["Future Projects"] : currentLayers[category];
-    
-    // मार्कर को 'opacity: 0' के साथ बनाएं ताकि बाउंस से पहले न दिखे
-    var marker = L.marker([y, x], { 
-        icon: icons[iconType],
-        opacity: 0 
-    });
-
-    // बाउंसिंग लॉजिक: जब भी आप टिक करेंगे या मैप खुलेगा, यह चलेगा
-    marker.on('add', function() {
-        const iconElement = marker._icon;
-        if (iconElement) {
-            marker.setOpacity(1); // इसे दिखाएं
-            iconElement.style.animation = 'none'; // रिसेट करें
-            iconElement.offsetHeight; // ब्राउज़र को रिफ्रेश करें
-            iconElement.style.animation = 'bounceIn 0.8s ease-out forwards';
-        }
-    });
-
-    marker.addTo(targetLayer); // अब इसे लेयर में जोड़ें
-    marker.projectName = name.toLowerCase();
-    
-    var popupContent = `
-        <div class="popup-card">
-            <strong>${name}</strong><br><small>${category} ${isUpcoming ? '(Upcoming)' : ''}</small>
-            <span class="price-tag">Current Rate: ${price}</span>
-            <hr style="border:0.5px solid #eee;">
-            <a href="${videoUrl}" target="_blank" class="popup-btn btn-video">🎥 वीडियो देखें</a>
-            <a href="https://wa.me/919818811971?text=Hi, I am interested in ${name}. Current Price: ${price}" target="_blank" class="popup-btn btn-wa">💬 WhatsApp Enquiry</a>
-        </div>
-    `;
-    marker.bindPopup(popupContent);
-    allMarkers.push(marker);
-}
-            
-            var popupContent = `
-                <div class="popup-card">
-                    <strong>${name}</strong><br><small>${category} ${isUpcoming ? '(Upcoming)' : ''}</small>
-                    <span class="price-tag">Current Rate: ${price}</span>
-                    <hr style="border:0.5px solid #eee;">
-                    <a href="${videoUrl}" target="_blank" class="popup-btn btn-video">🎥 वीडियो देखें</a>
-                    <a href="https://wa.me/919818811971?text=Hi, I am interested in ${name}. Current Price: ${price}" target="_blank" class="popup-btn btn-wa">💬 WhatsApp Enquiry</a>
-                </div>
-            `;
-            marker.bindPopup(popupContent);
-            allMarkers.push(marker);
-        }
-
-        // --- DATA SECTION (LIVE LINKS UPDATED) ---
-        addProject(529.3, 978.0, "Omaxe Royal Residency 2", "https://www.youtube.com/shorts/oSOD4yy0n3o", "High-Rise", "Best Deal");
-        addProject(484.8, 1078.5, "Prosper EPIC", "https://www.youtube.com/shorts/iXrhyCeW2nk", "High-Rise", "Best Deal");
-        addProject(534.8, 1106.3, "Emerald 4BHK", "https://www.youtube.com/watch?v=apYXHrChxEE", "High-Rise", "Best Deal");
-        addProject(668.5, 1212.4, "Tarang Atlantis", "https://www.youtube.com/watch?v=M8R6RR9EKp8", "High-Rise", "Best Deal");
-        addProject(447.6, 1033.8, "Coral Park", "https://www.youtube.com/shorts/FFJFlOx2m_w", "Plots", "Best Deal");
-        addProject(450.3, 989.4, "NeoLiv", "https://www.youtube.com/shorts/9l6LcFpALBY", "Plots", "Best Deal");
-        addProject(558.6, 805.5, "Townfit 70", "https://www.youtube.com/watch?v=TL2Abh_JxvA&t=2s", "Plots", "Best Deal");
-        addProject(440.1, 1043.0, "SOHA Olive Town", "https://www.youtube.com/watch?v=FdvkILluDas&t=37s", "Plots", "Best Deal");
-        addProject(361.6, 642.0, "Dameera Plots", "https://www.youtube.com/watch?v=Sv3XyNjT0h4&t=11s", "Plots", "Best Deal");
-        addProject(488.3, 927.0, "BPTP Parkland Pride", "https://www.youtube.com/shorts/7n0Kss_6mJs", "Low-Rise", "Best Deal");
-        addProject(412.6, 1039.5, "Maple Floors", "https://www.youtube.com/shorts/GIu0T7baRpI", "Low-Rise", "Best Deal");
-        addProject(505.5, 1061.3, "Adore Presidential World", "https://www.youtube.com/shorts/cHRfbJGKcXE", "Low-Rise", "Best Deal");
-        addProject(720.9, 597.5, "Advitya Homes", "https://www.youtube.com/watch?v=iTiPrQ_tle4&t=695s", "Affordable", "Best Deal");
-        addProject(428.4, 1071.3, "SOHA Olive Homes", "https://www.youtube.com/watch?v=WSFvvk6RiLg&t=292s", "Affordable", "Best Deal");
-        addProject(523.6, 883.1, "Adore Prima 2", "https://www.youtube.com/shorts/sUa9hTv6SPc", "Affordable", "Best Deal");
-        addProject(504.5, 875.5, "Prima 1", "https://www.youtube.com/watch?v=UK0th107Ckg&t=230s", "Affordable", "Best Deal");
-        addProject(542, 680, "HSIDC", "https://youtube.com/...", "Featured", "Commercial", true);
-        
-        // UPCOMING TESTING
-        addProject(579.1, 1076.5, "MDPS Floors", "https://www.youtube.com/shorts/GIu0T7baRpI", "Low-Rise", "Coming Soon", true);
-
-        // --- CONTROLS ---
-    var overlayMaps = {
-    "<span style='color:green;font-weight:bold'>Plots</span>": currentLayers["Plots"],
-    "<span style='color:blue;font-weight:bold'>High-Rise</span>": currentLayers["High-Rise"],
-    "<span style='color:#b8860b;font-weight:bold'>Low-Rise</span>": currentLayers["Low-Rise"],
-    "<span style='color:orange;font-weight:bold'>Affordable</span>": currentLayers["Affordable"],
-    // यहाँ फ्यूचर प्रोजेक्ट्स का चेकबॉक्स
-    "<span style='color:black;font-weight:bold'>Future Projects</span>": futureLayers["Future Projects"],
-    // इसके ठीक नीचे सर्च बार
-    "<div class='internal-search'><input type='text' id='projectSearch' placeholder='Search Project or Sector...' onkeyup='searchProject()'></div>": L.layerGroup()
-};
-        L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
-
-        function searchProject() {
-    // 1. यहाँ 'projectSearch' की स्पेलिंग चेक करें
-    var input = document.getElementById('projectSearch').value.toLowerCase();
-    
-    if (input.length < 2) return;
-    
-    allMarkers.forEach(function(m) {
-        // 2. यहाँ 'm.projectName' होना चाहिए
-        if (m.projectName && m.projectName.toLowerCase().includes(input)) { 
-            map.setView(m.getLatLng(), 1); 
-            m.openPopup(); 
-        }
-    });
-}
-        map.on('click', function(e) {
-            document.getElementById('coord-box').innerHTML = "[" + e.latlng.lat.toFixed(1) + ", " + e.latlng.lng.toFixed(1) + "]";
-        });
-        // राइट-क्लिक डिसेबल करने के लिए
-document.addEventListener('contextmenu', event => event.preventDefault());
-    </script>
 
 <div class="map-watermark">@ApkaApnaPropertyAdvisor</div>
 
 <div class="map-disclaimer">
-    <strong>Disclaimer:</strong> This map is for informational purposes only. Information is based on Faridabad Master Plan 2031. Please verify with RERA authorities before any investment.
+    <strong>Disclaimer:</strong> This map is for info only. Based on Faridabad Master Plan 2031. Verify with RERA before investment.
 </div>
 
-<style>
-/* वॉटरमार्क - एकदम हल्का और क्लासी */
-.map-watermark {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-30deg);
-    font-size: clamp(30px, 6vw, 60px); 
-    color: rgba(0, 0, 0, 0.05) !important; /* इसे 0.03 किया है ताकि बहुत हल्का दिखे */
-    z-index: 400 !important; /* मैप के ऊपर पर सर्च बॉक्स के नीचे */
-    pointer-events: none;
-    white-space: nowrap;
-    font-weight: bold;
-    user-select: none;
-}
+<div id="map"></div>
 
-/* डिस्क्लेमर - नीचे कोने में सेट */
-.map-disclaimer {
-    position: fixed;
-    bottom: 20px !important; 
-    left: 20px !important;
-    top: auto !important; 
-    z-index: 9999 !important; 
-    background: rgba(255, 255, 255, 0.9) !important;
-    padding: 10px 15px;
-    font-size: 11px;
-    border-radius: 8px;
-    border: 1px solid #e63946;
-    max-width: 300px;
-    color: #1d3557;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-/* 1. पॉइंट्स के आसमान से गिरने का एनीमेशन */
-@keyframes bounceIn {
-  0% { transform: translateY(-500px) scale(0.3); opacity: 0; }
-  50% { transform: translateY(25px) scale(1.1); opacity: 0.8; }
-  70% { transform: translateY(-10px) scale(0.95); }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
-}
-
-/* 2. फिल्टर बॉक्स का लाल हेडर */
-.control-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #e63946 !important;
-    color: white !important;
-    padding: 8px 12px;
-    border-radius: 8px 8px 0 0;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    margin: -10px -10px 10px -10px; /* बॉक्स की पैडिंग को कवर करने के लिए */
-}
-
-/* 3. जब बॉक्स छोटा (Minimize) हो जाए */
-.leaflet-control-layers.minimized .leaflet-control-layers-list,
-.leaflet-control-layers.minimized .internal-search {
-    display: none !important;
-}
-
-.leaflet-control-layers.minimized {
-    min-width: 150px !important;
-    height: auto !important;
-}
-    
-</style>
-
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-// राइट-क्लिक प्रोटेक्शन
-document.addEventListener('contextmenu', event => event.preventDefault());
-</script>
-    <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js');
-        });
-    }
-        // इनिशियल पोजीशन सेट करें 
-      function makeDraggable(el) {
-    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    
-    // इनिशियल पोजीशन सेट करें ताकि ये हेडर के नीचे दिखे
-    el.style.top = '120px'; 
-    el.style.right = '20px';
-    el.style.left = 'auto';
-    el.style.zIndex = '9999'; // सबसे ऊपर रखने के लिए
+    // 1. मैप और इमेज सेटअप
+    var map = L.map('map', { crs: L.CRS.Simple, minZoom: -2, attributionControl: false });
+    var bounds = [[0, 0], [1000, 1500]];
+    L.imageOverlay('map.webp', bounds).addTo(map);
+    map.fitBounds(bounds);
 
-    el.onmousedown = dragMouseDown;
-    el.ontouchstart = dragMouseDown;
+    // 2. आइकन्स
+    var iconOptions = { iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34], shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png', shadowSize: [41, 41] };
+    var icons = {
+        "Plots": new L.Icon({ ...iconOptions, iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png' }),
+        "High-Rise": new L.Icon({ ...iconOptions, iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png' }),
+        "Low-Rise": new L.Icon({ ...iconOptions, iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png' }),
+        "Affordable": new L.Icon({ ...iconOptions, iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png' }),
+        "Upcoming": new L.Icon({ ...iconOptions, iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png' })
+    };
 
-    function dragMouseDown(e) {
-        e = e || window.event;
-        // चेकबॉक्स और सर्च इनपुट पर क्लिक करने से ड्रैग न हो
-        if (["INPUT", "SELECT", "LABEL"].includes(e.target.tagName)) return;
-        
-        pos3 = e.clientX || e.touches[0].clientX;
-        pos4 = e.clientY || e.touches[0].clientY;
-        
-        document.onmouseup = closeDragElement;
-        document.ontouchend = closeDragElement;
-        document.onmousemove = elementDrag;
-        document.ontouchmove = elementDrag;
-    }
+    // 3. लेयर्स
+    var layers = {
+        "Plots": L.layerGroup().addTo(map),
+        "High-Rise": L.layerGroup().addTo(map),
+        "Low-Rise": L.layerGroup().addTo(map),
+        "Affordable": L.layerGroup().addTo(map),
+        "Future": L.layerGroup().addTo(map)
+    };
+    var allMarkers = [];
 
-    function elementDrag(e) {
-        e = e || window.event;
-        let x = e.clientX || e.touches[0].clientX;
-        let y = e.clientY || e.touches[0].clientY;
-        
-        pos1 = pos3 - x;
-        pos2 = pos4 - y;
-        pos3 = x;
-        pos4 = y;
-        
-        el.style.top = (el.offsetTop - pos2) + "px";
-        el.style.left = (el.offsetLeft - pos1) + "px";
-        el.style.right = "auto";
+    // 4. प्रोजेक्ट फंक्शन
+    function addProject(y, x, name, vid, cat, price, isFuture = false) {
+        var marker = L.marker([y, x], { icon: isFuture ? icons["Upcoming"] : icons[cat] });
+        marker.on('add', function() { if(marker._icon) marker._icon.style.animation = 'bounceIn 0.8s ease-out'; });
+        marker.addTo(isFuture ? layers["Future"] : layers[cat]);
+        marker.projectName = name.toLowerCase();
+        marker.bindPopup(<div style="text-align:center;"><b>${name}</b><br><span style="color:red;">${price}</span><br><br><a href="${vid}" target="_blank" style="background:#e63946;color:white;padding:5px 10px;text-decoration:none;border-radius:5px;">🎥 Video</a></div>);
+        allMarkers.push(marker);
     }
 
-    function closeDragElement() {
-        document.onmouseup = null;
-        document.onmousemove = null;
-        document.ontouchend = null;
-        document.ontouchmove = null;
-    }
-}
-// मैप लोड होने के बाद लेयर कंट्रोल को मूव करने योग्य बनाएं
-setTimeout(() => {
-    const layerControl = document.querySelector('.leaflet-control-layers');
-    if(layerControl) makeDraggable(layerControl);
-}, 1000);
+    // --- आपका पूरा डेटा ---
+    addProject(529.3, 978.0, "Omaxe Royal Residency 2", "https://www.youtube.com/shorts/oSOD4yy0n3o", "High-Rise", "Best Deal");
+    addProject(484.8, 1078.5, "Prosper EPIC", "https://www.youtube.com/shorts/iXrhyCeW2nk", "High-Rise", "Best Deal");
+    addProject(534.8, 1106.3, "Emerald 4BHK", "https://www.youtube.com/watch?v=apYXHrChxEE", "High-Rise", "Best Deal");
+    addProject(668.5, 1212.4, "Tarang Atlantis", "https://www.youtube.com/watch?v=M8R6RR9EKp8", "High-Rise", "Best Deal");
+    addProject(447.6, 1033.8, "Coral Park", "https://www.youtube.com/shorts/FFJFlOx2m_w", "Plots", "Best Deal");
+    addProject(450.3, 989.4, "NeoLiv", "https://www.youtube.com/shorts/9l6LcFpALBY", "Plots", "Best Deal");
+    addProject(558.6, 805.5, "Townfit 70", "https://www.youtube.com/watch?v=TL2Abh_JxvA&t=2s", "Plots", "Best Deal");
+    addProject(440.1, 1043.0, "SOHA Olive Town", "https://www.youtube.com/watch?v=FdvkILluDas&t=37s", "Plots", "Best Deal");
+    addProject(361.6, 642.0, "Dameera Plots", "https://www.youtube.com/watch?v=Sv3XyNjT0h4&t=11s", "Plots", "Best Deal");
+    addProject(488.3, 927.0, "BPTP Parkland Pride", "https://www.youtube.com/shorts/7n0Kss_6mJs", "Low-Rise", "Best Deal");
+    addProject(412.6, 1039.5, "Maple Floors", "https://www.youtube.com/shorts/GIu0T7baRpI", "Low-Rise", "Best Deal");
+    addProject(505.5, 1061.3, "Adore Presidential World", "https://www.youtube.com/shorts/cHRfbJGKcXE", "Low-Rise", "Best Deal");
+    addProject(720.9, 597.5, "Advitya Homes", "https://www.youtube.com/watch?v=iTiPrQ_tle4&t=695s", "Affordable", "Best Deal");
+    addProject(428.4, 1071.3, "SOHA Olive Homes", "https://www.youtube.com/watch?v=WSFvvk6RiLg&t=292s", "Affordable", "Best Deal");
+    addProject(523.6, 883.1, "Adore Prima 2", "https://www.youtube.com/shorts/sUa9hTv6SPc", "Affordable", "Best Deal");
+    addProject(504.5, 875.5, "Prima 1", "https://www.youtube.com/watch?v=UK0th107Ckg&t=230s", "Affordable", "Best Deal");
+    addProject(579.1, 1076.5, "MDPS Floors", "#", "Low-Rise", "Coming Soon", true);
 
-// फिल्टर बॉक्स में '−' बटन और मिनिमाइज लॉजिक
-function setupControlBox() {
-    const controlContainer = document.querySelector('.leaflet-control-layers');
-    if (controlContainer && !controlContainer.querySelector('.control-header')) {
+    // 5. फिल्टर कंट्रोल
+    var overlayMaps = {
+        "Plots": layers["Plots"], "High-Rise": layers["High-Rise"], "Low-Rise": layers["Low-Rise"], "Affordable": layers["Affordable"], "Future": layers["Future"],
+        "<input type='text' id='projectSearch' placeholder='Search Project...' onkeyup='searchProj()'>": L.layerGroup()
+    };
+    L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
+
+    function searchProj() {
+        var val = document.getElementById('projectSearch').value.toLowerCase();
+        if(val.length < 2) return;
+        allMarkers.forEach(m => { if(m.projectName.includes(val)) { map.setView(m.getLatLng(), 1); m.openPopup(); } });
+    }
+
+    // मिनिमाइज लॉजिक
+    setTimeout(() => {
+        const el = document.querySelector('.leaflet-control-layers');
         const header = document.createElement('div');
         header.className = 'control-header';
-        header.innerHTML = '<span>Map Filters</span><span class="min-btn" style="font-size:22px;">−</span>';
-        
-        controlContainer.prepend(header);
-        
-        header.onclick = function(e) {
-            // बटन या हेडर पर क्लिक करने से ही मिनिमाइज हो
-            controlContainer.classList.toggle('minimized');
-            const btn = header.querySelector('.min-btn');
-            btn.innerText = controlContainer.classList.contains('minimized') ? '+' : '−';
-        };
-    }
-}
+        header.innerHTML = '<span>Filters</span><span id="min-btn" style="cursor:pointer;">−</span>';
+        el.prepend(header);
+        header.onclick = (e) => { if(e.target.id === "min-btn") { el.classList.toggle('minimized'); e.target.innerText = el.classList.contains('minimized') ? '+' : '−'; } };
+    }, 1000);
 
-// मैप और लेयर्स तैयार होने के बाद इसे चलाएं
-setTimeout(setupControlBox, 1500);
-        
+    document.addEventListener('contextmenu', e => e.preventDefault());
 </script>
 </body>
-</html>       
+</html>
