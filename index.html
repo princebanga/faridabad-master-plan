@@ -206,7 +206,6 @@ function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
     marker.on('add', function() {
         const iconElement = marker._icon;
         if (iconElement) {
-            marker.setOpacity(1);
             iconElement.style.animation = 'none';
             iconElement.offsetHeight; // Reflow
             iconElement.style.animation = 'bounceIn 0.8s ease-out forwards';
@@ -374,11 +373,42 @@ function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
 
         var allMarkers = [];
 
-        function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
-            var iconType = isUpcoming ? "Upcoming" : category;
-            var targetLayer = isUpcoming ? futureLayers["Future Projects"] : currentLayers[category];
-            var marker = L.marker([y, x], { icon: icons[iconType] }).addTo(targetLayer);
-            marker.projectName = name.toLowerCase();
+       function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
+    var iconType = isUpcoming ? "Upcoming" : category;
+    var targetLayer = isUpcoming ? futureLayers["Future Projects"] : currentLayers[category];
+    
+    // मार्कर को 'opacity: 0' के साथ बनाएं ताकि बाउंस से पहले न दिखे
+    var marker = L.marker([y, x], { 
+        icon: icons[iconType],
+        opacity: 0 
+    });
+
+    // बाउंसिंग लॉजिक: जब भी आप टिक करेंगे या मैप खुलेगा, यह चलेगा
+    marker.on('add', function() {
+        const iconElement = marker._icon;
+        if (iconElement) {
+            marker.setOpacity(1); // इसे दिखाएं
+            iconElement.style.animation = 'none'; // रिसेट करें
+            iconElement.offsetHeight; // ब्राउज़र को रिफ्रेश करें
+            iconElement.style.animation = 'bounceIn 0.8s ease-out forwards';
+        }
+    });
+
+    marker.addTo(targetLayer); // अब इसे लेयर में जोड़ें
+    marker.projectName = name.toLowerCase();
+    
+    var popupContent = `
+        <div class="popup-card">
+            <strong>${name}</strong><br><small>${category} ${isUpcoming ? '(Upcoming)' : ''}</small>
+            <span class="price-tag">Current Rate: ${price}</span>
+            <hr style="border:0.5px solid #eee;">
+            <a href="${videoUrl}" target="_blank" class="popup-btn btn-video">🎥 वीडियो देखें</a>
+            <a href="https://wa.me/919818811971?text=Hi, I am interested in ${name}. Current Price: ${price}" target="_blank" class="popup-btn btn-wa">💬 WhatsApp Enquiry</a>
+        </div>
+    `;
+    marker.bindPopup(popupContent);
+    allMarkers.push(marker);
+}
             
             var popupContent = `
                 <div class="popup-card">
