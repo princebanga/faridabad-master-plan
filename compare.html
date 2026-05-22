@@ -83,6 +83,39 @@
     <p>Expert Analysis by Prince Banga (Apka Apna Property Advisor)</p>
 </div>
 
+    .nav-bar {
+    background: #001f3f; /* नेवी ब्लू जो आपके हेडर से मेल खाता है */
+    padding: 12px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 2px solid #ffc107;
+    position: sticky;
+    top: 0;
+    z-index: 999; /* ताकि स्क्रॉल करने पर यह ऊपर ही रहे */
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 600;
+    font-size: 13px; /* मोबाइल के लिए थोड़ा छोटा साइज */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-bar a:hover {
+    color: #ffc107;
+}
+
+/* मोबाइल के लिए विशेष सुधार */
+@media (max-width: 600px) {
+    .nav-bar a {
+        margin: 0 5px;
+        font-size: 11px;
+    }
+}
+    
 <div class="container">
     <div class="compare-box">
         <table>
