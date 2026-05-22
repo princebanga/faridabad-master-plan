@@ -12,27 +12,34 @@
         .nav-bar a { color: white; text-decoration: none; margin: 0 15px; font-weight: 600; text-transform: uppercase; font-size: 13px; }
 
         .about-hero { background: var(--dark-blue); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--primary-red); }
-        .about-hero h1 { font-size: 32px; margin: 0; color: var(--gold); }
+        .about-hero h1 { font-size: 32px; margin: 0; color: var(--gold); text-transform: uppercase; }
         .about-hero p { font-size: 18px; opacity: 0.9; max-width: 800px; margin: 15px auto; }
 
         .section { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
+        /* Leadership Section */
+        .leader-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 8px solid var(--gold); margin-bottom: 40px; text-align: center; }
+        .leader-box h2 { color: var(--dark-blue); margin-top: 0; font-size: 28px; }
+        .leader-box .highlight { color: var(--primary-red); font-weight: bold; font-size: 22px; display: block; margin-bottom: 10px; }
+        .leader-box p { font-size: 17px; color: #444; max-width: 800px; margin: auto; }
+
         /* Legacy Section Style */
-        .legacy-box { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-left: 8px solid var(--gold); margin-bottom: 40px; }
-        .legacy-box h2 { color: var(--dark-blue); margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        .legacy-box p { font-size: 17px; color: #444; }
+        .legacy-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-red); margin-bottom: 40px; }
+        .legacy-box h3 { color: var(--dark-blue); margin-top: 0; }
+        
         .mentor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        .mentor-item { background: #fdfdfd; padding: 15px; border-radius: 8px; border: 1px dashed #ccc; }
-        .mentor-item strong { color: var(--primary-red); display: block; font-size: 18px; }
+        .mentor-item { background: #fdfdfd; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+        .mentor-item strong { color: var(--dark-blue); display: block; font-size: 18px; margin-bottom: 5px; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .trust-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary-red); }
+        .trust-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--dark-blue); text-align: center; }
         
-        .contact-box { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; }
+        .contact-box { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; margin-top: 50px; }
         .contact-info { flex: 1; min-width: 300px; background: #f1f1f1; padding: 40px; }
         .contact-form { flex: 1.5; min-width: 300px; padding: 40px; }
         
-        .btn-submit { background: var(--primary-red); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; font-size: 16px; }
+        .btn-submit { background: var(--primary-red); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; font-size: 16px; transition: 0.3s; }
+        .btn-submit:hover { background: #c32f3a; }
         
         @media (max-width: 600px) { .mentor-grid { grid-template-columns: 1fr; } .about-hero h1 { font-size: 24px; } }
     </style>
@@ -49,66 +56,73 @@
 
 <div class="about-hero">
     <h1>Apka Apna Property Advisor</h1>
-    <p>A Legacy of Trust, Driven by Data and Guided by Experience.</p>
+    <p>Honest Advice. Family Legacy. Technical Precision.</p>
 </div>
 
 <div class="section">
+
+    <div class="leader-box">
+        <h2>Business Leadership</h2>
+        <span class="highlight">Mr. Rajesh Ahuja</span>
+        <p>Our entire business operations and strategic consultancy are managed under the expert leadership and vision of <b>Mr. Rajesh Ahuja</b>. With vast industry experience, he ensures that every client receives the highest standard of service and ethical guidance.</p>
+        <p style="margin-top:15px; font-style: italic;">"Working under his direct guidelines, I ensure that our traditional values meet modern transparency." — <b>Prince Banga</b></p>
+    </div>
+
     <div class="legacy-box">
-        <h2>Our Roots & Family Legacy</h2>
-        <p>रियल एस्टेट हमारे लिए सिर्फ एक व्यवसाय नहीं, बल्कि एक पारिवारिक परंपरा है। पिछले कई दशकों से हमारा परिवार फरीदाबाद के विकास और लोगों को उनके सपनों का घर दिलाने में समर्पित रहा है।</p>
+        <h3>Our Roots & Family Legacy</h3>
+        <p>Real Estate is not just a business for us; it is a family tradition. For decades, our family has been dedicated to the development of Faridabad and helping families find their dream homes.</p>
         
         <div class="mentor-grid">
             <div class="mentor-item">
                 <strong>Sh. Daya Nand Banga</strong>
-                <p>मेरे पिता, जिन्होंने 20 वर्षों तक फरीदाबाद के <b>Housing Board Sectors</b> में अपनी सेवाएँ दी हैं। उनकी ईमानदारी और मार्केट की गहरी समझ हमारी नींव है।</p>
+                <p>My father, who served for <b>20 years</b> in the Housing Board Sectors of Faridabad. His legacy of honesty and deep-rooted market knowledge is the pillar of our strength.</p>
             </div>
             <div class="mentor-item">
-                <strong>Guidance of Mr. Rajesh Ahuja</strong>
-                <p>हमारा पूरा व्यवसाय और कार्यप्रणाली श्री राजेश आहूजा जी के अनुभवी मार्गदर्शन में संचालित होती है, जो सुनिश्चित करते हैं कि हर क्लाइंट को सर्वोत्तम सलाह मिले।</p>
+                <strong>Prince Banga</strong>
+                <p>Combining my IT Consultancy background (Vishvas Infotech) with our family legacy to provide data-driven, transparent, and modern real estate solutions.</p>
             </div>
         </div>
-        <p style="margin-top: 20px; font-style: italic; color: #666;">"इन्हीं संस्कारों और अनुभव को लेकर मैं, <b>प्रिंस बंगा</b>, अपने IT बैकग्राउंड के साथ आधुनिक और पारदर्शी रियल एस्टेट सेवाएँ प्रदान कर रहा हूँ।"</p>
     </div>
 
-    <h2 style="text-align: center; color: var(--dark-blue);">Why Choose Us?</h2>
+    <h2 style="text-align: center; color: var(--dark-blue); margin-top: 60px;">Why Choose Us?</h2>
     <div class="grid">
         <div class="trust-card">
-            <h3>20+ Years Experience</h3>
-            <p>हाउसिंग बोर्ड सेक्टर्स से लेकर आधुनिक अफोर्डेबल हाउसिंग तक, हमें फरीदाबाद के हर कोने की जानकारी है।</p>
+            <h3>20+ Years of Trust</h3>
+            <p>From traditional Housing Board sectors to modern high-rise affordable projects, we know every corner of Faridabad.</p>
         </div>
         <div class="trust-card">
-            <h3>IT Driven Analysis</h3>
-            <p>IT कंसल्टेंट होने के नाते, मैं डेटा और डॉक्यूमेंट्स का बारीकी से विश्लेषण करता हूँ ताकि आपकी इन्वेस्टमेंट सुरक्षित रहे।</p>
+            <h3>Data-Driven Analysis</h3>
+            <p>As an IT Consultant, I analyze every document and market trend with technical precision to ensure your investment is 100% safe.</p>
         </div>
         <div class="trust-card">
-            <h3>Family Values</h3>
-            <p>हम एक परिवार की तरह काम करते हैं। हमारा रिश्ता सिर्फ सेल तक नहीं, बल्कि पजेशन और उसके बाद तक बना रहता है।</p>
+            <h3>End-to-End Support</h3>
+            <p>We treat our clients like family. Our relationship doesn't end at the sale; we stand by you until possession and beyond.</p>
         </div>
     </div>
 </div>
 
 <div class="section" id="contact">
-    <h2 style="text-align: center; color: var(--dark-blue);">Contact Prince Banga</h2>
+    <h2 style="text-align: center; color: var(--dark-blue);">Connect With Us</h2>
     <div class="contact-box">
         <div class="contact-info">
             <p><strong>Call / WhatsApp:</strong><br> +91 98188 11971</p>
             <p><strong>Email:</strong><br> prince.banga@gmail.com</p>
-            <p><strong>Office:</strong><br> Faridabad, Haryana</p>
-            <p><strong>YouTube:</strong><br> Apka Apna Property Advisor</p>
+            <p><strong>Service Area:</strong><br> Faridabad & Gurgaon</p>
+            <p><strong>Brand:</strong><br> Apka Apna Property Advisor</p>
         </div>
         <div class="contact-form">
             <form action="mailto:prince.banga@gmail.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="tel" name="phone" placeholder="Your Phone Number" required>
-                <textarea name="message" rows="4" placeholder="How can we assist you with your property search?"></textarea>
-                <button type="submit" class="btn-submit">Send Message</button>
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <textarea name="message" rows="4" placeholder="How can we help you today?"></textarea>
+                <button type="submit" class="btn-submit">Request Free Consultation</button>
             </form>
         </div>
     </div>
 </div>
 
 <div style="text-align: center; padding: 40px; font-size: 14px; color: #888;">
-    © 2026 Apka Apna Property Advisor | Powered by Vishvas Infotech & Banga Family Legacy
+    © 2026 Apka Apna Property Advisor | Managed by Rajesh Ahuja | Powered by Vishvas Infotech
 </div>
 
 </body>
