@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Projects | Apka Apna Property Advisor</title>
+    <style>
+        :root { --primary-red: #e63946; --dark-blue: #1d3557; --gold: #ffb703; --nav-blue: #001f3f; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; }
+        
+        /* Fixed Navigation */
+        .nav-bar { background: var(--nav-blue); padding: 12px 0; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold); }
+        .nav-bar a { color: white; text-decoration: none; margin: 0 12px; font-weight: 600; text-transform: uppercase; font-size: 13px; }
+        .nav-bar a:hover { color: var(--gold); }
+
+        .hero { background: var(--dark-blue); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--primary-red); }
+        .hero h1 { margin: 0; font-size: 28px; color: var(--gold); }
+
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; }
+
+        /* Project Card Design */
+        .project-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.06); border: 1px solid #eee; display: flex; flex-direction: column; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-8px); }
+        
+        .image-placeholder { width: 100%; height: 220px; background: #222; display: flex; align-items: center; justify-content: center; color: #555; position: relative; }
+        .video-overlay { position: absolute; background: rgba(230, 57, 70, 0.9); color: white; padding: 5px 12px; border-radius: 4px; font-size: 12px; top: 15px; right: 15px; font-weight: bold; }
+
+        .project-details { padding: 20px; flex-grow: 1; }
+        .tag { font-size: 11px; font-weight: bold; text-transform: uppercase; padding: 4px 8px; border-radius: 3px; margin-bottom: 10px; display: inline-block; }
+        .tag-construction { background: #fff3cd; color: #856404; }
+        .tag-premium { background: #d1ecf1; color: #0c5460; }
+
+        .project-details h3 { margin: 0 0 10px; color: var(--dark-blue); font-size: 22px; }
+        .project-details p { font-size: 14px; line-height: 1.6; color: #555; margin-bottom: 15px; }
+        
+        .info-row { display: flex; justify-content: space-between; font-size: 14px; border-top: 1px solid #f0f0f0; padding-top: 10px; }
+        .info-row b { color: var(--primary-red); }
+
+        .btn-group { padding: 15px; display: flex; gap: 10px; background: #fafafa; }
+        .btn { flex: 1; padding: 12px; text-align: center; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; transition: 0.3s; }
+        .btn-call { background: var(--dark-blue); color: white; }
+        .btn-wa { background: #25d366; color: white; }
+
+        @media (max-width: 600px) { .hero h1 { font-size: 22px; } .nav-bar a { font-size: 11px; margin: 0 6px; } }
+    </style>
+</head>
+<body>
+
+<nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="runningprojects.html">Running Projects</a>
+    <a href="upcoming.html">Upcoming</a>
+    <a href="video.html">Videos</a>
+    <a href="compare.html">Compare</a>
+    <a href="about.html">About Us</a>
+</nav>
+
+<div class="hero">
+    <h1>Active & Running Projects</h1>
+    <p>Live Construction Updates & On-Site Availability</p>
+</div>
+
+<div class="container">
+    <div class="project-grid">
+
+        <div class="project-card">
+            <div class="image-placeholder">
+                <span class="video-overlay">LIVE SITE TOUR</span>
+                <img src="https://via.placeholder.com/400x220/1d3557/ffffff?text=BPTP+Sky+Nest+Site" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="project-details">
+                <span class="tag tag-construction">G+44 Tallest Tower</span>
+                <h3>BPTP Sky Nest (Discovery 2)</h3>
+                <p>Formerly Discovery 2. Sector 80's iconic Biophilic landmark. Features Central AC, VRV systems, and ultra-modern lifestyle amenities.</p>
+                <div class="info-row">
+                    <span>Status: <b>New Launch</b></span>
+                    <span>Location: <b>Sector 80</b></span>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="tel:+919818811971" class="btn btn-call">Call</a>
+                <a href="https://wa.me/919818811971?text=Interested in BPTP Sky Nest" class="btn btn-wa">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="image-placeholder">
+                <img src="https://via.placeholder.com/400x220/e63946/ffffff?text=Adore+Select+Premia" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="project-details">
+                <span class="tag tag-premium">4BHK & 5BHK Luxury</span>
+                <h3>Adore Select Premia</h3>
+                <p>Located in Sector 76. Spacious 3750 sq.ft units with private gardens. Designed for those who seek exclusivity in Faridabad.</p>
+                <div class="info-row">
+                    <span>Rate: <b>₹13,000/sq.ft</b></span>
+                    <span>Location: <b>Sector 76</b></span>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="tel:+919818811971" class="btn btn-call">Call</a>
+                <a href="https://wa.me/919818811971?text=Interested in Adore Select Faridabad" class="btn btn-wa">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="image-placeholder">
+                <img src="https://via.placeholder.com/400x220/ffb703/000000?text=Adore+Gurgaon+Sector+77" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="project-details">
+                <span class="tag tag-premium">NH-48 Connectivity</span>
+                <h3>Adore Select Premia GGN</h3>
+                <p>Sector 77, Gurgaon. Premium high-rise apartments near SPR and Golf Course Extension. Rapidly developing investment zone.</p>
+                <div class="info-row">
+                    <span>Price: <b>₹2.56 Cr+</b></span>
+                    <span>Location: <b>Gurgaon</b></span>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="tel:+919818811971" class="btn btn-call">Call</a>
+                <a href="https://wa.me/919818811971?text=Interested in Adore Gurgaon" class="btn btn-wa">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="image-placeholder">
+                <img src="https://via.placeholder.com/400x220/444/fff?text=Emerald+D+Tower" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <div class="project-details">
+                <span class="tag tag-construction">Finishing Stage</span>
+                <h3>Emerald D Tower (4BHK)</h3>
+                <p>Part of Emerald Anandam in Sector 89. Large 4BHK flats (up to 2200 sq.ft) with excellent natural light and cross ventilation.</p>
+                <div class="info-row">
+                    <span>Range: <b>1.65 - 1.9 Cr</b></span>
+                    <span>Location: <b>Sector 89</b></span>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="tel:+919818811971" class="btn btn-call">Call</a>
+                <a href="https://wa.me/919818811971?text=Interested in Emerald D Tower" class="btn btn-wa">WhatsApp</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer style="text-align: center; padding: 30px; font-size: 13px; color: #777;">
+    © 2026 Apka Apna Property Advisor | Managed by Rajesh Ahuja
+</footer>
+
+</body>
+</html>
