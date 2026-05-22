@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Prince Banga | Apka Apna Property Advisor</title>
+    <style>
+        :root { --primary-red: #e63946; --dark-blue: #1d3557; --gold: #ffb703; --nav-blue: #001f3f; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; line-height: 1.6; }
+        
+        .nav-bar { background: var(--nav-blue); padding: 12px 0; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold); }
+        .nav-bar a { color: white; text-decoration: none; margin: 0 15px; font-weight: 600; text-transform: uppercase; font-size: 13px; }
+
+        .about-hero { background: var(--dark-blue); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--primary-red); }
+        .about-hero h1 { font-size: 32px; margin: 0; color: var(--gold); }
+        .about-hero p { font-size: 18px; opacity: 0.9; max-width: 700px; margin: 15px auto; }
+
+        .section { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+
+        /* Why Trust Us Cards */
+        .trust-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary-red); }
+        .trust-card h3 { color: var(--dark-blue); margin-top: 0; }
+        
+        /* Contact Section */
+        .contact-box { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; }
+        .contact-info { flex: 1; min-width: 300px; background: #f1f1f1; padding: 40px; }
+        .contact-form { flex: 1.5; min-width: 300px; padding: 40px; }
+        
+        .info-item { margin-bottom: 25px; }
+        .info-item h4 { margin: 0; color: var(--primary-red); text-transform: uppercase; font-size: 14px; }
+        .info-item p { margin: 5px 0 0; font-size: 18px; font-weight: bold; }
+
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0 20px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        .btn-submit { background: var(--primary-red); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; font-size: 16px; }
+        
+        .footer-note { text-align: center; padding: 40px; font-size: 14px; color: #888; }
+    </style>
+</head>
+<body>
+
+<nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="new-launches.html">New Launches</a>
+    <a href="upcoming.html">Upcoming</a>
+    <a href="compare.html">Compare</a>
+    <a href="about.html">About Us</a>
+</nav>
+
+<div class="about-hero">
+    <h1>Prince Banga</h1>
+    <p>IT Consultant & Real Estate Advisor with 15+ Years of Trust & Technology Experience.</p>
+</div>
+
+<div class="section">
+    <h2 style="text-align: center; color: var(--dark-blue);">Why Trust Us?</h2>
+    <div class="grid">
+        <div class="trust-card">
+            <h3>Technical Accuracy</h3>
+            <p>IT कंसल्टेंट होने के नाते, मैं डेटा और डॉक्यूमेंट्स का बारीकी से विश्लेषण करता हूँ। मेरी सलाह सिर्फ बातों पर नहीं, बल्कि 'Vishvas' और तथ्यों पर आधारित होती है।</p>
+        </div>
+        <div class="trust-card">
+            <h3>Local Expertise</h3>
+            <p>फरीदाबाद और गुड़गांव के मार्केट की गहरी समझ। मैं सिर्फ प्रोजेक्ट नहीं दिखाता, बल्कि वहां के भविष्य (Future Appreciation) की तस्वीर दिखाता हूँ।</p>
+        </div>
+        <div class="trust-card">
+            <h3>Transparency</h3>
+            <p>RERA कम्प्लायंस और कानूनी पहलुओं की पूरी जानकारी। मेरा लक्ष्य है कि आपके जीवन की सबसे बड़ी इन्वेस्टमेंट पूरी तरह सुरक्षित रहे।</p>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="contact">
+    <h2 style="text-align: center; color: var(--dark-blue);">Get In Touch</h2>
+    <div class="contact-box">
+        <div class="contact-info">
+            <div class="info-item">
+                <h4>Call / WhatsApp</h4>
+                <p>+91 98188 11971</p>
+            </div>
+            <div class="info-item">
+                <h4>Email</h4>
+                <p>prince.banga@gmail.com</p>
+            </div>
+            <div class="info-item">
+                <h4>Location</h4>
+                <p>Faridabad, Haryana</p>
+            </div>
+            <div class="info-item">
+                <h4>Social Media</h4>
+                <p>YouTube: Apka Apna Property Advisor</p>
+            </div>
+        </div>
+        <div class="contact-form">
+            <form action="mailto:prince.banga@gmail.com" method="post" enctype="text-transform/plain">
+                <label>Your Name</label>
+                <input type="text" name="name" placeholder="Enter your name" required>
+                
+                <label>Your Phone Number</label>
+                <input type="tel" name="phone" placeholder="Enter your mobile number" required>
+                
+                <label>Project Interested In</label>
+                <input type="text" name="project" placeholder="e.g. True Habitat, MDPS etc.">
+                
+                <label>Message</label>
+                <textarea name="message" rows="4" placeholder="How can we help you?"></textarea>
+                
+                <button type="submit" class="btn-submit">Request a Callback</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="footer-note">
+    © 2026 Apka Apna Property Advisor | Powered by Vishvas Infotech Expertise
+</div>
+
+</body>
+</html>
