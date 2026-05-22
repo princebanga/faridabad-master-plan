@@ -3,148 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://faridabadmasterplan.in/compare.html" />
-    <meta property="og:title" content="Soha Olive Homes vs Advitya Homes 2 | Expert Review">
-    <meta property="og:description" content="Detailed comparison and honest review of Soha Olive and Advitya Homes 2 by Prince Banga.">
-    <meta property="og:image" content="https://faridabadmasterplan.in/soha-vs-advitya.jpg">
-    <meta property="og:type" content="website">
-    
-    <title>Soha Olive Homes Review vs Advitya Homes 2 Review | Faridabad Affordable Housing</title>
-    
+    <title>Expert Review: Soha Olive vs Advitya Homes 2 | Prince Banga</title>
     <style>
-        :root { --primary-red: #e63946; --dark-blue: #1d3557; --gold: #ffb703; --nav-blue: #001f3f; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; line-height: 1.6; }
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        
-        /* Header Section */
-        .header { text-align: center; padding: 50px 20px; background: var(--dark-blue); color: white; border-bottom: 5px solid var(--primary-red); position: relative; }
-        .header h1 { margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px; }
-        .header p { font-size: 16px; margin-top: 10px; color: #ccc; }
+        :root { --primary-red: #e63946; --dark-blue: #1d3557; --gold: #ffb703; --nav-blue: #001f3f; --bg-light: #f0f2f5; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: var(--bg-light); color: #333; line-height: 1.6; }
+
+        /* 1. TOP STICKY NOTE */
+        .update-note {
+            background: #fff9c4; color: #333; padding: 10px; text-align: center;
+            font-size: 14px; border-bottom: 2px solid var(--gold); display: block;
+            text-decoration: none; position: sticky; top: 0; z-index: 1100;
+        }
 
         /* Navigation Bar */
-        .nav-bar { background: var(--nav-blue); padding: 12px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 999; margin-bottom: 50px; }
-        .nav-bar a { color: white; text-decoration: none; margin: 0 12px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav-bar a:hover { color: var(--gold); }
+        .nav-bar { background: var(--nav-blue); padding: 12px 0; text-align: center; position: sticky; top: 42px; z-index: 1000; border-bottom: 2px solid var(--gold); }
+        .nav-bar a { color: white; text-decoration: none; margin: 0 12px; font-weight: 600; text-transform: uppercase; font-size: 12px; }
 
-        /* WhatsApp Update Note */
-        .update-note { position: absolute; top: 15px; right: 15px; background: #fff3cd; color: #856404; padding: 10px 15px; border-left: 5px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 1001; font-size: 13px; border-radius: 4px; text-decoration: none; transition: 0.3s; }
-        .update-note:hover { transform: translateY(-2px); background: #ffe69c; }
-        .update-note strong { display: block; color: #000; }
+        /* Header Section */
+        .header { text-align: center; padding: 50px 20px; background: var(--dark-blue); color: white; border-bottom: 5px solid var(--primary-red); }
+        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; color: var(--gold); }
 
-        /* Comparison Table */
-        .compare-box { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #ddd; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
-        th { background: #fdfdfd; font-weight: bold; color: var(--dark-blue); font-size: 14px; }
-        .feature-col { text-align: left; background: #f4f4f4; font-weight: bold; width: 30%; color: #444; }
-        .stars { color: var(--gold); font-size: 16px; }
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 15px 120px; }
 
-        /* Insight Cards */
-        .insight-grid { display: grid; grid-gap: 20px; margin-top: 30px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        .insight-card { background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #ddd; border-top: 4px solid var(--primary-red); }
-        .insight-card h3 { color: var(--dark-blue); margin-top: 0; font-size: 18px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+        /* Comparison Cards Styling */
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        
+        .project-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #ddd; }
+        .card-header { padding: 20px; text-align: center; color: white; font-weight: bold; font-size: 18px; }
+        .bg-soha { background: #2a9d8f; } /* Project 1 Color */
+        .bg-advitya { background: #264653; } /* Project 2 Color */
 
-        /* Floating Contact Buttons */
-        .contact-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; display: flex; flex-direction: column; gap: 12px; }
-        .contact-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: 0.3s; text-decoration: none; }
-        .contact-btn:hover { transform: scale(1.1); }
-        .bg-call { background-color: #007bff; }
-        .bg-whatsapp { background-color: #25d366; }
-        .contact-btn img { width: 28px; filter: brightness(0) invert(1); }
+        /* Parameter Table */
+        .param-table { width: 100%; border-collapse: collapse; }
+        .param-table td { padding: 15px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+        .label { font-weight: bold; color: #666; font-size: 11px; text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .value { font-weight: 600; color: var(--dark-blue); }
 
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            .header { padding: 30px 10px; }
+        /* Rating Stars */
+        .rating { color: var(--gold); font-size: 18px; }
+
+        /* Verdict Section */
+        .verdict-box { background: white; padding: 30px; border-radius: 15px; margin-top: 30px; border-left: 8px solid var(--primary-red); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .verdict-box h3 { margin-top: 0; color: var(--dark-blue); border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+
+        /* --- FLOATING ACTION BUTTONS --- */
+        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: white; display: flex; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1100; }
+        .sticky-btn { flex: 1; padding: 15px; text-align: center; text-decoration: none; font-weight: bold; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; }
+        .btn-call { background: var(--dark-blue); }
+        .btn-wa { background: #25d366; }
+
+        @media (max-width: 768px) {
+            .compare-grid { grid-template-columns: 1fr; }
             .header h1 { font-size: 18px; }
-            .update-note { position: relative; top: 0; right: 0; margin: 10px auto; display: block; width: fit-content; text-align: center; }
-            .nav-bar a { margin: 0 5px; font-size: 11px; }
-            th, td { padding: 10px; font-size: 11px; }
-            .feature-col { width: 40%; }
-            .nav-bar { margin-bottom: 30px; }
+            .nav-bar a { font-size: 10px; margin: 0 5px; }
         }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <a href="https://whatsapp.com/channel/0029Vb7cMSv8fewwCtHsRn02" class="update-note" target="_blank">
-        <strong>📢 Insider Updates</strong>
-        Join WhatsApp Channel for News.
-    </a>
-    <h1>Review: Soha Olive Homes vs Advitya Homes 2</h1>
-    <p>Expert Analysis by Prince Banga (Apka Apna Property Advisor)</p>
-</div>
+<a href="https://whatsapp.com/channel/0029Vb7cMSv8fewwCtHsRn02" class="update-note" target="_blank">
+    <strong>📢 Comparison Reports:</strong> Join WhatsApp Channel for expert property reviews.
+</a>
 
 <nav class="nav-bar">
     <a href="index.html">Home</a>
     <a href="runningprojects.html">Ongoing</a>
     <a href="upcoming.html">Upcoming</a>
+    <a href="video.html">Videos</a>
     <a href="compare.html">Compare</a>
-    <a href="about.html">About Us</a> </nav>
+    <a href="about.html">About Us</a>
+</nav>
 
-<div class="container">
-    <div class="compare-box">
-        <table>
-            <thead>
-                <tr>
-                    <th class="feature-col">Parameters</th>
-                    <th>Soha Olive Review</th>
-                    <th>Advitya Homes 2 Review</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="feature-col">Expert Rating</td>
-                    <td><div class="stars">★★★★★</div></td>
-                    <td><div class="stars">★★★★★</div></td>
-                </tr>
-                <tr>
-                    <td class="feature-col">Location</td>
-                    <td>Sector 98, Manjhawali Road</td>
-                    <td>Sector 143, Mathura Road (NH-2)</td>
-                </tr>
-                <tr>
-                    <td class="feature-col">Builder Track Record</td>
-                    <td>Neal City, Wonder Walk, Olive Town</td>
-                    <td>Aagman, Advitya 1, Prithla Plots</td>
-                </tr>
-                <tr>
-                    <td class="feature-col">Connectivity</td>
-                    <td>6-8 KM from Mumbai Exp. | Noida Link</td>
-                    <td>Direct NH-2 Access | Metro Proximity</td>
-                </tr>
-                <tr>
-                    <td class="feature-col">Inventory Type</td>
-                    <td>1BHK, 2BHK & 3BHK</td>
-                    <td>2BHK (Small & Large Sizes)</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="insight-grid">
-        <div class="insight-card">
-            <h3>Soha Olive Homes Analysis</h3>
-            <p>Soha Group is a well-known name with successful deliveries like <b>Neal City</b>. This high-rise project is ideal for green environment seekers with easy Noida connectivity.</p>
-        </div>
-        <div class="insight-card">
-            <h3>Advitya Homes 2 Analysis</h3>
-            <p>Advitya offers unmatched connectivity right on Mathura Road. Ideal for investors looking for metro access and proven builder history.</p>
-        </div>
-    </div>
-
-    <div class="insight-card" style="margin-top: 25px; border-top: 4px solid var(--dark-blue);">
-        <h3>Advisor's Final Verdict</h3>
-        <p>Choose <b>Advitya</b> for highway/metro access. Choose <b>Soha</b> for modern high-rise living and Noida link proximity.</p>
-    </div>
+<div class="header">
+    <h1>Head-to-Head Comparison</h1>
+    <p>Honest Analysis by Prince Banga (Apka Apna Property Advisor)</p>
 </div>
 
-<div class="contact-container">
-    <a href="tel:+919818811971" class="contact-btn bg-call">
-        <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="Call">
+<div class="container">
+
+    <div class="compare-grid">
+        <div class="project-card">
+            <div class="card-header bg-soha">SOHA OLIVE HOMES</div>
+            <table class="param-table">
+                <tr><td><span class="label">Expert Rating</span><div class="rating">★★★★★</div></td></tr>
+                <tr><td><span class="label">Location</span><span class="value">Sector 98, Manjhawali Road</span></td></tr>
+                <tr><td><span class="label">Connectivity</span><span class="value">Direct Noida link via upcoming bridge</span></td></tr>
+                <tr><td><span class="label">Developer History</span><span class="value">Soha Group (Neal City, Olive Town)</span></td></tr>
+                <tr><td><span class="label">Inventory</span><span class="value">1BHK, 2BHK, 3BHK High-Rise</span></td></tr>
+                <tr><td><span class="label">Unique Advantage</span><span class="value">Green environment & Wide internal roads</span></td></tr>
+            </table>
+        </div>
+
+        <div class="project-card">
+            <div class="card-header bg-advitya">ADVITYA HOMES 2</div>
+            <table class="param-table">
+                <tr><td><span class="label">Expert Rating</span><div class="rating">★★★★★</div></td></tr>
+                <tr><td><span class="label">Location</span><span class="value">Sector 143, Mathura Road</span></td></tr>
+                <tr><td><span class="label">Connectivity</span><span class="value">Direct Highway Access | Metro Hub</span></td></tr>
+                <tr><td><span class="label">Developer History</span><span class="value">Advitya (Aagman, Prithla Plots)</span></td></tr>
+                <tr><td><span class="label) Inventory</span><span class="value">2BHK (Multiple Layout Sizes)</span></td></tr>
+                <tr><td><span class="label">Unique Advantage</span><span class="value">Unbeatable commute to Delhi/Palwal</span></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="verdict-box">
+        <h3>Advisor's Final Verdict</h3>
+        <p><strong>Choose Advitya Homes 2:</strong> If your priority is <strong>connectivity</strong>. Being right on the National Highway (NH-2) with metro access, it is a jackpot for daily commuters to Delhi or Industrial workers in Palwal/Prithla.</p>
+        <p><strong>Choose Soha Olive:</strong> If you seek <strong>lifestyle and future growth</strong>. With the Manjhawali bridge connecting Faridabad to Noida, Sector 98 is becoming a prime residential hub for professionals working in Noida Sector 150.</p>
+    </div>
+
+</div>
+
+<div class="sticky-footer">
+    <a href="tel:+919818811971" class="sticky-btn btn-call">
+        📞 Talk to Expert
     </a>
-    <a href="https://wa.me/919818811971?text=Hi%20Prince,%20I%20am%20interested%20in%20Faridabad%20Real%20Estate." class="contact-btn bg-whatsapp" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <a href="https://wa.me/919818811971?text=Hi Prince, I saw your comparison between Soha and Advitya. Please advise which one is better for my budget." class="sticky-btn btn-wa">
+        💬 Get Comparison PDF
     </a>
 </div>
 
