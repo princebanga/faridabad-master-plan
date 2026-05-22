@@ -3,56 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming Projects 2026 | Apka Apna Property Advisor</title>
+    <title>Upcoming Projects | Faridabad Real Estate Expert Prince Banga</title>
     <style>
-        :root { --primary-red: #e63946; --dark-blue: #1d3557; --gold: #ffb703; --nav-blue: #001f3f; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f4f7f6; color: #333; line-height: 1.6; }
-
-        /* 1. TOP STICKY NOTE (WhatsApp Channel) */
+        :root { --primary-red: #e63946; --dark-blue: #1d3557; --gold: #ffb703; --nav-blue: #001f3f; --light-gray: #f4f4f4; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8f9fa; color: #333; line-height: 1.6; }
+        
+        /* 1. TOP STICKY NOTE */
         .update-note {
             background: #fff9c4; color: #333; padding: 10px; text-align: center;
             font-size: 14px; border-bottom: 2px solid var(--gold); display: block;
             text-decoration: none; position: sticky; top: 0; z-index: 1100;
         }
-        .update-note strong { color: var(--primary-red); }
 
-        /* Navigation Bar */
+        /* Navigation */
         .nav-bar { background: var(--nav-blue); padding: 12px 0; text-align: center; position: sticky; top: 42px; z-index: 1000; border-bottom: 2px solid var(--gold); }
         .nav-bar a { color: white; text-decoration: none; margin: 0 12px; font-weight: 600; text-transform: uppercase; font-size: 12px; }
-        .nav-bar a:hover { color: var(--gold); }
 
-        .hero-section { background: var(--dark-blue); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--primary-red); }
-        .hero-section h1 { margin: 0; font-size: 28px; color: var(--gold); text-transform: uppercase; }
+        .header { text-align: center; padding: 40px 20px; background: var(--dark-blue); color: white; border-bottom: 5px solid var(--primary-red); }
+        .header h1 { margin: 0; font-size: 28px; color: var(--gold); text-transform: uppercase; }
 
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; padding-bottom: 100px; }
+        /* RERA RED TAG WARNING */
+        .rera-warning { background: #ffebee; border: 2px solid var(--primary-red); color: var(--primary-red); margin: 25px auto; padding: 15px; max-width: 1000px; border-radius: 8px; text-align: center; font-weight: bold; font-size: 13px; }
 
-        /* Project Comparison Table */
-        .table-container { background: white; border-radius: 15px; overflow-x: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; min-width: 800px; }
-        th { background: var(--dark-blue); color: white; padding: 20px; text-align: left; font-size: 14px; text-transform: uppercase; }
-        td { padding: 20px; border-bottom: 1px solid #eee; font-size: 15px; }
-        tr:hover { background: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 120px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 
-        .project-name { font-weight: bold; color: var(--primary-red); font-size: 16px; }
-        .status-badge { background: #e3f2fd; color: #0d47a1; padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        /* Card Style */
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        
+        .card-img { width: 100%; height: 200px; object-fit: cover; background: #ddd; }
+        .card-content { padding: 20px; flex-grow: 1; }
+        .tag { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
+        .tag-affordable { background: #e1f5fe; color: #01579b; }
+        .tag-premium { background: #fff3e0; color: #e65100; }
 
-        /* --- FLOATING ACTION BUTTONS (Sticky at Bottom) --- */
+        .card h3 { margin: 0 0 10px; color: var(--dark-blue); font-size: 20px; }
+        .location { color: #666; font-size: 14px; margin-bottom: 15px; display: flex; align-items: center; gap: 5px; }
+        
+        .feature-list { list-style: none; padding: 0; margin: 15px 0; font-size: 14px; }
+        .feature-list li { margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; }
+        .feature-list li::before { content: '✓'; color: #28a745; font-weight: bold; }
+
+        .price-box { background: var(--light-gray); padding: 10px 15px; border-radius: 8px; margin-top: auto; }
+        .price-label { font-size: 11px; color: #888; display: block; text-transform: uppercase; }
+        .price-value { font-weight: bold; color: var(--primary-red); font-size: 17px; }
+
+        /* --- FLOATING ACTION BUTTONS --- */
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; background: white; display: flex; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1100; }
         .sticky-btn { flex: 1; padding: 15px; text-align: center; text-decoration: none; font-weight: bold; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; }
         .btn-call { background: var(--dark-blue); }
         .btn-wa { background: #25d366; }
 
-        @media (max-width: 600px) {
-            .nav-bar a { font-size: 10px; margin: 0 5px; }
-            .hero-section h1 { font-size: 22px; }
-            .nav-bar { top: 42px; }
-        }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .header h1 { font-size: 22px; } }
     </style>
 </head>
 <body>
 
 <a href="https://whatsapp.com/channel/0029Vb7cMSv8fewwCtHsRn02" class="update-note" target="_blank">
-    <strong>📢 Insider Updates:</strong> Click here to Join our WhatsApp Channel for Live Site Visit Videos!
+    <strong>📢 Market Research:</strong> Join our WhatsApp Channel for Live RERA Status Updates.
 </a>
 
 <nav class="nav-bar">
@@ -64,65 +73,100 @@
     <a href="about.html">About Us</a>
 </nav>
 
-<div class="hero-section">
-    <h1>Upcoming Opportunities 2026</h1>
-    <p>Exclusive Pre-Launch Data Under Expert Guidance</p>
+<div class="header">
+    <h1>Upcoming Real Estate Research</h1>
+    <p>Market Analysis & Strategic Information by Prince Banga</p>
 </div>
 
 <div class="container">
-    <p style="text-align: center; color: #666; font-style: italic;">"Invest where the future is growing. Data-backed upcoming projects in Faridabad & Gurgaon."</p>
     
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Project & Location</th>
-                    <th>Developer</th>
-                    <th>Type</th>
-                    <th>Expected Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="project-name">True Habitat Luxe</span><br><small>Sector 78, Faridabad</small></td>
-                    <td>True Habitat</td>
-                    <td>High-Rise Luxury</td>
-                    <td><span class="status-badge">RERA Pending</span></td>
-                </tr>
-                <tr>
-                    <td><span class="project-name">MDPS New Launch</span><br><small>Sector 110A, Gurgaon</small></td>
-                    <td>MDPS Group</td>
-                    <td>Ultra Luxury</td>
-                    <td><span class="status-badge">Pre-Launch</span></td>
-                </tr>
-                <tr>
-                    <td><span class="project-name">Conscient Infrastructure</span><br><small>Sector 80, Faridabad</small></td>
-                    <td>Conscient</td>
-                    <td>Premium Floors</td>
-                    <td><span class="status-badge">Upcoming</span></td>
-                </tr>
-                <tr>
-                    <td><span class="project-name">Whiteland New Project</span><br><small>Sector 77, Gurgaon</small></td>
-                    <td>Whiteland</td>
-                    <td>Mixed Use</td>
-                    <td><span class="status-badge">Planning Stage</span></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="rera-warning">
+        ⚠️ IMPORTANT NOTICE: These projects are currently in the planning or approval stage. Pre-Launch sales are strictly prohibited under RERA guidelines. This information is shared for educational and market research purposes ONLY. Do not make any payments until a valid RERA registration number is issued.
     </div>
 
-    <div style="margin-top: 40px; background: #fff; padding: 25px; border-radius: 12px; border-left: 5px solid var(--gold);">
-        <h3>Important Note for Investors:</h3>
-        <p>In upcoming projects, timing is everything. Being an <strong>IT Consultant</strong>, I keep track of RERA filings and master plan changes to give you an early advantage. Guided by <strong>Mr. Rajesh Ahuja</strong>, we ensure your pre-booking is handled with 100% transparency.</p>
+    <div class="grid">
+        
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=400" class="card-img" alt="True Habitat">
+            <div class="card-content">
+                <span class="tag tag-affordable">Affordable Housing</span>
+                <h3>True Habitat</h3>
+                <div class="location">📍 Sector 110A, Faridabad</div>
+                <ul class="feature-list">
+                    <li><b>Cleanest Land:</b> Approx 6 Acres with No High-Tension Cables nearby.</li>
+                    <li><b>Industrial Hub:</b> Strategic location near Amul Factory & IOCL Research Plant.</li>
+                    <li><b>High Demand:</b> Excellent connectivity ensures high rental potential.</li>
+                </ul>
+                <div class="price-box">
+                    <span class="price-label">Project Status</span>
+                    <span class="price-value">Under Approval Process</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400" class="card-img" alt="MDPS Low Rise">
+            <div class="card-content">
+                <span class="tag tag-premium">Premium Low-Rise</span>
+                <h3>MDPS Project</h3>
+                <div class="location">📍 Sector 87, Faridabad</div>
+                <ul class="feature-list">
+                    <li><b>Prime Access:</b> Only 700 meters from Delhi-Mumbai Expressway.</li>
+                    <li><b>Elite Education:</b> Located right next to MDPS Premium School.</li>
+                    <li><b>Spacious Living:</b> Premium units of approx 2250 sq.ft planned.</li>
+                </ul>
+                <div class="price-box">
+                    <span class="price-label">Project Status</span>
+                    <span class="price-value">Market Study Phase</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400" class="card-img" alt="Associates Builder">
+            <div class="card-content">
+                <span class="tag tag-premium">Ultra Luxury</span>
+                <h3>Associates Builder (3/4 BHK)</h3>
+                <div class="location">📍 Sector 82 (Near SPR Imperial)</div>
+                <ul class="feature-list">
+                    <li><b>Proven Neighborhood:</b> Developed by builders of SPR Imperial Estate.</li>
+                    <li><b>Large Sizes:</b> Massive 2100 sq.ft units for big families.</li>
+                    <li><b>Elite Living:</b> One of the most awaited premium launches.</li>
+                </ul>
+                <div class="price-box">
+                    <span class="price-label">Project Status</span>
+                    <span class="price-value">Awaiting RERA Filing</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=400" class="card-img" alt="Sector 112">
+            <div class="card-content">
+                <span class="tag tag-affordable">Budget Friendly</span>
+                <h3>Sector 112 Affordable</h3>
+                <div class="location">📍 Sector 112, KMP Connectivity</div>
+                <ul class="feature-list">
+                    <li><b>Highway Hub:</b> Strategic location near KMP Expressway.</li>
+                    <li><b>High Growth:</b> Rapidly developing zone with future appreciation.</li>
+                    <li><b>Standard Pricing:</b> Government approved rates will apply.</li>
+                </ul>
+                <div class="price-box">
+                    <span class="price-label">Project Status</span>
+                    <span class="price-value">Information Gathering Stage</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
 <div class="sticky-footer">
     <a href="tel:+919818811971" class="sticky-btn btn-call">
-        📞 Call for Pre-Launch Info
+        📞 Call for Research Details
     </a>
-    <a href="https://wa.me/919818811971?text=Hi Prince, I want early details for Upcoming Projects listed on your website." class="sticky-btn btn-wa">
-        💬 WhatsApp Pre-Book
+    <a href="https://wa.me/919818811971?text=Hi Prince, I want to understand the RERA status and market data for upcoming projects." class="sticky-btn btn-wa">
+        💬 WhatsApp Query
     </a>
 </div>
 
