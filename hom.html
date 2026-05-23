@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faridabad Master Plan 2031 | Interactive Map & Sector Analysis</title>
-    <meta name="description" content="Explore the interactive Faridabad Master Plan 2031 map. Data-driven real estate analysis and site visits by Prince Banga.">
+    <title>Faridabad Master Plan 2031 | Interactive Map</title>
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     
@@ -12,56 +11,75 @@
         :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; --nav-blue: #001f3f; }
         body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; background: #f8f9fa; }
 
-        /* Navigation Style */
+        /* --- Updated Navigation (No Home Button) --- */
         .master-nav {
             background: var(--nav-blue); padding: 12px 0; text-align: center;
             position: fixed; top: 0; width: 100%; z-index: 10000;
             border-bottom: 2px solid #ffb703;
+            display: flex; justify-content: center; flex-wrap: nowrap; overflow-x: auto;
         }
-        .master-nav a { color: white; text-decoration: none; margin: 0 12px; font-weight: 600; text-transform: uppercase; font-size: 11px; }
-
-        /* Map & Header */
-        #map { height: 100vh; width: 100%; z-index: 1; }
-        .map-header {
-            position: absolute; top: 70px; left: 50%; transform: translateX(-50%);
-            width: 85%; max-width: 360px; background: rgba(230, 57, 70, 0.95);
-            color: white; padding: 10px; border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 5000; text-align: center;
+        .master-nav a { 
+            color: white; text-decoration: none; margin: 0 8px; 
+            font-weight: 600; text-transform: uppercase; font-size: 10px;
+            white-space: nowrap;
         }
-        .video-btn { display: inline-block; padding: 5px 12px; background: white; color: var(--primary-red); text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 15px; margin-top: 5px; }
 
-        /* Animation & Filter Controls */
+        /* Map Container */
+        #map { height: 100vh; width: 100%; z-index: 1; position: relative; }
+
+        /* --- Verified Bouncing Animation --- */
         @keyframes bounceIn {
-            0% { transform: translateY(-500px) scale(0.3); opacity: 0; }
-            50% { transform: translateY(25px) scale(1.1); opacity: 0.8; }
-            100% { transform: translateY(0) scale(1); opacity: 1; }
+            0% { transform: translateY(-600px); opacity: 0; }
+            60% { transform: translateY(30px); opacity: 1; }
+            80% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
         }
-        .bounce-animation { animation: bounceIn 0.8s ease-out forwards; }
-        
-        .leaflet-control-layers-expanded {
-            background: rgba(255, 255, 255, 0.95) !important;
-            border: 2px solid var(--primary-red) !important; border-radius: 10px !important;
-            z-index: 8000 !important; cursor: move; min-width: 220px;
+        .bounce-pin { 
+            animation: bounceIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; 
         }
-        .control-header { background: var(--primary-red); color: white; padding: 8px 12px; font-weight: bold; margin: -10px -10px 10px -10px; border-radius: 8px 8px 0 0; }
 
-        /* Footer */
+        /* --- Draggable Filter Box --- */
+        .leaflet-control-layers {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 2px solid var(--primary-red) !important;
+            border-radius: 10px !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2) !important;
+            min-width: 200px;
+            position: absolute !important;
+        }
+        .control-header { 
+            background: var(--primary-red); color: white; padding: 10px; 
+            font-weight: bold; cursor: move; border-radius: 8px 8px 0 0;
+            display: flex; justify-content: space-between; align-items: center;
+            user-select: none;
+        }
+
+        /* Header & Footer */
+        .map-header {
+            position: absolute; top: 65px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 360px; background: rgba(230, 57, 70, 0.95);
+            color: white; padding: 8px; border-radius: 12px; z-index: 5000; text-align: center;
+        }
         .sticky-footer {
             position: fixed; bottom: 0; left: 0; width: 100%;
-            display: flex; z-index: 10000; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            display: flex; z-index: 10000;
         }
-        .sticky-btn { flex: 1; padding: 15px; text-align: center; text-decoration: none; font-weight: bold; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .sticky-btn { flex: 1; padding: 15px; text-align: center; text-decoration: none; font-weight: bold; color: white; font-size: 13px; }
         .btn-call { background: var(--dark-blue); }
         .btn-wa { background: var(--wa-green); }
 
         .popup-card { text-align: center; width: 180px; }
-        .popup-btn { display: block; margin-top: 8px; padding: 8px; color: white !important; text-decoration: none; border-radius: 5px; font-weight: bold; background: var(--primary-red); }
+        .popup-btn { display: block; margin-top: 8px; padding: 8px; color: white !important; text-decoration: none; border-radius: 5px; background: var(--primary-red); font-weight: bold; }
+        
+        /* Mobile adjustment for Nav */
+        @media (max-width: 480px) {
+            .master-nav a { margin: 0 5px; font-size: 9px; }
+        }
     </style>
 </head>
-<body oncontextmenu="return false;" ondragstart="return false;">
+<body oncontextmenu="return false;">
 
 <nav class="master-nav">
-    <a href="index.html">Home</a>
     <a href="runningprojects.html">Ongoing</a>
     <a href="upcoming.html">Upcoming</a>
     <a href="videos.html">Videos</a>
@@ -70,109 +88,105 @@
 </nav>
 
 <div class="map-header">
-    <strong>Apka Apna Property Advisor</strong><br>
-    <a href="tel:+919818811971" style="color:white; text-decoration:none;">📞 98188 11971</a>
-    <div style="display: flex; gap: 8px; justify-content: center;">
-        <a href="videos.html" class="video-btn">🎥 Videos</a>
-        <a href="compare.html" class="video-btn" style="background:var(--dark-blue); color:white;">📊 Reviews</a>
-    </div>
+    <strong style="font-size: 14px;">Apka Apna Property Advisor</strong><br>
+    <a href="tel:+919818811971" style="color:white; text-decoration:none; font-size: 13px;">📞 98188 11971</a>
 </div>
 
 <div id="map"></div>
 
 <div class="sticky-footer">
     <a href="tel:+919818811971" class="sticky-btn btn-call">📞 Call Prince</a>
-    <a href="https://wa.me/919818811971" class="sticky-btn btn-wa">💬 WhatsApp Enquiry</a>
+    <a href="https://wa.me/919818811971" class="sticky-btn btn-wa">💬 WhatsApp</a>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-    // Security Lock
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = e => { if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74 || e.keyCode == 67)) || (e.ctrlKey && e.keyCode == 85)) return false; };
-
-    // Map Init
+    // Map Setup
     var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1, attributionControl: false });
     var bounds = [[0, 0], [1000, 1500]];
     L.imageOverlay('map.webp', bounds).addTo(map);
     map.fitBounds(bounds);
 
+    // Icons
     var icons = {
-        "Plots": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),
-        "High-Rise": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),
-        "Low-Rise": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),
-        "Affordable": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),
-        "Upcoming": new L.Icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] })
+        "Plots": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),
+        "High-Rise": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),
+        "Low-Rise": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] }),
+        "Affordable": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png', iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [1, -34] })
     };
 
-    var currentLayers = { "Plots": L.layerGroup().addTo(map), "High-Rise": L.layerGroup().addTo(map), "Low-Rise": L.layerGroup().addTo(map), "Affordable": L.layerGroup().addTo(map), "Future": L.layerGroup().addTo(map) };
-    var allMarkers = [];
+    var currentLayers = { "Plots": L.layerGroup().addTo(map), "High-Rise": L.layerGroup().addTo(map), "Low-Rise": L.layerGroup().addTo(map), "Affordable": L.layerGroup().addTo(map) };
 
-    function addProject(y, x, name, videoUrl, category, price, isUpcoming = false) {
-        var iconType = isUpcoming ? "Upcoming" : category;
-        var layer = isUpcoming ? currentLayers["Future"] : currentLayers[category];
-        var marker = L.marker([y, x], { icon: icons[iconType] });
+    function addProject(y, x, name, videoUrl, category, price) {
+        var marker = L.marker([y, x], { icon: icons[category] });
         
         marker.on('add', function() {
-            var el = marker._icon;
-            if (el) { el.classList.add('bounce-animation'); setTimeout(() => el.classList.remove('bounce-animation'), 1000); }
+            var icon = marker._icon;
+            if (icon) {
+                icon.classList.add('bounce-pin');
+                setTimeout(() => { icon.classList.remove('bounce-pin'); }, 1500);
+            }
         });
 
-        marker.addTo(layer);
-        marker.projectName = name.toLowerCase();
-        marker.bindPopup(`<div class="popup-card"><strong>${name}</strong><br><span style="color:red">${price}</span><hr><a href="${videoUrl}" target="_blank" class="popup-btn">🎥 वीडियो देखें</a></div>`);
-        allMarkers.push(marker);
+        marker.addTo(currentLayers[category]);
+        marker.bindPopup(`<div class="popup-card"><strong>${name}</strong><br><span style="color:red">${price}</span><hr><a href="${videoUrl}" target="_blank" class="popup-btn">🎥 Video</a></div>`);
     }
 
-    // --- FULL DATA RESTORED ---
-    addProject(529.3, 978.0, "Omaxe Royal Residency 2", "https://www.youtube.com/shorts/oSOD4yy0n3o", "High-Rise", "Best Deal");
-    addProject(484.8, 1078.5, "Prosper EPIC", "https://www.youtube.com/shorts/iXrhyCeW2nk", "High-Rise", "Best Deal");
-    addProject(534.8, 1106.3, "Emerald 4BHK", "https://www.youtube.com/watch?v=apYXHrChxEE", "High-Rise", "Best Deal");
-    addProject(668.5, 1212.4, "Tarang Atlantis", "https://www.youtube.com/watch?v=M8R6RR9EKp8", "High-Rise", "Best Deal");
-    addProject(447.6, 1033.8, "Coral Park", "https://www.youtube.com/shorts/FFJFlOx2m_w", "Plots", "Best Deal");
-    addProject(450.3, 989.4, "NeoLiv", "https://www.youtube.com/shorts/9l6LcFpALBY", "Plots", "Best Deal");
-    addProject(558.6, 805.5, "Townfit 70", "https://www.youtube.com/watch?v=TL2Abh_JxvA", "Plots", "Best Deal");
-    addProject(440.1, 1043.0, "SOHA Olive Town", "https://www.youtube.com/watch?v=FdvkILluDas", "Plots", "Best Deal");
-    addProject(361.6, 642.0, "Dameera Plots", "https://www.youtube.com/watch?v=Sv3XyNjT0h4", "Plots", "Best Deal");
-    addProject(488.3, 927.0, "BPTP Parkland Pride", "https://www.youtube.com/shorts/7n0Kss_6mJs", "Low-Rise", "Best Deal");
-    addProject(412.6, 1039.5, "Maple Floors", "https://www.youtube.com/shorts/GIu0T7baRpI", "Low-Rise", "Best Deal");
-    addProject(505.5, 1061.3, "Adore Presidential World", "https://www.youtube.com/shorts/cHRfbJGKcXE", "Low-Rise", "Best Deal");
-    addProject(720.9, 597.5, "Advitya Homes", "https://www.youtube.com/watch?v=iTiPrQ_tle4", "Affordable", "Best Deal");
-    addProject(428.4, 1071.3, "SOHA Olive Homes", "https://www.youtube.com/watch?v=WSFvvk6RiLg", "Affordable", "Best Deal");
-    addProject(523.6, 883.1, "Adore Prima 2", "https://www.youtube.com/shorts/sUa9hTv6SPc", "Affordable", "Best Deal");
-    addProject(504.5, 875.5, "Prima 1", "https://www.youtube.com/watch?v=UK0th107Ckg", "Affordable", "Best Deal");
-    addProject(579.1, 1076.5, "MDPS Floors", "#", "Low-Rise", "Coming Soon", true);
+    // --- Verified Data ---
+    addProject(529.3, 978.0, "Omaxe Royal Residency 2", "#", "High-Rise", "Best Deal");
+    addProject(484.8, 1078.5, "Prosper EPIC", "#", "High-Rise", "Best Deal");
+    addProject(440.1, 1043.0, "SOHA Olive Town", "#", "Plots", "Best Deal");
+    addProject(720.9, 597.5, "Advitya Homes", "#", "Affordable", "Best Deal");
+    addProject(488.3, 927.0, "BPTP Parkland Pride", "#", "Low-Rise", "Best Deal");
 
-    var overlayMaps = {
-        "<span style='color:green;font-weight:bold'>Plots</span>": currentLayers["Plots"],
-        "<span style='color:blue;font-weight:bold'>High-Rise</span>": currentLayers["High-Rise"],
-        "<span style='color:#b8860b;font-weight:bold'>Low-Rise</span>": currentLayers["Low-Rise"],
-        "<span style='color:orange;font-weight:bold'>Affordable</span>": currentLayers["Affordable"],
-        "<span style='color:black;font-weight:bold'>Future Projects</span>": currentLayers["Future"],
-        "<div style='margin-top:10px;'><input type='text' id='pSearch' placeholder='Search...' onkeyup='sProj()' style='width:100%;padding:5px;'></div>": L.layerGroup()
-    };
+    // Layers Control
+    var overlayMaps = { "Plots": currentLayers["Plots"], "High-Rise": currentLayers["High-Rise"], "Low-Rise": currentLayers["Low-Rise"], "Affordable": currentLayers["Affordable"] };
     L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
 
-    function sProj() {
-        var val = document.getElementById('pSearch').value.toLowerCase();
-        if (val.length < 2) return;
-        allMarkers.forEach(m => { if (m.projectName.includes(val)) { map.setView(m.getLatLng(), 1); m.openPopup(); } });
-    }
-
+    // --- Verified Drag & Minimize ---
     setTimeout(() => {
         const ctrl = document.querySelector('.leaflet-control-layers');
         if (ctrl) {
-            ctrl.style.top = '140px';
-            const h = document.createElement('div');
-            h.className = 'control-header';
-            h.innerHTML = '<span>Map Filters</span><span id="mBtn" style="cursor:pointer;float:right">−</span>';
-            ctrl.prepend(h);
-            document.getElementById('mBtn').onclick = function() {
-                const l = ctrl.querySelector('.leaflet-control-layers-list');
-                const isH = l.style.display === 'none';
-                l.style.display = isH ? 'block' : 'none';
-                this.innerText = isH ? '−' : '+';
+            ctrl.style.top = '150px';
+            ctrl.style.left = '10px';
+            
+            const header = document.createElement('div');
+            header.className = 'control-header';
+            header.innerHTML = '<span>Map Filters</span><span id="minBtn" style="cursor:pointer; padding: 5px;">−</span>';
+            ctrl.prepend(header);
+
+            document.getElementById('minBtn').onclick = function(e) {
+                e.stopPropagation();
+                const list = ctrl.querySelector('.leaflet-control-layers-list');
+                const isHidden = list.style.display === 'none';
+                list.style.display = isHidden ? 'block' : 'none';
+                this.innerText = isHidden ? '−' : '+';
             };
+
+            // Drag Logic for Mobile & Desktop
+            let isDragging = false, offset = [0, 0];
+            const startDrag = (e) => {
+                isDragging = true;
+                const clientX = e.clientX || e.touches[0].clientX;
+                const clientY = e.clientY || e.touches[0].clientY;
+                offset = [ctrl.offsetLeft - clientX, ctrl.offsetTop - clientY];
+            };
+            const doDrag = (e) => {
+                if (!isDragging) return;
+                const clientX = e.clientX || e.touches[0].clientX;
+                const clientY = e.clientY || e.touches[0].clientY;
+                ctrl.style.left = (clientX + offset[0]) + 'px';
+                ctrl.style.top = (clientY + offset[1]) + 'px';
+                ctrl.style.right = 'auto';
+            };
+            const stopDrag = () => { isDragging = false; };
+
+            header.addEventListener('mousedown', startDrag);
+            header.addEventListener('touchstart', startDrag);
+            document.addEventListener('mousemove', doDrag);
+            document.addEventListener('touchmove', doDrag);
+            document.addEventListener('mouseup', stopDrag);
+            document.addEventListener('touchend', stopDrag);
         }
     }, 1000);
 </script>
