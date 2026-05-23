@@ -9,7 +9,7 @@
         :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; --nav-blue: #001f3f; }
         body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; background: #f8f9fa; }
 
-        /* Navigation - Single Line */
+        /* Navigation - No Home, Single Line */
         .master-nav {
             background: var(--nav-blue); padding: 12px 0; text-align: center;
             position: fixed; top: 0; width: 100%; z-index: 10000;
@@ -28,11 +28,11 @@
         }
         .bounce-pin { animation: bounceIn 0.8s ease-out forwards !important; }
 
-        /* Draggable Filter Box */
+        /* Draggable Filter Box with Search */
         .leaflet-control-layers {
             background: white !important; border: 2px solid var(--primary-red) !important;
             border-radius: 10px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
-            min-width: 210px; position: fixed !important; z-index: 9999 !important;
+            min-width: 220px; position: fixed !important; z-index: 9999 !important;
         }
         .control-header { 
             background: var(--primary-red); color: white; padding: 10px; font-weight: bold; 
@@ -42,7 +42,7 @@
         .search-area { padding: 8px; border-top: 1px solid #eee; }
         #pSearch { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
 
-        /* Header & Footer */
+        /* UI Elements */
         .map-header {
             position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
             width: 85%; max-width: 350px; background: rgba(230, 57, 70, 0.95);
@@ -89,25 +89,37 @@
         "Plots": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png', iconSize: [25, 41], iconAnchor: [12, 41] }),
         "High-Rise": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png', iconSize: [25, 41], iconAnchor: [12, 41] }),
         "Low-Rise": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png', iconSize: [25, 41], iconAnchor: [12, 41] }),
-        "Affordable": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png', iconSize: [25, 41], iconAnchor: [12, 41] })
+        "Affordable": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png', iconSize: [25, 41], iconAnchor: [12, 41] }),
+        "Upcoming": L.icon({ iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png', iconSize: [25, 41], iconAnchor: [12, 41] })
     };
 
-    var layers = { "Plots": L.layerGroup().addTo(map), "High-Rise": L.layerGroup().addTo(map), "Low-Rise": L.layerGroup().addTo(map), "Affordable": L.layerGroup().addTo(map) };
+    var layers = { 
+        "Plots": L.layerGroup().addTo(map), 
+        "High-Rise": L.layerGroup().addTo(map), 
+        "Low-Rise": L.layerGroup().addTo(map), 
+        "Affordable": L.layerGroup().addTo(map),
+        "Future": L.layerGroup().addTo(map) 
+    };
     var allMarkers = [];
 
-    function addProject(y, x, name, vid, cat, price) {
-        var m = L.marker([y, x], { icon: icons[cat] });
+    function addProject(y, x, name, vid, cat, price, isFuture = false) {
+        var iconType = isFuture ? "Upcoming" : cat;
+        var targetLayer = isFuture ? layers["Future"] : layers[cat];
+        
+        var m = L.marker([y, x], { icon: icons[iconType] });
         m.projectName = name.toLowerCase();
+        
         m.on('add', function() {
             if (m._icon) { m._icon.classList.add('bounce-pin'); setTimeout(()=>m._icon.classList.remove('bounce-pin'), 1200); }
         });
-        m.addTo(layers[cat]);
+
+        m.addTo(targetLayer);
         m.bindPopup(`<div class="popup-card"><strong>${name}</strong><br><span style="color:red">${price}</span><hr><a href="${vid}" target="_blank" class="popup-btn">🎥 Video</a></div>`);
         allMarkers.push(m);
     }
 
-    // --- FULL DATA RE-ENTRY ---
-    addProject(529.3, 978.0, "Omaxe Royal Residency 2", "#", "High-Rise", "Best Deal");
+    // --- DATA RESTORED & VERIFIED ---
+    addProject(529.3, 978.0, "Omaxe Royal residency 2", "#", "High-Rise", "Best Deal");
     addProject(484.8, 1078.5, "Prosper EPIC", "#", "High-Rise", "Best Deal");
     addProject(534.8, 1106.3, "Emerald 4BHK", "#", "High-Rise", "Best Deal");
     addProject(668.5, 1212.4, "Tarang Atlantis", "#", "High-Rise", "Best Deal");
@@ -122,7 +134,17 @@
     addProject(428.4, 1071.3, "SOHA Olive Homes", "#", "Affordable", "Best Deal");
     addProject(523.6, 883.1, "Adore Prima 2", "#", "Affordable", "Best Deal");
 
-    var overlay = { "🟢 Plots": layers["Plots"], "🔵 High-Rise": layers["High-Rise"], "🟡 Low-Rise": layers["Low-Rise"], "🟠 Affordable": layers["Affordable"] };
+    // --- FUTURE PROJECTS ADDED ---
+    addProject(579.1, 1076.5, "MDPS Floors", "#", "Low-Rise", "Coming Soon", true);
+    addProject(542.0, 680.0, "HSIDC Commercial", "#", "Plots", "Coming Soon", true);
+
+    var overlay = { 
+        "🟢 Plots": layers["Plots"], 
+        "🔵 High-Rise": layers["High-Rise"], 
+        "🟡 Low-Rise": layers["Low-Rise"], 
+        "🟠 Affordable": layers["Affordable"],
+        "🔘 Future Projects": layers["Future"] 
+    };
     L.control.layers(null, overlay, { collapsed: false }).addTo(map);
 
     // --- Draggable & Search Logic ---
@@ -151,7 +173,6 @@
                 this.innerText = isH ? '−' : '+';
             };
 
-            // Draggable Logic
             let drag = false, off = [0, 0];
             const start = (e) => {
                 if(e.target.id === 'pSearch') return;
