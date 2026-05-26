@@ -3,133 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emerald Sector 87 Faridabad | Luxury 3 & 4 BHK Floors with 2 Car Parkings</title>
-    <meta name="description" content="Upcoming Low-Price Luxury Project in Sector 87 Faridabad by Emerald. Premium 3 & 4 BHK Floors on 32-acre land with 2 car parkings. DTCP Licensed. Best Investment.">
-    <meta name="keywords" content="Emerald Sector 87, Luxury Floors Faridabad, 3 BHK Floors Sector 87, 4 BHK Floors Sector 87, 2 Car Parking Floors Faridabad, Prince Banga Property Advisor">
-
+    <title>Emerald Sector 87 | Luxury 3 & 4 BHK Floors | Prince Banga</title>
     <style>
-        /* Your Website Theme Colors from Screenshots */
         :root {
             --nav-blue: #001f3f;
-            --dark-blue: #1d3557;
             --gold: #ffb703;
+            --dark-blue: #1d3557;
             --primary-red: #e63946;
-            --white: #ffffff;
         }
 
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f4f7f9; color: #333; }
 
-        /* Navigation Bar (Matching your exact menu) */
-        .nav-bar { background: var(--nav-blue); padding: 12px 0; text-align: center; position: sticky; top: 0; z-index: 1100; border-bottom: 3px solid var(--gold); }
-        .nav-bar a { color: var(--white); text-decoration: none; margin: 0 15px; font-weight: 600; text-transform: uppercase; font-size: 14px; }
+        /* Navigation Menu */
+        .nav-bar { background: var(--nav-blue); padding: 15px 0; text-align: center; border-bottom: 3px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
+        .nav-bar a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 14px; text-transform: uppercase; transition: 0.3s; }
         .nav-bar a:hover { color: var(--gold); }
 
-        /* Hero Banner */
-        .hero-banner { background: var(--dark-blue); color: var(--white); padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--primary-red); }
-        .luxury-tag { background: var(--gold); color: var(--nav-blue); padding: 5px 20px; font-weight: bold; border-radius: 25px; display: inline-block; margin-bottom: 15px; font-size: 14px; }
-        .hero-banner h1 { color: var(--gold); margin: 0; font-size: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        /* Header */
+        .hero { background: var(--dark-blue); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--primary-red); }
+        .hero h1 { margin: 0; font-size: 28px; color: var(--gold); text-transform: uppercase; }
+        .hero p { margin: 10px 0 0; font-size: 18px; opacity: 0.9; }
 
-        .container { max-width: 1100px; margin: 20px auto; padding: 20px; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
 
-        /* 360 Viewer Section */
-        .section-box { background: var(--white); padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        .section-title { color: var(--nav-blue); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; text-align: center; text-transform: uppercase; }
+        /* Content Cards */
+        .section-card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .section-title { color: var(--nav-blue); border-left: 5px solid var(--gold); padding-left: 15px; margin-bottom: 20px; text-transform: uppercase; }
 
-        /* Feature Grid */
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .feature-item { background: #fdfdfd; padding: 20px; border-top: 4px solid var(--nav-blue); border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .feature-item h4 { color: var(--primary-red); margin-top: 0; text-transform: uppercase; }
+        /* 360 View & Video Containers */
+        .media-container { width: 100%; height: 500px; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; background: #eee; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* Pricing & Calculator Section */
-        .calc-box { background: var(--nav-blue); color: var(--white); padding: 40px; border-radius: 15px; text-align: center; margin-top: 40px; }
-        .calc-box select { padding: 12px; width: 280px; border-radius: 5px; font-size: 16px; margin-top: 15px; }
-        .price-display { font-size: 36px; font-weight: bold; color: var(--gold); margin: 20px 0; }
+        /* Contact Buttons */
+        .action-area { text-align: center; padding: 30px; background: var(--nav-blue); border-radius: 15px; color: white; margin-top: 40px; }
+        .btn { padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin: 10px; transition: 0.3s; font-size: 16px; }
+        .btn-wa { background: #25d366; color: white; }
+        .btn-call { background: white; color: var(--nav-blue); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        /* Action Buttons (Matching your WhatsApp/Call style) */
-        .btn-group { margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn { padding: 15px 35px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; transition: 0.3s; }
-        .btn-whatsapp { background: #25d366; color: white; }
-        .btn-call { background: var(--white); color: var(--nav-blue); }
-        .btn:hover { transform: scale(1.05); opacity: 0.9; }
+        footer { text-align: center; padding: 30px; color: #777; font-size: 13px; }
 
-        footer { text-align: center; padding: 30px; color: #777; font-size: 12px; }
+        @media (max-width: 600px) { .media-container { height: 350px; } .hero h1 { font-size: 22px; } }
     </style>
 </head>
 <body>
 
-    <div class="nav-bar">
+    <nav class="nav-bar">
         <a href="index.html">HOME</a>
         <a href="runningprojects.html">ONGOING</a>
         <a href="upcoming.html">UPCOMING</a>
         <a href="videos.html">VIDEOS</a>
         <a href="compare.html">COMPARE</a>
         <a href="about.html">ABOUT US</a>
-    </div>
+    </nav>
 
-    <div class="hero-banner">
-        <div class="luxury-tag">UPCOMING LOW-PRICE LUXURY</div>
-        <h1>EMERALD SECTOR 87: THE 32-ACRE MASTERPIECE</h1>
-        <p style="font-size: 18px; margin-top: 10px;">Honest Analysis by Prince Banga (Apka Apna Property Advisor)</p>
-    </div>
+    <header class="hero">
+        <h1>EMERALD SECTOR 87 FARIDABAD</h1>
+        <p>Luxury 3 & 4 BHK Floors | 2 Dedicated Car Parkings</p>
+        <p style="font-size: 14px; margin-top: 15px; color: var(--gold);">Expert Analysis by Prince Banga (Apka Apna Property Advisor)</p>
+    </header>
 
     <div class="container">
-        
-        <div class="section-box">
-            <h3 class="section-title">Exclusive 360° Site Experience</h3>
-            <div style="width: 100%; min-height: 480px; border-radius: 8px; overflow: hidden;">
-                <script src="https://static.kuula.io/embed.js" data-kuula="https://kuula.co/share/LvVr6?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" data-css="ku-embed"></script>
+
+        <div class="section-card">
+            <h2 class="section-title">Exclusive 360° Site Location Tour</h2>
+            <div class="media-container">
+                <iframe class="ku-embed" frameborder="0" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" 
+                src="https://kuula.co/share/LvVr6?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" 
+                style="width: 100%; height: 100%; border: none;"></iframe>
             </div>
+            <p style="text-align: center; font-size: 14px; color: #666; margin-top: 10px;">Drag with your mouse or finger to look around the 32-acre site.</p>
         </div>
 
-        <div class="feature-grid">
-            <div class="feature-item">
-                <h4>⭐ Luxury Living</h4>
-                <ul style="line-height: 1.8;">
-                    <li><strong>Configurations:</strong> 3 BHK & 4 BHK Premium Floors</li>
-                    <li><strong>Car Parking:</strong> 2 Dedicated Parkings per Floor</li>
-                    <li><strong>Project Size:</strong> Spread over 32 Acres of Land</li>
-                    <li><strong>Connectivity:</strong> Prime Sector 87, Greater Faridabad</li>
-                </ul>
+        <div class="section-card">
+            <h2 class="section-title">Watch Detailed Project Analysis</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Emerald Sector 87 Video" allowfullscreen></iframe>
             </div>
-            <div class="feature-item">
-                <h4>📜 Legal & Location</h4>
-                <ul style="line-height: 1.8;">
-                    <li><strong>Status:</strong> DTCP Haryana Licensed Project</li>
-                    <li><strong>RERA:</strong> Applied (Coming Soon)</li>
-                    <li><strong>Nearby:</strong> Close to MDPS School & Amrita Hospital</li>
-                    <li><strong>Price Advantage:</strong> Luxury Floors at Entry-Level Pricing</li>
-                </ul>
-            </div>
+            <p style="margin-top: 15px; line-height: 1.6;">इस वीडियो में हमने सेक्टर 87 के इस 32-एकड़ प्रोजेक्ट की गहराई से समीक्षा की है, जिसमें इसके कनेक्टिविटी और फ्यूचर एप्रिसिएशन के बारे में बताया गया है।</p>
         </div>
 
-        <div class="calc-box">
-            <h2 style="color: var(--gold); margin-bottom: 10px;">LOW-PRICE LUXURY ESTIMATOR</h2>
-            <p>Select Configuration for Estimated Pricing:</p>
-            <select id="configSelect">
-                <option value="2.20">3 BHK Luxury Floor</option>
-                <option value="3.50">4 BHK Luxury Floor</option>
-            </select>
-            <div class="price-display" id="finalPrice">₹ 2.20 Cr* Onwards</div>
-            <p style="font-size: 13px; opacity: 0.8;">*Estimated Launch Price. Subject to Developer Approval.</p>
-            
-            <div class="btn-group">
-                <a href="https://wa.me/919818811971" class="btn btn-whatsapp">WHATSAPP DETAILS</a>
-                <a href="tel:+919818811971" class="btn btn-call">CALL ADVISOR</a>
-            </div>
+        <div class="section-card">
+            <h2 class="section-title">Key Highlights</h2>
+            <ul style="line-height: 2; font-size: 16px;">
+                <li><strong>32-Acre Land Parcel:</strong> One of the biggest upcoming developments in Sector 87.</li>
+                <li><strong>Parking Solution:</strong> Every floor comes with 2 dedicated car parkings.</li>
+                <li><strong>Luxury Setup:</strong> High-end 3 BHK and 4 BHK configurations at competitive prices.</li>
+                <li><strong>Connectivity:</strong> 2 minutes from MDPS School and close to Amrita Hospital.</li>
+            </ul>
+        </div>
+
+        <div class="action-area">
+            <h3>Get Full Price List & Payment Plan</h3>
+            <p>Connect with Prince Banga for direct pre-launch benefits.</p>
+            <a href="https://wa.me/919818811971" class="btn btn-wa">WHATSAPP DETAILS</a>
+            <a href="tel:+919818811971" class="btn btn-call">CALL: 98188 11971</a>
         </div>
 
     </div>
 
     <footer>
-        <p>Disclaimer: This is an upcoming project. All information is based on current license details and market analysis by Apka Apna Property Advisor.</p>
+        <p>© 2026 FaridabadMasterPlan.in | Independent Analysis by Prince Banga</p>
     </footer>
-
-    <script>
-        document.getElementById('configSelect').addEventListener('change', function() {
-            var val = this.value;
-            document.getElementById('finalPrice').innerText = "₹ " + val + " Cr* Onwards";
-        });
-    </script>
 
 </body>
 </html>
