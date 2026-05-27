@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faridabad Master Plan 2031 | Prince Banga - Property Advisor</title>
+    <title>Faridabad Master Plan 2031 | Prince Banga | Property Advisor</title>
+    <meta name="description" content="Explore Faridabad Master Plan 2031 with Prince Banga. Emerald Sector 87, Omaxe, Adore and more projects analyzed.">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; --nav-blue: #001f3f; --gold: #ffb703; }
-        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; background: #f8f9fa; }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; }
         .master-nav { background: var(--nav-blue); padding: 12px 0; text-align: center; position: fixed; top: 0; width: 100%; z-index: 10000; border-bottom: 2px solid var(--gold); display: flex; justify-content: center; }
         .master-nav a { color: white; text-decoration: none; margin: 0 8px; font-weight: 600; font-size: 10px; text-transform: uppercase; white-space: nowrap; }
         .news-ticker { position: fixed; top: 40px; width: 100%; background: var(--gold); color: #000; padding: 5px 0; font-size: 11px; font-weight: bold; z-index: 9999; overflow: hidden; }
         #map { height: 100vh; width: 100%; z-index: 1; }
-        
-        /* Fixed & Protected UI Styling */
         .leaflet-control-layers { background: white !important; border: 2px solid var(--primary-red) !important; border-radius: 10px !important; min-width: 230px; position: fixed !important; z-index: 9999 !important; box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important; }
         .control-header { background: var(--primary-red); color: white; padding: 10px; font-weight: bold; cursor: move; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; user-select: none; }
         .search-area { padding: 8px; border-top: 1px solid #eee; }
@@ -36,7 +35,7 @@
 </nav>
 
 <div class="news-ticker">
-    <marquee scrollamount="5">🆕 EMERALD SECTOR 87: License Received! Luxury 3 & 4 BHK Floors near MDPS School. 📞 98188 11971</marquee>
+    <marquee scrollamount="5">🆕 EMERALD SECTOR 87: Pre-Launch Started! Luxury 3 & 4 BHK Floors. 📞 98188 11971</marquee>
 </div>
 
 <div id="map"></div>
@@ -48,6 +47,7 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="projects.js"></script>
+<script src="map-logic.js"></script>
 
 <script>
     var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1, attributionControl: false });
@@ -57,53 +57,17 @@
     var layers = { "Plots": L.layerGroup().addTo(map), "High-Rise": L.layerGroup().addTo(map), "Low-Rise": L.layerGroup().addTo(map), "Affordable": L.layerGroup().addTo(map), "Future": L.layerGroup().addTo(map) };
     var allMarkers = [];
 
-    // 'projectsData' से डेटा लेकर मैप पर पिन लगाना
     projectsData.forEach(p => {
         var iconColor = p.isFuture ? 'grey' : (p.cat === 'Plots' ? 'green' : (p.cat === 'High-Rise' ? 'blue' : (p.cat === 'Low-Rise' ? 'yellow' : 'orange')));
-        var iconUrl = `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${iconColor}.png`;
-        
-        var marker = L.marker([p.y, p.x], { icon: L.icon({ iconUrl: iconUrl, iconSize: [25, 41], iconAnchor: [12, 41] }) });
+        var marker = L.marker([p.y, p.x], { icon: L.icon({ iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${iconColor}.png`, iconSize: [25, 41], iconAnchor: [12, 41] }) });
         marker.projectName = p.name.toLowerCase();
-        marker.bindPopup(`<div class="popup-card"><strong>${p.name}</strong><br><small>${p.cat}</small><br><span style="color:red">${p.price}</span><hr><a href="${p.link}" target="_blank" class="popup-btn" style="background:#001f3f;">📄 Full Analysis</a><a href="https://wa.me/919818811971?text=Interested in ${p.name}" target="_blank" class="popup-btn" style="background:#25D366;">💬 Enquiry</a></div>`);
+        marker.bindPopup(`<div class="popup-card"><strong>${p.name}</strong><br><span style="color:red">${p.price}</span><hr><a href="${p.link}" target="_blank" class="popup-btn" style="background:#001f3f;">📄 Details</a><a href="https://wa.me/919818811971" target="_blank" class="popup-btn" style="background:#25D366;">💬 WhatsApp</a></div>`);
         marker.addTo(p.isFuture ? layers["Future"] : layers[p.cat]);
         allMarkers.push(marker);
     });
 
-    var filterMenu = L.control.layers(null, { "🟢 Plots": layers["Plots"], "🔵 High-Rise": layers["High-Rise"], "🟡 Low-Rise": layers["Low-Rise"], "🟠 Affordable": layers["Affordable"], "🔘 Future Projects": layers["Future"] }, { collapsed: false }).addTo(map);
-
-    // Draggable Search & Filter Box Logic (यह कभी नहीं हिलेगा)
-    setTimeout(() => {
-        const ctrl = document.querySelector('.leaflet-control-layers');
-        if (ctrl) {
-            ctrl.style.top = '150px'; ctrl.style.left = '10px';
-            const box = document.createElement('div');
-            box.innerHTML = `<div class="control-header" id="handle"><span>Project Filters</span><span id="min" style="cursor:pointer">−</span></div><div class="search-area"><input type="text" id="pSearch" placeholder="Search Project..." onkeyup="doSearch()"></div>`;
-            ctrl.prepend(box);
-
-            window.doSearch = function() {
-                let val = document.getElementById('pSearch').value.toLowerCase();
-                allMarkers.forEach(m => { if(val.length > 1 && m.projectName.includes(val)){ map.setView(m.getLatLng(), 1); m.openPopup(); } });
-            };
-
-            document.getElementById('min').onclick = function() {
-                const list = ctrl.querySelector('.leaflet-control-layers-list'), sea = ctrl.querySelector('.search-area');
-                const isH = list.style.display === 'none';
-                list.style.display = sea.style.display = isH ? 'block' : 'none';
-                this.innerText = isH ? '−' : '+';
-            };
-
-            // Drag Logic
-            let drag = false, off = [0, 0];
-            const start = (e) => { if(e.target.id === 'pSearch' || e.target.id === 'min') return; drag = true; let ev = e.type.includes('touch') ? e.touches[0] : e; off = [ctrl.offsetLeft - ev.clientX, ctrl.offsetTop - ev.clientY]; };
-            const move = (e) => { if(!drag) return; let ev = e.type.includes('touch') ? e.touches[0] : e; ctrl.style.left = (ev.clientX + off[0]) + 'px'; ctrl.style.top = (ev.clientY + off[1]) + 'px'; ctrl.style.right = 'auto'; };
-            document.getElementById('handle').addEventListener('mousedown', start);
-            document.getElementById('handle').addEventListener('touchstart', start);
-            document.addEventListener('mousemove', move);
-            document.addEventListener('touchmove', move);
-            document.addEventListener('mouseup', () => drag = false);
-            document.addEventListener('touchend', () => drag = false);
-        }
-    }, 1000);
+    // Initialize logic from external file
+    initMapLogic(map, allMarkers, layers);
 </script>
 </body>
 </html>
