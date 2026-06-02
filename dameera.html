@@ -1,135 +1,458 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Damira Faridabad | मात्र 5 मिनट दिल्ली-मुंबई एक्सप्रेसवे से</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>DaMeera City | Sector 121 Faridabad Plotted Township</title>
+    <!-- System Component Style Directives -->
     <style>
         :root {
-            --primary: #e63946;
-            --dark: #001f3f;
-            --gold: #ffb703;
-            --light: #f8f9fa;
+            --primary-slate: #0f172a;
+            --accent-teal: #0d9488;
+            --electric-amber: #f59e0b;
+            --pure-crimson: #e11d48;
+            --background-canvas: #f8fafc;
+            --text-dark: #334155;
+            --text-light: #f1f5f9;
         }
-        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--light); color: #333; line-height: 1.6; }
-        
-        /* Hero Section */
-        .hero { background: var(--dark); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--gold); }
-        .badge { background: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
 
-        /* Video Section */
-        .video-container { max-width: 900px; margin: -40px auto 40px; background: #000; padding: 10px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); position: relative; }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* Content Container */
-        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        body {
+            background-color: var(--background-canvas);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-        /* Distance Table */
-        .stats-table { width: 100%; background: white; border-collapse: collapse; margin: 30px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .stats-table th { background: var(--dark); color: white; padding: 15px; text-align: left; }
-        .stats-table td { padding: 15px; border-bottom: 1px solid #eee; font-weight: 600; }
-        .stats-table tr:hover { background: #fff9e6; }
-        .highlight-red { color: var(--primary); font-size: 1.2rem; }
+        header {
+            background: linear-gradient(135deg, var(--primary-slate) 0%, #1e1b4b 100%);
+            padding: 30px 5%;
+            color: var(--text-light);
+            border-bottom: 4px solid var(--accent-teal);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
 
-        /* Key Points Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-        .card { background: white; padding: 25px; border-radius: 12px; border-left: 5px solid var(--primary); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
-        .card h3 { margin: 0 0 10px 0; color: var(--dark); }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-        /* Sticky Call-to-Action */
-        .cta-bar { position: fixed; bottom: 0; width: 100%; display: flex; z-index: 1000; }
-        .cta-btn { flex: 1; padding: 20px; text-align: center; color: white; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
-        .btn-wa { background: #25D366; }
-        .btn-call { background: var(--primary); }
+        .brand-block h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 1.8rem; }
+        .brand-block p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .badge-array {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .rera-badge {
+            background: rgba(13, 148, 136, 0.2);
+            border: 1px solid var(--accent-teal);
+            color: #2dd4bf;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .view-map-cta {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 6px;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .view-map-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 968px) {
+            main {
+                grid-template-columns: 1fr;
+                margin: 20px auto;
+            }
+        }
+
+        .media-showcase-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-headline {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-slate);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 5px solid var(--accent-teal);
+            padding-left: 12px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio Matrix */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            background: #000;
+            margin-bottom: 24px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .project-narrative {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+
+        .image-future-deck {
+            margin-top: 30px;
+        }
+
+        .gallery-mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 15px;
+        }
+
+        .future-pic-slot {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 10px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 13px;
+            text-align: center;
+            padding: 15px;
+            transition: all 0.3s;
+        }
+
+        .future-pic-slot:hover {
+            border-color: var(--accent-teal);
+            color: var(--accent-teal);
+            background: rgba(13, 148, 136, 0.02);
+        }
+
+        .metrics-ledger-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            border: 1px solid #e2e8f0;
+            align-self: start;
+        }
+
+        .ledger-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .ledger-table tr {
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .ledger-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .ledger-table td {
+            padding: 16px 12px;
+            font-size: 15px;
+        }
+
+        .ledger-key {
+            font-weight: 700;
+            color: #64748b;
+            width: 45%;
+        }
+
+        .ledger-val {
+            font-weight: 800;
+            color: var(--primary-slate);
+            text-align: right;
+        }
+
+        .critical-value-ticker {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(225, 29, 72, 0.05) 100%);
+            border: 1px dashed var(--electric-amber);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .ticker-bullet {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .ticker-bullet:last-child {
+            margin-bottom: 0;
+        }
+
+        .ticker-icon {
+            background: var(--electric-amber);
+            color: var(--primary-slate);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .ticker-icon.green {
+            background: #10b981;
+            color: #fff;
+        }
+
+        .action-button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn-call {
+            background: var(--primary-slate);
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+        }
+
+        .legal-footer-note {
+            background: #e2e8f0;
+            color: #64748b;
+            font-size: 11px;
+            text-align: justify;
+            padding: 24px 5%;
+            margin-top: 60px;
+            line-height: 1.6;
+            border-top: 1px solid #cbd5e1;
+        }
+
+        .legal-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
 
-<section class="hero">
-    <span class="badge">EXCLUSIVE PROJECT</span>
-    <h1>Damira - फरीदाबाद की सबसे हॉट लोकेशन</h1>
-    <p>दिल्ली-मुंबई एक्सप्रेसवे और में रोड की कनेक्टिविटी वाला पहला प्रोजेक्ट</p>
-</section>
-
-<div class="container">
-    <div class="video-container">
-        <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/Pj15X-2zBao" allowfullscreen></iframe>
+    <!-- Executive Brand Header Layout Node -->
+    <header>
+        <div class="header-container">
+            <div class="brand-block">
+                <h1>DaMeera City</h1>
+                <p>Deen Dayal Jan Awas Yojna (DDJAY) Plotted Township | Sector 121, Faridabad</p>
+            </div>
+            <div class="badge-array">
+                <span class="rera-badge">HRERA-PKL-FBD-347-2022</span>
+                <a href="index.html" class="view-map-cta">← Back To Interactive Map</a>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <h2 style="text-align: center; color: var(--dark);">📍 इन्वेस्टमेंट स्कोरकार्ड (Location & Growth)</h2>
-    <table class="stats-table">
-        <thead>
-            <tr>
-                <th>डेस्टिनेशन</th>
-                <th>दूरी / समय</th>
-                <th>महत्व</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>दिल्ली-मुंबई एक्सप्रेसवे</td>
-                <td class="highlight-red">मात्र 5 मिनट</td>
-                <td>भारत का सबसे बड़ा इकॉनोमिक कॉरिडोर</td>
-            </tr>
-            <tr>
-                <td>ईस्टर्न पेरिफेरल (EPE)</td>
-                <td>2.2 किलोमीटर</td>
-                <td>नोएडा-गाजियाबाद की सीधी कनेक्टिविटी</td>
-            </tr>
-            <tr>
-                <td>मेन रोड लोकेशन</td>
-                <td>0 किलोमीटर</td>
-                <td>सीधी में रोड से एंट्री, कोई गांव का रास्ता नहीं</td>
-            </tr>
-            <tr>
-                <td>रजिस्ट्री एवं म्यूटेशन</td>
-                <td style="color: green;">उपलब्ध (Available)</td>
-                <td>100% सुरक्षित और कानूनी निवेश</td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Structural Layout Split Frame Grid -->
+    <main>
+        <!-- Left Frame Column: High Impact Multimedia Assets -->
+        <section class="media-showcase-card">
+            <h2 class="section-headline">Official Video Presentation</h2>
+            
+            <!-- Video Presentation Wrapper -->
+            <div class="video-wrapper">
+                <!-- Replace 'YOUR_YOUTUBE_VIDEO_ID_HERE' with your real video code identifier -->
+                <iframe src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_HERE?autoplay=0&rel=0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
 
-    <div class="grid">
-        <div class="card">
-            <i class="fas fa-chart-line"></i>
-            <h3>हाई ग्रोथ पोटेंशियल</h3>
-            <p>ईस्टर्न पेरिफेरल और एक्सप्रेसवे के बीच होने के कारण यहाँ अगले 2 साल में प्रॉपर्टी के दाम दोगुने होने की संभावना है।</p>
+            <h2 class="section-headline">About The Development</h2>
+            <p class="project-narrative">
+                Welcome to DaMeera City in Sector 121, Faridabad—a premium plotted development perfectly engineered for immediate end-use and explosive capital appreciation. Developed under Haryana's Deen Dayal Jan Awas Yojna (DDJAY) housing policy scheme, this gated infrastructure guarantees a modern, affordable residential lifestyle within a green, serene ecosystem. Featuring robust internal arterial avenues, rainwater systems, landscaped dense-forest walk paths, and continuous automated utility provisions, this destination represents the benchmark of plotted reliability in Delhi NCR.
+            </p>
+
+            <!-- Dynamic Asset Gallery Integration Node -->
+            <div class="image-future-deck">
+                <h3 class="section-headline" style="font-size: 18px;">Site Images & Construction Gallery</h3>
+                <div class="gallery-mockup-grid">
+                    <!-- Standard image elements <img> can be written seamlessly here inside slots once available -->
+                    <div class="future-pic-slot">
+                        📸 [ Master Layout Plan Map Graphic ]<br><small style="color:#a8a29e; font-weight:400; margin-top:4px;">Will be updated in next sync</small>
+                    </div>
+                    <div class="future-pic-slot">
+                        🚧 [ Main Entrance Gateway Status ]<br><small style="color:#a8a29e; font-weight:400; margin-top:4px;">Will be updated in next sync</small>
+                    </div>
+                    <div class="future-pic-slot">
+                        🌳 [ Dense Forest Central Park View ]<br><small style="color:#a8a29e; font-weight:400; margin-top:4px;">Will be updated in next sync</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Frame Column: Core Metrics, Real-Time Badges & Lead Capture Triggers -->
+        <section class="metrics-ledger-card">
+            <h2 class="section-headline">Connectivity & Location</h2>
+            
+            <!-- Micro Connectivity Ledger Representation Grid Matrix -->
+            <table class="ledger-table">
+                <tbody>
+                    <tr>
+                        <td class="ledger-key">Delhi-Mumbai Exp</td>
+                        <td class="ledger-val" style="color: var(--pure-crimson);">★ Only 5 Mins Drive</td>
+                    </tr>
+                    <tr>
+                        <td class="ledger-key">EPE Corridor</td>
+                        <td class="ledger-val">2.2 KM Direct Distance</td>
+                    </tr>
+                    <tr>
+                        <td class="ledger-key">IMT Industrial Hub</td>
+                        <td class="ledger-col-val ledger-val">4.0 KM Proximity</td>
+                    </tr>
+                    <tr>
+                        <td class="ledger-key">Arterial Access</td>
+                        <td class="ledger-val">Main Sector Dividing Road</td>
+                    </tr>
+                    <tr>
+                        <td class="ledger-key">Plot Footprint Scales</td>
+                        <td class="ledger-val">75 to 180 Sq. Yards</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Aggressive Critical High-Value Value Proposition Callout Array -->
+            <div class="critical-value-ticker">
+                <div class="ticker-bullet">
+                    <span class="ticker-icon green">✓</span>
+                    <span>REGISTRY AVAILABLE: Direct, secure ownership transfers executed immediately.</span>
+                </div>
+                <div class="ticker-bullet">
+                    <span class="ticker-icon">★</span>
+                    <span>OC ARRIVING SHORTLY: Final institutional Occupation Certificate issuance phase active.</span>
+                </div>
+                <div class="ticker-bullet">
+                    <span class="ticker-icon green">✓</span>
+                    <span>1st CONNECTED TOWNSHIP: Strategically located to capture incoming regional growth.</span>
+                </div>
+            </div>
+
+            <!-- Contextual Direct Action CTA Trigger Interface Panel -->
+            <div class="action-button-stack">
+                <!-- Programmatically encoded instant communication routing link -->
+                <a href="https://wa.me/91YOUR_PHONE_NUMBER?text=I%20am%20interested%20in%20DaMeera%20City%20Sector%20121%20Faridabad.%20Please%20send%20verified%20brochure%20and%20pricing%20details." 
+                   target="_blank" 
+                   class="action-btn btn-whatsapp">
+                    💬 Request Digital Brochure Via WhatsApp
+                </a>
+                
+                <a href="tel:+91YOUR_PHONE_NUMBER" class="action-btn btn-call">
+                    📞 Connect Direct With Location Expert
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Compliant Regulatory Statutory Safeguard Notice -->
+    <footer class="legal-footer-note">
+        <div class="legal-container">
+            <strong>Statutory Disclosure & RERA Disclaimer:</strong> The dynamic layouts, operational matrices, proximity statistics, and graphics displayed on this interface reflect official architectural configurations approved by the Directorate General of Town and Country Planning (DGTCP), Haryana under license number 113 of 2022 dated 10-08-2022. Project structures are monitored and fully registered in compliance with the Haryana Real Estate (Regulation and Development) Rules under registration entry number HRERA-PKL-FBD-347-2022. All interactive materials, artistic conceptualizations, and proximity time estimates displayed are mapped to offer intuitive real-time navigational clarity and do not represent contractual execution frameworks.
         </div>
-        <div class="card">
-            <i class="fas fa-file-contract"></i>
-            <h3>OC आने वाला है</h3>
-            <p>प्रोजेक्ट का काम तेजी पर है, बहुत जल्द OC (Occupation Certificate) मिलने वाला है, जिससे कीमतें बढ़ेंगी।</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-road"></i>
-            <h3>बेहतरीन कनेक्टिविटी</h3>
-            <p>फरीदाबाद का पहला ऐसा प्रोजेक्ट जो एक्सप्रेसवे से कनेक्ट होने वाला सबसे नजदीकी विकल्प है।</p>
-        </div>
-    </div>
-
-    <div style="margin: 50px 0; text-align: center; padding: 40px; border: 2px dashed #ccc; border-radius: 10px;">
-        <p style="color: #666;">[ आपकी साइट की तस्वीरें और ब्रोशर की पिक्स यहाँ ऐड की जाएंगी ]</p>
-    </div>
-</div>
-
-<div style="height: 100px;"></div> <div class="cta-bar">
-    <a href="https://wa.me/919818811971?text=मुझे दमीरा प्रोजेक्ट का ब्रोशर चाहिए" class="cta-btn btn-wa">
-        <i class="fab fa-whatsapp"></i> व्हाट्सएप ब्रोशर
-    </a>
-    <a href="tel:+919818811971" class="cta-btn btn-call">
-        <i class="fas fa-phone-alt"></i> अभी कॉल करें
-    </a>
-</div>
+    </footer>
 
 </body>
 </html>
