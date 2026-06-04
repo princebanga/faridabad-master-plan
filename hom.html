@@ -7,6 +7,27 @@
     <meta name="description" content="Explore Faridabad Master Plan 2031 with Prince Banga. Emerald Sector 87, Omaxe, Adore and more projects analyzed.">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
+
+/* 1. RESET DEFAULT BROWSER MARGINS */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    overflow-x: hidden; /* Prevents any accidental horizontal scrollbars */
+}
+
+/* 2. REMOVE BORDERS FROM THE MAP AND FORCE FULL WIDTH */
+#map { 
+    border: none !important; /* Kills the white border outline */
+    outline: none !important;
+    width: 100vw !important; /* Forces the map to fill 100% of the viewport width */
+    
+    /* Keep your existing height and margin-top from our last update: */
+    height: calc(100vh - 110px); 
+    margin-top: 110px; 
+    z-index: 1; 
+}
+        
         :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; --nav-blue: #001f3f; --gold: #ffb703; }
         body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; background: var(--background-canvas); }
         
