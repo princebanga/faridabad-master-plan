@@ -25,8 +25,8 @@ const globalMenuHTML = `
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Plots ▾</a>
                 <div class="dropdown-content">
-                    <a href="ongoing-plots.html">Ongoing Projects</a>
-                    <a href="upcoming-plots.html">Upcoming Projects</a>
+                    <a href="runningprojects.html">Ongoing Projects</a>
+                    <a href="upcoming.html">Upcoming Projects</a>
                 </div>
             </li>
             <li class="dropdown">
