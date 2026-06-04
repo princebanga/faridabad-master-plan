@@ -9,7 +9,7 @@ const projectsData = [
     { y: 450.3, x: 989.4, name: "NeoLiv", link: "https://www.youtube.com/shorts/9l6LcFpALBY", cat: "Plots", price: "Best Deal" },
     { y: 558.6, x: 805.5, name: "Townfit 70", link: "https://www.youtube.com/watch?v=TL2Abh_JxvA", cat: "Plots", price: "Best Deal" },
     { y: 440.1, x: 1043.0, name: "SOHA Olive Town", link: "https://www.youtube.com/watch?v=FdvkILluDas", cat: "Plots", price: "Best Deal" },
-    { y: 361.6, x: 642.0, name: "Dameera Plots", link: "https://www.youtube.com/watch?v=Sv3XyNjT0h4", cat: "Plots", price: "Best Deal" }, // वापस जोड़ा गया
+    { y: 361.6, x: 642.0, name: "Dameera Plots", link: "https://faridabadmasterplan.in/dameera.html", cat: "Plots", price: "Best Deal" }, // वापस जोड़ा गया
     { y: 488.3, x: 927.0, name: "BPTP Parkland Pride", link: "https://www.youtube.com/shorts/7n0Kss_6mJs", cat: "Low-Rise", price: "Best Deal" },
     { y: 412.6, x: 1039.5, name: "Maple Floors", link: "https://www.youtube.com/shorts/GIu0T7baRpI", cat: "Low-Rise", price: "Best Deal" },
     { y: 505.5, x: 1061.3, name: "Adore Presidential World", link: "https://www.youtube.com/shorts/cHRfbJGKcXE", cat: "Low-Rise", price: "Best Deal" },
