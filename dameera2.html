@@ -1,376 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DaMeera City | Sector 121 Faridabad Premium Plots</title>
-    <style>
-        :root {
-            --primary-slate: #0f172a;
-            --accent-teal: #0d9488;
-            --electric-amber: #f59e0b;
-            --pure-crimson: #e11d48;
-            --background-canvas: #f8fafc;
-            --text-dark: #334155;
-            --text-light: #f1f5f9;
-        }
+<style>
+    .layout-plan-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+        border: 1px solid #e2e8f0;
+        margin-top: 30px;
+    }
+    .map-container {
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #cbd5e1;
+        cursor: zoom-in;
+        transition: transform 0.3s ease;
+    }
+    .map-container img {
+        width: 100%;
+        display: block;
+        height: auto;
+    }
+    .map-caption {
+        font-size: 13px;
+        color: #64748b;
+        margin-top: 10px;
+        font-style: italic;
+        text-align: center;
+    }
+    /* Modal/Full-screen logic for the map */
+    .map-modal {
+        display: none;
+        position: fixed;
+        z-index: 10001;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+    }
+    .map-modal img {
+        max-width: 95%;
+        max-height: 95%;
+        border-radius: 8px;
+    }
+    .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+    }
+</style>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
+<section class="media-showcase-card">
+    <h2 class="section-headline" style="margin-top: 40px;">Master Layout Plan</h2>
+    <div class="map-container" onclick="document.getElementById('imgModal').style.display='flex'">
+        <img src="Dameera Map with plot numbers and size.jpg" alt="DaMeera City Sector 121 Layout Plan">
+    </div>
+    <p class="map-caption">Click the map to view full-size plot details and dimensions.</p>
+</section>
 
-        body {
-            background-color: var(--background-canvas);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-slate) 0%, #1e1b4b 100%);
-            padding: 30px 5%;
-            color: var(--text-light);
-            border-bottom: 4px solid var(--accent-teal);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .brand-block h1 {
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-            background: linear-gradient(to right, #ffffff, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .brand-block p {
-            font-size: 14px;
-            color: #94a3b8;
-            margin-top: 4px;
-            font-weight: 500;
-        }
-
-        .badge-array {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .rera-badge {
-            background: rgba(13, 148, 136, 0.2);
-            border: 1px solid var(--accent-teal);
-            color: #2dd4bf;
-            padding: 8px 16px;
-            font-size: 13px;
-            font-weight: 700;
-            border-radius: 6px;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 7fr 5fr;
-            gap: 40px;
-        }
-
-        @media (max-width: 968px) {
-            main {
-                grid-template-columns: 1fr;
-                margin: 20px auto;
-            }
-        }
-
-        .media-showcase-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-            border: 1px solid #e2e8f0;
-        }
-
-        .section-headline {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--primary-slate);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-left: 5px solid var(--accent-teal);
-            padding-left: 12px;
-        }
-
-        /* --- Multimedia Styles --- */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; 
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-            background: #000;
-            margin-bottom: 30px;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .virtual-tour-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 30px;
-        }
-
-        .tour-btn {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 20px 15px;
-            text-align: center;
-            text-decoration: none;
-            color: var(--primary-slate);
-            font-weight: 700;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        .tour-btn:hover {
-            border-color: var(--accent-teal);
-            background: rgba(13, 148, 136, 0.04);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(13, 148, 136, 0.1);
-        }
-
-        .tour-icon { font-size: 28px; }
-
-        /* --- Metrics & Ledger Styles --- */
-        .metrics-ledger-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-            border: 1px solid #e2e8f0;
-            align-self: start;
-        }
-
-        .ledger-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 30px;
-        }
-
-        .ledger-table tr { border-bottom: 1px solid #f1f5f9; }
-        .ledger-table tr:last-child { border-bottom: none; }
-        .ledger-table td { padding: 16px 12px; font-size: 15px; }
-        
-        .ledger-key { font-weight: 700; color: #64748b; width: 45%; }
-        .ledger-val { font-weight: 800; color: var(--primary-slate); text-align: right; }
-
-        .critical-value-ticker {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(22, 163, 74, 0.05) 100%);
-            border: 1px dashed var(--electric-amber);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-
-        .ticker-bullet {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 14px;
-            font-size: 15px;
-            font-weight: 700;
-            color: #1e293b;
-        }
-        .ticker-bullet:last-child { margin-bottom: 0; }
-
-        .ticker-icon {
-            background: #10b981;
-            color: #fff;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .action-button-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .action-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 16px;
-            font-size: 16px;
-            font-weight: 800;
-            text-decoration: none;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-transform: uppercase;
-        }
-
-        .action-btn:hover { transform: translateY(-2px); }
-
-        .btn-whatsapp {
-            background: #25d366;
-            color: #ffffff;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
-        }
-
-        .btn-call {
-            background: var(--primary-slate);
-            color: #ffffff;
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
-        }
-
-    </style>
-</head>
-<body>
-
-    <div id="global-menu-placeholder"></div>
-    <script src="menu.js"></script>
-
-    <header>
-        <div class="header-container">
-            <div class="brand-block">
-                <h1>DaMeera City</h1>
-                <p>DDJAY Plotted Township | Sector 121, Faridabad</p>
-            </div>
-            <div class="badge-array">
-                <span class="rera-badge">HRERA-PKL-FBD-347-2022</span>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section class="media-showcase-card">
-            
-            <h2 class="section-headline">Official Video Presentation</h2>
-            <div class="video-wrapper">
-                <iframe 
-                    src="https://www.youtube.com/embed/Sv3XyNjT0h4" 
-                    title="DaMeera City Sector 121 Faridabad"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-
-            <h2 class="section-headline">Interactive 360° Experience</h2>
-            <div class="virtual-tour-grid">
-                <a href="https://teliportme.com/profile/vishvashelpdesk?utm_medium=android&utm_source=share-profile" target="_blank" class="tour-btn">
-                    <span class="tour-icon">🏛️</span>
-                    <span>Grand Entrance</span>
-                </a>
-                <a href="https://teliportme.com/profile/vishvashelpdesk?utm_medium=android&utm_source=share-profile" target="_blank" class="tour-btn">
-                    <span class="tour-icon">🛣️</span>
-                    <span>Project Inside</span>
-                </a>
-                <a href="https://teliportme.com/profile/vishvashelpdesk?utm_medium=android&utm_source=share-profile" target="_blank" class="tour-btn">
-                    <span class="tour-icon">🌳</span>
-                    <span>Garden View</span>
-                </a>
-                <a href="https://teliportme.com/profile/vishvashelpdesk?utm_medium=android&utm_source=share-profile" target="_blank" class="tour-btn">
-                    <span class="tour-icon">🚁</span>
-                    <span>Full Aerial View</span>
-                </a>
-            </div>
-
-        </section>
-
-        <section class="metrics-ledger-card">
-            <h2 class="section-headline">Connectivity Matrix</h2>
-            
-            <table class="ledger-table">
-                <tbody>
-                    <tr>
-                        <td class="ledger-key">Delhi-Mumbai Exp.</td>
-                        <td class="ledger-val" style="color: var(--pure-crimson);">★ 5 Mins Drive</td>
-                    </tr>
-                    <tr>
-                        <td class="ledger-key">EPE Corridor</td>
-                        <td class="ledger-val">2.2 KM Direct Distance</td>
-                    </tr>
-                    <tr>
-                        <td class="ledger-key">Arterial Access</td>
-                        <td class="ledger-val">Main Sector Dividing Road</td>
-                    </tr>
-                    <tr>
-                        <td class="ledger-key">Total Units</td>
-                        <td class="ledger-val">131 Premium Plots</td>
-                    </tr>
-                    <tr>
-                        <td class="ledger-key">Plot Scaling</td>
-                        <td class="ledger-val">75 to 180 Sq. Yards</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="critical-value-ticker">
-                <div class="ticker-bullet">
-                    <span class="ticker-icon">✓</span>
-                    <span>REGISTRY AVAILABLE: Direct, secure ownership transfers immediately.</span>
-                </div>
-                <div class="ticker-bullet">
-                    <span class="ticker-icon">✓</span>
-                    <span>OC ARRIVING SHORTLY: Final Occupation Certificate phase active.</span>
-                </div>
-                <div class="ticker-bullet">
-                    <span class="ticker-icon">✓</span>
-                    <span>1st CONNECTED TOWNSHIP: Prime location for regional growth.</span>
-                </div>
-            </div>
-
-            <div class="action-button-stack">
-                <a href="https://wa.me/919818811971?text=I%20am%20interested%20in%20DaMeera%20City%20Sector%20121%20Faridabad.%20Please%20send%20brochure%20and%20pricing." 
-                   target="_blank" 
-                   class="action-btn btn-whatsapp">
-                    💬 Request Brochure via WhatsApp
-                </a>
-                
-                <a href="tel:+919818811971" class="action-btn btn-call">
-                    📞 Connect with Location Expert
-                </a>
-            </div>
-        </section>
-    </main>
-
-</body>
-</html>
+<div id="imgModal" class="map-modal">
+    <span class="close-modal" onclick="this.parentElement.style.display='none'">&times;</span>
+    <img src="Dameera Map with plot numbers and size.jpg" alt="Full Scale Layout">
+</div>
