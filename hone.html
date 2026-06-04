@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faridabad Master Plan 2031 | Prince Banga | Property Advisor</title>
+    <meta name="description" content="Explore Faridabad Master Plan 2031 with Prince Banga. Emerald Sector 87, Omaxe, Adore and more projects analyzed.">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; --nav-blue: #001f3f; --gold: #ffb703; }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; }
+        
+        /* RESTORED: The CSS must remain here so the injected menu from menu.js is styled correctly */
+        .master-nav { background: var(--nav-blue); padding: 12px 0; text-align: center; position: fixed; top: 0; width: 100%; z-index: 10000; border-bottom: 2px solid var(--gold); display: flex; justify-content: center; }
+        .master-nav a { color: white; text-decoration: none; margin: 0 8px; font-weight: 600; font-size: 10px; text-transform: uppercase; white-space: nowrap; }
+        .master-nav a:hover { color: var(--gold); }
+
+        .news-ticker { 
+            position: fixed; 
+            top: 40px; /* Aligned back to sit perfectly under the menu */
+            width: 100%; 
+            background: var(--gold); 
+            color: #000; 
+            padding: 5px 0; 
+            font-size: 11px; 
+            font-weight: bold; 
+            z-index: 9998; 
+            overflow: hidden; 
+        }
+        
+        /* RESTORED: Removed margin so the map doesn't break out of the 100vh bounds */
+        #map { height: 100vh; width: 100%; z-index: 1; }
+        
+        .leaflet-control-layers { background: white !important; border: 2px solid var(--primary-red) !important; border-radius: 10px !important; min-width: 230px; position: fixed !important; z-index: 9990 !important; box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important; }
+        .control-header { background: var(--primary-red); color: white; padding: 10px; font-weight: bold; cursor: move; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; user-select: none; }
+        .search-area { padding: 8px; border-top: 1px solid #eee; }
+        #pSearch { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; outline: none; }
+        
+        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 10000; }
+        .sticky-btn { flex: 1; padding: 15px; text-align: center; text-decoration: none; font-weight: bold; color: white; font-size: 14px; } 
+        .btn-call { background: var(--dark-blue); } .btn-wa { background: var(--wa-green); }
+        
+        .popup-card { text-align: center; width: 180px; }
+        .popup-btn { display: block; margin-top: 5px; padding: 8px; color: white !important; text-decoration: none; border-radius: 5px; background: var(--primary-red); font-weight: bold; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div id="global-menu-placeholder"></div>
+
+<div class="news-ticker">
+    <marquee scrollamount="5">🆕 EMERALD SECTOR 87: Pre-Launch Started! Luxury 3 & 4 BHK Floors. 📞 98188 11971</marquee>
+</div>
+
+<div id="map"></div>
+
+<div class="sticky-footer">
+    <a href="tel:+919818811971" class="sticky-btn btn-call">📞 Call Prince Banga</a>
+    <a href="https://wa.me/919818811971" class="sticky-btn btn-wa">💬 WhatsApp Enquiry</a>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="projects.js"></script>
+<script src="map-logic.js"></script>
+
+<script src="menu.js"></script>
+
+<script>
+    var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1, attributionControl: false });
+    L.imageOverlay('map.webp', [[0, 0], [1000, 1500]]).addTo(map);
+    map.fitBounds([[0, 0], [1000, 1500]]);
+
+    var layers = { "Plots": L.layerGroup().addTo(map), "High-Rise": L.layerGroup().addTo(map), "Low-Rise": L.layerGroup().addTo(map), "Affordable": L.layerGroup().addTo(map), "Future": L.layerGroup().addTo(map) };
+    var allMarkers = [];
+
+    projectsData.forEach(p => {
+        var iconColor = p.isFuture ? 'grey' : (p.cat === 'Plots' ? 'green' : (p.cat === 'High-Rise' ? 'blue' : (p.cat === 'Low-Rise' ? 'yellow' : 'orange')));
+        var marker = L.marker([p.y, p.x], { icon: L.icon({ iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${iconColor}.png`, iconSize: [25, 41], iconAnchor: [12, 41] }) });
+        marker.projectName = p.name.toLowerCase();
+        marker.bindPopup(`<div class="popup-card"><strong>${p.name}</strong><br><span style="color:red">${p.price}</span><hr><a href="${p.link}" target="_blank" class="popup-btn" style="background:#001f3f;">📄 Details</a><a href="https://wa.me/919818811971" target="_blank" class="popup-btn" style="background:#25D366;">💬 WhatsApp</a></div>`);
+        marker.addTo(p.isFuture ? layers["Future"] : layers[p.cat]);
+        allMarkers.push(marker);
+    });
+
+    // Initialize logic from external file
+    initMapLogic(map, allMarkers, layers);
+</script>
+</body>
+</html>
