@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
 
+
+      /* Strip Leaflet's default white background and border from all custom markers */
+.leaflet-div-icon {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Optional: If the white space is coming from a Popup Tooltip arrow/tail */
+.leaflet-popup-content-wrapper, 
+.leaflet-popup-tip {
+    /* Only use this if the issue is a popup bubble, not just the marker itself */
+    /* background: transparent !important; */ 
+    /* box-shadow: none !important; */
+}  
 /* 1. RESET DEFAULT BROWSER MARGINS */
 html, body {
     margin: 0 !important;
