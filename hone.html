@@ -8,28 +8,29 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; --nav-blue: #001f3f; --gold: #ffb703; }
-        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; }
+        body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; background: var(--background-canvas); }
         
-        /* RESTORED: The CSS must remain here so the injected menu from menu.js is styled correctly */
-        .master-nav { background: var(--nav-blue); padding: 12px 0; text-align: center; position: fixed; top: 0; width: 100%; z-index: 10000; border-bottom: 2px solid var(--gold); display: flex; justify-content: center; }
-        .master-nav a { color: white; text-decoration: none; margin: 0 8px; font-weight: 600; font-size: 10px; text-transform: uppercase; white-space: nowrap; }
-        .master-nav a:hover { color: var(--gold); }
-
+        /* TICKER FIX: Pushed to 62px to sit exactly below the new menu.js header */
         .news-ticker { 
             position: fixed; 
-            top: 40px; /* Aligned back to sit perfectly under the menu */
+            top: 62px; 
             width: 100%; 
             background: var(--gold); 
             color: #000; 
-            padding: 5px 0; 
-            font-size: 11px; 
+            padding: 6px 0; 
+            font-size: 12px; 
             font-weight: bold; 
             z-index: 9998; 
             overflow: hidden; 
         }
         
-        /* RESTORED: Removed margin so the map doesn't break out of the 100vh bounds */
-        #map { height: 100vh; width: 100%; z-index: 1; }
+        /* MAP FIX: Adjusted margin and height so the ticker doesn't overlap the map, and the bottom isn't cut off */
+        #map { 
+            height: calc(100vh - 85px); 
+            width: 100%; 
+            margin-top: 85px; 
+            z-index: 1; 
+        }
         
         .leaflet-control-layers { background: white !important; border: 2px solid var(--primary-red) !important; border-radius: 10px !important; min-width: 230px; position: fixed !important; z-index: 9990 !important; box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important; }
         .control-header { background: var(--primary-red); color: white; padding: 10px; font-weight: bold; cursor: move; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; user-select: none; }
@@ -62,10 +63,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="projects.js"></script>
 <script src="map-logic.js"></script>
-
-<script src="menu.js"></script>
-
-<script>
+<script src="menu.js"></script> <script>
     var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1, attributionControl: false });
     L.imageOverlay('map.webp', [[0, 0], [1000, 1500]]).addTo(map);
     map.fitBounds([[0, 0], [1000, 1500]]);
@@ -82,7 +80,6 @@
         allMarkers.push(marker);
     });
 
-    // Initialize logic from external file
     initMapLogic(map, allMarkers, layers);
 </script>
 </body>
