@@ -111,7 +111,7 @@ const globalMenuHTML = `
                     <div class="sub-dropdown">
                         <a href="upcoming.html">Upcoming Projects <span class="sub-arrow">▸</span></a>
                         <div class="sub-dropdown-content">
-                            <a href="emerald-sector-87-faridabad.html">Emerald low rise sector 87 Luxury Leaving</a>
+                            <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87 – Luxury Living</a>
                         </div>
                     </div>
                 </div>
