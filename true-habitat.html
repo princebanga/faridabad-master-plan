@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Habitat | Aanantya & Hans Affordable Housing Faridabad</title>
+    <style>
+        :root {
+            --primary-slate: #0f172a;
+            --accent-teal: #0d9488;
+            --background-canvas: #f8fafc;
+            --text-dark: #334155;
+            --text-light: #f8fafc;
+            --electric-amber: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--background-canvas);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-slate) 0%, #1e1b4b 100%);
+            padding: 30px 5%;
+            color: var(--text-light);
+            border-bottom: 4px solid var(--accent-teal);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand-block h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-block p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .badge-array {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .rera-badge {
+            background: rgba(13, 148, 136, 0.2);
+            border: 1px solid var(--accent-teal);
+            color: #2dd4bf;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 968px) {
+            main {
+                grid-template-columns: 1fr;
+                margin: 20px auto;
+            }
+        }
+
+        .media-showcase-card, .metrics-ledger-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            border: 1px solid #e2e8f0;
+        }
+
+        .metrics-ledger-card {
+            align-self: start;
+        }
+
+        .section-headline {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary-slate);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 5px solid var(--accent-teal);
+            padding-left: 12px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .data-table th {
+            background-color: var(--primary-slate);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #475569;
+        }
+
+        .data-table tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .action-button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn-call {
+            background: var(--primary-slate);
+            color: #ffffff;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+        }
+        
+        .tower-info {
+            background: #f8fafc;
+            border-left: 4px solid var(--electric-amber);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tower-info p {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="global-menu-placeholder"></div>
+
+    <header>
+        <div class="header-container">
+            <div class="brand-block">
+                <h1>TRUE HABITAT</h1>
+                <p>Aanantya & Hans - Affordable Housing Faridabad</p>
+            </div>
+            <div class="badge-array">
+                <div class="rera-badge">✓ S+14 TOWERS</div>
+                <div class="rera-badge">✓ INBUILT COMMERCIAL</div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="media-showcase-card">
+            <h2 class="section-headline">Project Configuration & Layouts</h2>
+            
+            <div class="tower-info">
+                <p>🏢 <strong>Towers 1, 2, 3, & 4:</strong> S+14 Floors | 3 BHK Layouts</p>
+                <p>🏢 <strong>Towers 5 & 6:</strong> S+14 Floors | 2 BHK Layouts</p>
+                <p>🛣️ <strong>Infrastructure:</strong> 8.0M & 6.0M Fire Tender Roads, 2 Karam Revenue Rasta</p>
+            </div>
+
+            <h3 style="margin: 20px 0 10px; color: var(--primary-slate);">3 BHK Unit Configurations</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Unit Type</th>
+                        <th>Carpet Area</th>
+                        <th>Balcony / Terrace Area</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Type-1</strong></td>
+                        <td>59.97 SQMT (645.52 SFT)</td>
+                        <td>12.44 SQMT (133.90 SFT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type-1P</strong></td>
+                        <td>59.97 SQMT (645.52 SFT)</td>
+                        <td>30.98 SQMT (333.46 SFT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type-1G</strong></td>
+                        <td>59.97 SQMT (645.52 SFT)</td>
+                        <td>30.98 SQMT (333.46 SFT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type-2</strong></td>
+                        <td>59.71 SQMT (642.72 SFT)</td>
+                        <td>12.85 SQMT (138.32 SFT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type-2P</strong></td>
+                        <td>59.71 SQMT (642.72 SFT)</td>
+                        <td>30.32 SQMT (326.36 SFT)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin: 20px 0 10px; color: var(--primary-slate);">2 BHK Unit Configurations</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Unit Type</th>
+                        <th>Carpet Area</th>
+                        <th>Balcony / Terrace Area</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Type-3 (2 BHK + Store)</strong></td>
+                        <td>59.71 SQMT (642.72 SFT)</td>
+                        <td>12.85 SQMT (138.32 SFT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type-3P (2 BHK + Store)</strong></td>
+                        <td>59.71 SQMT (642.72 SFT)</td>
+                        <td>30.32 SQMT (326.36 SFT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type-4</strong></td>
+                        <td>51.96 SQMT (559.30 SFT)</td>
+                        <td>11.37 SQMT (122.39 SFT)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type-5</strong></td>
+                        <td>46.11 SQMT (496.33 SFT)</td>
+                        <td>10.10 SQMT (108.72 SFT)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="metrics-ledger-card">
+            <h2 class="section-headline">Get Executive Brochure</h2>
+            <p style="font-size: 14px; color: #64748b; margin-bottom: 20px;">
+                Secure floor plans, site maps, and exclusive pricing details for True Habitat's newest affordable launch.
+            </p>
+
+            <div class="action-button-stack">
+                <a href="https://wa.me/91YOUR_PHONE_NUMBER?text=I%20am%20interested%20in%20True%20Habitat%20Aanantya%20Faridabad.%20Please%20send%20brochure%20and%20details." class="action-btn btn-whatsapp" target="_blank">
+                    💬 Request via WhatsApp
+                </a>
+                <a href="tel:+91YOUR_PHONE_NUMBER" class="action-btn btn-call">
+                    📞 Call Sales Expert
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+</body>
+</html>
