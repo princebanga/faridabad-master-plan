@@ -2,7 +2,7 @@
   "name": "Faridabad Master Plan 2031",
   "short_name": "FBD Map 2031",
   "description": "Interactive Digital Map of Faridabad Master Plan 2031",
-  "start_url": "index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#e63946",
