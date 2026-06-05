@@ -51,7 +51,7 @@ const globalMenuHTML = `
             padding-left: 25px; 
         }
 
-        /* --- NEW: Nested Sub-Dropdown CSS --- */
+        /* --- Nested Sub-Dropdown CSS --- */
         .sub-dropdown {
             position: relative;
         }
@@ -107,7 +107,13 @@ const globalMenuHTML = `
                 <a href="javascript:void(0)" class="dropbtn">Group Housing ▾</a>
                 <div class="dropdown-content">
                     <a href="runningprojects.html">Ongoing Projects</a>
-                    <a href="upcoming.html">Upcoming Projects</a>
+                    
+                    <div class="sub-dropdown">
+                        <a href="upcoming.html">Upcoming Projects <span class="sub-arrow">▸</span></a>
+                        <div class="sub-dropdown-content">
+                            <a href="emerald-sector-87-faridabad.html">Emerald low rise sector 87 Luxury Leaving</a>
+                        </div>
+                    </div>
                 </div>
             </li>
             
