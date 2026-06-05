@@ -24,6 +24,32 @@
     <meta name="description" content="Explore Faridabad Master Plan 2031 with Prince Banga. Emerald Sector 87, Omaxe, Adore and more projects analyzed.">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
+        /* PWA Install Button Styling */
+#pwa-install-btn {
+    display: none; /* Hidden by default, browser will show it if PWA is ready */
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(13, 148, 136, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: pulseGlow 2s infinite;
+}
+#pwa-install-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 18px rgba(13, 148, 136, 0.6);
+}
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 12px rgba(13, 148, 136, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(13, 148, 136, 0.8); }
+    100% { box-shadow: 0 0 12px rgba(13, 148, 136, 0.4); }
+}
         :root { --primary-red: #e63946; --dark-blue: #1d3557; --wa-green: #25D366; --nav-blue: #001f3f; --gold: #ffb703; }
         body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; }
         .master-nav { background: var(--nav-blue); padding: 12px 0; text-align: center; position: fixed; top: 0; width: 100%; z-index: 10000; border-bottom: 2px solid var(--gold); display: flex; justify-content: center; }
@@ -49,6 +75,9 @@
     <a href="videos.html">Videos</a>
     <a href="compare.html">Compare</a>
     <a href="about.html">About Us</a>
+    <button id="pwa-install-btn">
+    <span>📥</span> Install App
+</button>
 </nav>
 
 <div class="news-ticker">
