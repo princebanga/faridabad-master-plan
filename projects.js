@@ -1,7 +1,7 @@
 // यह आपकी प्रोजेक्ट लिस्ट है। भविष्य में सिर्फ यहीं बदलाव करें।
 const projectsData = [
-    { y: 579.1, x: 1076.5, name: "Emerald Sector 87", link: "emerald-sector-87-faridabad.html", cat: "Low-Rise", price: "Pre-Launch Deal" },
-    { y: 529.3, x: 978.0, name: "Omaxe Royal Residency 2", link: "https://www.youtube.com/shorts/oSOD4yy0n3o", cat: "High-Rise", price: "Best Deal" },
+    { y: 579.1, x: 1076.5, name: "Emerald Sector 87", link: "emerald-sector-87-faridabad.html", cat: "Low-Rise", price: "Pre-Launch Deal", isFuture: true },
+    { y: 529.3, x: 978.0, name: "Omaxe Royal Residency 2", link: "https://www.youtube.com/shorts/oSOD4yy0n3o", cat: "High-Rise", price: "Best Deal" isFuture: true},
     { y: 484.8, x: 1078.5, name: "Prosper EPIC", link: "https://www.youtube.com/shorts/iXrhyCeW2nk", cat: "High-Rise", price: "Best Deal" },
     { y: 534.8, x: 1106.3, name: "Emerald 4BHK", link: "https://www.youtube.com/watch?v=apYXHrChxEE", cat: "High-Rise", price: "Best Deal" },
     { y: 668.5, x: 1212.4, name: "Tarang Atlantis", link: "https://www.youtube.com/watch?v=M8R6RR9EKp8", cat: "High-Rise", price: "Best Deal" },
@@ -18,5 +18,5 @@ const projectsData = [
     { y: 523.6, x: 883.1, name: "Adore Prima 2", link: "https://www.youtube.com/shorts/sUa9hTv6SPc", cat: "Affordable", price: "Best Deal" },
     { y: 504.5, x: 875.5, name: "Prima 1", link: "https://www.youtube.com/watch?v=UK0th107Ckg", cat: "Affordable", price: "Best Deal" },
     { y: 542.0, x: 680.0, name: "HSIDC Commercial", link: "https://www.youtube.com", cat: "Plots", price: "Upcoming", isFuture: true },
-    { y: 469.3, x: 735.9, name: "True Habitat", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "Best Deal" },
+    { y: 469.3, x: 735.9, name: "True Habitat", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "Best Deal", isFuture: true },
 ];
