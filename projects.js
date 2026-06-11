@@ -1,7 +1,7 @@
 // यह आपकी प्रोजेक्ट लिस्ट है। भविष्य में सिर्फ यहीं बदलाव करें।
 const projectsData = [
     { y: 579.1, x: 1076.5, name: "Emerald Sector 87", link: "emerald-sector-87-faridabad.html", cat: "Low-Rise", price: "Pre-Launch Deal", isFuture: true },
-    { y: 529.3, x: 978.0, name: "Omaxe Royal Residency 2", link: "https://www.youtube.com/shorts/oSOD4yy0n3o", cat: "High-Rise", price: "Best Deal" isFuture: true},
+    { y: 529.3, x: 978.0, name: "Omaxe Royal Residency 2", link: "https://www.youtube.com/shorts/oSOD4yy0n3o", cat: "High-Rise", price: "Best Deal", isFuture: true},
     { y: 484.8, x: 1078.5, name: "Prosper EPIC", link: "https://www.youtube.com/shorts/iXrhyCeW2nk", cat: "High-Rise", price: "Best Deal" },
     { y: 534.8, x: 1106.3, name: "Emerald 4BHK", link: "https://www.youtube.com/watch?v=apYXHrChxEE", cat: "High-Rise", price: "Best Deal" },
     { y: 668.5, x: 1212.4, name: "Tarang Atlantis", link: "https://www.youtube.com/watch?v=M8R6RR9EKp8", cat: "High-Rise", price: "Best Deal" },
