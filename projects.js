@@ -17,6 +17,6 @@ const projectsData = [
     { y: 428.4, x: 1071.3, name: "SOHA Olive Homes", link: "https://www.youtube.com/watch?v=WSFvvk6RiLg", cat: "Affordable", price: "Best Deal" },
     { y: 523.6, x: 883.1, name: "Adore Prima 2", link: "https://www.youtube.com/shorts/sUa9hTv6SPc", cat: "Affordable", price: "Best Deal" },
     { y: 504.5, x: 875.5, name: "Prima 1", link: "https://www.youtube.com/watch?v=UK0th107Ckg", cat: "Affordable", price: "Best Deal" },
-    { y: 542.0, x: 680.0, name: "HSIDC Commercial", link: "https://www.youtube.com", cat: "Plots", price: "Upcoming", isFuture: true }
+    { y: 542.0, x: 680.0, name: "HSIDC Commercial", link: "https://www.youtube.com", cat: "Plots", price: "Upcoming", isFuture: true },
     { y: 469.3, x: 735.9, name: "True Habitat", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "Best Deal" },
 ];
