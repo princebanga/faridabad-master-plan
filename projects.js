@@ -14,7 +14,7 @@ const projectsData = [
     { y: 412.6, x: 1039.5, name: "Maple Floors", link: "https://www.youtube.com/shorts/GIu0T7baRpI", cat: "Low-Rise", price: "Best Deal" },
     { y: 505.5, x: 1061.3, name: "Adore Presidential World", link: "https://www.youtube.com/shorts/cHRfbJGKcXE", cat: "Low-Rise", price: "Best Deal" },
     { y: 720.9, x: 597.5, name: "Advitya Homes", link: "https://www.youtube.com/watch?v=iTiPrQ_tle4", cat: "Affordable", price: "Best Deal" },
-    { y: 428.4, x: 1071.3, name: "SOHA Olive Homes", link: "https://www.youtube.com/watch?v=WSFvvk6RiLg", cat: "Affordable", price: "Best Deal" },
+    { y: 428.4, x: 1071.3, name: "SOHA Olive Homes", link: "https://faridabadmasterplan.in/soha-olivehomes.html", cat: "Affordable", price: "Best Deal" },
     { y: 523.6, x: 883.1, name: "Adore Prima 2", link: "https://www.youtube.com/shorts/sUa9hTv6SPc", cat: "Affordable", price: "Best Deal" },
     { y: 504.5, x: 875.5, name: "Prima 1", link: "https://www.youtube.com/watch?v=UK0th107Ckg", cat: "Affordable", price: "Best Deal" },
     { y: 469.3, x: 735.9, name: "True Habitat", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "Best Deal", isFuture: true },
