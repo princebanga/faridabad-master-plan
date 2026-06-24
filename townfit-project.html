@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Townfit 70 Faridabad | Premium Residential Plots IMT Sector 70</title>
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --primary-accent: #0d9488;
+            --secondary-accent: #0f766e;
+            --text-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --bg-canvas: #f1f5f9;
+            --bg-card: #ffffff;
+            --glow-color: rgba(13, 148, 136, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Hero Layout Container */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1524813686514-a57563d77d61?auto=format&fit=crop&w=1920&q=80') no-repeat center/cover;
+            padding: 80px 5% 60px 5%;
+            color: var(--text-light);
+            text-align: center;
+            border-bottom: 4px solid var(--primary-accent);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(13, 148, 136, 0.2);
+            border: 1px solid var(--primary-accent);
+            color: #2dd4bf;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-banner h1 {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-banner p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: #cbd5e1;
+        }
+
+        /* Core Executive Ledger Grid */
+        .metrics-ledger {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: -40px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .ledger-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-accent);
+            transition: transform 0.3s ease;
+        }
+
+        .ledger-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .ledger-card h3 {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .ledger-card p {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .ledger-card span {
+            font-size: 12px;
+            color: var(--primary-accent);
+            display: block;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* Main Workspace Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px 20px;
+            display: grid;
+            grid-template-columns: 7fr 4fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-banner h1 { font-size: 32px; }
+        }
+
+        /* Feature Blocks styling */
+        .content-block {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .block-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary-accent);
+            padding-left: 12px;
+        }
+
+        /* Master 360 Virtual Tour Panel */
+        .viewer-container {
+            width: 100%;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+        }
+
+        .viewer-screen {
+            width: 100%;
+            height: 480px;
+            border: none;
+        }
+
+        .viewer-controls {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 640px) {
+            .viewer-controls {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .viewer-screen { height: 320px; }
+        }
+
+        .tour-btn {
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            padding: 12px 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .tour-btn:hover {
+            background: #cbd5e1;
+        }
+
+        .tour-btn.active {
+            background: var(--primary-accent);
+            color: var(--text-light);
+            border-color: var(--secondary-accent);
+            box-shadow: 0 0 12px var(--glow-color);
+        }
+
+        /* Info Highlight Row */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 640px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        .info-cell {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        .info-cell strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+
+        .info-cell p {
+            font-size: 15px;
+            color: #475569;
+        }
+
+        /* Sidebar CTA Form Card */
+        .sidebar-panel {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .cta-box {
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+            color: var(--text-light);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cta-box h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .cta-box p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 24px;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-call {
+            background: var(--primary-accent);
+            color: white;
+        }
+
+        .btn-call:hover {
+            background: var(--secondary-accent);
+            box-shadow: 0 0 15px rgba(13, 148, 136, 0.5);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128c7e;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Amenities Tags */
+        .amenity-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .amenity-tag {
+            background: #f1f5f9;
+            color: #334155;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Glowing Connectivity Node Line */
+        .connectivity-timeline {
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px dashed var(--primary-accent);
+            margin-top: 20px;
+        }
+
+        .timeline-node {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .timeline-node::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2dd4bf;
+            box-shadow: 0 0 8px #0d9488;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="global-menu-placeholder"></div>
+
+    <section class="hero-banner">
+        <span class="hero-badge">RERA Approved Township</span>
+        <h1>Townfit 70 (Ferrous Megapolis Phase 1)</h1>
+        <p>A pristine 102-Acre premium residential plotted infrastructure strategically located at IMT Sector 70, Faridabad, crafted perfectly around green expanses and urban logistics.</p>
+    </section>
+
+    <section class="metrics-ledger">
+        <div class="ledger-card">
+            <h3>Total Land Bank</h3>
+            <p>102 Acres</p>
+            <span>Integrated Mega Township</span>
+        </div>
+        <div class="ledger-card">
+            <h3>Central Park Area</h3>
+            <p>8 Acres</p>
+            <span>Dedicated Lush Landscape</span>
+        </div>
+        <div class="ledger-card">
+            <h3>Frontage Road</h3>
+            <p>45 Meter</p>
+            <span>Direct Sector Connectivity</span>
+        </div>
+        <div class="ledger-card">
+            <h3>Internal Network</h3>
+            <p>24 Meter</p>
+            <span>Wide Sector Pathways</span>
+        </div>
+    </section>
+
+    <main class="main-container">
+        
+        <div class="workspace-left">
+            
+            <div class="content-block">
+                <h2 class="block-title">Interactive 360° Site Experience</h2>
+                <div class="viewer-container">
+                    <iframe 
+                        id="master-360-viewer" 
+                        class="viewer-screen" 
+                        src="https://teliportme.com/view/2592898?utm_medium=android&utm_source=share-panorama" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="viewer-controls">
+                    <button class="tour-btn active" onclick="switchPanorama('https://teliportme.com/view/2592898?utm_medium=android&utm_source=share-panorama', this)">
+                        Entrance View
+                    </button>
+                    <button class="tour-btn" onclick="switchPanorama('https://teliportme.com/view/2592898?utm_medium=android&utm_source=share-panorama', this)">
+                        Garden & Hospital
+                    </button>
+                    <button class="tour-btn" onclick="switchPanorama('https://teliportme.com/profile/vishvashelpdesk?utm_medium=android&utm_source=share-profile', this)">
+                        Garden View 2
+                    </button>
+                    <button class="tour-btn" onclick="switchPanorama('https://teliportme.com/profile/vishvashelpdesk?utm_medium=android&utm_source=share-profile', this)">
+                        Inside 24M Road
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h2 class="block-title">Historical Price Matrix (April 2022 Launch)</h2>
+                <div class="info-grid">
+                    <div class="info-cell">
+                        <strong>Launch BSP (Tier-1 Plots)</strong>
+                        <p>₹33,900 per sq. yard</p>
+                    </div>
+                    <div class="info-cell">
+                        <strong>Launch BSP (Premium/Corner Plots)</strong>
+                        <p>₹35,700 per sq. yard</p>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-size: 14px; color: var(--text-muted); font-style: italic;">
+                    *Note: Current market rates have appreciated multi-fold due to immediate development within IMT Faridabad corridor. Contact our helpdesk for direct resale inventory details.
+                </p>
+            </div>
+
+            <div class="content-block">
+                <h2 class="block-title">Township Highlights & Amenities</h2>
+                <div class="info-grid">
+                    <div class="info-cell">
+                        <strong>Healthcare Infrastructure</strong>
+                        <p>Dedicated Hospital Zone inside the township development (Under Development Stage).</p>
+                    </div>
+                    <div class="info-cell">
+                        <strong>Educational Assets</strong>
+                        <p>Pre-designated high-school space provided within the blueprint layout plan.</p>
+                    </div>
+                </div>
+                <div class="amenity-list">
+                    <span class="amenity-tag">Gated Community</span>
+                    <span class="amenity-tag">24/7 Premium Security</span>
+                    <span class="amenity-tag">State-of-the-art Gym</span>
+                    <span class="amenity-tag">Swimming Pool</span>
+                    <span class="amenity-tag">Bar & Lounge Club</span>
+                    <span class="amenity-tag">Rainwater Harvesting</span>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h2 class="block-title">Strategic Location & Adjoining Projects</h2>
+                <p>Townfit 70 enjoys a prime commercial position, seamlessly aligned with Faridabad's flagship tech and industrial vectors:</p>
+                <div class="connectivity-timeline">
+                    <div class="timeline-node">
+                        <strong>Silicon Valley & Propex City Project:</strong> Positioned directly adjacent to Xsis Infra's elite layouts.
+                    </div>
+                    <div class="timeline-node">
+                        <strong>IMT Faridabad Industrial Hub:</strong> Immediate proximity to corporate and manufacturing sectors.
+                    </div>
+                    <div class="timeline-node">
+                        <strong>DND-KMP Expressway Node:</strong> Rapid transport corridor connecting Delhi, Noida, and Gurugram seamlessly.
+                    </div>
+                    <div class="timeline-node">
+                        <strong>Sant Surdas Metro Station:</strong> Located just 4 km away, linking directly to the Delhi Violet Line Metro.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="workspace-right sidebar-panel">
+            <div class="cta-box">
+                <h2>Direct Booking Helpdesk</h2>
+                <p>Get exclusive resale plots inventory, map sheets, and customized site visits instantly.</p>
+                
+                <a href="tel:+919818811971" class="action-button btn-call">
+                    📞 Call Executive: 98188 11971
+                </a>
+                
+                <a href="https://wa.me/919818811971?text=Hi,%20I%20am%20interested%20in%20Townfit%2070%20Sector%2070%20Faridabad%20Plots.%20Please%20share%20latest%20resale%20inventory%20and%20map%20layout." 
+                   target="_blank" 
+                   class="action-button btn-whatsapp">
+                    💬 Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchPanorama(url, buttonElement) {
+            // Update iframe src
+            document.getElementById('master-360-viewer').src = url;
+            
+            // Remove active style state from all tour buttons
+            const buttons = document.querySelectorAll('.tour-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Toggle active style state on the current node target
+            buttonElement.classList.add('active');
+        }
+    </script>
+
+    <script src="menu.js"></script>
+</body>
+</html>
