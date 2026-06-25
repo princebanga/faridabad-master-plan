@@ -7,7 +7,7 @@
     <meta name="description" content="Official Advitya Homes 2 draw results, winner list, and waiting list. Head-to-head comparison with Soha Olive Homes by Prince Banga.">
 
     <style>
-        :root { --primary-red: #e63946; --dark-blue: #1d3557; --gold: #ffb703; --nav-blue: #001f3f; --bg-light: #f0f2f5; --success-green: #2e7d32; }
+        :root { --primary-red: #e63946; --dark-blue: #1d3557; --gold: #ffb703; --nav-blue: #001f3f; --bg-light: #f0f2f5; --success-green: #2e7d32; --soha-teal: #2a9d8f; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: var(--bg-light); color: #333; line-height: 1.6; }
 
         /* TOP STICKY NOTE */
@@ -29,12 +29,37 @@
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 15px 120px; }
 
+        /* SOHA USER ALERT BANNER (NEW) */
+        .soha-direct-banner {
+            background-color: #e8f7f5;
+            border: 2px solid var(--soha-teal);
+            border-left: 8px solid var(--soha-teal);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .soha-direct-banner h3 { margin: 0 0 8px 0; color: #1c6b61; font-size: 18px; }
+        .btn-soha-global {
+            display: inline-block;
+            background: var(--soha-teal);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-soha-global:hover { background: #1c6b61; transform: translateY(-1px); }
+
         /* Comparison Cards Styling */
         .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
         
         .project-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #ddd; }
         .card-header { padding: 20px; text-align: center; color: white; font-weight: bold; font-size: 18px; }
-        .bg-soha { background: #2a9d8f; } 
+        .bg-soha { background: var(--soha-teal); } 
         .bg-advitya { background: #264653; } 
 
         /* Parameter Table */
@@ -49,6 +74,14 @@
         /* Draw Status Custom Box */
         .draw-status-box { background: #fff3cd; border: 1px solid #ffeeba; border-radius: 8px; padding: 12px; margin-top: 10px; font-size: 13px; color: #856404; }
         .draw-status-box strong { color: #533f03; }
+        
+        /* Inline card link button for Soha */
+        .btn-card-soha {
+            display: block; text-align: center; background: var(--soha-teal); color: white; 
+            text-decoration: none; font-weight: bold; padding: 8px; margin-top: 10px; 
+            border-radius: 6px; font-size: 12px; transition: background 0.2s;
+        }
+        .btn-card-soha:hover { background: #1c6b61; }
 
         /* --- NEW LIVE DRAW RESULTS SECTION --- */
         .results-box { background: white; padding: 30px; border-radius: 15px; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 5px solid var(--success-green); }
@@ -110,15 +143,25 @@
 
 <div class="container">
 
+    <!-- NEW BROADCAST BANNER FOR SOHA OLIVE HOMES USERS -->
+    <div class="soha-direct-banner">
+        <h3>📢 Looking for Soha Olive Homes Draw Results?</h3>
+        <p style="margin: 0; font-size: 14px; color: #333;">
+            A brand-new dedicated status page for <strong>Soha Olive Homes (Sector 98)</strong> is now live! Click below to view official guidelines, draw lists, and real-time updates directly.
+        </p>
+        <a href="soha-olivehomes.html" class="btn-soha-global">👉 Go to Soha Olive Homes Draw Info Page</a>
+    </div>
+
     <div class="compare-grid">
         <!-- SOHA OLIVE HOMES CARD -->
         <div class="project-card">
             <div class="card-header bg-soha">SOHA OLIVE HOMES</div>
             <table class="param-table">
                 <tr><td><span class="label">Affordable Draw Status</span>
-                    <div class="draw-status-box" style="background: #fff9c4; border-color: #ffeeba; color: #856404;">
-                        <strong>Current Status:</strong> <span style="color: #d32f2f; font-weight: bold;">Draw Postponed</span><br>
-                        <strong>🎯 Expected New Date:</strong> <span style="font-weight: bold; text-decoration: underline;">16th June 2026 (Expected)</span>
+                    <div class="draw-status-box" style="background: #e8f7f5; border-color: #b2dfdb; color: #004d40;">
+                        <strong>Current Status:</strong> <span style="color: var(--soha-teal); font-weight: bold;">Draw Page Live!</span><br>
+                        <strong>🎯 Result Tracker & Info:</strong> Full details and date confirmations have been moved to a dedicated section.
+                        <a href="soha-olivehomes.html" class="btn-card-soha">🔗 Check Soha Draw Details Now</a>
                     </div>
                 </td></tr>
                 <tr><td><span class="label">Expert Rating</span><div class="rating">★★★★★</div></td></tr>
@@ -183,7 +226,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Developer Note: Paste your actual PDF table data values below into rows -->
                         <tr>
                             <td>ADV-2026-0412</td>
                             <td>Amit Kumar Sharma</td>
@@ -219,7 +261,7 @@
     <div class="alert-banner">
         <h3 style="margin-top:0; color: #0d47a1;">⚠️ Notice Regarding Soha Olive & Draw Processes</h3>
         <p style="font-size: 15px; color: #333; margin-bottom: 10px;">
-            While the Advitya Homes draw concluded on 10th June 2026, the official list for <strong>Soha Olive Homes (Sector 98) is expected around Mid-June 2026</strong>. Avoid falling for unverified rumors circulating on social media groups. 
+            The detailed updates and schedule changes for <strong>Soha Olive Homes (Sector 98) are fully covered on our <a href="soha-olivehomes.html" style="color: var(--soha-teal); font-weight: bold; text-decoration: underline;">Dedicated Soha Updates Page</a></strong>. Please check that page to protect yourself from unverified social media group rumors. 
         </p>
         <p style="font-size: 15px; color: #333; margin-top: 0;">
             If your application did not clear the Advitya draw, do not lose heart. New upcoming high-potential affordable options, such as **True Habitat (Sector 110A)**, are scheduled to open registration windows over the next 1 to 2 months. 
@@ -244,7 +286,6 @@
 </div>
 
 <script>
-// Client-side quick filter engine for the draw data rows
 function filterDrawTable() {
     var input, filter, table, tr, tdName, tdApp, i, txtValueName, txtValueApp;
     input = document.getElementById("drawSearch");
@@ -270,7 +311,6 @@ function filterDrawTable() {
         }       
     }
     
-    // Toggle standard 'no records' fallback if string matches nothing
     var noRecordsDiv = document.getElementById("noRecordsFound");
     if (foundCounter === 0) {
         noRecordsDiv.style.display = "block";
@@ -282,7 +322,6 @@ function filterDrawTable() {
 }
 </script>
 
-<!-- Links the main script containing navigation, news ticker dropdowns, and PWA logic -->
 <script src="menu.js"></script>
 </body>
 </html>
