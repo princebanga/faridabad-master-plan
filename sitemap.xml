@@ -60,4 +60,10 @@
       <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url> 
+   <url>
+      <loc>https://faridabadmasterplan.in/silicon-valley-project.html</loc>
+      <lastmod>2026-06-26</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+   </url>
 </urlset>
