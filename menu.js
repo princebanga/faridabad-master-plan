@@ -126,8 +126,8 @@ const globalMenuHTML = `
                             <a href="ongoing-plots.html">Ongoing Projects <span class="sub-arrow">▸</span></a>
                             <div class="sub-dropdown-content">
                                 <a href="dameera.html">DaMeera City</a>
-                                
                                 <a href="townfit-project.html">TownFit70</a>
+                                <a href="silicon-valley-project.html">Silicon Valley</a>
                             </div>
                         </div>
                         <a href="upcoming-plots.html">Upcoming Projects</a>
