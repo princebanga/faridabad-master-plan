@@ -3,352 +3,404 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brickklin Silicon Valley Sector 70 Imt Faridabad | Premium Residential Plots</title>
-    <meta name="description" content="Explore Brickklin Silicon Valley in Sector 70, near IMT Faridabad. Premium RERA-approved residential plots with 4-floor construction permission. View pricing, location map, and amenities.">
-    <meta name="keywords" content="Silicon Valley Faridabad, Brickklin Silicon Valley, Sector 70 Faridabad plots, IMT Faridabad residential plots, plots near Mumbai Expressway">
+    <title>Brickklin Silicon Valley Sector 70 IMT Faridabad | Residential Plots</title>
+    <meta name="description" content="Explore Brickklin Silicon Valley in Sector 70, Faridabad near IMT. Premium RERA-approved residential plots with Stilt+4 floor construction permissions. View verified layout maps, 360 virtual tours, and pricing.">
+    <meta name="keywords" content="Silicon Valley Faridabad, Brickklin Silicon Valley, Sector 70 Faridabad plots, IMT Faridabad residential plots, Deen Dayal plots Faridabad">
+    
+    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1524813686514-a57563d77d61?auto=format&fit=crop&w=1920&q=80');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1524813686514-a57563d77d61?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-    <!-- Top Info Bar -->
-    <div class="bg-slate-900 text-white text-xs py-2 px-4 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div>
-                <span class="mr-4"><i class="fas fa-check-circle text-green-400 mr-1"></i> RERA Approved: HRERA-PKL-FBD-311-2022</span>
+    <!-- Top Notification Bar -->
+    <div class="bg-amber-600 text-white text-xs font-semibold py-2.5 px-4 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="bg-white/20 px-2 py-0.5 rounded text-[10px] uppercase tracking-wider font-bold">HRERA Approved</span>
+                <span>Registration No: HRERA-PKL-FBD-311-2022</span>
             </div>
-            <div>
-                <a href="tel:+919818811971" class="hover:text-amber-400 transition"><i class="fas fa-phone-alt mr-1"></i> Call Expert</a>
+            <div class="flex items-center gap-4">
+                <a href="tel:+919818811971" class="hover:text-slate-900 transition flex items-center gap-1">
+                    <i class="fas fa-phone-alt"></i> +91 98188 11971
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-8 z-40">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-slate-800 tracking-wide">
+    <!-- Main Navigation Header -->
+    <nav class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-9 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-extrabold text-slate-900 tracking-tight">
                 FARIDABAD<span class="text-amber-600">MASTERPLAN</span>
-            </div>
-            <div class="hidden md:flex space-x-6 font-semibold text-gray-600 text-sm">
+            </a>
+            <div class="hidden lg:flex items-center space-x-8 font-medium text-slate-600 text-sm">
                 <a href="index.html" class="hover:text-amber-600 transition">Home</a>
                 <a href="#overview" class="hover:text-amber-600 transition">Overview</a>
-                <a href="#tour" class="hover:text-amber-600 transition">360° Tour</a>
-                <a href="#pricing" class="hover:text-amber-600 transition">Sizes & Pricing</a>
-                <a href="#amenities" class="hover:text-amber-600 transition">Amenities</a>
+                <a href="#specifications" class="hover:text-amber-600 transition">Specifications</a>
+                <a href="#layout" class="hover:text-amber-600 transition">Layout Map</a>
+                <a href="#virtual-tour" class="hover:text-amber-600 transition">360° Tour</a>
+                <a href="#pricing" class="hover:text-amber-600 transition">Pricing</a>
                 <a href="#location" class="hover:text-amber-600 transition">Location</a>
             </div>
-            <a href="#contact" class="bg-amber-600 text-white px-5 py-2 rounded font-semibold text-sm hover:bg-amber-700 transition">Download Brochure</a>
+            <a href="#contact-form" class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition shadow-sm">
+                Enquire Now
+            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-bg h-[500px] flex items-center justify-center text-center text-white px-4">
-        <div class="max-w-3xl">
-            <span class="bg-amber-600 text-white text-xs uppercase px-3 py-1 rounded font-bold tracking-wider mb-4 inline-block">Premium Gated Township</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-md">Brickklin Silicon Valley</h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-6 font-medium">Strategic Residential Plots in Sector 70, IMT Faridabad Orbit</p>
-            <div class="flex flex-wrap justify-center gap-4 text-sm">
-                <div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded border border-white/20"><i class="fas fa-chart-area mr-2 text-amber-400"></i>5.4 Acres Project Size</div>
-                <div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded border border-white/20"><i class="fas fa-building mr-2 text-amber-400"></i>Stilt + 4 Floors Allowed</div>
-                <div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded border border-white/20"><i class="fas fa-clock mr-2 text-amber-400"></i>Possession Near Completion</div>
+    <!-- Master Template Hero Section -->
+    <header class="hero-gradient py-20 lg:py-28 text-white px-4 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            <div class="lg:col-span-2 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                    <i class="fas fa-star text-[10px]"></i> DDJAY Plotted Township
+                </div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                    Brickklin Silicon Valley <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r bold from-amber-400 to-amber-200">Sector 70, IMT Faridabad</span>
+                </h1>
+                <p class="text-slate-300 text-base md:text-lg max-w-2xl font-light leading-relaxed">
+                    A premium gated residential ecosystem granting absolute construction freedom up to 4 floors, perfectly linked to the upcoming 12-lane industrial transport bypass corridors.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <span class="bg-slate-800/80 border border-slate-700/60 px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2">
+                        <i class="fas fa-expand-arrows-alt text-amber-500"></i> 5.4 Total Acres
+                    </span>
+                    <span class="bg-slate-800/80 border border-slate-700/60 px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2">
+                        <i class="fas fa-building text-amber-500"></i> Stilt + 4 Floors Allowed
+                    </span>
+                    <span class="bg-slate-800/80 border border-slate-700/60 px-4 py-2 rounded-lg text-xs font-medium flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-amber-500"></i> Zero KM from IMT Core
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Quick View Card -->
+            <div class="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 text-center space-y-4">
+                <p class="text-xs uppercase font-bold tracking-widest text-amber-400">Investment Status</p>
+                <div class="text-3xl font-black text-white">Registry Open</div>
+                <p class="text-xs text-slate-300 leading-relaxed">Bank loan facilities available from all leading national and commercial financial institutions.</p>
+                <div class="border-t border-white/10 pt-4">
+                    <a href="#layout" class="block w-full bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs py-3 rounded-lg uppercase tracking-wider transition shadow-md">
+                        <i class="fas fa-map mr-1"></i> View Layout Allocation
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Quick Stats Bar -->
-    <section class="bg-amber-600 text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-                <p class="text-xs uppercase tracking-wider opacity-80">Developer</p>
-                <p class="text-lg font-bold">Brickklin LLP</p>
-            </div>
-            <div>
-                <p class="text-xs uppercase tracking-wider opacity-80">Property Type</p>
-                <p class="text-lg font-bold">Freehold Residential Land</p>
-            </div>
-            <div>
-                <p class="text-xs uppercase tracking-wider opacity-80">Total Units</p>
-                <p class="text-lg font-bold">99 Premium Plots</p>
-            </div>
-            <div>
-                <p class="text-xs uppercase tracking-wider opacity-80">Location Link</p>
-                <p class="text-lg font-bold">Sector 70, Mujeri</p>
-            </div>
-        </div>
-    </section>
+    <!-- Unified Split Grid Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
+        
+        <!-- Left Side: Informational Stack -->
+        <div class="lg:col-span-2 space-y-12">
+            
+            <!-- Project Overview -->
+            <section id="overview" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+                    <span class="w-1.5 h-6 bg-amber-600 rounded-full"></span> Project Overview
+                </h2>
+                <div class="text-slate-600 space-y-4 text-sm sm:text-base leading-relaxed text-justify">
+                    <p>
+                        <strong>Brickklin Silicon Valley</strong> introduces a thoughtfully standardized residential plotted grid ecosystem located strategically within the expanding urban sprawl of <strong>Sector 70, Faridabad</strong>. Designed to offer independent ownership assets directly adjacent to the industrial and institutional powerhouses of IMT Faridabad, this project bridges luxury living with high-yield capital potential.
+                    </p>
+                    <p>
+                        The development spreads seamlessly across a premium <strong>5.4-acre development footprint</strong>, framing custom independent structural rights under a secured single-tier community wall framework. Boasting majestic broad avenues and carefully preserved green zones, it ensures clean infrastructure ready for generational custom homes.
+                    </p>
+                </div>
+            </section>
 
-    <!-- Project Overview & Lead Form -->
-    <main id="overview" class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Content Column -->
-        <div class="lg:col-span-2 space-y-6">
-            <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-amber-600 pb-2">Project Overview</h2>
-            <p class="text-gray-600 leading-relaxed text-justify">
-                <strong>Brickklin Silicon Valley</strong> is a highly sought-after, smartly organized residential plotted ecosystem strategically sitting in <strong>Sector 70, Faridabad</strong>. Designed to support modern urban demands, this township serves as a prime real estate gateway right adjacent to the major institutional and industrial drivers of <strong>IMT Faridabad</strong>. 
-            </p>
-            <p class="text-gray-600 leading-relaxed text-justify">
-                Spread thoughtfully across a neat footprint of <strong>5.4 Acres</strong>, it brings custom independent residential layout design rights to standard sizing formats. It features clean boundary grid walls and broad tree-lined avenues to promote a serene yet accessible standard of living.
-            </p>
+            <!-- Specifications Matrix Table -->
+            <section id="specifications" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+                    <span class="w-1.5 h-6 bg-amber-600 rounded-full"></span> Project Specifications
+                </h2>
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                    <table class="w-full text-left text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100 border-b border-slate-200 text-slate-700 font-semibold">
+                                <th class="p-4">Feature Profile</th>
+                                <th class="p-4">Project Parameters & Commitments</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-600 divide-y divide-slate-200">
+                            <tr>
+                                <td class="p-4 font-semibold bg-slate-50/50 text-slate-900 w-1/3">Developer Entity</td>
+                                <td class="p-4">Brickklin LLP</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-slate-50/50 text-slate-900">Total Land Area</td>
+                                <td class="p-4">5.40625 Acres</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-slate-50/50 text-slate-900">Total Allocated Plots</td>
+                                <td class="p-4">99 Freehold Units</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-slate-50/50 text-slate-900">Internal Roads</td>
+                                <td class="p-4">9-Meter Widescreen Dense Asphalt Concrete Roads</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-slate-50/50 text-slate-900">Construction Liberty</td>
+                                <td class="p-4">Independent Stilt + 4 Residential Floors Approved</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-semibold bg-slate-50/50 text-slate-900">RERA Sanction</td>
+                                <td class="p-4 text-emerald-700 font-medium"><i class="fas fa-shield-alt mr-1"></i> HRERA-PKL-FBD-311-2022</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-            <!-- Master Layout Map PDF Download Section -->
-            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
-                <div class="flex items-center gap-4">
-                    <div class="bg-red-50 text-red-500 p-4 rounded-full text-2xl flex items-center justify-center w-14 h-14">
-                        <i class="far fa-file-pdf text-xl"></i>
-                    </div>
+            <!-- Master Layout Map PDF Module -->
+            <section id="layout" class="bg-gradient-to-br from-slate-900 to-slate-950 p-6 sm:p-8 rounded-2xl text-white shadow-md space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
-                        <h4 class="font-bold text-slate-900 text-base">Official Master Layout Blueprint</h4>
-                        <p class="text-xs text-gray-500">High-Resolution Mapping • Verified Allotment Grid</p>
+                        <span class="text-amber-500 font-bold uppercase text-[10px] tracking-widest block mb-1">Architecture Desk</span>
+                        <h2 class="text-xl sm:text-2xl font-extrabold flex items-center gap-2">
+                            Official Layout Blueprint
+                        </h2>
+                        <p class="text-slate-400 text-xs sm:text-sm mt-1">Download the verified high-resolution layout map showing plot alignments and number matrices.</p>
                     </div>
+                    <i class="far fa-file-pdf text-red-400 text-4xl hidden sm:block"></i>
                 </div>
-                <a href="siliconValley.pdf" target="_blank" class="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white font-semibold text-sm px-6 py-3 rounded text-center shadow transition whitespace-nowrap">
-                    <i class="fas fa-download mr-2"></i>Download Layout PDF
-                </a>
-            </div>
+                
+                <div class="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="text-center sm:text-left">
+                        <p class="text-sm font-semibold text-white">Silicon Valley Layout Map.pdf</p>
+                        <p class="text-slate-400 text-xs">Official Document File • Ready to Print Scale</p>
+                    </div>
+                    <a href="siliconValley.pdf" target="_blank" class="w-full sm:w-auto bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs px-6 py-3.5 rounded-lg tracking-wider uppercase shadow transition flex items-center justify-center gap-2">
+                        <i class="fas fa-download"></i> Download Layout Map
+                    </a>
+                </div>
+            </section>
 
-            <!-- Key Highlights Grid -->
-            <div id="highlights" class="pt-4">
-                <h3 class="text-xl font-bold text-slate-900 mb-4">Why Invest in Silicon Valley?</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex items-start bg-white p-4 rounded shadow-sm border-l-4 border-amber-500">
-                        <i class="fas fa-shield-alt text-amber-600 text-lg mr-3 mt-1"></i>
-                        <div>
-                            <h4 class="font-bold text-slate-800">Secure Gated Complex</h4>
-                            <p class="text-xs text-gray-500">Regulated single entry/exit design point backed up with professional security systems.</p>
+            <!-- 360° Interactive Virtual Tour Cards -->
+            <section id="virtual-tour" class="space-y-6">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2">
+                    <span class="w-1.5 h-6 bg-amber-600 rounded-full"></span> 360° Interactive Site Experience
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Skip traveling and scan live ground conditions in true panoramic layouts straight from your active device screen.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Entrance Tour Card -->
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-500 transition">
+                        <div class="space-y-2">
+                            <div class="text-amber-600 bg-amber-50 w-10 h-10 rounded-lg flex items-center justify-center text-base"><i class="fas fa-door-open"></i></div>
+                            <h4 class="font-bold text-slate-900 text-sm">Main Entrance Gate</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Examine the wide access boundary wall planning and entry architecture links.</p>
                         </div>
+                        <a href="https://teliportme.com/view/2593980?utm_medium=android&utm_source=share-panorama" target="_blank" class="mt-4 block text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 rounded transition uppercase tracking-wide">
+                            <i class="fas fa-vr-cardboard mr-1"></i> View Entrance
+                        </a>
                     </div>
-                    <div class="flex items-start bg-white p-4 rounded shadow-sm border-l-4 border-amber-500">
-                        <i class="fas fa-road text-amber-600 text-lg mr-3 mt-1"></i>
-                        <div>
-                            <h4 class="font-bold text-slate-800">Wide Internal Road Infrastructure</h4>
-                            <p class="text-xs text-gray-500">Spacious 30 feet layout internal connecting lanes for easy turning and vehicle flows.</p>
+
+                    <!-- Internal Tour Card -->
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-500 transition">
+                        <div class="space-y-2">
+                            <div class="text-amber-600 bg-amber-50 w-10 h-10 rounded-lg flex items-center justify-center text-base"><i class="fas fa-map-marked-alt"></i></div>
+                            <h4 class="font-bold text-slate-900 text-sm">Internal Layout Progress</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Inspect concrete road layering, electrical line channeling, and internal paths.</p>
                         </div>
+                        <a href="https://teliportme.com/profile/vishvashelpdesk?utm_medium=android&utm_source=share-profile" target="_blank" class="mt-4 block text-center bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold py-2.5 rounded transition uppercase tracking-wide">
+                            <i class="fas fa-street-view mr-1"></i> View Internal Profile
+                        </a>
                     </div>
-                    <div class="flex items-start bg-white p-4 rounded shadow-sm border-l-4 border-amber-500">
-                        <i class="fas fa-level-up-alt text-amber-600 text-lg mr-3 mt-1"></i>
-                        <div>
-                            <h4 class="font-bold text-slate-800">High Construction Freedom</h4>
-                            <p class="text-xs text-gray-500">Fully registry-enabled plots allowing independent vertical building configurations up to 4 floors.</p>
+
+                    <!-- Garden Tour Card -->
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 flex flex-col justify-between shadow-sm hover:border-amber-500 transition">
+                        <div class="space-y-2">
+                            <div class="text-amber-600 bg-amber-50 w-10 h-10 rounded-lg flex items-center justify-center text-base"><i class="fas fa-tree"></i></div>
+                            <h4 class="font-bold text-slate-900 text-sm">Central Green Park</h4>
+                            <p class="text-xs text-slate-500 leading-relaxed">Tour the landscaping frameworks and recreational buffers planned within.</p>
                         </div>
-                    </div>
-                    <div class="flex items-start bg-white p-4 rounded shadow-sm border-l-4 border-amber-500">
-                        <i class="fas fa-chart-line text-amber-600 text-lg mr-3 mt-1"></i>
-                        <div>
-                            <h4 class="font-bold text-slate-800">Strong Price Appreciation</h4>
-                            <p class="text-xs text-gray-500">Positioned directly inside the booming developmental orbit of the upcoming expressway links.</p>
-                        </div>
+                        <a href="https://teliportme.com/view/0?utm_medium=android&utm_source=share-panorama" target="_blank" class="mt-4 block text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 rounded transition uppercase tracking-wide">
+                            <i class="fas fa-eye mr-1"></i> View Garden
+                        </a>
                     </div>
                 </div>
-            </div>
+            </section>
+
         </div>
 
-        <!-- Sticky Form Column -->
-        <div id="contact" class="lg:col-span-1">
-            <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200 sticky top-28">
-                <h3 class="text-lg font-bold text-slate-900 mb-1">Schedule a Site Visit</h3>
-                <p class="text-xs text-gray-500 mb-4">Get the verified layout inventory map & pricing sheets directly on your phone.</p>
+        <!-- Right Side: High-Converting Lead Box Sidebar -->
+        <div id="contact-form" class="lg:col-span-1">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-md sticky top-28 space-y-6">
+                <div>
+                    <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">Request Current Pricing</h3>
+                    <p class="text-xs text-slate-500 mt-1 leading-relaxed">Get inventory availability updates and customized down-payment schedules directly shared onto your mobile screen.</p>
+                </div>
+                
                 <form action="#" method="POST" class="space-y-4">
                     <div>
-                        <label class="block text-xs font-semibold uppercase text-gray-600 mb-1">Your Name</label>
-                        <input type="text" required class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-amber-600" placeholder="Enter Full Name">
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">Full Name</label>
+                        <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-amber-600 focus:bg-white transition" placeholder="John Doe">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold uppercase text-gray-600 mb-1">Phone Number</label>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">Mobile Number</label>
                         <div class="flex">
-                            <span class="inline-flex items-center px-3 rounded-l border border-r-0 border-gray-300 bg-gray-100 text-gray-500 text-sm">+91</span>
-                            <input type="tel" required pattern="[0-9]{10}" class="w-full border border-gray-300 rounded-r px-3 py-2 text-sm focus:outline-none focus:border-amber-600" placeholder="10 Digit Mobile">
+                            <span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-slate-200 bg-slate-100 text-slate-500 text-sm font-medium">+91</span>
+                            <input type="tel" required pattern="[0-9]{10}" class="w-full bg-slate-50 border border-slate-200 rounded-r-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-amber-600 focus:bg-white transition" placeholder="9818811971">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold uppercase text-gray-600 mb-1">Plot Size Interest</label>
-                        <select class="w-full border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-amber-600">
-                            <option>100 Sq. Yards</option>
-                            <option>116 Sq. Yards</option>
-                            <option>137 Sq. Yards</option>
-                            <option>150+ Sq. Yards</option>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">Plot Configuration Type</label>
+                        <select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:border-amber-600 focus:bg-white transition">
+                            <option>100 Sq. Yards (Standard Plot Layout)</option>
+                            <option>116 Sq. Yards (Executive Plot Layout)</option>
+                            <option>137 Sq. Yards (Premium Corner Unit Layout)</option>
+                            <option>150+ Sq. Yards (Custom Layout Bounds)</option>
                         </select>
                     </div>
-                    <button type="submit" class="w-full bg-slate-900 text-white font-bold py-3 rounded hover:bg-slate-800 transition shadow text-sm uppercase tracking-wide">Request Call Back</button>
+                    <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 rounded-lg shadow-md hover:shadow-lg transition text-xs uppercase tracking-widest pt-4">
+                        Download Pricing Booklet <i class="fas fa-arrow-right ml-1 text-[10px]"></i>
+                    </button>
                 </form>
+                
+                <div class="pt-4 border-t border-slate-100 text-center">
+                    <span class="text-xs text-slate-400 inline-flex items-center gap-1.5">
+                        <i class="fas fa-lock text-[10px]"></i> Your data remains encrypted and safe from spam.
+                    </span>
+                </div>
             </div>
         </div>
+
     </main>
 
-    <!-- 360° Interactive Virtual Tour Section -->
-    <section id="tour" class="bg-slate-900 text-white py-12 border-t border-b border-slate-950">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-amber-500 uppercase text-xs font-bold tracking-wider">Site Experience From Home</span>
-                <h2 class="text-3xl font-bold mt-1">Interactive 360° Virtual Site Tour</h2>
-                <p class="text-gray-400 text-sm mt-2">Virtually step inside Sector 70 IMT Faridabad's premier township development layout using high-fidelity panoramic viewpoints.</p>
+    <!-- Plot Sizes & Pricing Grid Module -->
+    <section id="pricing" class="bg-slate-100 py-16 border-t border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-amber-600 font-bold uppercase text-[11px] tracking-widest">Layout Blueprints</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Available Plot Indexing Profiles</h2>
+                <p class="text-sm text-slate-500 mt-2">Engineered efficiently to accommodate spacious layouts featuring dedicated stilt multi-parking structures.</p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto text-slate-900">
-                <!-- Entrance Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between border border-slate-800">
-                    <div class="p-6">
-                        <div class="bg-amber-100 text-amber-700 w-12 h-12 rounded-full flex items-center justify-center text-xl mb-4">
-                            <i class="fas fa-gate"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-slate-900 mb-2">Project Main Entrance</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Examine the wide access entry architecture, approach corridors, and frontline boundaries established on site.</p>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://teliportme.com/view/2593980?utm_medium=android&utm_source=share-panorama" target="_blank" class="block w-full text-center bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs py-3 rounded transition uppercase tracking-wider shadow-sm">
-                            <i class="fas fa-vr-cardboard mr-2"></i> View Entrance 360°
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Inside Project Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between border border-slate-800">
-                    <div class="p-6">
-                        <div class="bg-amber-100 text-amber-700 w-12 h-12 rounded-full flex items-center justify-center text-xl mb-4">
-                            <i class="fas fa-road"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-slate-900 mb-2">Internal Site Progress</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Walk through the full panoramic layout list tracking road structures, plotting segments, and ground levelling status.</p>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://teliportme.com/profile/vishvashelpdesk?utm_medium=android&utm_source=share-profile" target="_blank" class="block w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-3 rounded transition uppercase tracking-wider shadow-sm">
-                            <i class="fas fa-street-view mr-2"></i> View Internal Profiles
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Garden View Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between border border-slate-800">
-                    <div class="p-6">
-                        <div class="bg-amber-100 text-amber-700 w-12 h-12 rounded-full flex items-center justify-center text-xl mb-4">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <h3 class="font-bold text-lg text-slate-900 mb-2">Township Garden View</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">Take an immersive look inside the dedicated green belts and open community parks designed within the complex.</p>
-                    </div>
-                    <div class="p-6 pt-0">
-                        <a href="https://teliportme.com/view/0?utm_medium=android&utm_source=share-panorama" target="_blank" class="block w-full text-center bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs py-3 rounded transition uppercase tracking-wider shadow-sm">
-                            <i class="fas fa-panorama mr-2"></i> View Garden 360°
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="bg-slate-100 py-12 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-slate-900 text-center mb-2">Plot Sizes & Price Trends</h2>
-            <p class="text-center text-sm text-gray-500 mb-8">Flexible floor plan spaces configured optimally to build custom executive houses.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <!-- Size Box 1 -->
-                <div class="bg-white p-6 rounded shadow-sm border border-gray-200 text-center">
-                    <div class="text-amber-600 text-xs uppercase font-bold tracking-wider mb-1">Standard Unit</div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">100 Sq. Yards</h3>
-                    <div class="text-sm text-gray-500 mb-4">Super Area: 84 Sq. Meters</div>
-                    <a href="#contact" class="inline-block w-full bg-amber-600 text-white text-xs font-bold py-2 rounded hover:bg-amber-700 transition">Check Price</a>
+                <!-- Unit 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center flex flex-col justify-between">
+                    <div>
+                        <span class="text-slate-400 font-bold uppercase text-[10px] tracking-wider block mb-1">Standard</span>
+                        <h3 class="text-xl font-extrabold text-slate-900">100 Sq. Yards</h3>
+                        <p class="text-xs text-slate-500 mt-1">Approx Super Area: 84 Sq. Meters</p>
+                    </div>
+                    <a href="#contact-form" class="mt-6 block w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider transition">Get Quote</a>
                 </div>
-                <!-- Size Box 2 -->
-                <div class="bg-white p-6 rounded shadow-sm border-2 border-amber-500 text-center relative">
-                    <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-amber-500 text-white text-[10px] uppercase font-bold px-3 py-0.5 rounded-full">Most Popular</span>
-                    <div class="text-amber-600 text-xs uppercase font-bold tracking-wider mb-1">Executive Unit</div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">116 Sq. Yards</h3>
-                    <div class="text-sm text-gray-500 mb-4">Super Area: 97 Sq. Meters</div>
-                    <a href="#contact" class="inline-block w-full bg-amber-600 text-white text-xs font-bold py-2 rounded hover:bg-amber-700 transition">Check Price</a>
+                <!-- Unit 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-md border-2 border-amber-500 text-center flex flex-col justify-between relative">
+                    <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-amber-500 text-white text-[9px] uppercase font-bold px-3 py-1 rounded-full tracking-wider">Fast Moving Layout</span>
+                    <div>
+                        <span class="text-amber-600 font-bold uppercase text-[10px] tracking-wider block mb-1">Executive Asset</span>
+                        <h3 class="text-xl font-extrabold text-slate-900">116 Sq. Yards</h3>
+                        <p class="text-xs text-slate-500 mt-1">Approx Super Area: 97 Sq. Meters</p>
+                    </div>
+                    <a href="#contact-form" class="mt-6 block w-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider transition shadow-sm">Get Quote</a>
                 </div>
-                <!-- Size Box 3 -->
-                <div class="bg-white p-6 rounded shadow-sm border border-gray-200 text-center">
-                    <div class="text-amber-600 text-xs uppercase font-bold tracking-wider mb-1">Premium Corner</div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-3">137 Sq. Yards</h3>
-                    <div class="text-sm text-gray-500 mb-4">Super Area: 115 Sq. Meters</div>
-                    <a href="#contact" class="inline-block w-full bg-amber-600 text-white text-xs font-bold py-2 rounded hover:bg-amber-700 transition">Check Price</a>
+                <!-- Unit 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center flex flex-col justify-between">
+                    <div>
+                        <span class="text-slate-400 font-bold uppercase text-[10px] tracking-wider block mb-1">Premium Corner</span>
+                        <h3 class="text-xl font-extrabold text-slate-900">137 Sq. Yards</h3>
+                        <p class="text-xs text-slate-500 mt-1">Approx Super Area: 115 Sq. Meters</p>
+                    </div>
+                    <a href="#contact-form" class="mt-6 block w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 rounded-lg uppercase tracking-wider transition">Get Quote</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Amenities Section -->
-    <section id="amenities" class="max-w-7xl mx-auto px-4 py-12">
-        <h2 class="text-2xl font-bold text-slate-900 border-b-2 border-amber-600 pb-2 mb-8">Modern Essentials & Amenities</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="p-4 bg-white rounded shadow-sm border border-gray-100">
-                <i class="fas fa-tint text-3xl text-amber-600 mb-2"></i>
-                <h4 class="font-semibold text-sm text-slate-800">24X7 Water Supply</h4>
+    <!-- Amenities Grid -->
+    <section id="amenities" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center gap-2 mb-10">
+            <span class="w-1.5 h-6 bg-amber-600 rounded-full"></span> Essential Township Amenities
+        </h2>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="p-5 bg-white rounded-xl border border-slate-200 flex items-center gap-4 shadow-sm">
+                <div class="text-amber-600 text-xl bg-amber-50 w-11 h-11 rounded-lg flex items-center justify-center shrink-0"><i class="fas fa-tint"></i></div>
+                <h4 class="font-bold text-xs sm:text-sm text-slate-800">Dual Water Supply Network</h4>
             </div>
-            <div class="p-4 bg-white rounded shadow-sm border border-gray-100">
-                <i class="fas fa-bolt text-3xl text-amber-600 mb-2"></i>
-                <h4 class="font-semibold text-sm text-slate-800">Power Backup Provision</h4>
+            <div class="p-5 bg-white rounded-xl border border-slate-200 flex items-center gap-4 shadow-sm">
+                <div class="text-amber-600 text-xl bg-amber-50 w-11 h-11 rounded-lg flex items-center justify-center shrink-0"><i class="fas fa-shield-alt"></i></div>
+                <h4 class="font-bold text-xs sm:text-sm text-slate-800">24/7 Gated Security Guard</h4>
             </div>
-            <div class="p-4 bg-white rounded shadow-sm border border-gray-100">
-                <i class="fas fa-seedling text-3xl text-amber-600 mb-2"></i>
-                <h4 class="font-semibold text-sm text-slate-800">Landscaped Green Parks</h4>
+            <div class="p-5 bg-white rounded-xl border border-slate-200 flex items-center gap-4 shadow-sm">
+                <div class="text-amber-600 text-xl bg-amber-50 w-11 h-11 rounded-lg flex items-center justify-center shrink-0"><i class="fas fa-tree"></i></div>
+                <h4 class="font-bold text-xs sm:text-sm text-slate-800">Landscaped Multi-Parks</h4>
             </div>
-            <div class="p-4 bg-white rounded shadow-sm border border-gray-100">
-                <i class="fas fa-video text-3xl text-amber-600 mb-2"></i>
-                <h4 class="font-semibold text-sm text-slate-800">CCTV Camera Setup</h4>
-            </div>
-            <div class="p-4 bg-white rounded shadow-sm border border-gray-100">
-                <i class="fas fa-water text-3xl text-amber-600 mb-2"></i>
-                <h4 class="font-semibold text-sm text-slate-800">Rain Water Harvesting</h4>
-            </div>
-            <div class="p-4 bg-white rounded shadow-sm border border-gray-100">
-                <i class="fas fa-child text-3xl text-amber-600 mb-2"></i>
-                <h4 class="font-semibold text-sm text-slate-800">Kids Play Arena</h4>
-            </div>
-            <div class="p-4 bg-white rounded shadow-sm border border-gray-100">
-                <i class="fas fa-running text-3xl text-amber-600 mb-2"></i>
-                <h4 class="font-semibold text-sm text-slate-800">Dedicated Jogging Tracks</h4>
-            </div>
-            <div class="p-4 bg-white rounded shadow-sm border border-gray-100">
-                <i class="fas fa-lightbulb text-3xl text-amber-600 mb-2"></i>
-                <h4 class="font-semibold text-sm text-slate-800">Modern Street Lighting</h4>
+            <div class="p-5 bg-white rounded-xl border border-slate-200 flex items-center gap-4 shadow-sm">
+                <div class="text-amber-600 text-xl bg-amber-50 w-11 h-11 rounded-lg flex items-center justify-center shrink-0"><i class="fas fa-bolt"></i></div>
+                <h4 class="font-bold text-xs sm:text-sm text-slate-800">Underground Electric Cables</h4>
             </div>
         </div>
     </section>
 
     <!-- Location & Connectivity Section -->
-    <section id="location" class="bg-slate-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-                <span class="text-amber-500 uppercase text-xs font-bold tracking-wider">Unbeatable Connectivity</span>
-                <h2 class="text-2xl font-bold mt-1 mb-6">Strategic Location Map Highlights</h2>
-                <ul class="space-y-4 text-sm text-gray-300">
-                    <li class="flex items-center"><i class="fas fa-map-marker-alt text-amber-500 mr-3"></i> Fast access to major connecting lanes like the Tigaon Road artery.</li>
-                    <li class="flex items-center"><i class="fas fa-subway text-amber-500 mr-3"></i> Approx. 3.0 KM distance from Raja Nahar Singh (Ballabgarh) Metro Station.</li>
-                    <li class="flex items-center"><i class="fas fa-road text-amber-500 mr-3"></i> Zero km interface point tracking near the proposed 12-Lane Bypass/National Highway systems.</li>
-                    <li class="flex items-center"><i class="fas fa-hospital text-amber-500 mr-3"></i> Located moments away from prime institutional zones, top senior academies, and multi-specialty hospitals.</li>
+    <section id="location" class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div>
+                    <span class="text-amber-500 uppercase text-xs font-bold tracking-widest block mb-1">Strategic Real Estate Node</span>
+                    <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Connectivity & Geography Matrix</h2>
+                </div>
+                <ul class="space-y-4 text-sm sm:text-base text-slate-300">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-pin text-amber-500 mt-1"></i>
+                        <span>Direct interface pathways running directly parallel onto the major Tigaon Road access links.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-subway text-amber-500 mt-1"></i>
+                        <span>Roughly 3.0 KM distance parameters connecting the Raja Nahar Singh (Ballabgarh) Metro Station corridor.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-road text-amber-500 mt-1"></i>
+                        <span>Zero-point mapping closeness linking upcoming 12-Lane Bypass highway loops.</span>
+                    </li>
                 </ul>
             </div>
-            <div class="bg-slate-800 h-64 rounded-lg flex items-center justify-center border border-slate-700 relative overflow-hidden">
-                <!-- Location Vector Indicator -->
+            <div class="bg-slate-800 h-72 rounded-2xl flex items-center justify-center border border-slate-700 overflow-hidden relative shadow-inner">
                 <div class="text-center p-6">
-                    <i class="fas fa-map-marked-alt text-5xl text-amber-500 mb-3 animate-bounce"></i>
-                    <p class="font-bold text-sm">Sector 70, Mujeri, Near IMT Faridabad</p>
-                    <p class="text-xs text-gray-400 mt-1">Pin Code: 121004</p>
-                    <a href="https://maps.google.com" target="_blank" class="mt-4 inline-block text-xs text-amber-500 font-semibold underline hover:text-amber-400">Open in Google Maps</a>
+                    <i class="fas fa-map-marked-alt text-4xl text-amber-500 mb-2 animate-pulse"></i>
+                    <p class="font-bold text-sm">Sector 70, Mujeri, Near IMT Faridabad Hub</p>
+                    <p class="text-xs text-slate-400 mt-1">Pin Code Zone Index: 121004</p>
+                    <a href="https://maps.google.com" target="_blank" class="mt-4 inline-flex items-center gap-1 text-xs text-amber-500 font-semibold underline hover:text-amber-400 transition">
+                        Open Google Maps Application <i class="fas fa-external-link-alt text-[10px]"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Disclaimer & Footer -->
-    <footer class="bg-slate-950 text-gray-500 text-xs py-8 px-4 border-t border-slate-900">
-        <div class="max-w-7xl mx-auto space-y-4">
+    <!-- Master Template Footer & Legal Index -->
+    <footer class="bg-slate-950 text-slate-500 text-xs py-12 px-4 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto space-y-6">
             <p class="text-justify leading-relaxed">
-                <strong>Disclaimer:</strong> This page belongs to a professional real estate advisory portal and is meant exclusively for informational and research purposes. Project detail listings, dimensions, pricing indexes, architectural representations, and completion parameters are collected from domain channel feeds and RERA tracking registers. Final transaction agreements must verify metrics through the authorized sales desk of Brickklin LLP.
+                <strong>RERA Verification Disclaimer:</strong> This portal functions strictly as an independent real estate advisory structure supplying contextual index mappings for consumer awareness and research. Project specifications, plot dimensions, RERA certifications, structural parameters, and pricing estimations are mapped based on available public registry feeds and internal channel estimates. Final commercial property sales and legal validation must follow the official document desks managed by Brickklin LLP.
             </p>
-            <div class="border-t border-slate-900 pt-4 flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="border-t border-slate-900 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
                 <p>&copy; 2026 FaridabadMasterplan. All Rights Reserved.</p>
-                <div class="space-x-4">
-                    <a href="about.html" class="hover:underline">About Us</a>
-                    <a href="compare.html" class="hover:underline">Compare Projects</a>
+                <div class="space-x-6">
+                    <a href="about.html" class="hover:text-slate-300 transition">About Us</a>
+                    <a href="compare.html" class="hover:text-slate-300 transition">Compare Projects</a>
                     <a href="sitemap.xml" class="text-amber-600 font-semibold hover:underline">Sitemap</a>
                 </div>
             </div>
