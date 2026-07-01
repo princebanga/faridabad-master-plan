@@ -75,6 +75,37 @@
         .search-area { padding: 8px; border-top: 1px solid #eee; }
         #pSearch { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; outline: none; }
         
+        /* --- Beautiful Floating Soha Draw Button Banner --- */
+        .soha-floating-banner {
+            position: fixed;
+            bottom: 62px; /* Sits perfectly right above the sticky footer */
+            left: 5%;
+            width: 90%;
+            background: linear-gradient(135deg, var(--nav-blue) 0%, #0d1b2a 100%);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            text-decoration: none;
+            z-index: 9999;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            border: 2px solid var(--gold);
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            animation: buttonPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes buttonPulse {
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3); }
+            50% { transform: scale(1.02); border-color: #fff; box-shadow: 0 4px 25px rgba(255, 183, 3, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3); }
+        }
+        
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 10000; }
         .sticky-btn { flex: 1; padding: 15px; text-align: center; text-decoration: none; font-weight: bold; color: white; font-size: 13px; }
         .btn-call { background: var(--dark-blue); } 
@@ -144,6 +175,11 @@
 
 <!-- Map Rendering Engine Viewport -->
 <div id="map"></div>
+
+<!-- HIGHLY VISIBLE SOHA DRAW UPDATE BUTTON FOR GOOGLEBOT & USERS -->
+<a href="https://faridabadmasterplan.in/sohaolivehomes.html" class="soha-floating-banner">
+    🔴 Soha Olive Homes Draw Date Status & Result Center (6 July 2026) 📋
+</a>
 
 <div class="sticky-footer">
     <a href="tel:+919818811971" class="sticky-btn btn-call">📞 Call Prince Banga</a>
