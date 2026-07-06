@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soha Olive Homes Live Draw</title>
     <style>
-        body { font-family: sans-serif; background: #f1f5f9; padding: 20px; text-align: center; }
-        .main-card { background: #ffffff; max-width: 850px; margin: 0 auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        /* Updated body: Removed padding, added margin: 0 so the menu sits flush */
+        body { font-family: sans-serif; background: #f1f5f9; text-align: center; margin: 0; }
+        
+        /* Updated main-card: Added 80px top margin to push it below the new menu */
+        .main-card { background: #ffffff; max-width: 850px; margin: 80px auto 20px; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         
         /* Status Message */
         .status-box { background: #fee2e2; color: #991b1b; padding: 15px; border-radius: 10px; margin-bottom: 20px; font-weight: bold; border: 1px solid #fecaca; }
@@ -25,7 +28,8 @@
 </head>
 <body>
 
-    <div id="menu-container"></div>
+    <!-- FIXED: This ID now matches what menu.js is looking for -->
+    <div id="global-menu-placeholder"></div>
 
     <div class="main-card">
         <h1>Soha Olive Homes Live Draw</h1>
@@ -62,6 +66,7 @@
         }
     </script>
 
+    <!-- Global Menu Script -->
     <script src="menu.js"></script>
 </body>
 </html>
