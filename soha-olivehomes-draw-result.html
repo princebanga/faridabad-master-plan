@@ -2,42 +2,62 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <title>Soha Olive Homes Draw Result 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soha Olive Homes Live Draw</title>
     <style>
-        body { font-family: sans-serif; background: #f8fafc; text-align: center; padding: 20px; }
-        .hero-card { background: #0f172a; color: white; padding: 30px; border-radius: 16px; margin: 20px auto; max-width: 800px; }
-        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; margin-bottom: 20px; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; }
-        .btn-download { display: block; background: #0d9488; color: white; padding: 15px; margin: 10px auto; width: 80%; text-decoration: none; border-radius: 8px; font-weight: bold; }
-        #result-section { display: none; margin-top: 30px; }
+        body { font-family: sans-serif; background: #f1f5f9; padding: 20px; text-align: center; }
+        .main-card { background: #ffffff; max-width: 850px; margin: 0 auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        
+        /* Status Message */
+        .status-box { background: #fee2e2; color: #991b1b; padding: 15px; border-radius: 10px; margin-bottom: 20px; font-weight: bold; border: 1px solid #fecaca; }
+        
+        /* Video Container */
+        .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; overflow: hidden; margin-bottom: 25px; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        
+        /* Result Section */
+        #result-section { display: none; background: #f0fdf4; padding: 20px; border-radius: 12px; border: 1px solid #bbf7d0; }
+        .btn-box { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+        .btn { padding: 18px; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; transition: 0.3s; }
+        .btn-main { background: #0d9488; }
+        .btn-wait { background: #d97706; }
     </style>
 </head>
 <body>
 
     <div id="menu-container"></div>
 
-    <div class="hero-card">
+    <div class="main-card">
         <h1>Soha Olive Homes Live Draw</h1>
         
-        <!-- YouTube Live यहाँ दिखेगा -->
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/gRtNK6cBYPU" frameborder="0" allowfullscreen></iframe>
+        <div id="delay-notice" class="status-box">
+            ⚠️ सूचना: तकनीकी कारणों से ड्रॉ शुरू होने में देरी है। कृपया नीचे दिए गए लाइव वीडियो पर अपडेट देखें।
         </div>
 
-        <!-- रिजल्ट सेक्शन (जब आप अपलोड कर दें) -->
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/gRtNK6cBYPU" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
         <div id="result-section">
-            <p style="color: #ffb703; font-weight: bold;">रिजल्ट घोषित हो चुका है!</p>
-            <a href="soha-result.pdf" class="btn-download">📥 मुख्य रिजल्ट (Winner List) डाउनलोड करें</a>
-            <a href="soha-waiting-list.pdf" class="btn-download" style="background:#d97706;">📥 वेटिंग लिस्ट (Waiting List) डाउनलोड करें</a>
+            <h3 style="color: #065f46;">✅ ड्रॉ संपन्न: रिजल्ट पीडीएफ डाउनलोड करें</h3>
+            <div class="btn-box">
+                <a href="soha-result.pdf" target="_blank" class="btn btn-main">📥 मुख्य रिजल्ट (Winner List) डाउनलोड करें</a>
+                <a href="soha-waiting-list.pdf" target="_blank" class="btn btn-wait">📥 वेटिंग लिस्ट (Waiting List) डाउनलोड करें</a>
+            </div>
         </div>
     </div>
 
     <script>
-        // --- मैन्युअल कंट्रोल ---
-        // जैसे ही आप पीडीएफ सर्वर पर अपलोड कर दें, इसे 'true' कर दें
-        const IS_RESULT_LIVE = false; 
+        // --- यहाँ से कंट्रोल करें ---
+        // जैसे ही ड्रॉ खत्म हो और पीडीएफ अपलोड हो जाए, इसे 'true' कर दें
+        const IS_LIVE = false; 
 
-        if (IS_RESULT_LIVE) {
+        if (IS_LIVE) {
+            document.getElementById('delay-notice').style.display = 'none';
             document.getElementById('result-section').style.display = 'block';
         }
     </script>
