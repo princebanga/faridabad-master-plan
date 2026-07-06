@@ -2,55 +2,96 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <title>Soha Olive Homes Draw Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soha Olive Homes Draw Result 2026 | Faridabad Housing</title>
+    <meta name="description" content="Check official Soha Olive Homes draw results. Download winner list and waiting list PDF for Faridabad housing project.">
     <style>
-        body { font-family: sans-serif; background: #f8fafc; text-align: center; padding: 20px; }
-        .hero-card { background: #0f172a; color: white; padding: 30px; border-radius: 16px; margin: 20px auto; max-width: 600px; }
-        .timer-grid { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        .timer-box { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; width: 80px; }
-        .timer-number { font-size: 24px; color: #ffb703; font-weight: bold; }
-        #delay-card { display: none; background: #c2410c; }
-        #result-wrapper { display: none; background: white; padding: 30px; border-radius: 16px; max-width: 600px; margin: 20px auto; }
-        .btn-download { display: block; background: #0d9488; color: white; padding: 15px; margin: 10px auto; width: 80%; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        :root { --primary-dark: #0f172a; --accent-teal: #0d9488; --gold-amber: #ffb703; }
+        body { font-family: sans-serif; background: #f8fafc; color: #334155; margin: 0; }
+        .main-wrapper { max-width: 800px; margin: 20px auto; padding: 20px; }
+        .hero-card { background: var(--primary-dark); color: white; padding: 40px; border-radius: 16px; text-align: center; margin-bottom: 20px; }
+        .timer-grid { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+        .timer-box { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; width: 70px; }
+        .timer-number { font-size: 32px; font-weight: bold; color: var(--gold-amber); }
+        .result-section { background: white; padding: 30px; border-radius: 16px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: none; }
+        .btn-download { display: block; background: var(--accent-teal); color: white; padding: 15px; margin: 15px auto; width: 80%; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        #delay-section { display: none; background: #c2410c; color: white; padding: 20px; border-radius: 16px; text-align: center; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
     <div id="menu-container"></div>
 
-    <!-- डिले टाइमर (यह अब डिफ़ॉल्ट है) -->
-    <div id="delay-card" class="hero-card" style="display: block;">
-        <h2>ड्रॉ में देरी (Draw Delayed)</h2>
-        <p>तकनीकी कारणों से ड्रॉ में कुछ समय की देरी है:</p>
-        <div class="timer-grid">
-            <div class="timer-box"><div id="delay-m" class="timer-number">45</div><div>मिनट</div></div>
-            <div class="timer-box"><div id="delay-s" class="timer-number">00</div><div>सेकंड</div></div>
+    <main class="main-wrapper">
+        <!-- मुख्य टाइमर -->
+        <div id="countdown-card" class="hero-card">
+            <h1>Soha Olive Homes Draw</h1>
+            <p>ड्रॉ शुरू होने में शेष समय:</p>
+            <div class="timer-grid">
+                <div class="timer-box"><div id="hours" class="timer-number">00</div><div>घंटे</div></div>
+                <div class="timer-box"><div id="minutes" class="timer-number">00</div><div>मिनट</div></div>
+                <div class="timer-box"><div id="seconds" class="timer-number">00</div><div>सेकंड</div></div>
+            </div>
         </div>
-    </div>
 
-    <div id="result-wrapper">
-        <h2>ड्रॉ रिजल्ट घोषित!</h2>
-        <a href="soha-result.pdf" class="btn-download">📥 मुख्य रिजल्ट डाउनलोड करें</a>
-        <a href="soha-waiting-list.pdf" class="btn-download" style="background:#d97706;">📥 वेटिंग लिस्ट डाउनलोड करें</a>
-    </div>
+        <!-- डिले सेक्शन -->
+        <div id="delay-section" class="hero-card">
+            <h2>ड्रॉ में देरी (Draw Delayed)</h2>
+            <p>तकनीकी कारणों से ड्रॉ में कुछ देरी है, कृपया प्रतीक्षा करें:</p>
+            <div class="timer-grid">
+                <div class="timer-box"><div id="delay-m" class="timer-number">45</div><div>मिनट</div></div>
+                <div class="timer-box"><div id="delay-s" class="timer-number">00</div><div>सेकंड</div></div>
+            </div>
+        </div>
 
-    <script src="menu.js"></script>
+        <!-- रिजल्ट सेक्शन -->
+        <div id="result-wrapper" class="result-section">
+            <h2>रिजल्ट घोषित हो चुका है!</h2>
+            <p>नीचे दिए गए बटनों से पीडीएफ डाउनलोड करें:</p>
+            <a href="soha-result.pdf" target="_blank" class="btn-download">📥 मुख्य रिजल्ट (Winner List) डाउनलोड करें</a>
+            <a href="soha-waiting-list.pdf" target="_blank" class="btn-download" style="background:#d97706;">📥 वेटिंग लिस्ट (Waiting List) डाउनलोड करें</a>
+        </div>
+    </main>
+
     <script>
-        // 45 मिनट का उल्टा टाइमर
-        let time = 45 * 60;
-        const dTimer = setInterval(() => {
-            let m = Math.floor(time / 60);
-            let s = time % 60;
-            document.getElementById('delay-m').innerText = m;
-            document.getElementById('delay-s').innerText = s < 10 ? "0"+s : s;
-            
-            if(time <= 0) { 
-                clearInterval(dTimer); 
-                document.getElementById('delay-card').style.display = 'none';
-                document.getElementById('result-wrapper').style.display = 'block';
+        // टाइमर लॉजिक
+        const targetTime = new Date(2026, 6, 6, 12, 0, 0).getTime();
+        
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const diff = targetTime - now;
+
+            if (diff <= 0) {
+                clearInterval(timer);
+                document.getElementById('countdown-card').style.display = 'none';
+                document.getElementById('delay-section').style.display = 'block';
+                startDelayTimer();
+            } else {
+                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
             }
-            time--;
         }, 1000);
+
+        function startDelayTimer() {
+            let time = 45 * 60;
+            const dTimer = setInterval(() => {
+                let m = Math.floor(time / 60);
+                let s = time % 60;
+                document.getElementById('delay-m').innerText = m;
+                document.getElementById('delay-s').innerText = s < 10 ? "0"+s : s;
+                if(time <= 0) { 
+                    clearInterval(dTimer); 
+                    document.getElementById('delay-section').style.display = 'none';
+                    document.getElementById('result-wrapper').style.display = 'block';
+                }
+                time--;
+            }, 1000);
+        }
     </script>
+
+    <!-- menu.js इसी तरह लोड होगी -->
+    <script src="menu.js"></script>
+
 </body>
 </html>
