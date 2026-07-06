@@ -46,7 +46,7 @@
             line-height: 1.6;
         }
 
-        /* टॉप नोटिस बार - इसे रिलेटिव कर दिया है ताकि menu.js के साथ क्लैश न हो */
+        /* टॉप नोटिस बार */
         .update-note {
             display: block;
             background: #fff9c4;
@@ -217,116 +217,4 @@
             border-radius: 16px;
             padding: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .cta-card h3 {
-            margin: 0 0 10px 0;
-            font-size: 18px;
-        }
-
-        .cta-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .btn-action {
-            padding: 12px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: var(--white);
-        }
-
-        .btn-whatsapp { background-color: #25d366; }
-        .btn-call { background-color: #0284c7; }
-
-        @media (max-width: 600px) {
-            .timer-number { font-size: 28px; }
-            .cta-buttons { grid-template-columns: 1fr; }
-            .main-wrapper { margin: 20px auto; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="update-note">
-        🔥 LIVE: Soha Olive Homes Draw Result (6 July 2026)
-    </div>
-
-    <div id="global-menu-placeholder"></div>
-
-    <main class="main-wrapper">
-        
-        <div id="countdown-card" class="hero-card">
-            <div class="live-badge">
-                <span class="live-dot"></span> लाइव काउंटडाउन चालू है
-            </div>
-            <h1>Soha Olive Homes Draw Result</h1>
-            <p>सोहा ऑलिव होम्स का आधिकारिक ड्रा रिजल्ट आज (6 जुलाई 2026) दोपहर 12:00 बजे लाइव घोषित किया जाएगा।</p>
-            
-            <div class="timer-grid">
-                <div class="timer-box">
-                    <div id="hours" class="timer-number">00</div>
-                    <div class="timer-label">घंटे</div>
-                </div>
-                <div class="timer-box">
-                    <div id="minutes" class="timer-number">00</div>
-                    <div class="timer-label">मिनट</div>
-                </div>
-                <div class="timer-box">
-                    <div id="seconds" class="timer-number">00</div>
-                    <div class="timer-label">सेकंड</div>
-                </div>
-            </div>
-        </div>
-
-        <div id="result-wrapper" class="result-section">
-            <span class="result-success-badge">🎉 रिजल्ट घोषित हो चुका है!</span>
-            <h2>Soha Olive Homes Official Draw Result PDF</h2>
-            <p>नीचे दिए गए बटन पर क्लिक करके सोहा ऑलिव होम ड्रा की पूरी विनर लिस्ट डाउनलोड करें या सीधे स्क्रीन पर देखें।</p>
-            
-            <a href="soha-result.pdf" target="_blank" class="download-btn">
-                📥 रिजल्ट पीडीएफ डाउनलोड करें
-            </a>
-
-            <div class="pdf-frame-container">
-                <iframe src="soha-result.pdf#toolbar=0"></iframe>
-            </div>
-        </div>
-
-        <br>
-
-        <div class="cta-card">
-            <h3>Soha Draw से संबंधित किसी भी सहायता के लिए संपर्क करें</h3>
-            <p style="color: var(--text-slate); margin: 0; font-size: 14px;">हमारे एक्सपर्ट से सीधे बात करने के लिए नीचे दिए गए बटनों का उपयोग करें।</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/919818811971?text=Hi,%20I%20want%20to%20know%20more%20about%20Soha%20Olive%20Homes%20Draw%20Result." target="_blank" class="btn-action btn-whatsapp">
-                    💬 WhatsApp करें
-                </a>
-                <a href="tel:+919818811971" class="btn-action btn-call">
-                    📞 कॉल करें: 9818811971
-                </a>
-            </div>
-        </div>
-
-    </main>
-
-    <script src="menu.js"></script>
-
-    <script>
-        function initSohaTimer() {
-            // Target Time: July 6, 2026, 12:00:00 PM (इस डेट को फिक्स कर दिया गया है)
-            var targetTime = new Date("July 6, 2026 12:00:00").getTime();
-            
-            var countdownInterval = setInterval(function() {
-                var now = new Date
+            border: 1px solid #e2e8f0
