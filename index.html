@@ -75,7 +75,7 @@
         .search-area { padding: 8px; border-top: 1px solid #eee; }
         #pSearch { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; outline: none; }
         
-        /* --- Beautiful Floating Soha Draw Button Banner --- */
+        /* --- Super Premium Floating Soha Draw Button Banner with Live Timer --- */
         .soha-floating-banner {
             position: fixed;
             bottom: 62px; /* Sits perfectly right above the sticky footer */
@@ -84,26 +84,67 @@
             background: linear-gradient(135deg, var(--nav-blue) 0%, #0d1b2a 100%);
             color: white;
             text-align: center;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 14px;
+            padding: 12px 10px;
+            border-radius: 12px;
             text-decoration: none;
             z-index: 9999;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
             border: 2px solid var(--gold);
             box-sizing: border-box;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             animation: buttonPulse 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        .banner-title-block {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        }
+
+        .timer-badge-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .timer-badge-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #e0e0e0;
+            letter-spacing: 0.5px;
+        }
+
+        .timer-badge-countdown {
+            background: var(--primary-red);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 800;
+            letter-spacing: 1px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+            font-variant-numeric: tabular-nums;
         }
 
         @keyframes buttonPulse {
-            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3); }
-            50% { transform: scale(1.02); border-color: #fff; box-shadow: 0 4px 25px rgba(255, 183, 3, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 183, 3, 0.3); }
+            0% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 183, 3, 0.25); }
+            50% { transform: scale(1.02); border-color: #ffffff; box-shadow: 0 6px 30px rgba(255, 183, 3, 0.55); }
+            100% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 183, 3, 0.25); }
         }
         
         .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 10000; }
@@ -170,15 +211,18 @@
 </head>
 <body>
 
-<!-- Central Architecture Component Hook Insertion -->
 <div id="global-menu-placeholder"></div>
 
-<!-- Map Rendering Engine Viewport -->
 <div id="map"></div>
 
-<!-- HIGHLY VISIBLE SOHA DRAW UPDATE BUTTON FOR GOOGLEBOT & USERS -->
-<a href="https://faridabadmasterplan.in/sohaolivehomes.html" class="soha-floating-banner">
-    🔴 Soha Olive Homes Draw Date Status & Result Center (6 July 2026) 📋
+<a href="soha-olivehomes-draw-result.html" class="soha-floating-banner" id="soha-live-banner">
+    <div class="banner-title-block">
+        🔴 Soha Olive Homes Draw Result Center (6 July 2026) 📋
+    </div>
+    <div class="timer-badge-container">
+        <span class="timer-badge-label">Result Countdown:</span>
+        <span class="timer-badge-countdown" id="soha-live-timer">00:00:00</span>
+    </div>
 </a>
 
 <div class="sticky-footer">
@@ -191,7 +235,7 @@
 <script src="map-logic.js"></script>
 
 <script>
-    // जब पूरा वेबपेज पूरी तरह से लोड (HTML, CSS, Fonts सब कुछ) हो जाएगा, तब ये फंक्शन चलेगा
+    // जब पूरा वेबपेज पूरी तरह से लोड हो जाएगा, तब ये फंक्शन चलेगा
     window.addEventListener('load', function() {
         
         // 1. मैप इनिशियलाइजेशन शुरू करें
@@ -255,7 +299,58 @@
 
         // 3. अपनी बाहरी लॉजिक फाइल को इनिशियलाइज करें
         initMapLogic(map, allMarkers, layers);
+
+        // 4. सोहा लाइव ड्रा काउंटडाउन टाइमर शुरू करें (Target: 6 July 2026, 12:00 PM)
+        initSohaBannerTimer();
     });
+
+    // सोहा काउंटडाउन टाइमर की जावास्क्रिप्ट लॉजिक
+    function initSohaBannerTimer() {
+        var targetTime = new Date("July 6, 2026 12:00:00").getTime();
+        var timerDisplay = document.getElementById("soha-live-timer");
+        var bannerWrapper = document.getElementById("soha-live-banner");
+
+        var countdownInterval = setInterval(function() {
+            var now = new Date().getTime();
+            var difference = targetTime - now;
+
+            // यदि समय समाप्त हो जाता है (12 बज जाते हैं)
+            if (difference <= 0) {
+                clearInterval(countdownInterval);
+                if (timerDisplay) {
+                    timerDisplay.innerHTML = "LIVE NOW";
+                    timerDisplay.style.background = "#25D366";
+                }
+                if (bannerWrapper) {
+                    bannerWrapper.innerHTML = `
+                        <div style="font-size: 15px; font-weight: 800; color: #ffd700; text-shadow: 0 1px 3px rgba(0,0,0,0.6); letter-spacing: 0.5px;">
+                            🎉 SOHA OLIVE HOMES DRAW RESULT IS NOW LIVE! 🎉
+                        </div>
+                        <div style="font-size: 12px; background: #25D366; color: white; padding: 4px 15px; border-radius: 6px; font-weight: bold; margin-top: 2px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                            👉 CLICK HERE TO VIEW ALLOTMENT LIST & PDF 📋
+                        </div>
+                    `;
+                    bannerWrapper.style.background = "linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)";
+                    bannerWrapper.style.borderColor = "#25D366";
+                }
+                return;
+            }
+
+            // घंटे, मिनट और सेकंड की गणना करें
+            var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // सिंगल डिजिट होने पर आगे '0' जोड़ें
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (timerDisplay) {
+                timerDisplay.innerText = hours + ":" + minutes + ":" + seconds;
+            }
+        }, 1000);
+    }
 </script>
 <script src="menu.js"></script>
 <script src="pwa-core.js"></script>
