@@ -2,36 +2,26 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soha Olive Homes Draw Result 2026</title>
+    <title>Soha Olive Homes Draw Result</title>
     <style>
         body { font-family: sans-serif; background: #f8fafc; text-align: center; padding: 20px; }
         .hero-card { background: #0f172a; color: white; padding: 30px; border-radius: 16px; margin: 20px auto; max-width: 600px; }
         .timer-grid { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        .timer-box { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; width: 70px; }
+        .timer-box { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; width: 80px; }
         .timer-number { font-size: 24px; color: #ffb703; font-weight: bold; }
-        .btn-download { display: block; background: #0d9488; color: white; padding: 15px; margin: 10px auto; width: 80%; text-decoration: none; border-radius: 8px; font-weight: bold; }
         #delay-card { display: none; background: #c2410c; }
         #result-wrapper { display: none; background: white; padding: 30px; border-radius: 16px; max-width: 600px; margin: 20px auto; }
+        .btn-download { display: block; background: #0d9488; color: white; padding: 15px; margin: 10px auto; width: 80%; text-decoration: none; border-radius: 8px; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div id="menu-container"></div>
 
-    <div id="countdown-card" class="hero-card">
-        <h1>Soha Olive Homes Draw</h1>
-        <p>ड्रॉ शुरू होने में शेष समय:</p>
-        <div class="timer-grid">
-            <div class="timer-box"><div id="hours" class="timer-number">00</div><div>घंटे</div></div>
-            <div class="timer-box"><div id="minutes" class="timer-number">00</div><div>मिनट</div></div>
-            <div class="timer-box"><div id="seconds" class="timer-number">00</div><div>सेकंड</div></div>
-        </div>
-    </div>
-
-    <div id="delay-card" class="hero-card">
-        <h2>ड्रॉ में देरी (Delayed)</h2>
-        <p>तकनीकी कारणों से ड्रॉ में 45 मिनट की देरी है।</p>
+    <!-- डिले टाइमर (यह अब डिफ़ॉल्ट है) -->
+    <div id="delay-card" class="hero-card" style="display: block;">
+        <h2>ड्रॉ में देरी (Draw Delayed)</h2>
+        <p>तकनीकी कारणों से ड्रॉ में कुछ समय की देरी है:</p>
         <div class="timer-grid">
             <div class="timer-box"><div id="delay-m" class="timer-number">45</div><div>मिनट</div></div>
             <div class="timer-box"><div id="delay-s" class="timer-number">00</div><div>सेकंड</div></div>
@@ -44,44 +34,23 @@
         <a href="soha-waiting-list.pdf" class="btn-download" style="background:#d97706;">📥 वेटिंग लिस्ट डाउनलोड करें</a>
     </div>
 
+    <script src="menu.js"></script>
     <script>
-        // 1. Menu Loader
-        document.getElementById('menu-container').innerHTML = "<nav>यहाँ आपका मेनू है</nav>";
-
-        // 2. Timer Logic
-        const targetTime = new Date(2026, 6, 6, 12, 0, 0).getTime();
-        
-        const timer = setInterval(() => {
-            const now = new Date().getTime();
-            const diff = targetTime - now;
-
-            if (diff <= 0) {
-                clearInterval(timer);
-                document.getElementById('countdown-card').style.display = 'none';
-                document.getElementById('delay-card').style.display = 'block';
-                startDelayTimer();
-            } else {
-                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+        // 45 मिनट का उल्टा टाइमर
+        let time = 45 * 60;
+        const dTimer = setInterval(() => {
+            let m = Math.floor(time / 60);
+            let s = time % 60;
+            document.getElementById('delay-m').innerText = m;
+            document.getElementById('delay-s').innerText = s < 10 ? "0"+s : s;
+            
+            if(time <= 0) { 
+                clearInterval(dTimer); 
+                document.getElementById('delay-card').style.display = 'none';
+                document.getElementById('result-wrapper').style.display = 'block';
             }
+            time--;
         }, 1000);
-
-        function startDelayTimer() {
-            let time = 45 * 60;
-            const dTimer = setInterval(() => {
-                let m = Math.floor(time / 60);
-                let s = time % 60;
-                document.getElementById('delay-m').innerText = m;
-                document.getElementById('delay-s').innerText = s < 10 ? "0"+s : s;
-                if(time <= 0) { 
-                    clearInterval(dTimer); 
-                    document.getElementById('delay-card').style.display = 'none';
-                    document.getElementById('result-wrapper').style.display = 'block';
-                }
-                time--;
-            }, 1000);
-        }
     </script>
 </body>
 </html>
