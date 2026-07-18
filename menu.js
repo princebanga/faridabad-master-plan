@@ -142,6 +142,7 @@ const globalMenuHTML = `
                         <div class="sub-dropdown">
                                 <a href="gulmohar-maple.html">Rera approved Maple floors</a>
                             </div>
+                            </div>
                             <a href="upcoming.html">Upcoming Projects <span class="sub-arrow">▸</span></a>
                             <div class="sub-dropdown-content">
                                 <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
