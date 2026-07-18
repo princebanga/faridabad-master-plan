@@ -139,7 +139,7 @@ const globalMenuHTML = `
                     <a href="javascript:void(0)" class="dropbtn">Group Housing ▾</a>
                     <div class="dropdown-content">
                         <a href="runningprojects.html">Ongoing Projects</a>
-                        </div>
+                        <div class="sub-dropdown">
                             <a href="upcoming.html">Upcoming Projects <span class="sub-arrow">▸</span></a>
                             <div class="sub-dropdown-content">
                                 <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
@@ -154,11 +154,11 @@ const globalMenuHTML = `
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Affordable Project ▾</a>
                     <div class="dropdown-content">
-  <a href="soha-olivehomes-draw-result.html">Soha Olive Homes draw result</a>
+                        <a href="soha-olivehomes-draw-result.html">Soha Olive Homes draw result</a>
                         <a href="sohaolivehomes.html">Soha Olive Homes</a>
                         <a href="compare.html">Advitya / Olive Homes Compare</a>
                     </div>
-                </li>           
+                </li>            
                 <li><a href="about.html">About Us</a></li>
             </ul>
 
