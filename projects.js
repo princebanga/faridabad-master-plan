@@ -12,7 +12,7 @@ const projectsData = [
     { y: 440.1, x: 1043.0, name: "SOHA Olive Town", link: "https://www.youtube.com/watch?v=FdvkILluDas", cat: "Plots", price: "1.45 Lakh per sq yard" },
     { y: 361.6, x: 642.0, name: "Dameera Plots", link: "https://faridabadmasterplan.in/dameera.html", cat: "Plots", price: "approx 75k per sq yard" }, // वापस जोड़ा गया
     { y: 488.3, x: 927.0, name: "BPTP Parkland Pride", link: "https://www.youtube.com/shorts/7n0Kss_6mJs", cat: "Low-Rise", price: "2.15 lakh per sq yard" },
-    { y: 412.6, x: 1039.5, name: "Maple Floors", link: "https://www.youtube.com/shorts/GIu0T7baRpI", cat: "Low-Rise", price: "70 lakh to 1.10 cr" },
+    { y: 412.6, x: 1039.5, name: "Maple Floors", link: "https://faridabadmasterplan.in/gulmohar-maple.html", cat: "Low-Rise", price: "70 lakh to 1.10 cr" },
     { y: 505.5, x: 1061.3, name: "Adore Presidential World", link: "https://www.youtube.com/shorts/cHRfbJGKcXE", cat: "Low-Rise", price: "approx 2 cr" },
     { y: 720.9, x: 597.5, name: "Advitya Homes", link: "https://www.youtube.com/watch?v=iTiPrQ_tle4", cat: "Affordable", price: "5450 x sq ft" },
     { y: 428.4, x: 1071.3, name: "SOHA Olive Homes", link: "https://faridabadmasterplan.in/sohaolivehomes.html", cat: "Affordable", price: "5450 x Sq ft" },
