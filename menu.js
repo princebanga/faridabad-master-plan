@@ -139,7 +139,8 @@ const globalMenuHTML = `
                     <a href="javascript:void(0)" class="dropbtn">Group Housing ▾</a>
                     <div class="dropdown-content">
                         <a href="runningprojects.html">Ongoing Projects</a>
-                        <div class="sub-dropdown">
+                        <div class="sub-dropdown-content">
+                        <a href="true-habitat.html">Affordable Flats True Habitat</a>
                             <a href="upcoming.html">Upcoming Projects <span class="sub-arrow">▸</span></a>
                             <div class="sub-dropdown-content">
                                 <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
