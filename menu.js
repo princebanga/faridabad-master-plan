@@ -176,7 +176,7 @@ const globalMenuHTML = `
     </nav>
 
     <div class="news-ticker">
-        <marquee scrollamount="5">🆕 EMERALD SECTOR 87: Pre-Launch Started! Luxury 3 & 4 BHK Floors. 📞 98188 11971</marquee>
+        <marquee scrollamount="5">🆕 EMERALD SECTOR 97: Upcoming Sector 97! Luxury 2 BHK 1100 sq ft & 3 BHK 1500 sq ft Floors. 📞 98188 11971</marquee>
     </div>
 `;
 
