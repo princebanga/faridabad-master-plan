@@ -149,7 +149,7 @@ const globalMenuHTML = `
 
             <div class="sub-dropdown-content">
                 <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
-                <a href="emerald-2bhk.html">Emerald 2 BHK</a>
+                <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">Emerald 2BHK/3bhk 97 sector</a>
                 <a href="true-habitat.html">Affordable Flats True Habitat</a>
             </div>
         </div>
