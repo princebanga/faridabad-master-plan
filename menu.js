@@ -135,20 +135,26 @@ const globalMenuHTML = `
                     </div>
                 </li>
                 
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Group Housing ▾</a>
-                    <div class="dropdown-content">
-                        <a href="runningprojects.html">Ongoing Projects</a>
-                        <div class="sub-dropdown-content">
-                        <a href="true-habitat.html">Affordable Flats True Habitat</a>
-                            <a href="upcoming.html">Upcoming Projects <span class="sub-arrow">▸</span></a>
-                            <div class="sub-dropdown-content">
-                                <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
-                                <a href="true-habitat.html">Affordable Flats True Habitat</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+             <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Group Housing ▾</a>
+
+    <div class="dropdown-content">
+        <a href="runningprojects.html">Ongoing Projects</a>
+        <a href="true-habitat.html">Affordable Flats True Habitat</a>
+
+        <div class="sub-dropdown">
+            <a href="javascript:void(0)">
+                Upcoming Projects <span class="sub-arrow">▸</span>
+            </a>
+
+            <div class="sub-dropdown-content">
+                <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
+                <a href="emerald-2bhk.html">Emerald 2 BHK</a>
+                <a href="true-habitat.html">Affordable Flats True Habitat</a>
+            </div>
+        </div>
+    </div>
+</li>
                 
                 <li><a href="video.html">Video</a></li>
 
