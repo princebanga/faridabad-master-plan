@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming Emerald Highrise | 2 & 3 BHK Luxury Apartments Faridabad</title>
-    <meta name="description" content="Discover Emerald Highrise Residences in Faridabad. Exclusive 2 & 3 BHK luxury apartments featuring state-of-the-art amenities, 10 mins from Amrita Hospital.">
-    <meta name="keywords" content="Emerald Highrise, Emerald Highrise Faridabad, 2 BHK flats Faridabad, 3 BHK flats Faridabad, luxury apartments near Amrita Hospital, upcoming highrise Faridabad, FNG expressway flats">
+    <title>Emerald Highrise Sector 97 Faridabad | 2 & 3 BHK Luxury Apartments</title>
+    <meta name="description" content="Discover Emerald Highrise Residences in Sector 97, Faridabad. Exclusive 2 & 3 BHK luxury apartments featuring state-of-the-art amenities, 10 mins from Amrita Hospital.">
+    <meta name="keywords" content="Emerald Highrise Sector 97, Emerald 2BHK Sector 97, Emerald 3BHK Sector 97, luxury apartments Faridabad, FNG expressway flats">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ApartmentComplex",
-      "name": "Emerald Highrise Residences",
-      "description": "Exclusive 2 and 3 BHK highrise residences thoughtfully envisioned by visionary minds.",
-      "url": "https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html",
+      "name": "Emerald Highrise Residences Sector 97",
+      "description": "Exclusive 2 and 3 BHK highrise residences in Sector 97 Faridabad.",
+      "url": "https://faridabadmasterplan.in/emerald-sector-97-2bhk-3bhk.html",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Faridabad",
@@ -51,7 +51,7 @@
             background-color: var(--bg-light);
             color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 80px; /* Space for sticky footer */
+            padding-bottom: 80px;
         }
 
         #global-menu-placeholder {
@@ -146,6 +146,44 @@
             padding-bottom: 10px;
         }
 
+        .floor-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .floor-plan-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .floor-plan-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .floor-plan-card h3 {
+            font-size: 18px;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .floor-plan-card p {
+            font-size: 14px;
+            color: #475569;
+            margin-bottom: 15px;
+        }
+
         .floor-plan-data {
             width: 100%;
             border-collapse: collapse;
@@ -188,11 +226,6 @@
             box-shadow: 0 2px 8px rgba(13, 148, 136, 0.1);
         }
 
-        .amenity-tag i {
-            margin-right: 10px;
-            font-size: 18px;
-        }
-
         .location-list {
             list-style: none;
         }
@@ -211,7 +244,6 @@
             margin-right: 12px;
         }
 
-        /* Sticky Mobile Footer Actions */
         .sticky-action-bar {
             position: fixed;
             bottom: 0;
@@ -248,9 +280,9 @@
     <div id="global-menu-placeholder"></div>
 
     <header class="project-hero">
-        <div class="launch-badge">Upcoming Launch</div>
+        <div class="launch-badge">Sector 97, Faridabad Launch</div>
         <h1>EMERALD HIGHRISE RESIDENCES</h1>
-        <p>A New Benchmark of Refined Living in Faridabad. Discover thoughtfully envisioned 2 & 3 BHK luxury apartments designed for a privileged few.</p>
+        <p>A New Benchmark of Refined Living in Sector 97, Faridabad. Discover thoughtfully envisioned 2 & 3 BHK luxury apartments designed for a privileged few.</p>
     </header>
 
     <main class="content-wrapper">
@@ -261,8 +293,8 @@
                 <strong>2 BHK & 3 BHK</strong>
             </div>
             <div class="stat-box">
-                <span>Project Type</span>
-                <strong>Luxury Highrise</strong>
+                <span>Location</span>
+                <strong>Sector 97, Faridabad</strong>
             </div>
             <div class="stat-box">
                 <span>Connectivity</span>
@@ -270,36 +302,57 @@
             </div>
             <div class="stat-box">
                 <span>Status</span>
-                <strong>Upcoming</strong>
+                <strong>Upcoming Launch</strong>
             </div>
         </div>
 
         <div class="info-panel">
-            <h2>Luxury Redefined</h2>
+            <h2>Luxury Redefined in Sector 97</h2>
             <p style="color: #475569; line-height: 1.8;">
-                Introducing Faridabad's most exclusive residences. This exceptional address blends refined architecture, premium craftsmanship, and contemporary living to create an elevated lifestyle. Retreat to the calm and comfort of your bedroom, complemented by expansive 6-foot wide balconies that create the perfect setting for morning coffee or stunning sunset views.
+                Introducing Faridabad Sector 97's most exclusive residences. This exceptional address blends refined architecture, premium craftsmanship, and contemporary living to create an elevated lifestyle. Retreat to the calm and comfort of your bedroom, complemented by expansive 6-foot wide balconies that create the perfect setting for morning coffee or stunning sunset views.
             </p>
         </div>
 
-        <div class="info-panel">
-            <h2>Floor Plan Specifications</h2>
-            <div style="overflow-x: auto;">
+        <div class="info-panel" id="floor-plans">
+            <h2>Floor Plan Layouts & Specifications</h2>
+            
+            <div class="floor-plan-grid">
+                <!-- Emerald 2 BHK Sector 97 -->
+                <div class="floor-plan-card">
+                    <div>
+                        <img src="Emerald 2BHK 97 Sector.jpg" alt="Emerald 2 BHK Floor Plan Sector 97 Faridabad">
+                        <h3>Emerald 2 BHK (1100 SQFT.)</h3>
+                        <p><strong>Layout:</strong> 2 Bedrooms (14'x11', 11'x14'), 2 Toilets, 18'4"x11' Drawing/Dining, 10'x7' Kitchen, and 6' Wide Balconies.</p>
+                    </div>
+                </div>
+
+                <!-- Emerald 3 BHK Sector 97 -->
+                <div class="floor-plan-card">
+                    <div>
+                        <img src="Emerald 3BHK 97 Sector.jpg" alt="Emerald 3 BHK Floor Plan Sector 97 Faridabad">
+                        <h3>Emerald 3 BHK (1500 SQFT.)</h3>
+                        <p><strong>Layout:</strong> 3 Bedrooms (13'x11', 11'x12', 14'x11'), 2 Toilets, 22'x12' Drawing/Dining, 10'x7' Kitchen, and 6' Wide Balconies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="overflow-x: auto; margin-top: 30px;">
                 <table class="floor-plan-data">
                     <thead>
                         <tr>
                             <th>Type</th>
                             <th>Super Area</th>
-                            <th>Layout Details</th>
+                            <th>Key Layout Dimensions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>2 BHK</strong></td>
+                            <td><strong>Emerald 2 BHK (Sector 97)</strong></td>
                             <td>1100 SQFT.</td>
                             <td>2 Bedrooms (14'x11', 11'x14'), 2 Toilets, 18'4"x11' Drawing/Dining, 10'x7' Kitchen, 6' Wide Balconies</td>
                         </tr>
                         <tr>
-                            <td><strong>3 BHK</strong></td>
+                            <td><strong>Emerald 3 BHK (Sector 97)</strong></td>
                             <td>1500 SQFT.</td>
                             <td>3 Bedrooms (13'x11', 11'x12', 14'x11'), 2 Toilets, 22'x12' Drawing/Dining, 10'x7' Kitchen, 6' Wide Balconies</td>
                         </tr>
@@ -339,7 +392,7 @@
     </main>
 
     <div class="sticky-action-bar">
-        <a href="https://wa.me/919818811971?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20upcoming%20Emerald%20Highrise%202%20and%203%20BHK%20project." target="_blank" class="btn-action bg-wa">
+        <a href="https://wa.me/919818811971?text=Hi,%20I%20want%20to%20know%20more%20about%20Emerald%20Sector%2097%202%20and%203%20BHK%20project." target="_blank" class="btn-action bg-wa">
             WhatsApp Us
         </a>
         <a href="tel:+919818811971" class="btn-action bg-call">
