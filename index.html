@@ -187,7 +187,7 @@
         🚨 UPCOMING EMERALD HIGH-RISE — SECTOR 97, FARIDABAD
     </div>
     <div style="font-size: 12px; background: #25D366; color: white; padding: 4px 15px; border-radius: 6px; font-weight: bold; margin-top: 2px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-        LOI RECEIVED ✅ &nbsp; | &nbsp; 📋 2 BHK &amp; 3 BHK
+        LOI RECEIVED ✅ &nbsp; | &nbsp; 2 BHK &amp; 3 BHK
     </div>
 </a>
 
@@ -265,57 +265,7 @@
 
         // 3. अपनी बाहरी लॉजिक फाइल को इनिशियलाइज करें
         initMapLogic(map, allMarkers, layers);
-
     });
-
-    // सोहा काउंटडाउन टाइमर की जावास्क्रिप्ट लॉजिक
-    function initSohaBannerTimer() {
-        var targetTime = new Date("July 6, 2026 12:00:00").getTime();
-        var timerDisplay = document.getElementById("soha-live-timer");
-        var bannerWrapper = document.getElementById("soha-live-banner");
-
-        var countdownInterval = setInterval(function() {
-            var now = new Date().getTime();
-            var difference = targetTime - now;
-
-            // यदि समय समाप्त हो जाता है (12 बज जाते हैं)
-            if (difference <= 0) {
-                clearInterval(countdownInterval);
-                if (timerDisplay) {
-                    timerDisplay.innerHTML = "LIVE NOW";
-                    timerDisplay.style.background = "#25D366";
-                }
-                if (bannerWrapper) {
-                    bannerWrapper.innerHTML = `
-                        <div style="font-size: 15px; font-weight: 800; color: #ffd700; text-shadow: 0 1px 3px rgba(0,0,0,0.6); letter-spacing: 0.5px;">
-                            🎉 ANANTYA DRAW will be on 27th Oct 2026! 🎉
-                        </div>
-                        <div style="font-size: 12px; background: #25D366; color: white; padding: 4px 15px; border-radius: 6px; font-weight: bold; margin-top: 2px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-                            👉 🚨 UPCOMING EMERALD HIGH-RISE — SECTOR 97, FARIDABAD
-LOI RECEIVED ✅  📋
-                        </div>
-                    `;
-                    bannerWrapper.style.background = "linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)";
-                    bannerWrapper.style.borderColor = "#25D366";
-                }
-                return;
-            }
-
-            // घंटे, मिनट और सेकंड की गणना करें
-            var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            // सिंगल डिजिट होने पर आगे '0' जोड़ें
-            hours = hours < 10 ? "0" + hours : hours;
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            if (timerDisplay) {
-                timerDisplay.innerText = hours + ":" + minutes + ":" + seconds;
-            }
-        }, 1000);
-    }
 </script>
 <script src="menu.js"></script>
 <script src="pwa-core.js"></script>
