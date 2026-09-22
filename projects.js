@@ -18,5 +18,5 @@ const projectsData = [
     { y: 428.4, x: 1071.3, name: "SOHA Olive Homes", link: "https://faridabadmasterplan.in/sohaolivehomes.html", cat: "Affordable", price: "5450 x Sq ft" },
     { y: 523.6, x: 883.1, name: "Adore Prima 2", link: "https://www.youtube.com/shorts/sUa9hTv6SPc", cat: "Affordable", price: "5450 x sq ft 926" },
     { y: 504.5, x: 875.5, name: "Prima 1", link: "https://www.youtube.com/watch?v=UK0th107Ckg", cat: "Affordable", price: "5450 x sq ft 926" },
-    { y: 469.3, x: 735.9, name: "True Habitat", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "5450 x sq ft", isFuture: true },
+    { y: 469.3, x: 735.9, name: "ANANTYA 110A", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "5450 x sq ft", isFuture: true },
 ];
