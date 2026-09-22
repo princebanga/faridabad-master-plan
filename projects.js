@@ -19,5 +19,5 @@ const projectsData = [
     { y: 523.6, x: 883.1, name: "Adore Prima 2", link: "https://www.youtube.com/shorts/sUa9hTv6SPc", cat: "Affordable", price: "5450 x sq ft 926" },
     { y: 504.5, x: 875.5, name: "Prima 1", link: "https://www.youtube.com/watch?v=UK0th107Ckg", cat: "Affordable", price: "5450 x sq ft 926" },
     { y: 469.3, x: 735.9, name: "ANANTYA 110A", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "5450 x sq ft" },
-    { y: 430.8, x: 1001.0, name: "Emerald Sector 97 High Rise", link: "https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html", cat: "High-Rise", price: "approx 70 Lakh", isFuture: true}
+    { y: 150.8, x: 1397.0, name: "Emerald Sector 97 High Rise", link: "https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html", cat: "High-Rise", price: "approx 70 Lakh", isFuture: true}
 ];
