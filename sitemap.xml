@@ -2,79 +2,85 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://faridabadmasterplan.in/</loc>
-      <lastmod>2026-06-25</lastmod>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
    </url>
    <url>
-      <loc>https://faridabadmasterplan.in/videos.html</loc>
-      <lastmod>2026-05-19</lastmod>
+      <loc>https://faridabadmasterplan.in/video.html</loc>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://faridabadmasterplan.in/compare.html</loc>
-      <lastmod>2026-05-22</lastmod>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.70</priority>
    </url>   
    <url>
       <loc>https://faridabadmasterplan.in/about.html</loc>
-      <lastmod>2026-05-23</lastmod>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.50</priority>
    </url>   
    <url>
       <loc>https://faridabadmasterplan.in/upcoming.html</loc>
-      <lastmod>2026-05-23</lastmod>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.70</priority>
    </url>   
    <url>
-      <loc>https://faridabadmasterplan.in/damira-project.html</loc>
-      <lastmod>2026-06-04</lastmod>
+      <loc>https://faridabadmasterplan.in/dameera.html</loc>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.70</priority>
    </url>   
    <url>
       <loc>https://faridabadmasterplan.in/emerald-sector-87-faridabad.html</loc>
-      <lastmod>2026-05-23</lastmod>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.70</priority>
    </url> 
    <url>
-      <loc>https://faridabadmasterplan.in/true-habitat-project.html</loc>
-      <lastmod>2026-06-05</lastmod>
+      <loc>https://faridabadmasterplan.in/true-habitat.html</loc>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.70</priority>
    </url> 
    <url>
       <loc>https://faridabadmasterplan.in/sohaolivehomes.html</loc>
-      <lastmod>2026-06-30</lastmod>
-      <changefreq>daily</changefreq>
+      <lastmod>2026-10-03</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url> 
    <url>
       <loc>https://faridabadmasterplan.in/townfit-project.html</loc>
-      <lastmod>2026-06-25</lastmod>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url> 
    <url>
       <loc>https://faridabadmasterplan.in/silicon-valley-project.html</loc>
-      <lastmod>2026-06-26</lastmod>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url>
    <url>
       <loc>https://faridabadmasterplan.in/soha-olivehomes-draw-result.html</loc>
-      <lastmod>2026-07-05</lastmod>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url>
    <url>
       <loc>https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html</loc>
-      <lastmod>2026-07-26</lastmod>
+      <lastmod>2026-10-03</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+   </url>
+   <url>
+      <loc>https://faridabadmasterplan.in/gulmohar-maple.html</loc>
+      <lastmod>2026-10-03</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url>
