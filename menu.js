@@ -109,7 +109,18 @@ const globalMenuHTML = `
             100% { box-shadow: 0 0 12px rgba(13, 148, 136, 0.4); }
         }
 
-        @media (max-width: 968px) { .nav-links { display: none; } }
+        .mobile-menu-btn { display:none; background:transparent; border:1px solid #334155; color:#fff; border-radius:7px; padding:8px 11px; font-size:18px; cursor:pointer; }
+        .mobile-menu-panel { display:none; background:#0f172a; border-top:1px solid #334155; padding:8px 16px 14px; }
+        .mobile-menu-panel a { display:block; color:#f8fafc; text-decoration:none; padding:11px 8px; border-bottom:1px solid #1e293b; font-size:14px; font-weight:600; }
+        .mobile-menu-panel a:hover { color:#5eead4; }
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display:block; }
+            .mobile-menu-panel.open { display:block; }
+            .nav-container { gap:8px; }
+            .top-navbar { padding:12px 16px; }
+            .nav-logo { font-size:17px; }
+        }
     </style>
 
     <nav class="top-navbar">
@@ -172,8 +183,20 @@ const globalMenuHTML = `
             <button id="pwa-install-btn">
                 <span>📥</span> Install App
             </button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">☰</button>
         </div>
     </nav>
+    <div class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Mobile navigation">
+        <a href="index.html">🏠 Home</a>
+        <a href="runningprojects.html">🏗️ Ongoing Group Housing Projects</a>
+        <a href="upcoming.html">🚀 Upcoming Projects</a>
+        <a href="dameera.html">🌳 DaMeera City</a>
+        <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
+        <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🏙️ Emerald Sector 97</a>
+        <a href="bptp-skynest-sector-80-faridabad.html">☁️ BPTP Skynest Sector 80</a>
+        <a href="video.html">🎥 Videos</a>
+        <a href="about.html">ℹ️ About Us</a>
+    </div>
 
     <div class="news-ticker">
         <marquee scrollamount="5">🆕 EMERALD SECTOR 97: Upcoming Sector 97! Luxury 2 BHK 1100 sq ft & 3 BHK 1500 sq ft Floors. 📞 98188 11971</marquee>
@@ -188,6 +211,22 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Initialize PWA Installation Logic after HTML is injected
         initPWA();
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobilePanel = document.getElementById('mobile-menu-panel');
+        if (mobileBtn && mobilePanel) {
+            mobileBtn.addEventListener('click', function() {
+                const open = mobilePanel.classList.toggle('open');
+                mobileBtn.setAttribute('aria-expanded', String(open));
+                mobileBtn.textContent = open ? '✕' : '☰';
+            });
+            mobilePanel.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobilePanel.classList.remove('open');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                    mobileBtn.textContent = '☰';
+                });
+            });
+        }
     }
 });
 
