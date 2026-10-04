@@ -167,6 +167,19 @@ const globalMenuHTML = `
     </div>
 </li>
                 
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Buyer Guide ▾</a>
+                    <div class="dropdown-content">
+                        <a href="rera-guide-faridabad.html">RERA Guide</a>
+                        <a href="freehold-vs-leasehold-property.html">Freehold vs Leasehold</a>
+                        <a href="faridabad-vs-noida-greater-noida-property-investment.html">Faridabad vs Noida vs Greater Noida</a>
+                        <a href="plot-buying-checklist-haryana.html">Plot Buying Checklist</a>
+                        <a href="oc-vs-cc-property.html">OC vs CC</a>
+                        <a href="property-documents-guide-haryana.html">Property Documents Guide</a>
+                        <a href="ddjay-plots-haryana-guide.html">DDJAY Plot Guide</a>
+                        <a href="affordable-vs-regular-housing-haryana.html">Affordable vs Regular Housing</a>
+                    </div>
+                </li>
                 <li><a href="video.html">Video</a></li>
 
                 <li class="dropdown">
@@ -194,6 +207,14 @@ const globalMenuHTML = `
         <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🏙️ Emerald Sector 97</a>
         <a href="bptp-skynest-sector-80-faridabad.html">☁️ BPTP Skynest Sector 80</a>
+        <a href="rera-guide-faridabad.html">📘 RERA Guide</a>
+        <a href="freehold-vs-leasehold-property.html">🏷️ Freehold vs Leasehold</a>
+        <a href="faridabad-vs-noida-greater-noida-property-investment.html">⚖️ Faridabad vs Noida vs Greater Noida</a>
+        <a href="plot-buying-checklist-haryana.html">✅ Plot Buying Checklist</a>
+        <a href="oc-vs-cc-property.html">📄 OC vs CC</a>
+        <a href="property-documents-guide-haryana.html">📚 Property Documents Guide</a>
+        <a href="ddjay-plots-haryana-guide.html">🏘️ DDJAY Plot Guide</a>
+        <a href="affordable-vs-regular-housing-haryana.html">🏠 Affordable vs Regular Housing</a>
         <a href="video.html">🎥 Videos</a>
         <a href="about.html">ℹ️ About Us</a>
     </div>
