@@ -181,6 +181,7 @@ const globalMenuHTML = `
                     </div>
                 </li>
                 <li><a href="video.html">Video</a></li>
+<li><a href="https://youtube.com/@apkaapnapropertyadvisor" target="_blank" rel="noopener noreferrer">YouTube</a></li>
 
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Affordable Project ▾</a>
@@ -216,6 +217,7 @@ const globalMenuHTML = `
         <a href="ddjay-plots-haryana-guide.html">🏘️ DDJAY Plot Guide</a>
         <a href="affordable-vs-regular-housing-haryana.html">🏠 Affordable vs Regular Housing</a>
         <a href="video.html">🎥 Videos</a>
+        <a href="https://youtube.com/@apkaapnapropertyadvisor" target="_blank" rel="noopener noreferrer">▶️ YouTube Channel</a>
         <a href="about.html">ℹ️ About Us</a>
     </div>
 
