@@ -25,8 +25,14 @@
       <priority>0.50</priority>
    </url>   
    <url>
+      <loc>https://faridabadmasterplan.in/runningprojects.html</loc>
+      <lastmod>2026-10-06</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.80</priority>
+   </url>
+   <url>
       <loc>https://faridabadmasterplan.in/upcoming.html</loc>
-      <lastmod>2026-10-03</lastmod>
+      <lastmod>2026-10-06</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.70</priority>
    </url>   
@@ -44,7 +50,7 @@
    </url> 
    <url>
       <loc>https://faridabadmasterplan.in/true-habitat.html</loc>
-      <lastmod>2026-10-03</lastmod>
+      <lastmod>2026-10-06</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.70</priority>
    </url> 
@@ -74,7 +80,7 @@
    </url>
    <url>
       <loc>https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html</loc>
-      <lastmod>2026-10-05</lastmod>
+      <lastmod>2026-10-06</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.80</priority>
    </url>
@@ -104,7 +110,7 @@
    </url>
    <url>
       <loc>https://faridabadmasterplan.in/property-in-sector-97-faridabad.html</loc>
-      <lastmod>2026-10-05</lastmod>
+      <lastmod>2026-10-06</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.85</priority>
    </url>
@@ -123,5 +129,5 @@
    <url><loc>https://faridabadmasterplan.in/oc-vs-cc-property.html</loc><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
    <url><loc>https://faridabadmasterplan.in/property-documents-guide-haryana.html</loc><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
    <url><loc>https://faridabadmasterplan.in/ddjay-plots-haryana-guide.html</loc><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
-   <url><loc>https://faridabadmasterplan.in/affordable-vs-regular-housing-haryana.html</loc><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+   <url><loc>https://faridabadmasterplan.in/affordable-vs-regular-housing-haryana.html</loc><lastmod>2026-10-06</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 </urlset>
