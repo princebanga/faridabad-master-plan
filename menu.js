@@ -9,11 +9,11 @@ const globalMenuHTML = `
         }
         .nav-logo { font-size: 20px; font-weight: 800; letter-spacing: 0.5px; color: #0d9488; text-decoration: none; }
         
-        .nav-container { display: flex; align-items: center; gap: 20px; }
+        .nav-container { display: flex; align-items: center; gap: 14px; min-width: 0; }
         
         .nav-links { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; }
-        .nav-links li { margin-left: 24px; position: relative; padding: 10px 0; } 
-        .nav-links a { color: #f8fafc; text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase; transition: color 0.3s; }
+        .nav-links li { margin-left: 14px; position: relative; padding: 10px 0; } 
+        .nav-links a { color: #f8fafc; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; transition: color 0.3s; white-space: nowrap; }
         .nav-links a:hover { color: #0d9488; }
 
         /* Dropdown Container */
@@ -161,10 +161,7 @@ const globalMenuHTML = `
             <div class="sub-dropdown-content">
                 <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
                 <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">Emerald 2BHK/3bhk 97 sector</a>
-                <a href="property-in-sector-97-faridabad.html">📍 Sector 97 Ground View</a>
-                <a href="sector-80-faridabad-property.html">📍 Sector 80 Ground View</a>
-                <a href="sector-81-faridabad-property.html">📍 Sector 81 Ground View</a>
-                <a href="true-habitat.html">Affordable Flats True Habitat</a>
+                                                                <a href="true-habitat.html">Affordable Flats True Habitat</a>
             </div>
         </div>
     </div>
@@ -183,7 +180,14 @@ const globalMenuHTML = `
                         <a href="affordable-vs-regular-housing-haryana.html">Affordable vs Regular Housing</a>
                     </div>
                 </li>
-                <li><a href="video.html">Video</a></li>
+                <li class="dropdown">
+<a href="javascript:void(0)" class="dropbtn">Locations ▾</a>
+<div class="dropdown-content">
+<a href="sector-80-faridabad-property.html">Sector 80 – Ground View</a>
+<a href="sector-81-faridabad-property.html">Sector 81 – Ground View</a>
+<a href="property-in-sector-97-faridabad.html">Sector 97 – Ground View</a>
+</div>
+</li>
 <li><a href="https://youtube.com/@apkaapnapropertyadvisor" target="_blank" rel="noopener noreferrer">YouTube</a></li>
 
                 <li class="dropdown">
@@ -222,8 +226,7 @@ const globalMenuHTML = `
         <a href="property-documents-guide-haryana.html">📚 Property Documents Guide</a>
         <a href="ddjay-plots-haryana-guide.html">🏘️ DDJAY Plot Guide</a>
         <a href="affordable-vs-regular-housing-haryana.html">🏠 Affordable vs Regular Housing</a>
-        <a href="video.html">🎥 Videos</a>
-        <a href="https://youtube.com/@apkaapnapropertyadvisor" target="_blank" rel="noopener noreferrer">▶️ YouTube Channel</a>
+                <a href="https://youtube.com/@apkaapnapropertyadvisor" target="_blank" rel="noopener noreferrer">▶️ YouTube Channel</a>
         <a href="about.html">ℹ️ About Us</a>
     </div>
 
