@@ -134,7 +134,7 @@ const globalMenuHTML = `
                     <a href="javascript:void(0)" class="dropbtn">Plots ▾</a>
                     <div class="dropdown-content">
                         <div class="sub-dropdown">
-                            <a href="ongoing-plots.html">Ongoing Projects <span class="sub-arrow">▸</span></a>
+                            <a href="javascript:void(0)">Ongoing Plot Projects <span class="sub-arrow">▸</span></a>
                             <div class="sub-dropdown-content">
                                 <a href="dameera.html">DaMeera City</a>
                                 <a href="gulmohar-maple.html">GulMohar by Emerald</a>
@@ -142,7 +142,6 @@ const globalMenuHTML = `
                                 <a href="silicon-valley-project.html">Silicon Valley</a>
                             </div>
                         </div>
-                        <a href="upcoming-plots.html">Upcoming Projects</a>
                     </div>
                 </li>
                 
