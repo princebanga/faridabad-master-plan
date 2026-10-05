@@ -161,6 +161,9 @@ const globalMenuHTML = `
             <div class="sub-dropdown-content">
                 <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
                 <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">Emerald 2BHK/3bhk 97 sector</a>
+                <a href="property-in-sector-97-faridabad.html">📍 Sector 97 Ground View</a>
+                <a href="sector-80-faridabad-property.html">📍 Sector 80 Ground View</a>
+                <a href="sector-81-faridabad-property.html">📍 Sector 81 Ground View</a>
                 <a href="true-habitat.html">Affordable Flats True Habitat</a>
             </div>
         </div>
@@ -208,6 +211,9 @@ const globalMenuHTML = `
         <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🏙️ Emerald Sector 97</a>
         <a href="bptp-skynest-sector-80-faridabad.html">☁️ BPTP Skynest Sector 80</a>
+        <a href="property-in-sector-97-faridabad.html">📍 Sector 97 Ground View</a>
+        <a href="sector-80-faridabad-property.html">📍 Sector 80 Ground View</a>
+        <a href="sector-81-faridabad-property.html">📍 Sector 81 Ground View</a>
         <a href="rera-guide-faridabad.html">📘 RERA Guide</a>
         <a href="freehold-vs-leasehold-property.html">🏷️ Freehold vs Leasehold</a>
         <a href="faridabad-vs-noida-greater-noida-property-investment.html">⚖️ Faridabad vs Noida vs Greater Noida</a>
