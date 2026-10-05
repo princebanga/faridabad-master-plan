@@ -147,7 +147,7 @@ const globalMenuHTML = `
                 </li>
                 
              <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Group Housing ▾</a>
+    <a href="javascript:void(0)" class="dropbtn">Group Housing (Affordable) ▾</a>
 
     <div class="dropdown-content">
         <a href="runningprojects.html">Ongoing Projects</a>
@@ -190,15 +190,7 @@ const globalMenuHTML = `
 </li>
 <li><a href="https://youtube.com/@apkaapnapropertyadvisor" target="_blank" rel="noopener noreferrer">YouTube</a></li>
 
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Affordable Project ▾</a>
-                    <div class="dropdown-content">
-                        <a href="soha-olivehomes-draw-result.html">Soha Olive Homes draw result</a>
-                        <a href="sohaolivehomes.html">Soha Olive Homes</a>
-                        <a href="compare.html">Advitya / Olive Homes Compare</a>
-                    </div>
-                </li>            
-                <li><a href="about.html">About Us</a></li>
+                                <li><a href="about.html">About Us</a></li>
             </ul>
 
             <button id="pwa-install-btn">
