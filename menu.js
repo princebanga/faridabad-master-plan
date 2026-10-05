@@ -152,6 +152,9 @@ const globalMenuHTML = `
     <div class="dropdown-content">
         <a href="runningprojects.html">Ongoing Projects</a>
         <a href="true-habitat.html">Affordable Flats True Habitat</a>
+        <a href="sohaolivehomes.html">Soha Olive Homes</a>
+        <a href="soha-olivehomes-draw-result.html">Soha Olive Homes Draw Result</a>
+        <a href="compare.html">Advitya / Olive Homes Compare</a>
 
         <div class="sub-dropdown">
             <a href="javascript:void(0)">
