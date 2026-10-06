@@ -26,7 +26,7 @@
 <section class="hero"><h1>Haryana RERA Project Watch</h1><p>Search verified HRERA project records by project, sector, promoter, RERA registration or Project ID. Coverage is being expanded systematically across Haryana.</p></section>
 <main class="container">
 <div class="notice"><b>Coverage:</b> This page is being expanded systematically from HRERA public records, with the working scan target covering detail-record IDs <b>2500–4500</b>. Faridabad, Palwal and Gurugram are the first priority districts, followed by the remaining Haryana districts. Where a detail-record ID is not separately verified, the official RERA Registration Number and Project ID are shown instead of guessing an ID. Always cross-check the latest official HRERA record/order.<br><br><b>How to read this page:</b> 🟢 Green = currently shown as approved/certificate uploaded in the available HRERA record. 🟠 Orange = application/processing/approval-stage record where final certificate is not confirmed. 🔴 Red = a current adverse flag such as return, rejection, suspension, abeyance or delisting. <b>Important:</b> a project can have an earlier RERA approval and later receive a new HRERA proceeding or adverse flag; therefore the latest HRERA record/event should always be checked before any investment, booking or transaction.</div>
-<div class="stats"><div class="stat"><b id="countAll">0</b><span>Projects shown</span></div><div class="stat"><b id="countGreen">0</b><span>RERA approved</span></div><div class="stat"><b id="countOrange">0</b><span>Application / process</span></div><div class="stat"><b id="countRed">0</b><span>Not approved / returned</span></div></div>
+<div class="stats"><div class="stat"><b id="countAll">75</b><span>Projects shown</span></div><div class="stat"><b id="countGreen">72</b><span>RERA approved</span></div><div class="stat"><b id="countOrange">1</b><span>Application / process</span></div><div class="stat"><b id="countRed">2</b><span>Adverse / lapsed</span></div></div>
 <div class="notice" style="margin-top:-6px"><b>Database status:</b> 🟡 Expansion in progress — the records currently shown are verified/compiled entries, but this page is <b>not yet a complete 2500–4500 scan</b>. We will only label the scan complete after the targeted HRERA records have been checked and duplicates/status histories reconciled.</div>\n<div class="controls"><button class="filter active" data-district="ALL">All</button><button class="filter" data-district="FARIDABAD">Faridabad</button><button class="filter" data-district="PALWAL">Palwal</button><button class="filter" data-district="GURUGRAM">Gurugram</button><button class="filter" data-district="SONIPAT">Sonipat</button><input id="search" class="search" placeholder="Search project, sector, promoter or RERA number..."></div>
 <div class="legend"><span class="dot"><i style="background:#16a34a"></i> Approved / certificate uploaded</span><span class="dot"><i style="background:#f59e0b"></i> Application / process</span><span class="dot"><i style="background:#dc2626"></i> Adverse / delisting / returned</span><span>Primary source: Haryana RERA (HRERA) public records</span></div>
 <div id="grid" class="grid"></div>
@@ -41,7 +41,7 @@
   <div style="margin-top:12px">© 2026 Faridabad Master Plan | RERA data tracker | Always verify the latest status on official HRERA.</div>
 </footer>
 <script>
-const projects = [
+window.reraProjects = [
 {"rid":4262,"name":"ANANTYA — TRUE HABITAT","district":"FARIDABAD","location":"Bhukharpur, Sector 110A, Faridabad","promoter":"Stardum Real Estate Private Limited","reg":"HRERA-PKL-FBD-969-2026","pid":"RERA-PKL-2133-2026","status":"APPROVED AND CERTIFICATE UPLOADED","date":"26-Aug-2026","tone":"green"},
 {"rid":4009,"name":"ADVITYA HOMES-2","district":"FARIDABAD","location":"Village Sikri, Sector 143","promoter":"Advitya Residency LLP","reg":"HRERA-PKL-FBD-883-2026","pid":"RERA-PKL-1989-2026","status":"APPROVED AND CERTIFICATE UPLOADED","date":"09-Apr-2026","tone":"green"},
 {"rid":3380,"name":"87TH AVENUE","district":"FARIDABAD","location":"Village Baselwa, Sector 87","promoter":"M/s Elite Housing Estate Maintenance Services LLP","reg":"HRERA-PKL-FBD-685-2025","pid":"RERA-PKL-1654-2025","status":"CURRENT ADVERSE FLAG — DELISTING / CANCELLED-PROCEEDING LISTED","approvalDate":"22-Apr-2025","latestUpdateDate":"15-Jul-2026","latestUpdate":"Delisting of Registration of the Project — agenda disposed of","tone":"red"},
@@ -123,7 +123,7 @@ let selected="ALL";
 const grid=document.getElementById("grid"),search=document.getElementById("search");
 function render(){
  const q=search.value.toLowerCase().trim();
- const list=projects.filter(p=>(selected==="ALL"||p.district===selected)&&(!q||Object.values(p).join(" ").toLowerCase().includes(q)));
+ const list=window.reraProjects.filter(p=>(selected==="ALL"||p.district===selected)&&(!q||Object.values(p).join(" ").toLowerCase().includes(q)));
  document.getElementById("countAll").textContent=list.length;
  document.getElementById("countGreen").textContent=list.filter(p=>p.tone==="green").length;
  document.getElementById("countOrange").textContent=list.filter(p=>p.tone==="orange").length;
