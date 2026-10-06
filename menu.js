@@ -146,28 +146,35 @@ const globalMenuHTML = `
                 </li>
                 
              <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Group Housing (Affordable) ▾</a>
+                    <a href="javascript:void(0)" class="dropbtn">Group Housing + Affordable ▾</a>
 
-    <div class="dropdown-content">
-        <a href="runningprojects.html">Ongoing Projects</a>
-        <a href="true-habitat.html">Affordable Flats True Habitat</a>
-        <a href="sohaolivehomes.html">Soha Olive Homes</a>
-        <a href="soha-olivehomes-draw-result.html">Soha Olive Homes Draw Result</a>
-        <a href="compare.html">Advitya / Olive Homes Compare</a>
+                    <div class="dropdown-content">
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Ongoing Projects <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="runningprojects.html">Ongoing Group Housing Projects</a>
+                            </div>
+                        </div>
 
-        <div class="sub-dropdown">
-            <a href="javascript:void(0)">
-                Upcoming Projects <span class="sub-arrow">▸</span>
-            </a>
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Affordable Projects <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="true-habitat.html">Affordable Flats – True Habitat</a>
+                                <a href="sohaolivehomes.html">Soha Olive Homes</a>
+                                <a href="soha-olivehomes-draw-result.html">Soha Olive Homes Draw Result</a>
+                                <a href="compare.html">Advitya / Olive Homes Comparison</a>
+                            </div>
+                        </div>
 
-            <div class="sub-dropdown-content">
-                <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
-                <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">Emerald 2BHK/3bhk 97 sector</a>
-                                                                <a href="true-habitat.html">Affordable Flats True Habitat</a>
-            </div>
-        </div>
-    </div>
-</li>
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Upcoming Projects <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
+                                <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">Emerald High Rise – Sector 97</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Buyer Guide ▾</a>
@@ -204,7 +211,11 @@ const globalMenuHTML = `
     <div class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Mobile navigation">
         <a href="index.html">🏠 Home</a>
         <a href="runningprojects.html">🏗️ Ongoing Group Housing Projects</a>
-        <a href="upcoming.html">🚀 Upcoming Projects</a>
+        <a href="true-habitat.html">🏠 Affordable Flats – True Habitat</a>
+        <a href="sohaolivehomes.html">🏠 Soha Olive Homes</a>
+        <a href="soha-olivehomes-draw-result.html">🎯 Soha Olive Homes Draw Result</a>
+        <a href="compare.html">⚖️ Advitya / Olive Homes Comparison</a>
+        <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🚀 Emerald High Rise – Sector 97</a>
         <a href="dameera.html">🌳 DaMeera City</a>
         <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🏙️ Emerald Sector 97</a>
