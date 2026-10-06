@@ -179,6 +179,7 @@ const globalMenuHTML = `
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Buyer Guide ▾</a>
                     <div class="dropdown-content">
+                        <a href="rera-project-watch.html">🟢 RERA Project Watch</a>
                         <a href="rera-guide-faridabad.html">RERA Guide</a>
                         <a href="freehold-vs-leasehold-property.html">Freehold vs Leasehold</a>
                         <a href="faridabad-vs-noida-greater-noida-property-investment.html">Faridabad vs Noida vs Greater Noida</a>
@@ -223,6 +224,7 @@ const globalMenuHTML = `
         <a href="property-in-sector-97-faridabad.html">📍 Sector 97 Ground View</a>
         <a href="sector-80-faridabad-property.html">📍 Sector 80 Ground View</a>
         <a href="sector-81-faridabad-property.html">📍 Sector 81 Ground View</a>
+        <a href="rera-project-watch.html">🟢 RERA Project Watch</a>
         <a href="rera-guide-faridabad.html">📘 RERA Guide</a>
         <a href="freehold-vs-leasehold-property.html">🏷️ Freehold vs Leasehold</a>
         <a href="faridabad-vs-noida-greater-noida-property-investment.html">⚖️ Faridabad vs Noida vs Greater Noida</a>
