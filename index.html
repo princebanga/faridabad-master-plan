@@ -105,6 +105,48 @@
         
         .search-area { padding: 8px; border-top: 1px solid #eee; }
         #pSearch { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; outline: none; }
+
+        .homepage-spotlight {
+            position: fixed;
+            bottom: 62px;
+            left: 3%;
+            width: 94%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.15fr;
+            gap: 10px;
+            z-index: 9999;
+            box-sizing: border-box;
+        }
+        .spot-card {
+            min-width: 0;
+            background: linear-gradient(135deg, #001f3f 0%, #0d1b2a 100%);
+            color: white;
+            border: 2px solid var(--gold);
+            border-radius: 12px;
+            padding: 12px 14px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.38);
+            box-sizing: border-box;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .spot-card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.48); }
+        .spot-upcoming { border-color: #ffb703; }
+        .spot-rera { border-color: #14b8a6; }
+        .spot-trending { border-color: #f59e0b; }
+        .spot-kicker { font-size: 10px; font-weight: 800; letter-spacing: .5px; opacity: .9; margin-bottom: 4px; }
+        .spot-title { font-size: 15px; font-weight: 800; line-height: 1.2; }
+        .spot-sub { font-size: 11px; line-height: 1.35; margin-top: 3px; color: #dbeafe; }
+        .spot-badge { display: inline-block; margin-top: 7px; padding: 4px 8px; border-radius: 5px; background: #25D366; color: #fff; font-size: 10px; font-weight: 800; }
+        .spot-rera .spot-badge { background: #0d9488; }
+        .trend-row { display: flex; justify-content: space-between; gap: 8px; align-items: center; border-top: 1px solid rgba(255,255,255,.16); margin-top: 5px; padding-top: 5px; font-size: 10px; }
+        .trend-row span { color: #cbd5e1; font-weight: 700; white-space: nowrap; }
+        .trend-row a { color: #fff; font-weight: 700; text-decoration: none; text-align: right; }
+        @media (max-width: 760px) {
+            .homepage-spotlight { left: 2%; width: 96%; grid-template-columns: 1fr; gap: 7px; bottom: 62px; }
+            .spot-card { padding: 9px 11px; }
+            .spot-card:nth-child(3) { display: none; }
+        }
+
         .soha-floating-banner {
             position: fixed;
             bottom: 62px; /* Sits perfectly right above the sticky footer */
@@ -213,14 +255,29 @@
 
 <div id="map"></div>
 
-<a href="https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html" class="soha-floating-banner" id="soha-live-banner">
-    <div class="banner-title-block">
-        🚨 UPCOMING EMERALD HIGH-RISE — SECTOR 97, FARIDABAD
+<section class="homepage-spotlight" aria-label="Featured property updates">
+    <a href="https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html" class="spot-card spot-upcoming">
+        <div class="spot-kicker">🚨 UPCOMING PROJECT</div>
+        <div class="spot-title">Emerald High-Rise</div>
+        <div class="spot-sub">Sector 97, Faridabad</div>
+        <span class="spot-badge">LOI RECEIVED · 2 &amp; 3 BHK →</span>
+    </a>
+
+    <a href="https://faridabadmasterplan.in/rera-project-watch.html" class="spot-card spot-rera">
+        <div class="spot-kicker">🛡️ RERA PROJECT WATCH</div>
+        <div class="spot-title">Latest HRERA Status</div>
+        <div class="spot-sub">Track approvals, applications &amp; latest status updates</div>
+        <span class="spot-badge">Check RERA Records →</span>
+    </a>
+
+    <div class="spot-card spot-trending">
+        <div class="spot-kicker">🔥 LATEST TRENDING</div>
+        <div class="spot-title">Projects to Watch</div>
+        <div class="trend-row"><span>Faridabad</span><a href="true-habitat.html">Anantya · Sector 110A →</a></div>
+        <div class="trend-row"><span>Palwal</span><a href="rera-project-watch.html">Lavender Estate →</a></div>
+        <div class="trend-row"><span>Gurugram</span><a href="rera-project-watch.html">M3M Residences →</a></div>
     </div>
-    <div style="font-size: 12px; background: #25D366; color: white; padding: 4px 15px; border-radius: 6px; font-weight: bold; margin-top: 2px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-        LOI RECEIVED ✅ &nbsp; | &nbsp; 2 BHK &amp; 3 BHK
-    </div>
-</a>
+</section>
 
 <div class="sticky-footer">
     <a href="tel:+919818811971" class="sticky-btn btn-call">📞 Call Prince Banga</a>
