@@ -108,11 +108,11 @@
 
         .homepage-spotlight {
             position: fixed;
-            bottom: 14px;
-            left: 4%;
-            width: 92%;
+            bottom: 12px;
+            left: 5%;
+            width: 90%;
             display: grid;
-            grid-template-columns: 1fr 1fr 1.05fr;
+            grid-template-columns: 1fr 1fr 1.08fr;
             gap: 7px;
             z-index: 9999;
             box-sizing: border-box;
@@ -129,22 +129,22 @@
             box-sizing: border-box;
             transition: transform .2s ease, box-shadow .2s ease;
         }
-        .spot-card:hover { transform: translateY(-1px); box-shadow: 0 7px 18px rgba(0,0,0,.38); }
+        .spot-card:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.35); }
         .spot-upcoming { border-color: #ffb703; }
         .spot-rera { border-color: #14b8a6; }
         .spot-trending { border-color: #f59e0b; }
-        .spot-kicker { font-size: 8px; font-weight: 800; letter-spacing: .35px; opacity: .9; margin-bottom: 2px; }
+        .spot-kicker { font-size: 8px; font-weight: 800; letter-spacing: .4px; opacity: .9; margin-bottom: 2px; }
         .spot-title { font-size: 12px; font-weight: 800; line-height: 1.15; }
         .spot-sub { font-size: 9px; line-height: 1.25; margin-top: 2px; color: #dbeafe; }
         .spot-badge { display: inline-block; margin-top: 4px; padding: 3px 6px; border-radius: 4px; background: #25D366; color: #fff; font-size: 8px; font-weight: 800; }
         .spot-rera .spot-badge { background: #0d9488; }
-        .trend-row { display: flex; justify-content: space-between; gap: 5px; align-items: center; border-top: 1px solid rgba(255,255,255,.16); margin-top: 3px; padding-top: 3px; font-size: 8px; }
+        .trend-row { display: flex; justify-content: space-between; gap: 6px; align-items: center; border-top: 1px solid rgba(255,255,255,.16); margin-top: 3px; padding-top: 3px; font-size: 8px; }
         .trend-row span { color: #cbd5e1; font-weight: 700; white-space: nowrap; }
         .trend-row a { color: #fff; font-weight: 700; text-decoration: none; text-align: right; }
         @media (max-width: 760px) {
-            .homepage-spotlight { position: fixed; left: 2%; width: 96%; bottom: 8px; grid-template-columns: 1fr; gap: 5px; }
+            .homepage-spotlight { left: 2%; width: 96%; grid-template-columns: 1fr; gap: 5px; bottom: 8px; }
             .spot-card { padding: 7px 9px; }
-            .spot-card:nth-child(3) { display: none; }
+            .spot-card:nth-child(3) { display: block; }
         }
 
         .soha-floating-banner {
