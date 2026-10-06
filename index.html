@@ -108,12 +108,12 @@
 
         .homepage-spotlight {
             position: fixed;
-            bottom: 62px;
-            left: 3%;
-            width: 94%;
+            bottom: 14px;
+            left: 4%;
+            width: 92%;
             display: grid;
-            grid-template-columns: 1fr 1fr 1.15fr;
-            gap: 10px;
+            grid-template-columns: 1fr 1fr 1.05fr;
+            gap: 7px;
             z-index: 9999;
             box-sizing: border-box;
         }
@@ -121,29 +121,29 @@
             min-width: 0;
             background: linear-gradient(135deg, #001f3f 0%, #0d1b2a 100%);
             color: white;
-            border: 2px solid var(--gold);
-            border-radius: 12px;
-            padding: 12px 14px;
+            border: 1px solid var(--gold);
+            border-radius: 9px;
+            padding: 7px 9px;
             text-decoration: none;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.38);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.28);
             box-sizing: border-box;
             transition: transform .2s ease, box-shadow .2s ease;
         }
-        .spot-card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.48); }
+        .spot-card:hover { transform: translateY(-1px); box-shadow: 0 7px 18px rgba(0,0,0,.38); }
         .spot-upcoming { border-color: #ffb703; }
         .spot-rera { border-color: #14b8a6; }
         .spot-trending { border-color: #f59e0b; }
-        .spot-kicker { font-size: 10px; font-weight: 800; letter-spacing: .5px; opacity: .9; margin-bottom: 4px; }
-        .spot-title { font-size: 15px; font-weight: 800; line-height: 1.2; }
-        .spot-sub { font-size: 11px; line-height: 1.35; margin-top: 3px; color: #dbeafe; }
-        .spot-badge { display: inline-block; margin-top: 7px; padding: 4px 8px; border-radius: 5px; background: #25D366; color: #fff; font-size: 10px; font-weight: 800; }
+        .spot-kicker { font-size: 8px; font-weight: 800; letter-spacing: .35px; opacity: .9; margin-bottom: 2px; }
+        .spot-title { font-size: 12px; font-weight: 800; line-height: 1.15; }
+        .spot-sub { font-size: 9px; line-height: 1.25; margin-top: 2px; color: #dbeafe; }
+        .spot-badge { display: inline-block; margin-top: 4px; padding: 3px 6px; border-radius: 4px; background: #25D366; color: #fff; font-size: 8px; font-weight: 800; }
         .spot-rera .spot-badge { background: #0d9488; }
-        .trend-row { display: flex; justify-content: space-between; gap: 8px; align-items: center; border-top: 1px solid rgba(255,255,255,.16); margin-top: 5px; padding-top: 5px; font-size: 10px; }
+        .trend-row { display: flex; justify-content: space-between; gap: 5px; align-items: center; border-top: 1px solid rgba(255,255,255,.16); margin-top: 3px; padding-top: 3px; font-size: 8px; }
         .trend-row span { color: #cbd5e1; font-weight: 700; white-space: nowrap; }
         .trend-row a { color: #fff; font-weight: 700; text-decoration: none; text-align: right; }
         @media (max-width: 760px) {
-            .homepage-spotlight { left: 2%; width: 96%; grid-template-columns: 1fr; gap: 7px; bottom: 62px; }
-            .spot-card { padding: 9px 11px; }
+            .homepage-spotlight { position: fixed; left: 2%; width: 96%; bottom: 8px; grid-template-columns: 1fr; gap: 5px; }
+            .spot-card { padding: 7px 9px; }
             .spot-card:nth-child(3) { display: none; }
         }
 
@@ -278,11 +278,6 @@
         <div class="trend-row"><span>Gurugram</span><a href="rera-project-watch.html">M3M Residences →</a></div>
     </div>
 </section>
-
-<div class="sticky-footer">
-    <a href="tel:+919818811971" class="sticky-btn btn-call">📞 Call Prince Banga</a>
-    <a href="https://wa.me/919818811971" class="sticky-btn btn-wa">💬 WhatsApp Enquiry</a>
-</div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="projects.js"></script>
