@@ -73,7 +73,7 @@ function render(){
       '<div class="small">People/partner details are not yet extracted for this entity. Open the official HRERA record below before treating any individual as an owner, director or partner.</div>'
     }</div>
     <div class="section"><h3>Projects across Haryana</h3>${g.projects.map(p=>`<div class="project"><div><b>${p.name}</b><br><span class="small">${p.district} · ${p.reg||p.pid} · ${p.status}</span></div>${p.source?'<a class="badge" href="'+p.source+'" target="_blank" rel="noopener noreferrer">HRERA ↗</a>':''}</div>`).join("")}</div>
-    <div class="source"><a href="https://haryanarera.gov.in/assistancecontrol/project_search_public/1" target="_blank" rel="noopener noreferrer">Search official Haryana RERA records ↗</a></div>
+    
   </article>`).join("") || '<div class="notice">No matching promoter/company/person found.</div>';
 }
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");selected=b.dataset.district;render()}));
