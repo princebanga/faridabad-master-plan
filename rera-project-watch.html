@@ -174,6 +174,12 @@ let selected="ALL";
 let selectedYear="ALL";
 const grid=document.getElementById("grid"),search=document.getElementById("search"),yearFilter=document.getElementById("yearFilter");
 function projectYear(p){ const s=((p.reg||"")+" "+(p.pid||"")); const years=s.match(/20\\d{2}/g)||[]; return years.length?Math.max(...years.map(Number)):0; }
+function projectSortDate(p){
+  const dates=[p.latestUpdateDate,p.approvalDate,p.date,p.registrationUpTo].filter(Boolean).map(v=>{
+    const t=Date.parse(v); return Number.isNaN(t)?0:t;
+  });
+  return Math.max(...dates,0);
+}
 const projectPages = {
   "ANANTYA — TRUE HABITAT": {url:"true-habitat.html", label:"Check the Anantya update →"},
   "DAMEERA CITY": {url:"dameera.html", label:"Check the DaMeera update →"},
@@ -185,7 +191,7 @@ const projectPages = {
 
 function render(){
  const q=search.value.toLowerCase().trim();
- const list=window.reraProjects.filter(p=>(selected==="ALL"||p.district===selected)&&(selectedYear==="ALL"||(selectedYear==="OLDER"?projectYear(p)<2022:projectYear(p)===Number(selectedYear)))&&(!q||Object.values(p).join(" ").toLowerCase().includes(q))).sort((a,b)=>projectYear(b)-projectYear(a)||a.name.localeCompare(b.name));
+ const list=window.reraProjects.filter(p=>(selected==="ALL"||p.district===selected)&&(selectedYear==="ALL"||(selectedYear==="OLDER"?projectYear(p)<2022:projectYear(p)===Number(selectedYear)))&&(!q||Object.values(p).join(" ").toLowerCase().includes(q))).sort((a,b)=>projectSortDate(b)-projectSortDate(a)||projectYear(b)-projectYear(a)||a.name.localeCompare(b.name));
  document.getElementById("countAll").textContent=list.length;
  document.getElementById("countGreen").textContent=list.filter(p=>p.tone==="green").length;
  document.getElementById("countOrange").textContent=list.filter(p=>p.tone==="orange").length;
