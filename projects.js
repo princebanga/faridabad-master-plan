@@ -20,5 +20,5 @@ const projectsData = [
     { y: 504.5, x: 875.5, name: "Prima 1", link: "https://www.youtube.com/watch?v=UK0th107Ckg", cat: "Affordable", price: "5450 x sq ft 926" },
     { y: 469.3, x: 735.9, name: "ANANTYA 110A", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "5450 x sq ft" },
     { y: 421.0, x: 1005.0, name: "Emerald Sector 97 High Rise", link: "https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html", cat: "High-Rise", price: "approx 70 Lakh", isFuture: true},
-    { y: 320.0, x: 710.0, name: "Adore Legend-II Sector 119", link: "https://faridabadmasterplan.in/adore-legend-ii-sector-119-faridabad.html", cat: "Affordable", price: "5450 x sq ft", isFuture: true }
+    { y: 320.0, x: 710.0, name: "Adore Legend-II Sector 119", link: "https://faridabadmasterplan.in/adore-legend-ii-sector-119-faridabad.html", cat: "Affordable", price: "5450 x sq ft" }
 ];
