@@ -163,6 +163,7 @@ const globalMenuHTML = `
                                 <a href="sohaolivehomes.html">Soha Olive Homes</a>
                                 <a href="soha-olivehomes-draw-result.html">Soha Olive Homes Draw Result</a>
                                 <a href="compare.html">Advitya / Olive Homes Comparison</a>
+                                <a href="adore-legend-ii-sector-119-faridabad.html">Adore Legend-II – Sector 119 (3 BHK MQ)</a>
                             </div>
                         </div>
 
@@ -215,6 +216,7 @@ const globalMenuHTML = `
         <a href="true-habitat.html">🏠 Affordable Flats – True Habitat</a>
         <a href="sohaolivehomes.html">🏠 Soha Olive Homes</a>
         <a href="soha-olivehomes-draw-result.html">🎯 Soha Olive Homes Draw Result</a>
+        <a href="adore-legend-ii-sector-119-faridabad.html">🏠 Adore Legend-II – Sector 119 (3 BHK MQ)</a>
         <a href="compare.html">⚖️ Advitya / Olive Homes Comparison</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🚀 Emerald High Rise – Sector 97</a>
         <a href="dameera.html">🌳 DaMeera City</a>
