@@ -187,7 +187,6 @@ const globalMenuHTML = `
                         <a href="faridabad-vs-noida-greater-noida-property-investment.html">Faridabad vs Noida vs Greater Noida</a>
                         <a href="plot-buying-checklist-haryana.html">Plot Buying Checklist</a>
                         <a href="oc-vs-cc-property.html">OC vs CC</a>
-                        <a href="property-documents-guide-haryana.html">Property Documents Guide</a>
                         <a href="ddjay-plots-haryana-guide.html">DDJAY Plot Guide</a>
                         <a href="affordable-vs-regular-housing-haryana.html">Affordable vs Regular Housing</a>
                     </div>
@@ -234,7 +233,6 @@ const globalMenuHTML = `
         <a href="faridabad-vs-noida-greater-noida-property-investment.html">⚖️ Faridabad vs Noida vs Greater Noida</a>
         <a href="plot-buying-checklist-haryana.html">✅ Plot Buying Checklist</a>
         <a href="oc-vs-cc-property.html">📄 OC vs CC</a>
-        <a href="property-documents-guide-haryana.html">📚 Property Documents Guide</a>
         <a href="ddjay-plots-haryana-guide.html">🏘️ DDJAY Plot Guide</a>
         <a href="affordable-vs-regular-housing-haryana.html">🏠 Affordable vs Regular Housing</a>
                 <a href="https://youtube.com/@apkaapnapropertyadvisor" target="_blank" rel="noopener noreferrer">▶️ YouTube Channel</a>
