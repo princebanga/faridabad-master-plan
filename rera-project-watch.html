@@ -46,7 +46,7 @@
 <div id="global-menu-placeholder"></div>
 <section class="hero"><h1>Haryana RERA Project Database</h1><p>Search HRERA registered projects by project name, sector, promoter, RERA registration number or Project ID. Faridabad coverage is being expanded with historical and current HRERA records from 2020 onward, while older records are being reconciled separately against the official registered-project master list.</p></section>
 <main class="container">
-<div class="notice"><b>Coverage:</b> This page is being expanded systematically from HRERA public records, with the Faridabad is currently being expanded to a 2020–2026 coverage target of <b>68 project records</b> on this watch page. Older historical records will be added in a separate reconciliation pass. Where a detail-record ID is not separately verified, the official RERA Registration Number and Project ID are shown instead of guessing an ID. Always cross-check the latest official HRERA record/order.<br><br><b>How to read this page:</b> 🟢 Green = currently shown as approved/certificate uploaded in the available HRERA record. 🟠 Orange = application/processing/approval-stage record where final certificate is not confirmed. 🔴 Red = a current adverse flag such as return, rejection, suspension, abeyance or delisting. <b>Important:</b> a project can have an earlier RERA approval and later receive a new HRERA proceeding or adverse flag; therefore the latest HRERA record/event should always be checked before any investment, booking or transaction.</div>
+<div class="notice"><b>Coverage:</b> This page is being expanded systematically from HRERA public records, with the Faridabad is currently being expanded to a <b>100-project coverage target</b> from 2020 onward on this watch page. Older historical records will be added in a separate reconciliation pass. Where a detail-record ID is not separately verified, the official RERA Registration Number and Project ID are shown instead of guessing an ID. Always cross-check the latest official HRERA record/order.<br><br><b>How to read this page:</b> 🟢 Green = currently shown as approved/certificate uploaded in the available HRERA record. 🟠 Orange = application/processing/approval-stage record where final certificate is not confirmed. 🔴 Red = a current adverse flag such as return, rejection, suspension, abeyance or delisting. <b>Important:</b> a project can have an earlier RERA approval and later receive a new HRERA proceeding or adverse flag; therefore the latest HRERA record/event should always be checked before any investment, booking or transaction.</div>
 <div class="stats"><div class="stat"><b id="countAll">98</b><span>Projects shown</span></div><div class="stat"><b id="countGreen">95</b><span>RERA approved</span></div><div class="stat"><b id="countOrange">1</b><span>Application / process</span></div><div class="stat"><b id="countRed">2</b><span>Adverse / lapsed</span></div></div>
 <div class="notice" style="margin-top:-6px"><b>Database status:</b> 🟡 Expansion in progress — the records currently shown are verified/compiled entries, but this page is <b>not yet a complete all-years HRERA archive</b>. We will only label the scan complete after the targeted HRERA records have been checked and duplicates/status histories reconciled.</div>
 <div class="notice" style="background:#f0fdfa;border-color:#99f6e4">
@@ -71,7 +71,7 @@ window.reraProjects = [{"rid":2156,"name":"TOWNFIT 70","district":"FARIDABAD","l
 let selected="ALL";
 let selectedYear="ALL";
 const grid=document.getElementById("grid"),search=document.getElementById("search"),yearFilter=document.getElementById("yearFilter");
-function projectYear(p){ const s=((p.reg||"")+" "+(p.pid||"")); const years=s.match(/20\\d{2}/g)||[]; return years.length?Math.max(...years.map(Number)):0; }
+function projectIdYear(p){ const m=String(p.pid||"").match(/(20\\d{2})\\s*$/); return m?Number(m[1]):0; }\nfunction projectYear(p){ return projectIdYear(p); }
 const projectPages = {
   "ANANTYA — TRUE HABITAT": {url:"true-habitat.html", label:"Check the Anantya update →"},
   "DAMEERA CITY": {url:"dameera.html", label:"Check the DaMeera update →"},
@@ -83,7 +83,7 @@ const projectPages = {
 
 function render(){
  const q=search.value.toLowerCase().trim();
- const list=window.reraProjects.filter(p=>(selected==="ALL"||p.district===selected)&&(selectedYear==="ALL"||(selectedYear==="OLDER"?projectYear(p)<2022:projectYear(p)===Number(selectedYear)))&&(!q||Object.values(p).join(" ").toLowerCase().includes(q))).sort((a,b)=>projectYear(b)-projectYear(a)||a.name.localeCompare(b.name));
+ const list=window.reraProjects.filter(p=>(selected==="ALL"||p.district===selected)&&(selectedYear==="ALL"||(selectedYear==="OLDER"?projectYear(p)<2022:projectYear(p)===Number(selectedYear)))&&(!q||Object.values(p).join(" ").toLowerCase().includes(q))).sort((a,b)=>projectIdYear(b)-projectIdYear(a)||a.name.localeCompare(b.name));
  document.getElementById("countAll").textContent=list.length;
  document.getElementById("countGreen").textContent=list.filter(p=>p.tone==="green").length;
  document.getElementById("countOrange").textContent=list.filter(p=>p.tone==="orange").length;
