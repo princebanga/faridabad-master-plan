@@ -59,7 +59,8 @@ function districtMatches(g){
   if(selected==="OTHER") return g.districts.some(d=>!["FARIDABAD","GURUGRAM","PALWAL","SONIPAT"].includes(d));
   return g.districts.includes(selected);
 }
-function projectIdYear(p){ const m=String(p.pid||"").match(/(20\\d{2})\\s*$/); return m?Number(m[1]):0; }\nfunction render(){
+function projectIdYear(p){ const m=String(p.pid||"").match(/(20\\d{2})\\s*$/); return m?Number(m[1]):0; }
+function render(){
   const q=document.getElementById("search").value.trim().toLowerCase();
   const list=promoterGroups.filter(g=>districtMatches(g)&&(!q||JSON.stringify(g).toLowerCase().includes(q))).sort((a,b)=>{ const ay=Math.max(0,...a.projects.map(projectIdYear)); const by=Math.max(0,...b.projects.map(projectIdYear)); return by-ay||a.company.localeCompare(b.company); });
   const projectCount=list.reduce((n,g)=>n+g.projects.length,0);
