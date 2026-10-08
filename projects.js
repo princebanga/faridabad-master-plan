@@ -10,7 +10,7 @@ const projectsData = [
     { y: 558.6, x: 805.5, name: "Townfit 70", link: "https://faridabadmasterplan.in/townfit-project.html", cat: "Plots", price: "1.40 Lakh per sq yard" },
     { y: 550.6, x: 805.5, name: "Silicon Valley", link: "https://faridabadmasterplan.in/silicon-valley-project.html", cat: "Plots", price: "1.05 Lakh per sq yard" },
     { y: 440.1, x: 1043.0, name: "SOHA Olive Town", link: "https://www.youtube.com/watch?v=FdvkILluDas", cat: "Plots", price: "1.45 Lakh per sq yard" },
-    { y: 361.6, x: 642.0, name: "Dameera Plots", link: "https://faridabadmasterplan.in/dameera.html", cat: "Plots", price: "approx 75k per sq yard" }, // वापस जोड़ा गया
+    { y: 361.6, x: 642.0, name: "Dameera Plots", link: "https://faridabadmasterplan.in/dameera.html", cat: "Plots", price: "approx 75k per sq yard" },
     { y: 488.3, x: 927.0, name: "BPTP Parkland Pride", link: "https://www.youtube.com/shorts/7n0Kss_6mJs", cat: "Low-Rise", price: "2.15 lakh per sq yard" },
     { y: 412.6, x: 1039.5, name: "Maple Floors", link: "https://faridabadmasterplan.in/gulmohar-maple.html", cat: "Low-Rise", price: "70 lakh to 1.10 cr" },
     { y: 505.5, x: 1061.3, name: "Adore Presidential World", link: "https://www.youtube.com/shorts/cHRfbJGKcXE", cat: "Low-Rise", price: "approx 2 cr" },
@@ -19,5 +19,6 @@ const projectsData = [
     { y: 523.6, x: 883.1, name: "Adore Prima 2", link: "https://www.youtube.com/shorts/sUa9hTv6SPc", cat: "Affordable", price: "5450 x sq ft 926" },
     { y: 504.5, x: 875.5, name: "Prima 1", link: "https://www.youtube.com/watch?v=UK0th107Ckg", cat: "Affordable", price: "5450 x sq ft 926" },
     { y: 469.3, x: 735.9, name: "ANANTYA 110A", link: "https://faridabadmasterplan.in/true-habitat.html", cat: "Affordable", price: "5450 x sq ft" },
-    { y: 421.0, x: 1005.0, name: "Emerald Sector 97 High Rise", link: "https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html", cat: "High-Rise", price: "approx 70 Lakh", isFuture: true}
+    { y: 421.0, x: 1005.0, name: "Emerald Sector 97 High Rise", link: "https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html", cat: "High-Rise", price: "approx 70 Lakh", isFuture: true},
+    { y: 320.0, x: 710.0, name: "Adore Legend-II Sector 119", link: "https://faridabadmasterplan.in/adore-legend-ii-sector-119-faridabad.html", cat: "Affordable", price: "5450 x sq ft", isFuture: true }
 ];
