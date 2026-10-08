@@ -71,7 +71,8 @@ window.reraProjects = [{"rid":2156,"name":"TOWNFIT 70","district":"FARIDABAD","l
 let selected="ALL";
 let selectedYear="ALL";
 const grid=document.getElementById("grid"),search=document.getElementById("search"),yearFilter=document.getElementById("yearFilter");
-function projectIdYear(p){ const m=String(p.pid||"").match(/(20\\d{2})\\s*$/); return m?Number(m[1]):0; }\nfunction projectYear(p){ return projectIdYear(p); }
+function projectIdYear(p){ const m=String(p.pid||"").match(/(20\\d{2})\\s*$/); return m?Number(m[1]):0; }
+function projectYear(p){ return projectIdYear(p); }
 const projectPages = {
   "ANANTYA — TRUE HABITAT": {url:"true-habitat.html", label:"Check the Anantya update →"},
   "DAMEERA CITY": {url:"dameera.html", label:"Check the DaMeera update →"},
