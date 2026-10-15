@@ -149,6 +149,10 @@
             .spot-card:nth-child(3) { display: block; }
         }
 
+        .anantya-draw-flash {position:fixed;top:78px;left:5%;width:90%;z-index:10001;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:12px 16px;border:2px solid #ffd166;border-radius:12px;background:linear-gradient(110deg,#7f1d1d,#b91c1c 55%,#7f1d1d);color:#fff;text-align:center;text-decoration:none;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.35);animation:anantyaFlash 1.5s ease-in-out infinite}
+        .anantya-draw-flash strong{color:#ffe08a}.anantya-draw-flash small{font-size:12px;font-weight:600}
+        @keyframes anantyaFlash{0%,100%{box-shadow:0 5px 18px rgba(255,209,102,.25)}50%{box-shadow:0 5px 28px rgba(255,209,102,.75)}}
+        @media(max-width:760px){.anantya-draw-flash{top:65px;left:2%;width:96%;padding:9px 8px;gap:5px;font-size:12px}.anantya-draw-flash small{width:100%}}
         .soha-floating-banner {
             position: fixed;
             bottom: 62px; /* Sits perfectly right above the sticky footer */
@@ -254,6 +258,7 @@
 <body>
 <h1 class="sr-only">Faridabad Master Plan 2031 – Property Projects, Plots and Flats</h1>
 <div id="global-menu-placeholder"></div>
+<a class="anantya-draw-flash" href="true-habitat.html" aria-label="Anantya True Habitat draw on Friday, 16 October 2026 at 4:30 PM"><span>🚨 ANANTYA · TRUE HABITAT DRAW</span><strong>FRIDAY, 16 OCT 2026 · 4:30 PM</strong><small>Tap for Anantya details →</small></a>
 
 <div id="map"></div>
 
