@@ -48,6 +48,7 @@
 </select>
 <button id="routeButton" type="button">Open live directions in Google Maps ↗</button>
 <div class="routebox small" id="routeSummary" aria-live="polite">Selected route will be opened in Google Maps. Check the suggested destination pin before relying on the result.</div>
+<div style="margin-top:16px"><h3>Map preview</h3><p class="muted small">Preview the selected project area. Confirm the pin is the exact project entrance before using route estimates.</p><iframe id="mapPreview" title="Selected project map preview" src="https://maps.google.com/maps?q=Emerald%20Highrise%2C%20Sector%2097%2C%20Faridabad%2C%20Haryana&output=embed" width="100%" height="300" style="border:0;border-radius:12px;background:#e2e8f0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><button type="button" class="secondary" id="shareButton">Share this route setup on WhatsApp ↗</button></div>
 </div>
 <div class="card">
 <span class="tag">2031 CONNECTIVITY RESEARCH</span><h2 style="margin-top:10px">Future roads: evidence first</h2>
@@ -91,8 +92,13 @@
 <script>
 (function(){
 const origin=document.getElementById('origin'), destination=document.getElementById('destination'), summary=document.getElementById('routeSummary');
-function openRoute(){const o=origin.value,d=destination.value;summary.textContent='Opening directions from '+o+' to '+d+'. Google Maps will calculate current routes and estimated travel time.';const url='https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(o)+'&destination='+encodeURIComponent(d)+'&travelmode=driving';window.open(url,'_blank','noopener,noreferrer');}
+function mapsUrl(){return 'https://www.google.com/maps/dir/?api=1&origin='+encodeURIComponent(origin.value)+'&destination='+encodeURIComponent(destination.value)+'&travelmode=driving';}
+function updatePreview(){document.getElementById('mapPreview').src='https://maps.google.com/maps?q='+encodeURIComponent(destination.value)+'&output=embed';}
+function openRoute(){const o=origin.value,d=destination.value;summary.textContent='Opening directions from '+o+' to '+d+'. Google Maps will calculate current routes and estimated travel time.';window.open(mapsUrl(),'_blank','noopener,noreferrer');}
+origin.addEventListener('change',function(){summary.textContent='Route ready: '+origin.value+' → '+destination.value+'. Open directions to check current distance and ETA.';});
+destination.addEventListener('change',function(){updatePreview();summary.textContent='Destination changed to '+destination.value+'. Check the map preview and verify the exact project pin.';});
 document.getElementById('routeButton').addEventListener('click',openRoute);
+document.getElementById('shareButton').addEventListener('click',function(){const msg='Faridabad Live Distance & Connectivity Assistant\\nFrom: '+origin.value+'\\nTo: '+destination.value+'\\nCheck directions: '+mapsUrl();window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');});
 document.getElementById('researchButton').addEventListener('click',function(){const out=document.getElementById('researchOutput');out.hidden=false;out.innerHTML='<strong>2031 research checklist</strong><ol><li>Find the official approved Faridabad Master Plan 2031 map/source.</li><li>Record source URL, document date, page/map number and relevant road legend.</li><li>Verify whether each road is existing, proposed, under construction or completed.</li><li>Map only the verified alignment and attach a source note to each segment.</li><li>Review both project entrance pins and compare the same origins.</li></ol><p>Do not publish future travel times until a defensible road-network model and assumptions are documented.</p>';});
 })();
 </script>
