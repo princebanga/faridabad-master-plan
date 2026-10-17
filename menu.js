@@ -180,8 +180,8 @@ const globalMenuHTML = `
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Education ▾</a>
                     <div class="dropdown-content">
-                        <a href="property-documents-guide-haryana.html">📚 Property Buying Documents Checklist</a>
                         <a href="faridabad-live-distance-assistant.html">🗺️ Live Distance &amp; Connectivity Assistant</a>
+                        <a href="property-documents-guide-haryana.html">📚 Property Buying Documents Checklist</a>
                         <a href="rera-project-watch.html">🟢 RERA Project Watch</a>
                         <a href="rera-reconciliation-dashboard.html">📊 HRERA Reconciliation Dashboard</a>
                         <a href="pre-rera-project-watch.html">🟠 Applied for RERA / Pre-RERA Project Watch</a>
