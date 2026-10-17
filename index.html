@@ -157,8 +157,7 @@
             position: fixed;
             bottom: 62px; /* Sits perfectly right above the sticky footer */
             left: 5%;
-            width: 90%;            background: linear-gradient(135deg, var(--nav-blue) 0%, #0d1b2a 100%);
-            color: white;
+            width: 90%;            background: linear-gradient(135deg, var(--nav-blue) 0%, #0d1b2a 100%);            color: white;
             text-align: center;
             padding: 12px 10px;
             border-radius: 12px;
@@ -261,7 +260,6 @@
 <body>
 <h1 class="sr-only">Faridabad Master Plan 2031 – Property Projects, Plots and Flats</h1>
 <div id="global-menu-placeholder"></div>
-<a class="anantya-draw-flash" href="anantya-draw-result-2026.html" aria-label="Anantya draw result is live: check winner list and waiting list"><span>🏆 ANANTYA DRAW RESULT IS LIVE</span><strong>WINNER LIST &amp; WAITING LIST</strong><small>Tap here to check the Anantya result →</small></a>
 
 <div id="map"></div>
 
@@ -295,12 +293,6 @@
         <div class="trend-row"><span>Gurugram</span><a href="rera-project-watch.html">M3M Residences →</a></div>
     </div>
 
-    <a href="anantya-draw-result-2026.html" class="spot-card spot-upcoming" aria-label="View Anantya successful draw result and waiting list">
-        <div class="spot-kicker">🏆 ANANTYA DRAW RESULT</div>
-        <div class="spot-title">Winner List &amp; Waiting List</div>
-        <div class="spot-sub">True Habitat · Sector 110A, Faridabad</div>
-        <span class="spot-badge">CHECK RESULT →</span>
-    </a>
 </section>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -318,7 +310,6 @@
 
         var layers = { "Plots": L.layerGroup().addTo(map), "High-Rise": L.layerGroup().addTo(map), "Low-Rise": L.layerGroup().addTo(map), "Affordable": L.layerGroup().addTo(map), "Future": L.layerGroup().addTo(map) };
         var allMarkers = [];
-
         // 2. लूप चलाकर मार्कर डिप्लॉय करें
         projectsData.forEach(p => {
             var markerIcon;
