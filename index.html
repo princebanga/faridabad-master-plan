@@ -110,43 +110,44 @@
 
         .homepage-spotlight {
             position: fixed;
-            bottom: 12px;
+            bottom: 76px;
             left: 5%;
             width: 90%;
             display: grid;
-            grid-template-columns: 1fr 1fr 1.08fr;
-            gap: 7px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
             z-index: 9999;
             box-sizing: border-box;
         }
         .spot-card {
             min-width: 0;
+            min-height: 112px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             background: linear-gradient(135deg, #001f3f 0%, #0d1b2a 100%);
             color: white;
-            border: 1px solid var(--gold);
-            border-radius: 9px;
-            padding: 7px 9px;
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 16px 18px;
             text-decoration: none;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.3);
             box-sizing: border-box;
             transition: transform .2s ease, box-shadow .2s ease;
         }
-        .spot-card:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+        .spot-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.38); }
         .spot-upcoming { border-color: #ffb703; }
-        .spot-rera { border-color: #14b8a6; }
-        .spot-trending { border-color: #f59e0b; }
-        .spot-kicker { font-size: 8px; font-weight: 800; letter-spacing: .4px; opacity: .9; margin-bottom: 2px; }
-        .spot-title { font-size: 12px; font-weight: 800; line-height: 1.15; }
-        .spot-sub { font-size: 9px; line-height: 1.25; margin-top: 2px; color: #dbeafe; }
-        .spot-badge { display: inline-block; margin-top: 4px; padding: 3px 6px; border-radius: 4px; background: #25D366; color: #fff; font-size: 8px; font-weight: 800; }
-        .spot-rera .spot-badge { background: #0d9488; }
-        .trend-row { display: flex; justify-content: space-between; gap: 6px; align-items: center; border-top: 1px solid rgba(255,255,255,.16); margin-top: 3px; padding-top: 3px; font-size: 8px; }
-        .trend-row span { color: #cbd5e1; font-weight: 700; white-space: nowrap; }
-        .trend-row a { color: #fff; font-weight: 700; text-decoration: none; text-align: right; }
+        .spot-kicker { font-size: 11px; font-weight: 800; letter-spacing: .7px; opacity: .95; margin-bottom: 6px; }
+        .spot-title { font-size: clamp(19px, 2vw, 27px); font-weight: 800; line-height: 1.15; }
+        .spot-sub { font-size: 14px; line-height: 1.35; margin-top: 6px; color: #dbeafe; }
+        .spot-badge { display: inline-block; align-self: flex-start; margin-top: 10px; padding: 6px 9px; border-radius: 6px; background: #25D366; color: #fff; font-size: 11px; font-weight: 800; }
         @media (max-width: 760px) {
-            .homepage-spotlight { left: 2%; width: 96%; grid-template-columns: 1fr; gap: 5px; bottom: 8px; }
-            .spot-card { padding: 7px 9px; }
-            .spot-card:nth-child(3) { display: block; }
+            .homepage-spotlight { left: 3%; width: 94%; grid-template-columns: 1fr; gap: 8px; bottom: 64px; }
+            .spot-card { min-height: 84px; padding: 11px 13px; border-radius: 12px; }
+            .spot-kicker { font-size: 9px; margin-bottom: 4px; }
+            .spot-title { font-size: 20px; }
+            .spot-sub { font-size: 12px; margin-top: 3px; }
+            .spot-badge { margin-top: 6px; padding: 4px 7px; font-size: 9px; }
         }
 
         .anantya-draw-flash{position:fixed;top:78px;left:5%;width:90%;z-index:9998;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:12px 16px;border:2px solid #ffd166;border-radius:12px;background:linear-gradient(110deg,#7f1d1d,#b91c1c 55%,#7f1d1d);color:#fff;text-align:center;text-decoration:none;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.35);animation:anantyaFlash 1.5s ease-in-out infinite}
@@ -263,29 +264,20 @@
 
 <div id="map"></div>
 
-<section class="homepage-spotlight" aria-label="Featured property updates">
+<section class="homepage-spotlight" aria-label="Featured property projects">
     <a href="https://faridabadmasterplan.in/upcoming-emerald-high-rise-2bhk-3bhk.html" class="spot-card spot-upcoming">
-        <div class="spot-kicker">🚨 UPCOMING PROJECT</div>
+        <div class="spot-kicker">✨ UPCOMING GROUP HOUSING</div>
         <div class="spot-title">Emerald High-Rise</div>
-        <div class="spot-sub">Sector 97, Faridabad</div>
+        <div class="spot-sub">Sector 97 · Faridabad</div>
         <span class="spot-badge">LOI RECEIVED · 2 &amp; 3 BHK →</span>
     </a>
 
     <a href="mansha-senior-living-sector-119-faridabad.html" class="spot-card spot-upcoming">
-        <div class="spot-kicker">🏙️ NEW GROUP HOUSING</div>
+        <div class="spot-kicker">🏙️ GROUP HOUSING</div>
         <div class="spot-title">Mansha Senior Living</div>
         <div class="spot-sub">Sector 119 · Faridabad</div>
         <span class="spot-badge">LOI RECEIVED · 3 &amp; 4 BHK →</span>
     </a>
-
-    <div class="spot-card spot-trending">
-        <div class="spot-kicker">🔥 LATEST TRENDING</div>
-        <div class="spot-title">Projects to Watch</div>
-        <div class="trend-row"><span>Faridabad</span><a href="true-habitat.html">Anantya · Sector 110A →</a></div>
-        <div class="trend-row"><span>Palwal</span><a href="rera-project-watch.html">Lavender Estate →</a></div>
-        <div class="trend-row"><span>Gurugram</span><a href="rera-project-watch.html">M3M Residences →</a></div>
-    </div>
-
 </section>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
