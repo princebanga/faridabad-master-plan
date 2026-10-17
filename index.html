@@ -157,8 +157,7 @@
             position: fixed;
             bottom: 62px; /* Sits perfectly right above the sticky footer */
             left: 5%;
-            width: 90%;
-            background: linear-gradient(135deg, var(--nav-blue) 0%, #0d1b2a 100%);
+            width: 90%;            background: linear-gradient(135deg, var(--nav-blue) 0%, #0d1b2a 100%);
             color: white;
             text-align: center;
             padding: 12px 10px;
@@ -274,6 +273,13 @@
         <span class="spot-badge">LOI RECEIVED · 2 &amp; 3 BHK →</span>
     </a>
 
+    <a href="mansha-senior-living-sector-119-faridabad.html" class="spot-card spot-upcoming">
+        <div class="spot-kicker">🏙️ NEW GROUP HOUSING</div>
+        <div class="spot-title">Mansha Senior Living</div>
+        <div class="spot-sub">Sector 119 · Faridabad</div>
+        <span class="spot-badge">LOI RECEIVED · 3 &amp; 4 BHK →</span>
+    </a>
+
     <a href="https://faridabadmasterplan.in/rera-project-watch.html" class="spot-card spot-rera">
         <div class="spot-kicker">🛡️ RERA PROJECT WATCH</div>
         <div class="spot-title">Latest HRERA Status</div>
@@ -317,8 +323,7 @@
         projectsData.forEach(p => {
             var markerIcon;
 
-            if (p.isFuture) {
-                markerIcon = L.divIcon({
+            if (p.isFuture) {                markerIcon = L.divIcon({
                     className: 'future-marker',
                     html: `
                         <div class="gold-pin-wrapper">
