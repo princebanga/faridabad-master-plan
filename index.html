@@ -111,52 +111,58 @@
         .homepage-spotlight {
             position: fixed;
             bottom: 76px;
-            left: 5%;
-            width: 90%;
+            left: 2%;
+            width: 96%;
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px;
+            grid-template-columns: minmax(270px, 36%) minmax(270px, 36%);
+            justify-content: space-between;
+            gap: 14px;
             z-index: 9999;
             box-sizing: border-box;
         }
         .spot-group-label {
-            grid-column: 1 / -1;
+            position: absolute;
+            top: -27px;
+            left: 0;
+            width: 100%;
             color: #fbbf24;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 900;
             letter-spacing: 1.2px;
             text-align: center;
-            margin-bottom: -8px;
+            text-shadow: 0 2px 6px rgba(0,0,0,.85);
+            pointer-events: none;
         }
         .spot-card {
             min-width: 0;
-            min-height: 112px;
+            min-height: 88px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             background: linear-gradient(135deg, #001f3f 0%, #0d1b2a 100%);
             color: white;
             border: 2px solid var(--gold);
-            border-radius: 15px;
-            padding: 16px 18px;
+            border-radius: 13px;
+            padding: 11px 14px;
             text-decoration: none;
-            box-shadow: 0 8px 22px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.28);
             box-sizing: border-box;
             transition: transform .2s ease, box-shadow .2s ease;
         }
-        .spot-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.38); }
+        .spot-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.38); }
         .spot-upcoming { border-color: #ffb703; }
-        .spot-kicker { font-size: 11px; font-weight: 800; letter-spacing: .7px; opacity: .95; margin-bottom: 6px; }
-        .spot-title { font-size: clamp(19px, 2vw, 27px); font-weight: 800; line-height: 1.15; }
-        .spot-sub { font-size: 14px; line-height: 1.35; margin-top: 6px; color: #dbeafe; }
-        .spot-badge { display: inline-block; align-self: flex-start; margin-top: 10px; padding: 6px 9px; border-radius: 6px; background: #25D366; color: #fff; font-size: 11px; font-weight: 800; }
+        .spot-kicker { font-size: 9px; font-weight: 800; letter-spacing: .55px; opacity: .95; margin-bottom: 4px; }
+        .spot-title { font-size: clamp(17px, 1.55vw, 22px); font-weight: 800; line-height: 1.15; }
+        .spot-sub { font-size: 12px; line-height: 1.3; margin-top: 4px; color: #dbeafe; }
+        .spot-badge { display: inline-block; align-self: flex-start; margin-top: 7px; padding: 4px 7px; border-radius: 5px; background: #25D366; color: #fff; font-size: 9px; font-weight: 800; }
         @media (max-width: 760px) {
-            .homepage-spotlight { left: 3%; width: 94%; grid-template-columns: 1fr; gap: 8px; bottom: 64px; }
-            .spot-card { min-height: 84px; padding: 11px 13px; border-radius: 12px; }
-            .spot-kicker { font-size: 9px; margin-bottom: 4px; }
-            .spot-title { font-size: 20px; }
-            .spot-sub { font-size: 12px; margin-top: 3px; }
-            .spot-badge { margin-top: 6px; padding: 4px 7px; font-size: 9px; }
+            .homepage-spotlight { left: 3%; width: 94%; grid-template-columns: 1fr 1fr; gap: 7px; bottom: 62px; }
+            .spot-card { min-height: 76px; padding: 8px 9px; border-radius: 10px; }
+            .spot-group-label { top: -22px; font-size: 9px; }
+            .spot-kicker { font-size: 7px; margin-bottom: 3px; letter-spacing: .2px; }
+            .spot-title { font-size: 14px; }
+            .spot-sub { font-size: 10px; margin-top: 3px; }
+            .spot-badge { margin-top: 5px; padding: 3px 5px; font-size: 7px; }
         }
 
         .anantya-draw-flash{position:fixed;top:78px;left:5%;width:90%;z-index:9998;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:12px 16px;border:2px solid #ffd166;border-radius:12px;background:linear-gradient(110deg,#7f1d1d,#b91c1c 55%,#7f1d1d);color:#fff;text-align:center;text-decoration:none;font-weight:800;box-shadow:0 8px 24px rgba(0,0,0,.35);animation:anantyaFlash 1.5s ease-in-out infinite}
