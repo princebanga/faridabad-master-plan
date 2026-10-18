@@ -24,12 +24,16 @@ function clean(value) {
 }
 function meta(html, key, attr) {
   attr = attr || "name";
-  const escaped = key.replace(/[.*+?^$()|[\]\\]/g, "\\$&");
   const tags = html.match(/<meta\b[^>]*>/gi) || [];
   for (const tag of tags) {
-    const a = tag.match(new RegExp("\\b" + attr + "=[\\"']" + escaped + "[\\"']", "i"));
+    const attrs = [...tag.matchAll(/\b(name|property)=["']([^"']+)["']/gi)];
+    const found = attrs.some(match =>
+      match[1].toLowerCase() === attr.toLowerCase() &&
+      match[2].toLowerCase() === key.toLowerCase()
+    );
     const c = tag.match(/\bcontent=["']([^"']*)["']/i);
-    if (a && c) return clean(c[1]);
+    if (found && c) return clean(c[1]);
+  }
   }
   return "";
 }
