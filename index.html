@@ -21,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faridabad Master Plan 2031 | Property Projects, Plots & Flats</title>
     <link rel="canonical" href="https://faridabadmasterplan.in/">
-    <meta name="description" content="Explore Faridabad property projects, residential plots, flats, sector guides, upcoming launches and Haryana RERA status updates. Compare locations and review buyer due-diligence information.">
+    <meta name="description" content="Faridabad property projects, flats, plots and sector guides. Compare locations, explore upcoming launches and check Haryana RERA project status before buying.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -68,19 +68,25 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
+            min-height: 100%;
             font-family: 'Segoe UI', Arial, sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             display: flex;
             flex-direction: column;
         }
 
         /* The map fills exactly 100% of the remaining viewport space under the header elements */
         #map { 
-            flex: 1;
+            flex: 0 0 76vh;
+            height: 76vh;
+            min-height: 480px;
             width: 100%; 
             z-index: 1; 
             background: #f4f4f4; 
+        }
+        @media (max-width: 760px) {
+            #map { flex-basis: 72vh; height: 72vh; min-height: 420px; }
         }
 
         .leaflet-control-layers { 
@@ -318,6 +324,13 @@
           <li><a href="/plots-in-faridabad.html">Plots in Faridabad</a></li>
           <li><a href="/3-bhk-flats-in-faridabad.html">3 BHK Flats in Faridabad</a></li>
           <li><a href="/sohaolivehomes.html">Soha Olive Homes</a></li>
+          <li><a href="/runningprojects.html">Running Projects</a></li>
+          <li><a href="/upcoming.html">Upcoming Projects</a></li>
+          <li><a href="/compare.html">Compare Projects</a></li>
+          <li><a href="/dameera.html">Dameera City · Sector 121</a></li>
+          <li><a href="/emerald-sector-87-faridabad.html">Emerald · Sector 87</a></li>
+          <li><a href="/townfit-project.html">Townfit Project</a></li>
+          <li><a href="/silicon-valley-project.html">Silicon Valley · Sector 70</a></li>
         </ul>
       </div>
       <div style="border:1px solid #e2e8f0;border-radius:12px;padding:18px">
@@ -329,6 +342,9 @@
           <li><a href="/rera-guide-faridabad.html">RERA Guide for Buyers</a></li>
           <li><a href="/rera-documents/adore-legend-ii-rera-form-rep-i.html">Adore Legend-II RERA Record Extract</a></li>
           <li><a href="/adore-legend-ii-sector-119-brochure.html">Adore Legend-II Brochure & Details</a></li>
+          <li><a href="/adore-legend-2-location-review-pros-cons-form-guide.html">Adore Legend-II Location Review & Pros/Cons</a></li>
+          <li><a href="/soha-olivehomes-draw-result.html">Soha Olive Homes Draw Result</a></li>
+          <li><a href="/anantya-draw-result-2026.html">True Habitat Anantya Draw Result</a></li>
         </ul>
       </div>
       <div style="border:1px solid #e2e8f0;border-radius:12px;padding:18px">
@@ -346,6 +362,14 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section aria-label="About this website" style="max-width:1180px;margin:0 auto 110px;padding:0 18px;color:#334155;box-sizing:border-box">
+  <div style="border:1px solid #dbe3ea;border-radius:12px;background:#f8fafc;padding:18px 20px;line-height:1.65">
+    <h2 style="margin:0 0 8px;font-size:19px;color:#0f172a">About Faridabad Master Plan</h2>
+    <p style="margin:0 0 8px">Faridabad Master Plan is an independent property-information and buyer-research website. It is not a government website and is not affiliated with the Haryana Government, HSVP, DTCP or Haryana RERA.</p>
+    <p style="margin:0">Project details, prices, availability, approvals and proposed infrastructure may change. Verify current information with the relevant authority and promoter before making a purchase decision. <a href="/about.html">About the publisher</a> · <a href="/rera-guide-faridabad.html">Buyer RERA guide</a> · <a href="/faridabad-master-plan-2031.html">Faridabad Master Plan 2031 guide</a></p>
   </div>
 </section>
 
