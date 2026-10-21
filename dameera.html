@@ -65,6 +65,24 @@
         .action-btn:hover { transform: translateY(-2px); }
         .btn-whatsapp { background: #25d366; color: #ffffff; }
         .btn-call { background: var(--primary-slate); color: #ffffff; }
+    
+        .cc-status-banner { max-width:1200px; margin:24px auto 0; padding:0 5%; }
+        .cc-status-inner { background:linear-gradient(125deg,#7f1d1d,#b91c1c); color:#fff; text-align:center; border-radius:14px; padding:22px 18px; box-shadow:0 8px 22px rgba(127,29,29,.18); border:1px solid #fecaca; }
+        .cc-status-label { display:inline-block; background:#fff; color:#991b1b; font-weight:800; font-size:12px; letter-spacing:.8px; border-radius:999px; padding:5px 12px; }
+        .cc-status-inner h2 { font-size:clamp(22px,3vw,30px); margin:9px 0 4px; }
+        .cc-status-inner p { margin:3px 0; }
+        .cc-status-inner small { display:block; margin-top:9px; font-size:12px; opacity:.9; }
+        .project-gallery-section { padding:38px 5%; }
+        .project-gallery-wrap { max-width:1200px; margin:auto; }
+        .gallery-intro { text-align:center; margin:8px 0 22px; }
+        .project-gallery-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+        .gallery-photo { margin:0; overflow:hidden; border-radius:12px; background:#fff; box-shadow:0 4px 16px rgba(15,23,42,.10); }
+        .gallery-photo img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; background:#e2e8f0; }
+        .gallery-photo figcaption { padding:10px 12px; font-weight:600; font-size:14px; }
+        .gallery-upload-note { margin-top:18px; padding:12px 14px; background:#f1f5f9; border-radius:8px; font-size:13px; }
+        @media(max-width:900px) { .project-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+        @media(max-width:480px) { .project-gallery-grid { grid-template-columns:1fr; } }
+
     </style>
     <meta name="description" content="DaMeera City Sector 121 Faridabad: OC & CC received. Explore residential plots, RERA details, layout, connectivity and latest availability.">
     <meta name="robots" content="index,follow,max-image-preview:large">
@@ -120,6 +138,18 @@
 </head>
 <body>
 
+    <section class="cc-status-banner" aria-label="Completion certificate status">
+      <div class="cc-status-inner">
+        <span class="cc-status-label">PROJECT STATUS UPDATE</span>
+        <h2>Completion Certificate Received</h2>
+        <p><strong>DaMeera City · Sector 121, Faridabad</strong></p>
+        <p>Gated Residential Plotted Colony · Ready for Possession</p>
+        <small>Verify the original certificate, approvals and current plot availability before making a booking decision.</small>
+      </div>
+    </section>
+
+
+
     <div id="global-menu-placeholder"></div>
     <script src="menu.js"></script>
 
@@ -146,7 +176,27 @@
                 <iframe src="https://www.youtube.com/embed/Sv3XyNjT0h4" allowfullscreen></iframe>
             </div>
 
-            <h2 class="section-headline">Interactive 360° Experience</h2>
+            
+    <section id="project-gallery" class="project-gallery-section">
+      <div class="project-gallery-wrap">
+        <h2 class="section-headline">DaMeera City Site Photos</h2>
+        <p class="gallery-intro">Explore site roads, landscaped green spaces, walking paths and outdoor recreation areas.</p>
+        <div class="project-gallery-grid">
+          <figure class="gallery-photo"><img src="images/dameera-city-sector-121-road.jpg" alt="DaMeera City Sector 121 Faridabad internal road and street lights" loading="lazy"><figcaption>Internal Roads</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/dameera-city-sector-121-landscaping.jpg" alt="DaMeera City Sector 121 Faridabad landscaped green area" loading="lazy"><figcaption>Landscaped Green Areas</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/dameera-city-sector-121-park-walkway.jpg" alt="DaMeera City Sector 121 Faridabad park and walking path" loading="lazy"><figcaption>Park &amp; Walking Path</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/dameera-city-sector-121-open-gym.jpg" alt="DaMeera City Sector 121 Faridabad outdoor gym and recreation area" loading="lazy"><figcaption>Outdoor Gym &amp; Recreation</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/dameera-city-sector-121-green-i.jpg" alt="DaMeera City Green I residential plotted colony signage" loading="lazy"><figcaption>Green-I Area</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/dameera-city-sector-121-plots-road-view.jpg" alt="DaMeera City Sector 121 Faridabad plotted development site view" loading="lazy"><figcaption>Plot &amp; Road View</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/dameera-city-sector-121-site-overview.jpg" alt="DaMeera City Sector 121 Faridabad site overview" loading="lazy"><figcaption>Site Overview</figcaption></figure>
+          <figure class="gallery-photo"><img src="images/dameera-city-sector-121-development-view.jpg" alt="DaMeera City Sector 121 Faridabad development and surroundings" loading="lazy"><figcaption>Development &amp; Surroundings</figcaption></figure>
+        </div>
+        <p class="gallery-upload-note">Photo upload note: Add your image files to the website's <code>images/</code> folder using the exact filenames shown above. Once those files are deployed, they will display in this gallery.</p>
+      </div>
+    </section>
+
+
+    <h2 class="section-headline">Interactive 360° Experience</h2>
             <div class="tour-tabs">
                 <button class="tab-btn active" onclick="openTour(event, 'tour1')">🏛️ Entrance</button>
                 <button class="tab-btn" onclick="openTour(event, 'tour2')">🛣️ Inside View</button>
