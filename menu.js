@@ -140,6 +140,7 @@ const globalMenuHTML = `
                                 <a href="gulmohar-maple.html">GulMohar by Emerald</a>
                                 <a href="townfit-project.html">TownFit70</a>
                                 <a href="silicon-valley-project.html">Silicon Valley</a>
+                                <a href="107th-avenue-sector-107-faridabad-plots.html">107th Avenue – Sector 107</a>
                             </div>
                         </div>
                     </div>
@@ -223,6 +224,7 @@ const globalMenuHTML = `
         <a href="compare.html">⚖️ Advitya / Olive Homes Comparison</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🚀 Emerald High Rise – Sector 97</a>
         <a href="dameera.html">🌳 DaMeera City</a>
+        <a href="107th-avenue-sector-107-faridabad-plots.html">🌳 107th Avenue – Sector 107 Plots</a>
         <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🏙️ Emerald Sector 97</a>
         <a href="bptp-skynest-sector-80-faridabad.html">☁️ BPTP Skynest Sector 80</a>
