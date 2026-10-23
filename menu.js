@@ -154,6 +154,7 @@ const globalMenuHTML = `
                             <a href="javascript:void(0)">Ongoing Projects <span class="sub-arrow">▸</span></a>
                             <div class="sub-dropdown-content">
                                 <a href="runningprojects.html">Ongoing Group Housing Projects</a>
+                                <a href="aanandam-residency-sector-89-faridabad.html">Aanandam Residency – Sector 89</a>
                             </div>
                         </div>
 
@@ -217,6 +218,7 @@ const globalMenuHTML = `
     <div class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Mobile navigation">
         <a href="index.html">🏠 Home</a>
         <a href="runningprojects.html">🏗️ Ongoing Group Housing Projects</a>
+        <a href="aanandam-residency-sector-89-faridabad.html">🏙️ Aanandam Residency – Sector 89</a>
         <a href="true-habitat.html">🏠 Affordable Flats – True Habitat</a>
         <a href="sohaolivehomes.html">🏠 Soha Olive Homes</a>
         <a href="soha-olivehomes-draw-result.html">🎯 Soha Olive Homes Draw Result</a>
