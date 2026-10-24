@@ -87,6 +87,7 @@ window.addEventListener('load', function() {
   const layers={"Plots":L.layerGroup().addTo(map),"High-Rise":L.layerGroup().addTo(map),"Low-Rise":L.layerGroup().addTo(map),"Future":L.layerGroup().addTo(map)};
   const markers=[];
   projectsData.forEach(p=>{
+    if(p.cat==="Affordable") return; // Hide affordable residential listings from the sales-focused homepage map.
     const color=p.cat==="Plots"?"green":p.cat==="High-Rise"?"blue":p.cat==="Low-Rise"?"yellow":"orange";
     const icon=p.isFuture?L.divIcon({className:"future-marker",html:'<div class="gold-pin-wrapper"><div class="gold-pin"></div><div class="pin-shadow"></div></div>',iconSize:[30,44],iconAnchor:[15,42]}):L.icon({iconUrl:"https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-"+color+".png",iconSize:[25,41],iconAnchor:[12,41]});
     const marker=L.marker([p.y,p.x],{icon});
