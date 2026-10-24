@@ -1,11 +1,13 @@
 function initMapLogic(map, allMarkers, layers) {
-    L.control.layers(null, { 
-        "🟢 Plots": layers["Plots"], 
-        "🔵 High-Rise": layers["High-Rise"], 
-        "🟡 Low-Rise": layers["Low-Rise"], 
-        "🟠 Affordable": layers["Affordable"],
-        "🔘 Future": layers["Future"] 
-    }, { collapsed: false }).addTo(map);
+    const overlays = {
+        "🟢 Plots": layers["Plots"],
+        "🔵 High-Rise": layers["High-Rise"],
+        "🟡 Low-Rise": layers["Low-Rise"],
+        "🔘 Future": layers["Future"]
+    };
+    // Include affordable listings only on pages that explicitly provide that layer.
+    if (layers["Affordable"]) overlays["🟠 Affordable"] = layers["Affordable"];
+    L.control.layers(null, overlays, { collapsed: false }).addTo(map);
 
     setTimeout(() => {
         const ctrl = document.querySelector('.leaflet-control-layers');
