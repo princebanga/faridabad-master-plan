@@ -81,7 +81,7 @@
 <script>
 window.addEventListener('load', function() {
   const mapEl=document.getElementById('map');
-  if(!mapEl || !window.L || !Array.isArray(window.projectsData)) return;
+  if(!mapEl || !window.L || typeof projectsData === 'undefined' || !Array.isArray(projectsData)) return;
   const map=L.map('map',{crs:L.CRS.Simple,minZoom:-1,attributionControl:false});
   L.imageOverlay('map.webp',[[0,0],[1000,1500]]).addTo(map);
   map.fitBounds([[0,0],[1000,1500]]);
