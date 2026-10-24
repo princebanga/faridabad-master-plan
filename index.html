@@ -279,10 +279,28 @@
             100% { transform: scale(0.5); opacity: 0.4; }
         }
     </style>
+
+    <style>
+      .new-layout-prompt{margin:14px auto 18px;width:min(1180px,calc(100% - 28px));padding:16px 20px;border:1px solid #93c5fd;border-radius:16px;background:linear-gradient(110deg,#07111f,#15365b);color:#f8fafc;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 8px 24px rgba(15,23,42,.16);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+      .new-layout-prompt strong{display:block;font-size:16px;line-height:1.4}
+      .new-layout-prompt p{margin:3px 0 0;color:#dbeafe;font-size:13px;line-height:1.5}
+      .new-layout-prompt a{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border-radius:999px;padding:11px 17px;background:#1687ff;color:#fff;font-weight:800;font-size:13px;text-decoration:none;box-shadow:0 5px 16px rgba(22,135,255,.25)}
+      .new-layout-prompt a:hover{background:#3698ff;transform:translateY(-1px)}
+      @media(max-width:640px){.new-layout-prompt{align-items:flex-start;flex-direction:column;padding:15px}.new-layout-prompt a{width:100%;white-space:normal;text-align:center}}
+    </style>
+
 </head>
 <body>
 <h1 class="sr-only">Faridabad Master Plan 2031 – Property Projects, Plots and Flats</h1>
 <div id="global-menu-placeholder"></div>
+
+<section class="new-layout-prompt" aria-label="Try the new homepage design">
+  <div>
+    <strong>✨ Try the New Layout</strong>
+    <p>Explore the redesigned Faridabad Master Plan homepage. The current classic homepage and all existing pages remain available.</p>
+  </div>
+  <a href="new-layout.html" aria-label="Open the new Faridabad Master Plan homepage layout">Preview New Layout →</a>
+</section>
 
 <div id="map"></div>
 
