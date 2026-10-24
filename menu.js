@@ -30,6 +30,13 @@ const globalMenuHTML = `
             border-top: 3px solid #0d9488;
         }
 
+        .education-dropdown { min-width: 275px; }
+        .education-dropdown .sub-dropdown > a { font-weight: 700; background: #f8fafc; }
+        .education-dropdown .sub-dropdown-content { min-width: 255px; max-height: 75vh; overflow-y: auto; }
+        .mobile-education-group { margin-left: 8px; border-bottom: 1px solid #334155; }
+        .mobile-education-group summary { color: #99f6e4; padding: 11px 8px; font-weight: 700; cursor: pointer; list-style-position: inside; }
+        .mobile-education-group a { padding-left: 20px; font-weight: 500; }
+
         /* Show dropdown on hover */
         .dropdown:hover .dropdown-content { 
             display: block; 
@@ -182,45 +189,75 @@ const globalMenuHTML = `
                 
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Education ▾</a>
-                    <div class="dropdown-content">
-                        <a href="faridabad-map-video-education.html">Faridabad Map & Video Education</a>
-                        <a href="faridabad-master-plan-2031.html">Faridabad Master Plan 2031</a>
-                        <a href="faridabad-vs-noida-greater-noida-property-investment.html">Faridabad vs Noida vs Greater Noida</a>
-                        <a href="freehold-vs-leasehold-property.html">Freehold vs Leasehold</a>
-                        <a href="oc-vs-cc-property.html">OC vs CC Explained</a>
-                        <a href="plot-buying-checklist-haryana.html">Plot Buying Checklist</a>
-                        <a href="property-documents-guide-haryana.html">Property Documents Checklist</a>
-                        <a href="ddjay-plots-haryana-guide.html">DDJAY Plot Guide</a>
-                        <a href="djday-plots-haryana-guide.html">DDJAY Plot Guide (Alternate URL)</a>
-                        <a href="affordable-vs-regular-housing-haryana.html">Affordable vs Regular Housing</a>
-                        <a href="rera-guide-faridabad.html">RERA Guide for Buyers</a>
-                        <a href="rera-project-watch.html">RERA Project Watch</a>
-                        <a href="rera-master-database.html">RERA Master Database</a>
-                        <a href="rera-reconciliation-dashboard.html">RERA Reconciliation Dashboard</a>
-                        <a href="pre-rera-project-watch.html">Pre-RERA Project Watch</a>
-                        <a href="applied-process-watch.html">Applied Process Watch</a>
-                        <a href="applied-no-action-watch.html">Applied / No Action Watch</a>
-                        <a href="rejected-rehearing-watch.html">Rejected / Rehearing Watch</a>
-                        <a href="rera-approved-watch.html">RERA Approved Watch</a>
-                        <a href="rera-project-promoter.html">RERA Project Promoter</a>
-                        <a href="faridabad-live-distance-assistant.html">Live Distance & Connectivity Assistant</a>
-                        <a href="property-in-sector-97-faridabad.html">Sector 97 Property Guide</a>
-                        <a href="sector-80-faridabad-property.html">Sector 80 Property Guide</a>
-                        <a href="sector-81-faridabad-property.html">Sector 81 Property Guide</a>
-                        <a href="anantya-draw-result-2026.html">True Habitat Anantya Draw Result</a>
-                        <a href="soha-olivehomes-draw-result.html">Soha Olive Homes Draw Result</a>
-                        <a href="video.html">Property Videos</a>
-                        <a href="up.html">Property Updates</a>
-                        <a href="mdps.html">MDPS</a>
-                        <a href="emerald1.html">Emerald Project Information</a>
-                        <a href="dameera1.html">DaMeera City Additional Information</a>
-                        <a href="gulmohar-maple.html">Emerald Gulmohar & Maple</a>
-                        <a href="townfit-project.html">Townfit Project</a>
-                        <a href="silicon-valley-project.html">Silicon Valley Project</a>
-                        <a href="mansha-senior-living-sector-119-faridabad.html">Mansha Senior Living</a>
-                        <a href="bptp-skynest-sector-80-faridabad.html">BPTP SkyNest Sector 80</a>
-                        <a href="adore-legend-2-location-review-pros-cons-form-guide.html">Adore Legend-II: Location, Pros & Cons</a>
-                        <a href="adore-legend-ii-sector-119-brochure.html">Adore Legend-II Brochure</a>
+                    <div class="dropdown-content education-dropdown">
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">RERA & Project Verification <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="rera-guide-faridabad.html">RERA Guide for Buyers</a>
+                                <a href="rera-project-watch.html">RERA Project Watch</a>
+                                <a href="rera-master-database.html">RERA Master Database</a>
+                                <a href="rera-reconciliation-dashboard.html">HRERA Reconciliation Dashboard</a>
+                                <a href="rera-project-promoter.html">RERA Project Promoter Directory</a>
+                                <a href="rera-approved-watch.html">RERA Approved Watch</a>
+                                <a href="pre-rera-project-watch.html">Pre-RERA Project Watch</a>
+                                <a href="applied-process-watch.html">Applied / In-Process Watch</a>
+                                <a href="applied-no-action-watch.html">Applied / No Action Watch</a>
+                                <a href="rejected-rehearing-watch.html">Rejected / Rehearing Watch</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Master Plan 2031 & Maps <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="faridabad-master-plan-2031.html">Faridabad Master Plan 2031</a>
+                                <a href="faridabad-map-video-education.html">Faridabad Map & Video Education</a>
+                                <a href="faridabad-live-distance-assistant.html">Live Distance & Connectivity Assistant</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Property Basics & Buying Guides <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="freehold-vs-leasehold-property.html">Freehold vs Leasehold</a>
+                                <a href="oc-vs-cc-property.html">OC vs CC Explained</a>
+                                <a href="plot-buying-checklist-haryana.html">Plot Buying Checklist</a>
+                                <a href="property-documents-guide-haryana.html">Property Documents Checklist</a>
+                                <a href="ddjay-plots-haryana-guide.html">DDJAY Plot Guide</a>
+                                <a href="djday-plots-haryana-guide.html">DDJAY Plot Guide (Alternate URL)</a>
+                                <a href="affordable-vs-regular-housing-haryana.html">Affordable vs Regular Housing</a>
+                                <a href="faridabad-vs-noida-greater-noida-property-investment.html">Faridabad vs Noida vs Greater Noida</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Sector Guides & Connectivity <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="property-in-sector-97-faridabad.html">Sector 97 Property Guide</a>
+                                <a href="sector-80-faridabad-property.html">Sector 80 Property Guide</a>
+                                <a href="sector-81-faridabad-property.html">Sector 81 Property Guide</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Draw Results & Allotment <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="anantya-draw-result-2026.html">True Habitat Anantya Draw Result</a>
+                                <a href="soha-olivehomes-draw-result.html">Soha Olive Homes Draw Result</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Videos, Updates & Project Resources <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="video.html">Property Videos</a>
+                                <a href="up.html">Property Updates</a>
+                                <a href="mdps.html">MDPS</a>
+                                <a href="emerald1.html">Emerald Project Information</a>
+                                <a href="dameera1.html">DaMeera City Additional Information</a>
+                                <a href="gulmohar-maple.html">Emerald Gulmohar & Maple</a>
+                                <a href="townfit-project.html">Townfit Project</a>
+                                <a href="silicon-valley-project.html">Silicon Valley Project</a>
+                                <a href="mansha-senior-living-sector-119-faridabad.html">Mansha Senior Living</a>
+                                <a href="bptp-skynest-sector-80-faridabad.html">BPTP SkyNest Sector 80</a>
+                                <a href="adore-legend-2-location-review-pros-cons-form-guide.html">Adore Legend-II: Location, Pros & Cons</a>
+                                <a href="adore-legend-ii-sector-119-brochure.html">Adore Legend-II Brochure</a>
+                            </div>
+                        </div>
                     </div>
                 </li>
                 <li class="dropdown">
@@ -244,45 +281,64 @@ const globalMenuHTML = `
     </nav>
     <div class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Mobile navigation">
         <a href="index.html">🏠 Home</a>
-        <details class="mobile-education-links"><summary style="color:#f8fafc;padding:11px 8px;font-weight:700;cursor:pointer">📚 Education & Research</summary>
-            <a href="faridabad-map-video-education.html">📘 Faridabad Map & Video Education</a>
-            <a href="faridabad-master-plan-2031.html">📘 Faridabad Master Plan 2031</a>
-            <a href="faridabad-vs-noida-greater-noida-property-investment.html">📘 Faridabad vs Noida vs Greater Noida</a>
-            <a href="freehold-vs-leasehold-property.html">📘 Freehold vs Leasehold</a>
-            <a href="oc-vs-cc-property.html">📘 OC vs CC Explained</a>
-            <a href="plot-buying-checklist-haryana.html">📘 Plot Buying Checklist</a>
-            <a href="property-documents-guide-haryana.html">📘 Property Documents Checklist</a>
-            <a href="ddjay-plots-haryana-guide.html">📘 DDJAY Plot Guide</a>
-            <a href="djday-plots-haryana-guide.html">📘 DDJAY Plot Guide (Alternate URL)</a>
-            <a href="affordable-vs-regular-housing-haryana.html">📘 Affordable vs Regular Housing</a>
-            <a href="rera-guide-faridabad.html">📘 RERA Guide for Buyers</a>
-            <a href="rera-project-watch.html">📘 RERA Project Watch</a>
-            <a href="rera-master-database.html">📘 RERA Master Database</a>
-            <a href="rera-reconciliation-dashboard.html">📘 RERA Reconciliation Dashboard</a>
-            <a href="pre-rera-project-watch.html">📘 Pre-RERA Project Watch</a>
-            <a href="applied-process-watch.html">📘 Applied Process Watch</a>
-            <a href="applied-no-action-watch.html">📘 Applied / No Action Watch</a>
-            <a href="rejected-rehearing-watch.html">📘 Rejected / Rehearing Watch</a>
-            <a href="rera-approved-watch.html">📘 RERA Approved Watch</a>
-            <a href="rera-project-promoter.html">📘 RERA Project Promoter</a>
-            <a href="faridabad-live-distance-assistant.html">📘 Live Distance & Connectivity Assistant</a>
-            <a href="property-in-sector-97-faridabad.html">📘 Sector 97 Property Guide</a>
-            <a href="sector-80-faridabad-property.html">📘 Sector 80 Property Guide</a>
-            <a href="sector-81-faridabad-property.html">📘 Sector 81 Property Guide</a>
-            <a href="anantya-draw-result-2026.html">📘 True Habitat Anantya Draw Result</a>
-            <a href="soha-olivehomes-draw-result.html">📘 Soha Olive Homes Draw Result</a>
-            <a href="video.html">📘 Property Videos</a>
-            <a href="up.html">📘 Property Updates</a>
-            <a href="mdps.html">📘 MDPS</a>
-            <a href="emerald1.html">📘 Emerald Project Information</a>
-            <a href="dameera1.html">📘 DaMeera City Additional Information</a>
-            <a href="gulmohar-maple.html">📘 Emerald Gulmohar & Maple</a>
-            <a href="townfit-project.html">📘 Townfit Project</a>
-            <a href="silicon-valley-project.html">📘 Silicon Valley Project</a>
-            <a href="mansha-senior-living-sector-119-faridabad.html">📘 Mansha Senior Living</a>
-            <a href="bptp-skynest-sector-80-faridabad.html">📘 BPTP SkyNest Sector 80</a>
-            <a href="adore-legend-2-location-review-pros-cons-form-guide.html">📘 Adore Legend-II: Location, Pros & Cons</a>
-            <a href="adore-legend-ii-sector-119-brochure.html">📘 Adore Legend-II Brochure</a>
+        <details class="mobile-education-links">
+            <summary style="color:#f8fafc;padding:11px 8px;font-weight:700;cursor:pointer">📚 Education & Research — Browse by Topic</summary>
+            <details class="mobile-education-group">
+                <summary>🟢 RERA & Project Verification</summary>
+                <a href="rera-guide-faridabad.html">RERA Guide for Buyers</a>
+                <a href="rera-project-watch.html">RERA Project Watch</a>
+                <a href="rera-master-database.html">RERA Master Database</a>
+                <a href="rera-reconciliation-dashboard.html">HRERA Reconciliation Dashboard</a>
+                <a href="rera-project-promoter.html">RERA Project Promoter Directory</a>
+                <a href="rera-approved-watch.html">RERA Approved Watch</a>
+                <a href="pre-rera-project-watch.html">Pre-RERA Project Watch</a>
+                <a href="applied-process-watch.html">Applied / In-Process Watch</a>
+                <a href="applied-no-action-watch.html">Applied / No Action Watch</a>
+                <a href="rejected-rehearing-watch.html">Rejected / Rehearing Watch</a>
+            </details>
+            <details class="mobile-education-group">
+                <summary>🗺️ Master Plan 2031 & Maps</summary>
+                <a href="faridabad-master-plan-2031.html">Faridabad Master Plan 2031</a>
+                <a href="faridabad-map-video-education.html">Faridabad Map & Video Education</a>
+                <a href="faridabad-live-distance-assistant.html">Live Distance & Connectivity Assistant</a>
+            </details>
+            <details class="mobile-education-group">
+                <summary>📘 Property Basics & Buying Guides</summary>
+                <a href="freehold-vs-leasehold-property.html">Freehold vs Leasehold</a>
+                <a href="oc-vs-cc-property.html">OC vs CC Explained</a>
+                <a href="plot-buying-checklist-haryana.html">Plot Buying Checklist</a>
+                <a href="property-documents-guide-haryana.html">Property Documents Checklist</a>
+                <a href="ddjay-plots-haryana-guide.html">DDJAY Plot Guide</a>
+                <a href="djday-plots-haryana-guide.html">DDJAY Plot Guide (Alternate URL)</a>
+                <a href="affordable-vs-regular-housing-haryana.html">Affordable vs Regular Housing</a>
+                <a href="faridabad-vs-noida-greater-noida-property-investment.html">Faridabad vs Noida vs Greater Noida</a>
+            </details>
+            <details class="mobile-education-group">
+                <summary>📍 Sector Guides & Connectivity</summary>
+                <a href="property-in-sector-97-faridabad.html">Sector 97 Property Guide</a>
+                <a href="sector-80-faridabad-property.html">Sector 80 Property Guide</a>
+                <a href="sector-81-faridabad-property.html">Sector 81 Property Guide</a>
+            </details>
+            <details class="mobile-education-group">
+                <summary>🎯 Draw Results & Allotment</summary>
+                <a href="anantya-draw-result-2026.html">True Habitat Anantya Draw Result</a>
+                <a href="soha-olivehomes-draw-result.html">Soha Olive Homes Draw Result</a>
+            </details>
+            <details class="mobile-education-group">
+                <summary>🎥 Videos, Updates & Project Resources</summary>
+                <a href="video.html">Property Videos</a>
+                <a href="up.html">Property Updates</a>
+                <a href="mdps.html">MDPS</a>
+                <a href="emerald1.html">Emerald Project Information</a>
+                <a href="dameera1.html">DaMeera City Additional Information</a>
+                <a href="gulmohar-maple.html">Emerald Gulmohar & Maple</a>
+                <a href="townfit-project.html">Townfit Project</a>
+                <a href="silicon-valley-project.html">Silicon Valley Project</a>
+                <a href="mansha-senior-living-sector-119-faridabad.html">Mansha Senior Living</a>
+                <a href="bptp-skynest-sector-80-faridabad.html">BPTP SkyNest Sector 80</a>
+                <a href="adore-legend-2-location-review-pros-cons-form-guide.html">Adore Legend-II: Location, Pros & Cons</a>
+                <a href="adore-legend-ii-sector-119-brochure.html">Adore Legend-II Brochure</a>
+            </details>
         </details>
         <a href="runningprojects.html">🏗️ Ongoing Group Housing Projects</a>
         <a href="aanandam-residency-sector-89-faridabad.html">🏙️ Aanandam Residency – Sector 89</a>
