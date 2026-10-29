@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="manifest" href="/manifest.json">
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(function(reg) {
+              console.log('Service Worker Registered Successfully!', reg.scope);
+            })
+            .catch(function(err) {
+              console.log('Service Worker Registration Failed:', err);
+            });
+        });
+      }
+    </script>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faridabad Master Plan 2031 | Prince Banga | Property Advisor</title>
+    <meta name="description" content="Explore Faridabad Master Plan 2031, residential projects, plots and flats with project research and property insights from Prince Banga.">
+    <link rel="canonical" href="https://faridabadmasterplan.in/">
+    <meta name="robots" content="noindex, follow">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root { 
+            --primary-red: #e63946; 
+            --dark-blue: #1d3557; 
+            --wa-green: #25D366; 
+            --nav-blue: #001f3f; 
+            --gold: #ffb703; 
+        }
+        
+        /* Layout configuration to handle dynamic menu injection seamlessly */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* The map fills exactly 100% of the remaining viewport space under the header elements */
+        #map { 
+            flex: 1;
+            width: 100%; 
+            z-index: 1; 
+            background: #f4f4f4; 
+        }
+
+        .leaflet-control-layers { 
+            background: white !important; 
+            border: 2px solid var(--primary-red) !important; 
+            border-radius: 10px !important; 
+            min-width: 230px; 
+            position: fixed !important; 
+            z-index: 9999 !important; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important; 
+        }
+        
+        .control-header { 
+            background: var(--primary-red); 
+            color: white; 
+            padding: 10px; 
+            font-weight: bold; 
+            cursor: move; 
+            border-radius: 8px 8px 0 0; 
+            display: flex; 
+            justify-content: space-between; 
+            user-select: none; 
+        }
+        
+        .search-area { padding: 8px; border-top: 1px solid #eee; }
+        #pSearch { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; outline: none; }
+        
+        /* --- Super Premium Floating Soha Draw Button Banner with Live Timer --- */
+        .soha-floating-banner {
+            position: fixed;
+            bottom: 62px; /* Sits perfectly right above the sticky footer */
+            left: 5%;
+            width: 90%;
+            background: linear-gradient(135deg, var(--nav-blue) 0%, #0d1b2a 100%);
+            color: white;
+            text-align: center;
+            padding: 12px 10px;
+            border-radius: 12px;
+            text-decoration: none;
+            z-index: 9999;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            border: 2px solid var(--gold);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            animation: buttonPulse 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        .banner-title-block {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        }
+
+        .timer-badge-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .timer-badge-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #e0e0e0;
+            letter-spacing: 0.5px;
+        }
+
+        .timer-badge-countdown {
+            background: var(--primary-red);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 800;
+            letter-spacing: 1px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+            font-variant-numeric: tabular-nums;
+        }
+
+        @keyframes buttonPulse {
+            0% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 183, 3, 0.25); }
+            50% { transform: scale(1.02); border-color: #ffffff; box-shadow: 0 6px 30px rgba(255, 183, 3, 0.55); }
+            100% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 183, 3, 0.25); }
+        }
+        
+        .sticky-footer { position: fixed; bottom: 0; left: 0; width: 100%; display: flex; z-index: 10000; }
+        .sticky-btn { flex: 1; padding: 15px; text-align: center; text-decoration: none; font-weight: bold; color: white; font-size: 13px; }
+        .btn-call { background: var(--dark-blue); } 
+        .btn-wa { background: var(--wa-green); }
+        
+        .popup-card { text-align: center; width: 180px; }
+        .popup-btn { display: block; margin-top: 5px; padding: 8px; color: white !important; text-decoration: none; border-radius: 5px; background: var(--primary-red); font-weight: bold; font-size: 12px; }
+
+        /* --- Custom Golden Bouncing Pin Styling --- */
+        .future-marker {
+            background: none;
+            border: none;
+        }
+        .gold-pin-wrapper {
+            position: relative;
+            width: 30px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pinBounce 1.2s ease-in-out infinite alternate;
+        }
+        .gold-pin {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffb703 100%);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 0;
+            box-shadow: -2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .gold-pin::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #001f3f;
+            border-radius: 50%;
+            position: absolute;
+            top: 9px;
+            left: 9px;
+        }
+        .pin-shadow {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            width: 16px;
+            height: 4px;
+            position: absolute;
+            bottom: -6px;
+            left: 7px;
+            animation: shadowScale 1.2s ease-in-out infinite alternate;
+        }
+        @keyframes pinBounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+        @keyframes shadowScale {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.5); opacity: 0.4; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="global-menu-placeholder"></div>
+
+<div id="map"></div>
+
+<a href="soha-olivehomes-draw-result.html" class="soha-floating-banner" id="soha-live-banner">
+    <div class="banner-title-block">
+        🔴 Soha Olive Homes Draw Result Center (6 July 2026) 📋
+    </div>
+    <div class="timer-badge-container">
+        <span class="timer-badge-label">Result Countdown:</span>
+        <span class="timer-badge-countdown" id="soha-live-timer">00:00:00</span>
+    </div>
+</a>
+
+<div class="sticky-footer">
+    <a href="tel:+919818811971" class="sticky-btn btn-call">📞 Call Prince Banga</a>
+    <a href="https://wa.me/919818811971" class="sticky-btn btn-wa">💬 WhatsApp Enquiry</a>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="projects.js"></script>
+<script src="map-logic.js"></script>
+
+<script>
+    // जब पूरा वेबपेज पूरी तरह से लोड हो जाएगा, तब ये फंक्शन चलेगा
+    window.addEventListener('load', function() {
+        
+        // 1. मैप इनिशियलाइजेशन शुरू करें
+        var map = L.map('map', { crs: L.CRS.Simple, minZoom: -1, attributionControl: false });
+        L.imageOverlay('map.webp', [[0, 0], [1000, 1500]]).addTo(map);
+        map.fitBounds([[0, 0], [1000, 1500]]);
+
+        var layers = { "Plots": L.layerGroup().addTo(map), "High-Rise": L.layerGroup().addTo(map), "Low-Rise": L.layerGroup().addTo(map), "Affordable": L.layerGroup().addTo(map), "Future": L.layerGroup().addTo(map) };
+        var allMarkers = [];
+
+        // 2. लूप चलाकर मार्कर डिप्लॉय करें
+        projectsData.forEach(p => {
+            var markerIcon;
+
+            if (p.isFuture) {
+                markerIcon = L.divIcon({
+                    className: 'future-marker',
+                    html: `
+                        <div class="gold-pin-wrapper">
+                            <div class="gold-pin"></div>
+                            <div class="pin-shadow"></div>
+                        </div>
+                    `,
+                    iconSize: [30, 44],
+                    iconAnchor: [15, 42],
+                    popupAnchor: [0, -40]
+                });
+            } else {
+                var iconColor = p.cat === 'Plots' ? 'green' : (p.cat === 'High-Rise' ? 'blue' : (p.cat === 'Low-Rise' ? 'yellow' : 'orange'));
+                
+                markerIcon = L.icon({ 
+                    iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${iconColor}.png`, 
+                    iconSize: [25, 41], 
+                    iconAnchor: [12, 41],
+                    popupAnchor: [1, -34]
+                });
+            }
+
+            var marker = L.marker([p.y, p.x], { icon: markerIcon });
+            marker.projectName = p.name.toLowerCase();
+            
+            var statusBadge = '';
+            if (p.isFuture) {
+                statusBadge = '<span style="background:#ffb703; color:#000; padding:2px 6px; font-size:10px; border-radius:3px; font-weight:bold; display:inline-block; margin-bottom:5px;">FUTURE LAUNCH</span><br>';
+            } else if (p.name.toLowerCase().includes("true habitat")) {
+                statusBadge = '<span style="background:red; color:white; padding:2px 6px; font-size:10px; border-radius:3px; font-weight:bold; display:inline-block; margin-bottom:5px;">NEW ENTRY</span><br>';
+            }
+
+            marker.bindPopup(`<div class="popup-card">${statusBadge}<strong>${p.name}</strong><br><span style="color:red">${p.price}</span><hr><a href="${p.link}" target="_blank" class="popup-btn" style="background:#001f3f;">📄 Details</a><a href="https://wa.me/919818811971" target="_blank" class="popup-btn" style="background:#25D366;">💬 WhatsApp</a></div>`);
+            
+            marker.addTo(p.isFuture ? layers["Future"] : layers[p.cat]);
+            allMarkers.push(marker);
+
+            // True Habitat का पॉपअप ऑटोमैटिक खोलें
+            if (p.name.toLowerCase().includes("true habitat")) {
+                setTimeout(() => {
+                    marker.openPopup();
+                }, 300); 
+            }
+        });
+
+        // 3. अपनी बाहरी लॉजिक फाइल को इनिशियलाइज करें
+        initMapLogic(map, allMarkers, layers);
+
+        // 4. सोहा लाइव ड्रा काउंटडाउन टाइमर शुरू करें (Target: 6 July 2026, 12:00 PM)
+        initSohaBannerTimer();
+    });
+
+    // सोहा काउंटडाउन टाइमर की जावास्क्रिप्ट लॉजिक
+    function initSohaBannerTimer() {
+        var targetTime = new Date("July 6, 2026 12:00:00").getTime();
+        var timerDisplay = document.getElementById("soha-live-timer");
+        var bannerWrapper = document.getElementById("soha-live-banner");
+
+        var countdownInterval = setInterval(function() {
+            var now = new Date().getTime();
+            var difference = targetTime - now;
+
+            // यदि समय समाप्त हो जाता है (12 बज जाते हैं)
+            if (difference <= 0) {
+                clearInterval(countdownInterval);
+                if (timerDisplay) {
+                    timerDisplay.innerHTML = "LIVE NOW";
+                    timerDisplay.style.background = "#25D366";
+                }
+                if (bannerWrapper) {
+                    bannerWrapper.innerHTML = `
+                        <div style="font-size: 15px; font-weight: 800; color: #ffd700; text-shadow: 0 1px 3px rgba(0,0,0,0.6); letter-spacing: 0.5px;">
+                            🎉 ANANTYA DRAW will be on 27th Oct 2026! 🎉
+                        </div>
+                        <div style="font-size: 12px; background: #25D366; color: white; padding: 4px 15px; border-radius: 6px; font-weight: bold; margin-top: 2px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                            👉 🚨 UPCOMING EMERALD HIGH-RISE — SECTOR 97, FARIDABAD
+LOI RECEIVED ✅  📋
+                        </div>
+                    `;
+                    bannerWrapper.style.background = "linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%)";
+                    bannerWrapper.style.borderColor = "#25D366";
+                }
+                return;
+            }
+
+            // घंटे, मिनट और सेकंड की गणना करें
+            var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // सिंगल डिजिट होने पर आगे '0' जोड़ें
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            if (timerDisplay) {
+                timerDisplay.innerText = hours + ":" + minutes + ":" + seconds;
+            }
+        }, 1000);
+    }
+</script>
+<script src="menu.js"></script>
+<script src="pwa-core.js"></script>
+</body>
+</html>
