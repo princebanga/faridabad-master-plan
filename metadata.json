@@ -1,0 +1,6 @@
+{
+  "name": "FaridabadMasterPlan.in",
+  "description": "Faridabad Master Plan 2031, RERA property database, sector maps, verified residential & commercial project guides and buyer due diligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
