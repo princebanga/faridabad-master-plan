@@ -1,0 +1,4 @@
+git add package.json package-lock.json
+git commit -m "Fix dependencies and generate production build lockfile"
+git pull --rebase origin main
+git push origin main
