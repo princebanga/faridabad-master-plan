@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { ALL_PROJECTS, PropertyProject } from '../data/projectsData';
+import { OFFICIAL_DRAWS } from '../data/drawsData';
 
 interface AffordableHousingPageProps {
   onSelectProject: (project: PropertyProject) => void;
@@ -15,6 +16,9 @@ const formatINR = (value: number) =>
 
 export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ onSelectProject }) => {
   const [carpetArea, setCarpetArea] = useState(645.52);
+  const [balconyArea, setBalconyArea] = useState(100);
+  const [extraCharges, setExtraCharges] = useState(0);
+  const [gstEnabled, setGstEnabled] = useState(true);
 
   useEffect(() => {
     document.title = 'Affordable Housing in Faridabad | Projects, Policy & Cost Calculator';
@@ -32,13 +36,34 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
 
   const estimates = useMemo(() => {
     const basicCost = Math.round(Math.max(0, carpetArea) * 5450);
-    const balcony = 130000;
-    const subtotal = basicCost + balcony;
-    const gst = Math.round(subtotal * 0.01);
-    return { basicCost, balcony, subtotal, gst, total: subtotal + gst };
-  }, [carpetArea]);
+    const chargeableBalconyArea = Math.min(Math.max(0, balconyArea), 100);
+    const balcony = Math.round(chargeableBalconyArea * 1300);
+    const subtotal = basicCost + balcony + Math.max(0, extraCharges);
+    const gst = gstEnabled ? Math.round(subtotal * 0.01) : 0;
+    return { basicCost, balcony, subtotal, gst, total: subtotal + gst, chargeableBalconyArea };
+  }, [carpetArea, balconyArea, extraCharges, gstEnabled]);
 
   const projects = ALL_PROJECTS.filter(project => project.category === 'Affordable');
+  const policyPaymentSchedule = [
+    { stage: 'At application / booking', pct: 5, timing: 'With application' },
+    { stage: 'At allotment', pct: 20, timing: 'As per allotment letter' },
+    { stage: '1st instalment', pct: 12.5, timing: 'Within 6 months' },
+    { stage: '2nd instalment', pct: 12.5, timing: 'Within 12 months' },
+    { stage: '3rd instalment', pct: 12.5, timing: 'Within 18 months' },
+    { stage: '4th instalment', pct: 12.5, timing: 'Within 24 months' },
+    { stage: '5th instalment', pct: 12.5, timing: 'Within 30 months' },
+    { stage: '6th instalment', pct: 12.5, timing: 'Within 36 months' }
+  ];
+  const anantyaClp = [
+    { stage: 'Application', pct: 5 }, { stage: 'Allotment', pct: 20 },
+    { stage: 'Start of construction', pct: 10 }, { stage: 'Basement roof slab', pct: 5 },
+    { stage: '3rd floor roof slab', pct: 5 }, { stage: '6th floor roof slab', pct: 5 },
+    { stage: '9th floor roof slab', pct: 5 }, { stage: 'Top floor', pct: 5 },
+    { stage: 'Start of electrical works', pct: 5 }, { stage: 'Start of internal plaster', pct: 5 },
+    { stage: 'Start of flooring', pct: 5 }, { stage: 'Start of door/window frames', pct: 5 },
+    { stage: 'Start of external roads', pct: 5 }, { stage: 'External development works', pct: 5 },
+    { stage: 'External plaster', pct: 5 }, { stage: 'Offer of possession', pct: 5 }
+  ];
 
   const whatsappUrl = 'https://wa.me/919818811971?text=Hi%20Prince%2C%20I%20am%20looking%20for%20affordable%20housing%20information%20in%20Faridabad.%20Please%20guide%20me.';
 
@@ -143,7 +168,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
             <div className="text-xs font-bold uppercase tracking-widest text-teal-700">Interactive planning tool</div>
             <h2 className="mt-2 text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900">Affordable flat cost calculator</h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-600">
-              This restores the earlier website illustration: ₹5,450 per sq.ft. of carpet area, a fixed ₹1,30,000 balcony charge and 1% GST on the subtotal. These are legacy illustrative inputs, not a confirmation that every scheme or current allotment uses the same rates or tax treatment.
+              Illustrative Faridabad calculation using ₹5,450 per sq.ft. carpet area and balcony recovery of ₹1,300 per sq.ft. up to 100 sq.ft. (maximum ₹1.30 lakh). Rate applicability depends on the project's licence/allotment stage and current government orders. GST and other charges must be confirmed from the project's demand letter.
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-5">
@@ -155,23 +180,149 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
                 </div>
               </div>
               <div>
-                <label htmlFor="carpet-area" className="mb-2 block text-xs font-bold uppercase tracking-wider text-neutral-700">Custom carpet area (sq.ft.)</label>
-                <input id="carpet-area" type="number" min="300" max="1200" step="0.01" value={carpetArea} onChange={e => setCarpetArea(Math.min(1200, Math.max(300, Number(e.target.value) || 300)))} className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm font-semibold text-neutral-900 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100" />
+                <label htmlFor="carpet-area" className="mb-2 block text-xs font-bold uppercase tracking-wider text-neutral-700">Carpet area (sq.ft.)</label>
+                <input id="carpet-area" type="number" min="280" max="700" step="0.01" value={carpetArea} onChange={e => setCarpetArea(Math.min(700, Math.max(280, Number(e.target.value) || 280)))} className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm font-semibold text-neutral-900 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100" />
               </div>
-              <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs leading-relaxed text-amber-900"><Info className="mb-1 inline h-4 w-4" /> The calculator excludes stamp duty, registration, utility/meter charges, parking or other project-specific extras unless stated in a promoter cost sheet.</div>
+              <div>
+                <label htmlFor="balcony-area" className="mb-2 block text-xs font-bold uppercase tracking-wider text-neutral-700">Balcony area (sq.ft.)</label>
+                <input id="balcony-area" type="number" min="0" max="200" step="1" value={balconyArea} onChange={e => setBalconyArea(Math.min(200, Math.max(0, Number(e.target.value) || 0)))} className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm font-semibold text-neutral-900 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100" />
+                <p className="mt-1 text-[11px] text-neutral-500">Chargeable area is capped at 100 sq.ft. in this illustration.</p>
+              </div>
+              <div>
+                <label htmlFor="extra-charges" className="mb-2 block text-xs font-bold uppercase tracking-wider text-neutral-700">Other charges (optional ₹)</label>
+                <input id="extra-charges" type="number" min="0" step="1000" value={extraCharges} onChange={e => setExtraCharges(Math.max(0, Number(e.target.value) || 0))} className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm font-semibold text-neutral-900 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100" />
+              </div>
+              <label className="flex items-center gap-2 text-xs font-semibold text-neutral-700"><input type="checkbox" checked={gstEnabled} onChange={e => setGstEnabled(e.target.checked)} className="h-4 w-4 accent-teal-700" /> Include illustrative 1% GST estimate</label>
+              <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs leading-relaxed text-amber-900"><Info className="mb-1 inline h-4 w-4" /> Stamp duty, registration, maintenance, utility/meter charges, parking and other project-specific charges may be extra. GST treatment depends on the transaction and project status.</div>
             </div>
             <div className="space-y-5 bg-neutral-950 p-6 text-white sm:p-8 lg:col-span-3">
               <div className="flex items-center justify-between border-b border-neutral-800 pb-4"><span className="text-xs font-bold uppercase tracking-widest text-neutral-400">Illustrative cost breakdown</span><span className="text-xs font-mono text-teal-300">INR</span></div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Basic cost ({carpetArea.toFixed(2)} × ₹5,450)</span><strong>{formatINR(estimates.basicCost)}</strong></div>
                 <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Illustrative balcony charge</span><strong>{formatINR(estimates.balcony)}</strong></div>
+                <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Chargeable balcony area</span><strong>{estimates.chargeableBalconyArea.toLocaleString('en-IN')} sq.ft.</strong></div>
+                {extraCharges > 0 && <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Other charges entered</span><strong>{formatINR(extraCharges)}</strong></div>}
                 <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Subtotal before GST</span><strong>{formatINR(estimates.subtotal)}</strong></div>
-                <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Illustrative GST (1%)</span><strong className="text-amber-300">{formatINR(estimates.gst)}</strong></div>
+                <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">{gstEnabled ? 'Illustrative GST (1%)' : 'GST excluded'}</span><strong className="text-amber-300">{formatINR(estimates.gst)}</strong></div>
                 <div className="flex flex-col gap-1 pt-3 sm:flex-row sm:items-end sm:justify-between"><span className="font-bold text-teal-300">Estimated illustrative total</span><strong className="text-2xl sm:text-3xl font-extrabold">{formatINR(estimates.total)}</strong></div>
               </div>
               <p className="text-[11px] leading-relaxed text-neutral-400">Always request the latest unit-wise demand / cost sheet and independently confirm applicable taxes and statutory charges before payment.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Policy payment plan example */}
+      <section id="payment-plan" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 space-y-6">
+        <div>
+          <div className="text-xs font-bold uppercase tracking-widest text-teal-700">Buyer budgeting guide</div>
+          <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-neutral-900">Affordable housing payment plan – 36-month example</h2>
+          <p className="mt-2 max-w-3xl text-sm text-neutral-600">The commonly published Affordable Housing Policy 2013 schedule is 5% at application, 20% at allotment and the remaining 75% in six equal half-yearly instalments over three years. Project-specific amendments, allotment letters and demand schedules take priority.</p>
+        </div>
+        <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
+          <div className="flex flex-col gap-1 border-b border-neutral-200 bg-neutral-50 p-5 sm:flex-row sm:items-center sm:justify-between">
+            <div><p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">Example amount used</p><p className="text-xl font-extrabold text-neutral-900">{formatINR(estimates.total)}</p></div>
+            <p className="text-xs text-neutral-500">Uses the current calculator estimate, not a project demand notice.</p>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[560px] text-left text-sm">
+              <thead className="bg-neutral-100 text-xs uppercase tracking-wider text-neutral-600"><tr><th className="p-3">Payment stage</th><th className="p-3">Share</th><th className="p-3">Indicative amount</th><th className="p-3">When</th></tr></thead>
+              <tbody className="divide-y divide-neutral-100">{policyPaymentSchedule.map((item, i) => <tr key={item.stage}><td className="p-3 font-medium text-neutral-800">{item.stage}</td><td className="p-3">{item.pct}%</td><td className="p-3 font-bold text-teal-800">{formatINR(Math.round(estimates.total * item.pct / 100))}</td><td className="p-3 text-neutral-600">{item.timing}</td></tr>)}</tbody>
+              <tfoot className="bg-neutral-50 font-bold"><tr><td className="p-3">Total</td><td className="p-3">100%</td><td className="p-3">{formatINR(policyPaymentSchedule.reduce((sum, item) => sum + Math.round(estimates.total * item.pct / 100), 0))}*</td><td className="p-3 text-xs font-normal text-neutral-500">*Rounding may create a small difference.</td></tr></tfoot>
+            </table>
+          </div>
+        </div>
+        <div className="rounded-2xl border border-neutral-200 bg-white p-6">
+          <h3 className="text-lg font-bold text-neutral-900">Anantya by True Habitat – project-specific CLP illustration</h3>
+          <p className="mt-1 text-sm text-neutral-600">Your website also stores a separate 16-stage construction-linked schedule for Anantya. This is not the same as the general six-monthly policy schedule. Check the latest project payment-plan PDF before payment.</p>
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">{anantyaClp.map((item, i) => <div key={item.stage} className="rounded-xl bg-neutral-50 p-3"><p className="text-[11px] text-neutral-500">{String(i + 1).padStart(2, '0')} · {item.stage}</p><p className="mt-1 text-lg font-extrabold text-neutral-900">{item.pct}%</p><p className="text-xs font-semibold text-teal-800">{formatINR(Math.round(estimates.total * item.pct / 100))}*</p></div>)}</div>
+          <a href="/assets/aistudio/Anantya_Payment_Plan_e1d01465.pdf" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950">View Anantya payment plan PDF <ExternalLink className="h-4 w-4" /></a>
+        </div>
+      </section>
+
+      {/* Application preference and policy priority explainer */}
+      <section id="preferences" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-7">
+            <div className="text-xs font-bold uppercase tracking-widest text-teal-700">Application form guide</div>
+            <h2 className="mt-1 text-2xl font-extrabold text-neutral-900">What are 1st, 2nd, 3rd and 4th preferences?</h2>
+            <p className="mt-3 text-sm leading-relaxed text-neutral-600">Some promoter application forms provide four preference fields. In that form, the numbers normally indicate the order in which the applicant ranks the available choices: first choice, second choice, third choice and fourth choice. The form must specify what is being ranked – for example, unit type or another project option.</p>
+            <div className="mt-5 space-y-3">
+              {[['1st preference','Your first-choice option.'],['2nd preference','Your next choice if the first choice cannot be considered.'],['3rd preference','Your third-ranked option, considered only as the project’s application/allotment rules allow.'],['4th preference','Your fourth-ranked option, considered only if the form and available inventory permit.']].map(([label,desc]) => <div key={label} className="flex gap-3 rounded-xl bg-neutral-50 p-3"><span className="min-w-[112px] text-sm font-bold text-teal-800">{label}</span><span className="text-sm text-neutral-600">{desc}</span></div>)}
+            </div>
+            <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs leading-relaxed text-amber-900">Important: a preference number is not a guarantee of allotment, a reservation category or an automatic increase in draw probability. The exact meaning depends on the specific project's official application form and draw rules.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-7">
+            <div className="text-xs font-bold uppercase tracking-widest text-teal-700">Government policy priority</div>
+            <h2 className="mt-1 text-2xl font-extrabold text-neutral-900">Policy preference is different from form preference</h2>
+            <p className="mt-3 text-sm leading-relaxed text-neutral-600">The 2018 amendment to the 2013 policy describes priority for identified PMAY beneficiaries of the same town, then other identified PMAY beneficiaries in Haryana, followed by eligible applicants meeting the policy's property-ownership condition. This is a policy priority sequence, not the same as selecting 1st–4th options on a project form.</p>
+            <ul className="mt-4 space-y-3 text-sm text-neutral-700">
+              <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" /><span><strong>Priority 1:</strong> identified PMAY beneficiaries of the same town, as applicable.</span></li>
+              <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" /><span><strong>Priority 2:</strong> other identified PMAY beneficiaries in Haryana.</span></li>
+              <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" /><span><strong>Next eligible group:</strong> applicants meeting the policy's stated no-property ownership condition.</span></li>
+            </ul>
+            <p className="mt-4 text-xs leading-relaxed text-neutral-500">The 2013 policy and its amendments must be read together. Do not assume that every project or separate Housing for All scheme follows identical preference tiers. The current project brochure, official notification and application form govern.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Draw results and waitlists */}
+      <section id="draw-results" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 space-y-6">
+        <div>
+          <div className="text-xs font-bold uppercase tracking-widest text-teal-700">Allotment transparency</div>
+          <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-neutral-900">Affordable housing draw results & waiting lists</h2>
+          <p className="mt-2 text-sm text-neutral-600">Use the linked official PDFs to check the complete applicant lists. A small sample record on this page is not a substitute for the full result PDF.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {OFFICIAL_DRAWS.filter(draw => draw.projectId !== '230').map(draw => <article key={draw.projectId} className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <div className="flex items-start justify-between gap-3"><div><p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Project ID {draw.projectId}</p><h3 className="mt-1 text-lg font-bold text-neutral-900">{draw.projectName}</h3><p className="mt-1 text-xs text-neutral-500">{draw.sector} · Draw: {draw.drawDate}</p></div><span className="rounded-full bg-neutral-100 px-2.5 py-1 text-[10px] font-bold text-neutral-700">Draw recorded</span></div>
+            <div className="mt-4 grid grid-cols-2 gap-3"><div className="rounded-xl bg-neutral-50 p-3"><p className="text-xs text-neutral-500">Successful allotments</p><p className="text-xl font-extrabold text-neutral-900">{draw.totalWinners}</p></div><div className="rounded-xl bg-neutral-50 p-3"><p className="text-xs text-neutral-500">Waiting list entries</p><p className="text-xl font-extrabold text-neutral-900">{draw.totalWaitlist}</p></div></div>
+            <p className="mt-3 text-xs text-neutral-500">Authority: {draw.authority}</p>
+            <div className="mt-4 flex flex-wrap gap-2"><a href={draw.winnerPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-3 py-2.5 text-xs font-bold text-white">Winner list PDF <ExternalLink className="h-3.5 w-3.5" /></a><a href={draw.waitlistPdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-neutral-200 px-3 py-2.5 text-xs font-bold text-neutral-700">Waiting list PDF <ExternalLink className="h-3.5 w-3.5" /></a></div>
+          </article>)}
+          <article className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Project ID 230</p><h3 className="mt-1 text-lg font-bold text-neutral-900">Anantya by True Habitat</h3><p className="mt-1 text-xs text-neutral-500">Sector 110A · Draw recorded: 16 October 2026</p><div className="mt-4 grid grid-cols-2 gap-3"><div className="rounded-xl bg-neutral-50 p-3"><p className="text-xs text-neutral-500">Reported winners</p><p className="text-xl font-extrabold text-neutral-900">680</p></div><div className="rounded-xl bg-neutral-50 p-3"><p className="text-xs text-neutral-500">Reported waitlist</p><p className="text-xl font-extrabold text-neutral-900">163</p></div></div><p className="mt-3 text-xs leading-relaxed text-amber-800">The current document index does not yet contain verified Anantya winner and waitlist PDFs. We have deliberately not linked the brochure or payment-plan PDF as draw results.</p>
+          </article>
+          <article className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Additional Faridabad draw record</p><h3 className="mt-1 text-lg font-bold text-neutral-900">Advitya Homes-II</h3><p className="mt-1 text-xs text-neutral-500">Sector 143, Mathura Road · Draw: 10 June 2026 · Project ID 220</p><p className="mt-3 text-sm text-neutral-600">Included because the website stores its official draw and waiting-list PDFs. Confirm its applicable scheme and current project status from the underlying official documents.</p><div className="mt-4 flex flex-wrap gap-2"><a href="/assets/aistudio/Advitya_Winner_83b5a856.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-3 py-2.5 text-xs font-bold text-white">Winner list PDF <ExternalLink className="h-3.5 w-3.5" /></a><a href="/assets/aistudio/Advitya_waiting_6983e013.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-neutral-200 px-3 py-2.5 text-xs font-bold text-neutral-700">Waiting list PDF <ExternalLink className="h-3.5 w-3.5" /></a></div>
+          </article>
+        </div>
+      </section>
+
+      {/* Eligibility, application and buyer checklist */}
+      <section id="eligibility" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="rounded-2xl border border-neutral-200 bg-white p-7">
+          <div className="text-xs font-bold uppercase tracking-widest text-teal-700">Before applying</div><h2 className="mt-1 text-2xl font-extrabold text-neutral-900">Eligibility & application checklist</h2>
+          <ul className="mt-5 space-y-3 text-sm text-neutral-700">
+            {['Read the exact policy and amendments named in the project brochure.','Check applicant, spouse and dependent-child property declarations under the applicable scheme.','Confirm whether the project has an open application window or only resale / management-quota inventory.','Keep PAN, identity/address proof, photographs, bank details and the required project-specific affidavits ready.','Submit only through the channel named in the official advertisement and keep the acknowledgement/application number.','Pay only into the verified account named in the official application documents.'].map(item => <li key={item} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" />{item}</li>)}
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-7">
+          <div className="text-xs font-bold uppercase tracking-widest text-teal-700">Draw to allotment</div><h2 className="mt-1 text-2xl font-extrabold text-neutral-900">How the process usually works</h2>
+          <ol className="mt-5 space-y-3 text-sm text-neutral-700 list-decimal pl-5">
+            <li>Read the advertisement, project brochure, unit categories, price and payment schedule.</li>
+            <li>Submit the application with the required booking amount and documents before the closing date.</li>
+            <li>Application scrutiny takes place; deficiencies or ineligibility are handled under the applicable rules.</li>
+            <li>Eligible applicants participate in the notified draw, where applicable.</li>
+            <li>Check the winner list and waiting list against your application number and category.</li>
+            <li>If successful, verify the allotment letter, unit, payment deadlines, agreement and refund/cancellation clauses.</li>
+          </ol>
+          <p className="mt-4 text-xs leading-relaxed text-neutral-500">The exact steps, time limits, interest/refund rights and any waiting-list movement depend on the applicable policy version and project documents.</p>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section id="faqs" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+        <div className="mb-6"><div className="text-xs font-bold uppercase tracking-widest text-teal-700">Common buyer questions</div><h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-neutral-900">Affordable housing FAQs</h2></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            ['Is every affordable project governed by exactly the same policy?','No. Check whether it is licensed under Affordable Housing Policy 2013, Housing for All 2018 or another scheme. The policy, amendments and project-specific approvals matter.'],
+            ['Does 3rd or 4th preference guarantee a flat?','No. These are ranked choices where a project form provides them. They do not guarantee allotment; the form and draw rules determine how they are used.'],
+            ['Can I apply in more than one project?','The applicable policy and affidavit conditions must be checked. The 2013 policy restricts multiple applications within a specific colony and limits successful allotment across colonies; verify the current amended wording before applying.'],
+            ['What happens if my application is unsuccessful?','Refund treatment and timing depend on the applicable notification and project terms. Read the official brochure and keep proof of payment.'],
+            ['Is the waiting list the same as the winner list?','No. A waiting-list position is conditional and may move only under the applicable allotment rules and availability.'],
+            ['Does the calculator show the final amount payable?','No. It is a planning estimate. Confirm the unit-specific demand letter, taxes, parking, registration, maintenance and other charges.']
+          ].map(([q,a]) => <details key={q} className="group rounded-xl border border-neutral-200 bg-white p-5"><summary className="cursor-pointer list-none pr-6 text-sm font-bold text-neutral-900 marker:hidden">{q}</summary><p className="mt-3 text-sm leading-relaxed text-neutral-600">{a}</p></details>)}
         </div>
       </section>
 
