@@ -319,7 +319,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
               ['Is the waiting list the same as the winner list?','No. A waiting-list position is conditional and may move only under the applicable allotment rules and availability.'],
               ['Does this calculator show the final payable amount?','No. It is a planning estimate. Confirm the unit-specific demand letter, GST, parking, registration, maintenance and other charges.'],
               ['Are applications open in every listed project?','Not necessarily. A project may have completed its draw or be offering resale or other inventory. Confirm the current application window and sales channel.'],
-              ['How do I verify a project's RERA status?','Open the linked Haryana RERA project record and review its latest certificate, orders, extensions and uploaded documents. A past approval alone does not guarantee current availability.']
+              ["How do I verify a project's RERA status?",'Open the linked Haryana RERA project record and review its latest certificate, orders, extensions and uploaded documents. A past approval alone does not guarantee current availability.']
             ].map(([question, answer]) => <details key={question} className="group rounded-2xl border border-white/10 bg-[#101d2c] p-5"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-extrabold text-white">{question}<ChevronDown className="h-4 w-4 shrink-0 text-teal-300 transition group-open:rotate-180" /></summary><p className="mt-4 border-t border-white/10 pt-4 text-xs leading-6 text-slate-400">{answer}</p></details>)}
           </div>
         </div>
