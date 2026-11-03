@@ -344,7 +344,7 @@ export const ALL_PROJECTS: PropertyProject[] = [
       "Surrounded by active hubs like Propex City, Silicon Valley, and DND-KMP link"
     ],
     description: "Townfit 70 is an expansive 102-acre plotted township in Sector 70, IMT Faridabad. Anchored by an 8-acre central park, wide dual-lane avenues, and immediate proximity to the Delhi Metro and expressway bypass.",
-    image: "/assets/aistudio/dameera-map-with-plot-numbers_d6d6dc14.jpeg",
+    image: "/assets/aistudio/townfit-layout_170f72d4.pdf",
     layoutPdf: "/assets/aistudio/townfit-layout_170f72d4.pdf",
     virtualTour360: "https://teliportme.com/view/2592898",
     videoUrl: "https://www.youtube.com/embed/TL2Abh_JxvA",
