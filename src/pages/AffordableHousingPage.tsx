@@ -19,6 +19,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
   const [balconyArea, setBalconyArea] = useState(100);
   const [extraCharges, setExtraCharges] = useState(0);
   const [gstEnabled, setGstEnabled] = useState(true);
+  const [parkingEnabled, setParkingEnabled] = useState(false);
 
   useEffect(() => {
     document.title = 'Affordable Housing in Faridabad | Projects, Policy & Cost Calculator';
@@ -38,10 +39,11 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
     const basicCost = Math.round(Math.max(0, carpetArea) * 5450);
     const chargeableBalconyArea = Math.min(Math.max(0, balconyArea), 100);
     const balcony = Math.round(chargeableBalconyArea * 1300);
-    const subtotal = basicCost + balcony + Math.max(0, extraCharges);
+    const parking = parkingEnabled ? Math.round((basicCost + balcony) * 0.10) : 0;
+    const subtotal = basicCost + balcony + parking + Math.max(0, extraCharges);
     const gst = gstEnabled ? Math.round(subtotal * 0.01) : 0;
-    return { basicCost, balcony, subtotal, gst, total: subtotal + gst, chargeableBalconyArea };
-  }, [carpetArea, balconyArea, extraCharges, gstEnabled]);
+    return { basicCost, balcony, parking, subtotal, gst, total: subtotal + gst, chargeableBalconyArea };
+  }, [carpetArea, balconyArea, extraCharges, gstEnabled, parkingEnabled]);
 
   const projects = ALL_PROJECTS.filter(project => project.category === 'Affordable');
   const policyPaymentSchedule = [
@@ -91,6 +93,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
               </a>
             </div>
             <div className="flex flex-wrap gap-x-5 gap-y-2 pt-2 text-xs font-semibold text-teal-200">
+              <a href="#policy" className="hover:text-white">Policy basics & 2026 updates</a>
               <a href="#payment-plan" className="hover:text-white">Payment plan</a>
               <a href="#preferences" className="hover:text-white">3rd & 4th preferences</a>
               <a href="#draw-results" className="hover:text-white">Draw results</a>
@@ -205,6 +208,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
                 <label htmlFor="extra-charges" className="mb-2 block text-xs font-bold uppercase tracking-wider text-neutral-700">Other charges (optional ₹)</label>
                 <input id="extra-charges" type="number" min="0" step="1000" value={extraCharges} onChange={e => setExtraCharges(Math.max(0, Number(e.target.value) || 0))} className="w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm font-semibold text-neutral-900 outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-100" />
               </div>
+              <label className="flex items-center gap-2 text-xs font-semibold text-neutral-700"><input type="checkbox" checked={parkingEnabled} onChange={e => setParkingEnabled(e.target.checked)} className="h-4 w-4 accent-teal-700" /> Add illustrative mandatory parking at 10% (where 2026 amendment applies)</label>
               <label className="flex items-center gap-2 text-xs font-semibold text-neutral-700"><input type="checkbox" checked={gstEnabled} onChange={e => setGstEnabled(e.target.checked)} className="h-4 w-4 accent-teal-700" /> Include illustrative 1% GST estimate</label>
               <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs leading-relaxed text-amber-900"><Info className="mb-1 inline h-4 w-4" /> Stamp duty, registration, maintenance, utility/meter charges, parking and other project-specific charges may be extra. GST treatment depends on the transaction and project status.</div>
             </div>
@@ -214,6 +218,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
                 <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Basic cost ({carpetArea.toFixed(2)} × ₹5,450)</span><strong>{formatINR(estimates.basicCost)}</strong></div>
                 <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Illustrative balcony charge</span><strong>{formatINR(estimates.balcony)}</strong></div>
                 <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Chargeable balcony area</span><strong>{estimates.chargeableBalconyArea.toLocaleString('en-IN')} sq.ft.</strong></div>
+                {parkingEnabled && <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Illustrative parking (10%)</span><strong>{formatINR(estimates.parking)}</strong></div>}
                 {extraCharges > 0 && <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Other charges entered</span><strong>{formatINR(extraCharges)}</strong></div>}
                 <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">Subtotal before GST</span><strong>{formatINR(estimates.subtotal)}</strong></div>
                 <div className="flex justify-between gap-4 border-b border-neutral-800 py-2"><span className="text-neutral-400">{gstEnabled ? 'Illustrative GST (1%)' : 'GST excluded'}</span><strong className="text-amber-300">{formatINR(estimates.gst)}</strong></div>
@@ -250,6 +255,22 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
           <p className="mt-1 text-sm text-neutral-600">Your website also stores a separate 16-stage construction-linked schedule for Anantya. This is not the same as the general six-monthly policy schedule. Check the latest project payment-plan PDF before payment.</p>
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">{anantyaClp.map((item, i) => <div key={item.stage} className="rounded-xl bg-neutral-50 p-3"><p className="text-[11px] text-neutral-500">{String(i + 1).padStart(2, '0')} · {item.stage}</p><p className="mt-1 text-lg font-extrabold text-neutral-900">{item.pct}%</p><p className="text-xs font-semibold text-teal-800">{formatINR(Math.round(estimates.total * item.pct / 100))}*</p></div>)}</div>
           <a href="/assets/aistudio/Anantya_Payment_Plan_e1d01465.pdf" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950">View Anantya payment plan PDF <ExternalLink className="h-4 w-4" /></a>
+        </div>
+      </section>
+
+      {/* What the scheme is and latest policy notes */}
+      <section id="policy" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24 space-y-6">
+        <div><div className="text-xs font-bold uppercase tracking-widest text-teal-700">Policy explained simply</div><h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-neutral-900">What is Haryana Affordable Housing?</h2><p className="mt-2 max-w-3xl text-sm leading-relaxed text-neutral-600">Haryana's Affordable Housing Policy 2013 provides a framework for licensed group-housing projects with defined apartment sizes, capped allotment rates, eligibility rules and an allotment process. It is not the same as regular market-priced group housing, DDJAY plotted colonies, or the separate Housing for All 2018 core-area scheme.</p></div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-5"><p className="text-xs font-bold uppercase tracking-wider text-teal-700">Apartment size</p><p className="mt-2 text-2xl font-extrabold text-neutral-900">28–60 m²</p><p className="mt-1 text-xs leading-relaxed text-neutral-600">The original 2013 policy defined the carpet-area range. Always verify the applicable amended policy and sanctioned unit plan.</p></div>
+          <div className="rounded-2xl border border-neutral-200 bg-white p-5"><p className="text-xs font-bold uppercase tracking-wider text-teal-700">Faridabad rate cap</p><p className="mt-2 text-2xl font-extrabold text-neutral-900">₹5,450/sq.ft.</p><p className="mt-1 text-xs leading-relaxed text-neutral-600">2026 reported revised maximum rate for applicable 2013-policy licences yet to make allotments; not every existing allotment is automatically repriced.</p></div>
+          <div className="rounded-2xl border border-neutral-200 bg-white p-5"><p className="text-xs font-bold uppercase tracking-wider text-teal-700">Balcony recovery</p><p className="mt-2 text-2xl font-extrabold text-neutral-900">Up to ₹1.30 lakh</p><p className="mt-1 text-xs leading-relaxed text-neutral-600">Illustrative revised cap: ₹1,300/sq.ft. up to 100 sq.ft., subject to the project's licence and applicable notification.</p></div>
+        </div>
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+          <h3 className="font-bold text-amber-950">Important 2026 update – rate, balcony and parking</h3>
+          <p className="mt-2 text-sm leading-relaxed text-amber-900">The 2026 amendment summary records a Faridabad maximum allotment rate of ₹5,450/sq.ft. carpet area, balcony recovery at ₹1,300/sq.ft. capped at 100 sq.ft. (₹1.30 lakh), and mandatory parking of one ECS per dwelling unit at 10% of flat cost for applicable projects. The revised rates apply to licences yet to make allotments; projects with applications already invited may have differential-demand and withdrawal/refund provisions. Parking changes have specific conditions for previously sanctioned projects and projects with all tower OCs.</p>
+          <p className="mt-2 text-xs leading-relaxed text-amber-900">Do not apply these figures blindly to a project that has already completed its draw or received OCs. Confirm the licence date, allotment stage, sanctioned building plan, latest signed government memo and promoter's cost sheet.</p>
+          <a href="https://www.affordablehomesgurgaon.in/amendment-in-affordable-housing-policy-2013-key-updates-and-impact-on-buyers-in-haryana/" target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 text-xs font-bold text-amber-950 underline">Read the published 2026 amendment summary <ExternalLink className="h-3.5 w-3.5" /></a>
         </div>
       </section>
 
