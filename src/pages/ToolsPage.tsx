@@ -82,6 +82,9 @@ export const ToolsPage: React.FC = () => {
           Construction-linked payment planning, area unit conversion, video walkthroughs, 
           and direct advisory consultation with Prince Banga (Apka Apna Property Advisor). Affordable housing pricing and policy tools now live in the dedicated Affordable Housing guide.
         </p>
+        <a href="/affordable-housing" onClick={(e) => { e.preventDefault(); window.history.pushState({ page: 'affordable-housing' }, '', '/affordable-housing'); window.dispatchEvent(new PopStateEvent('popstate')); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="inline-flex items-center gap-2 rounded-xl border border-teal-200 bg-teal-50 px-4 py-3 text-sm font-bold text-teal-900 hover:bg-teal-100">
+          Affordable Housing guide, cost calculator & policy details <ArrowRight className="h-4 w-4" />
+        </a>
       </div>
 
       {/* Segmented Section Navigation */}
