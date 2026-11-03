@@ -387,6 +387,23 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         </div>
       </section>
 
+      {/* Dedicated affordable housing information hub */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl border border-teal-900/20 bg-gradient-to-br from-neutral-950 via-neutral-900 to-teal-950 p-8 sm:p-10 text-white">
+          <div className="absolute -right-12 -top-12 h-56 w-56 rounded-full bg-teal-400/10 blur-3xl" />
+          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl space-y-3">
+              <div className="text-xs font-bold uppercase tracking-widest text-teal-300">Dedicated buyer information hub</div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Affordable Housing in Faridabad</h2>
+              <p className="text-sm leading-relaxed text-neutral-300">Explore Haryana affordable housing project records, RERA references, draw information, policy guidance and the restored illustrative flat-cost calculator — all on a separate dedicated page.</p>
+            </div>
+            <button onClick={() => onNavigate('affordable-housing')} className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-400 px-5 py-3 text-xs font-bold text-neutral-950 transition-colors hover:bg-teal-300">
+              Explore Affordable Housing <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* 4. FEATURED PROJECTS SPOTLIGHT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
