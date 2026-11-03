@@ -427,7 +427,7 @@ export const ALL_PROJECTS: PropertyProject[] = [
     landArea: "7.33125 acres | 14 towers | 1,012 units (as stated in HRERA's 7 Aug 2024 resolution)",
     configurations: ["Affordable group-housing units; confirm current unit-wise configurations from the promoter's approved documents"],
     keyHighlights: [
-      "HRERA registration certificate issued on 16 January 2023; project detail currently shows approved and certificate uploaded",
+      "HRERA registration certificate issued on 16 January 2023; the Authority’s 2024 resolution records validity up to 31 October 2027",
       "HRERA resolution records Affordable Housing Project licence No. 112 of 2021 dated 17 December 2021",
       "HRERA's 7 August 2024 resolution records 14 towers and 1,012 units in the sanctioned building plan",
       "HRERA considered permission for Mivan construction and a Construction-Linked Plan; check the latest approved demand schedule before payment"
