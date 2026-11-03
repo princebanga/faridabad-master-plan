@@ -90,6 +90,13 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
                 Estimate flat cost <Calculator className="w-4 h-4" />
               </a>
             </div>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 pt-2 text-xs font-semibold text-teal-200">
+              <a href="#payment-plan" className="hover:text-white">Payment plan</a>
+              <a href="#preferences" className="hover:text-white">3rd & 4th preferences</a>
+              <a href="#draw-results" className="hover:text-white">Draw results</a>
+              <a href="#eligibility" className="hover:text-white">Eligibility & process</a>
+              <a href="#faqs" className="hover:text-white">FAQs</a>
+            </div>
             <p className="text-[11px] text-neutral-400">Independent information resource. Not a government portal, project promoter or guarantee of allotment or availability.</p>
           </div>
         </div>
