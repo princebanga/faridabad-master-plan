@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Search, ArrowRight, ShieldCheck, MapPin, Building2, 
-  Compass, FileText, BookOpen, Calculator, Download, ExternalLink,
+  Compass, FileText, BookOpen, Download, ExternalLink,
   CheckCircle2, Sparkles, Navigation, Layers, ChevronRight, Eye
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -17,7 +17,6 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [calcCarpetArea, setCalcCarpetArea] = useState<number>(645.52);
 
   // Filter items matching search
   const searchResults = searchQuery.trim().length > 1
@@ -38,12 +37,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
       }
     : null;
 
-  // Calculation logic for Affordable Flat Calculator:
-  const calcBsp = Math.round(calcCarpetArea * 5450);
-  const calcBalcony = 130000;
-  const calcSubtotal = calcBsp + calcBalcony;
-  const calcGst = Math.round(calcSubtotal * 0.01);
-  const calcTotal = calcSubtotal + calcGst;
 
   const handleSelectFrom3D = (title: string) => {
     const matched = ALL_PROJECTS.find(p => title.toLowerCase().includes(p.sector.toLowerCase()) || title.toLowerCase().includes(p.name.toLowerCase().split(' ')[0]));
@@ -290,7 +283,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                 Properties & Real Estate Catalog
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                High-rises, plotted townships, affordable flats, and commercial shops. Filter by price, sector, and approval milestones.
+                Explore high-rise homes, residential plots, builder floors, and commercial spaces. Compare options by location, price, and project status.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-semibold text-emerald-600">
@@ -416,7 +409,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ALL_PROJECTS.slice(0, 6).map((project) => (
+          {ALL_PROJECTS.filter((project) => project.category !== 'Affordable').slice(0, 6).map((project) => (
             <motion.div
               key={project.id}
               whileHover={{ y: -5 }}
@@ -564,116 +557,79 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         </div>
       </section>
 
-      {/* 6. INTERACTIVE AFFORDABLE HOUSING PRICE CALCULATOR */}
+      {/* 6. COMMERCIAL PROPERTY SPOTLIGHT — residential affordable inventory is intentionally not promoted on the homepage */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-sm">
-          <div className="max-w-3xl mb-8 space-y-2">
-            <div className="text-xs uppercase font-bold tracking-widest text-teal-600">Interactive Due Diligence Tool</div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
-              Haryana Affordable Housing Cost Calculator
-            </h2>
-            <p className="text-neutral-500 text-sm">
-              In Faridabad, government affordable housing policy fixes the basic rate at <strong>₹5,450 per sq.ft.</strong> of carpet area, 
-              plus a fixed <strong>₹1,30,000</strong> balcony fee, and <strong>1% GST</strong> on the total value. Use this live calculator to estimate exact flat costs.
-            </p>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <div className="max-w-2xl space-y-2">
+              <div className="text-xs uppercase font-bold tracking-widest text-teal-600">Commercial Property in Faridabad</div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
+                Explore Commercial Spaces in Greater Faridabad
+              </h2>
+              <p className="text-neutral-500 text-sm leading-relaxed">
+                Looking for a shop or commercial space? Explore the listed opportunities, review location and pricing details, and ask us about current availability.
+              </p>
+            </div>
+            <button
+              onClick={() => onNavigate('properties')}
+              className="text-xs font-bold text-teal-700 hover:text-teal-900 flex items-center gap-1 self-start sm:self-auto"
+            >
+              <span>View All Properties</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            
-            {/* Input Controls */}
-            <div className="lg:col-span-1 space-y-4 bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-2">
-                  Select Unit Typology Preset
-                </label>
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setCalcCarpetArea(496.33)}
-                    className={`py-2 px-3 text-xs rounded-lg font-semibold transition-colors ${
-                      calcCarpetArea === 496.33 ? 'bg-teal-600 text-white' : 'bg-white text-neutral-700 border border-neutral-200'
-                    }`}
-                  >
-                    2 BHK (496 sq.ft.)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setCalcCarpetArea(532.38)}
-                    className={`py-2 px-3 text-xs rounded-lg font-semibold transition-colors ${
-                      calcCarpetArea === 532.38 ? 'bg-teal-600 text-white' : 'bg-white text-neutral-700 border border-neutral-200'
-                    }`}
-                  >
-                    2 BHK (532 sq.ft.)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setCalcCarpetArea(645.52)}
-                    className={`py-2 px-3 text-xs rounded-lg font-semibold transition-colors col-span-2 ${
-                      calcCarpetArea === 645.52 ? 'bg-teal-600 text-white' : 'bg-white text-neutral-700 border border-neutral-200'
-                    }`}
-                  >
-                    3 BHK Standard (645.52 sq.ft.)
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700 mb-1">
-                  Or Custom Carpet Area (Sq.Ft.)
-                </label>
-                <input
-                  type="number"
-                  step="0.1"
-                  min="300"
-                  max="1200"
-                  value={calcCarpetArea}
-                  onChange={(e) => setCalcCarpetArea(Number(e.target.value))}
-                  className="w-full bg-white border border-neutral-300 rounded-lg px-3 py-2 text-sm font-semibold text-neutral-900 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                />
-              </div>
-
-              <div className="text-[11px] text-neutral-500 pt-2">
-                *Rate fixed at ₹5,450/sq.ft. carpet under relevant Faridabad town policy framework.
-              </div>
-            </div>
-
-            {/* Live Breakdown Table */}
-            <div className="lg:col-span-2 bg-neutral-900 text-white p-6 sm:p-8 rounded-2xl border border-neutral-800 space-y-6">
-              <div className="flex items-center justify-between pb-3 border-b border-neutral-800">
-                <span className="text-xs uppercase font-bold tracking-wider text-neutral-400">Official Cost Ledger</span>
-                <span className="text-xs text-teal-400 font-mono">1% Affordable GST Tier</span>
-              </div>
-
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between py-2 border-b border-neutral-800">
-                  <span className="text-neutral-400">Basic Flat Cost ({calcCarpetArea} sq.ft. × ₹5,450)</span>
-                  <span className="font-mono font-bold text-white">₹{calcBsp.toLocaleString('en-IN')}</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-neutral-800">
-                  <span className="text-neutral-400">Fixed Balcony Charge (Capped)</span>
-                  <span className="font-mono font-bold text-white">₹{calcBalcony.toLocaleString('en-IN')}</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-neutral-800">
-                  <span className="text-neutral-400">Subtotal Before GST</span>
-                  <span className="font-mono font-bold text-neutral-200">₹{calcSubtotal.toLocaleString('en-IN')}</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-neutral-800">
-                  <span className="text-neutral-400">Statutory GST (1% on Subtotal)</span>
-                  <span className="font-mono font-bold text-amber-400">₹{calcGst.toLocaleString('en-IN')}</span>
-                </div>
-                <div className="flex justify-between pt-3 text-base sm:text-lg font-bold text-teal-400">
-                  <span>Estimated Total All-In Unit Cost</span>
-                  <span className="font-mono font-extrabold text-white text-xl">
-                    ₹{calcTotal.toLocaleString('en-IN')}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {ALL_PROJECTS.filter((project) => project.category === 'Commercial').map((project) => (
+              <motion.div
+                key={project.id}
+                whileHover={{ y: -4 }}
+                onClick={() => onSelectProject(project)}
+                className="bg-neutral-50 rounded-2xl border border-neutral-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer grid grid-cols-1 sm:grid-cols-2"
+              >
+                <div className="relative min-h-48 sm:min-h-full bg-neutral-100 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/assets/aistudio/anantya-true-habitat-sector-110a-faridabad-site_0be08361.jpg';
+                    }}
+                  />
+                  <span className="absolute top-3 left-3 bg-neutral-900/85 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">
+                    Commercial
                   </span>
                 </div>
-              </div>
+                <div className="p-5 flex flex-col justify-between gap-4">
+                  <div className="space-y-2">
+                    <div className="text-xs text-neutral-500">{project.sector} · {project.location}</div>
+                    <h3 className="font-bold text-lg text-neutral-900">{project.name}</h3>
+                    <div className="text-sm font-extrabold text-teal-700">{project.price}</div>
+                    <p className="text-xs text-neutral-600 leading-relaxed">{project.description}</p>
+                    <p className="text-xs text-neutral-500">{project.configurations[0]}</p>
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-teal-700">
+                    View commercial details <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-              <div className="p-3 bg-neutral-800/80 rounded-xl text-[11px] text-neutral-400">
-                Notice: Stamp duty, registration charges, and possession-stage meter/utility fees are payable separately upon offer of possession.
-              </div>
+          <div className="mt-6 rounded-2xl bg-neutral-950 text-white p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h3 className="font-bold text-base">Looking for a different commercial property?</h3>
+              <p className="text-xs text-neutral-300 mt-1">Share your preferred sector, property type and budget with our team.</p>
             </div>
-
+            <a
+              href="https://wa.me/919818811971?text=Hi%2C%20I%20am%20looking%20for%20commercial%20property%20in%20Faridabad.%20Please%20help%20me%20with%20available%20options."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-teal-400 hover:bg-teal-300 text-neutral-950 text-xs font-bold transition-colors"
+            >
+              Ask about commercial options <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </section>
