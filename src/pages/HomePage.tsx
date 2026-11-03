@@ -587,19 +587,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                 onClick={() => onSelectProject(project)}
                 className="bg-neutral-50 rounded-2xl border border-neutral-200 overflow-hidden hover:shadow-lg transition-all cursor-pointer grid grid-cols-1 sm:grid-cols-2"
               >
-                <div className="relative min-h-48 sm:min-h-full bg-neutral-100 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/assets/aistudio/anantya-true-habitat-sector-110a-faridabad-site_0be08361.jpg';
-                    }}
-                  />
-                  <span className="absolute top-3 left-3 bg-neutral-900/85 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">
-                    Commercial
-                  </span>
+                <div className="relative min-h-48 sm:min-h-full bg-gradient-to-br from-neutral-950 via-neutral-900 to-teal-950 overflow-hidden flex flex-col items-center justify-center gap-3 p-6">
+                  <Building2 className="w-12 h-12 text-teal-300" />
+                  <span className="text-sm font-semibold text-white text-center">Commercial opportunity</span>
+                  <span className="text-xs text-neutral-300">{project.sector}</span>
                 </div>
                 <div className="p-5 flex flex-col justify-between gap-4">
                   <div className="space-y-2">
