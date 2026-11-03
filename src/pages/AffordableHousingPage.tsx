@@ -114,6 +114,18 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
                 {project.keyHighlights.length > 0 && <ul className="space-y-1.5 text-xs text-neutral-600">
                   {project.keyHighlights.slice(0, 3).map((highlight, i) => <li key={i} className="flex items-start gap-2"><CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-teal-700" />{highlight}</li>)}
                 </ul>}
+                {project.pricingBreakdown && <div className="rounded-xl bg-neutral-50 p-3 text-xs text-neutral-600 space-y-1.5">
+                  <p className="font-bold text-neutral-800">Indicative price components</p>
+                  <p><strong>Basic price:</strong> {project.pricingBreakdown.bsp}</p>
+                  {project.pricingBreakdown.balcony && <p><strong>Balcony:</strong> {project.pricingBreakdown.balcony}</p>}
+                  {project.pricingBreakdown.gst && <p><strong>GST:</strong> {project.pricingBreakdown.gst}</p>}
+                  {project.pricingBreakdown.totalIllustration && <p><strong>Illustration:</strong> {project.pricingBreakdown.totalIllustration}</p>}
+                  {project.pricingBreakdown.notes && <p>{project.pricingBreakdown.notes}</p>}
+                </div>}
+                {project.paymentPlan && <div className="rounded-xl border border-neutral-200 p-3 text-xs text-neutral-600 space-y-1.5">
+                  <p className="font-bold text-neutral-800">Payment plan · {project.paymentPlan.type}</p>
+                  <p className="leading-relaxed">{project.paymentPlan.details}</p>
+                </div>}
                 <div className="flex flex-wrap gap-2 pt-2">
                   <button onClick={() => onSelectProject(project)} className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-neutral-900 px-3 py-2.5 text-xs font-bold text-white hover:bg-neutral-700">Project details <ArrowRight className="w-3.5 h-3.5" /></button>
                   {project.brochurePdf && <a href={project.brochurePdf} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-lg border border-neutral-200 px-3 py-2.5 text-xs font-semibold text-neutral-700 hover:bg-neutral-50">Brochure <ExternalLink className="w-3 h-3" /></a>}
