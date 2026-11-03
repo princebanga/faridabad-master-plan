@@ -73,6 +73,11 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
                 </a>
               </li>
               <li>
+                <a href="/affordable-housing" onClick={(e) => navigateTo('affordable-housing', e)} className="hover:text-white transition-colors">
+                  Affordable Housing Guide
+                </a>
+              </li>
+              <li>
                 <a href="/maps" onClick={(e) => navigateTo('maps', e)} className="hover:text-white transition-colors">
                   04. Maps & Sectors
                 </a>
