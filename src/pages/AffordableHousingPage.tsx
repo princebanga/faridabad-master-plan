@@ -239,21 +239,21 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
         </div>
         <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white">
           <div className="flex flex-col gap-1 border-b border-neutral-200 bg-neutral-50 p-5 sm:flex-row sm:items-center sm:justify-between">
-            <div><p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">Example amount used</p><p className="text-xl font-extrabold text-neutral-900">{formatINR(estimates.total)}</p></div>
-            <p className="text-xs text-neutral-500">Uses the current calculator estimate, not a project demand notice.</p>
+            <div><p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">Example amount used</p><p className="text-xl font-extrabold text-neutral-900">{formatINR(estimates.basicCost + estimates.balcony)}</p></div>
+            <p className="text-xs text-neutral-500">Illustrative flat + balcony base; GST, parking and other extras may be payable separately.</p>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full min-w-[560px] text-left text-sm">
               <thead className="bg-neutral-100 text-xs uppercase tracking-wider text-neutral-600"><tr><th className="p-3">Payment stage</th><th className="p-3">Share</th><th className="p-3">Indicative amount</th><th className="p-3">When</th></tr></thead>
-              <tbody className="divide-y divide-neutral-100">{policyPaymentSchedule.map((item, i) => <tr key={item.stage}><td className="p-3 font-medium text-neutral-800">{item.stage}</td><td className="p-3">{item.pct}%</td><td className="p-3 font-bold text-teal-800">{formatINR(Math.round(estimates.total * item.pct / 100))}</td><td className="p-3 text-neutral-600">{item.timing}</td></tr>)}</tbody>
-              <tfoot className="bg-neutral-50 font-bold"><tr><td className="p-3">Total</td><td className="p-3">100%</td><td className="p-3">{formatINR(policyPaymentSchedule.reduce((sum, item) => sum + Math.round(estimates.total * item.pct / 100), 0))}*</td><td className="p-3 text-xs font-normal text-neutral-500">*Rounding may create a small difference.</td></tr></tfoot>
+              <tbody className="divide-y divide-neutral-100">{policyPaymentSchedule.map((item, i) => <tr key={item.stage}><td className="p-3 font-medium text-neutral-800">{item.stage}</td><td className="p-3">{item.pct}%</td><td className="p-3 font-bold text-teal-800">{formatINR(Math.round((estimates.basicCost + estimates.balcony) * item.pct / 100))}</td><td className="p-3 text-neutral-600">{item.timing}</td></tr>)}</tbody>
+              <tfoot className="bg-neutral-50 font-bold"><tr><td className="p-3">Total</td><td className="p-3">100%</td><td className="p-3">{formatINR(policyPaymentSchedule.reduce((sum, item) => sum + Math.round((estimates.basicCost + estimates.balcony) * item.pct / 100), 0))}*</td><td className="p-3 text-xs font-normal text-neutral-500">*Rounding may create a small difference.</td></tr></tfoot>
             </table>
           </div>
         </div>
         <div className="rounded-2xl border border-neutral-200 bg-white p-6">
           <h3 className="text-lg font-bold text-neutral-900">Anantya by True Habitat – project-specific CLP illustration</h3>
           <p className="mt-1 text-sm text-neutral-600">Your website also stores a separate 16-stage construction-linked schedule for Anantya. This is not the same as the general six-monthly policy schedule. Check the latest project payment-plan PDF before payment.</p>
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">{anantyaClp.map((item, i) => <div key={item.stage} className="rounded-xl bg-neutral-50 p-3"><p className="text-[11px] text-neutral-500">{String(i + 1).padStart(2, '0')} · {item.stage}</p><p className="mt-1 text-lg font-extrabold text-neutral-900">{item.pct}%</p><p className="text-xs font-semibold text-teal-800">{formatINR(Math.round(estimates.total * item.pct / 100))}*</p></div>)}</div>
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">{anantyaClp.map((item, i) => <div key={item.stage} className="rounded-xl bg-neutral-50 p-3"><p className="text-[11px] text-neutral-500">{String(i + 1).padStart(2, '0')} · {item.stage}</p><p className="mt-1 text-lg font-extrabold text-neutral-900">{item.pct}%</p><p className="text-xs font-semibold text-teal-800">{formatINR(Math.round((estimates.basicCost + estimates.balcony) * item.pct / 100))}*</p></div>)}</div>
           <a href="/assets/aistudio/Anantya_Payment_Plan_e1d01465.pdf" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-teal-800 hover:text-teal-950">View Anantya payment plan PDF <ExternalLink className="h-4 w-4" /></a>
         </div>
       </section>
