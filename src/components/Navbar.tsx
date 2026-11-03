@@ -13,6 +13,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
     { id: 'home', label: 'Home', path: '/' },
     { id: 'master-plan', label: 'Master Plan', path: '/master-plan' },
     { id: 'properties', label: 'Properties', path: '/properties' },
+    { id: 'affordable-housing', label: 'Affordable Housing', path: '/affordable-housing' },
     { id: 'maps', label: 'Maps & Sectors', path: '/maps' },
     { id: 'resources', label: 'Resources', path: '/resources' },
     { id: 'guides', label: 'Guides', path: '/guides' },
