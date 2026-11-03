@@ -13,6 +13,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
     { id: 'home', label: 'Home', path: '/' },
     { id: 'master-plan', label: 'Master Plan', path: '/master-plan' },
     { id: 'properties', label: 'Properties', path: '/properties' },
+    { id: 'affordable-housing', label: 'Affordable Housing', path: '/affordable-housing' },
     { id: 'maps', label: 'Maps & Sectors', path: '/maps' },
     { id: 'resources', label: 'Resources', path: '/resources' },
     { id: 'guides', label: 'Guides', path: '/guides' },
@@ -75,8 +76,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
               <span>Faridabad<span className="text-teal-400 font-light">MasterPlan</span>.in</span>
             </a>
 
-            {/* Zone 2: EXACTLY 7 Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-medium">
+            {/* Primary desktop navigation links */}
+            <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-xs xl:text-sm font-medium">
               {navLinks.map((link) => {
                 const isActive = activePage === link.id;
                 return (

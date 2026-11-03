@@ -51,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
             </div>
           </div>
 
-          {/* Col 2: The 7 Core Destinations */}
+          {/* Col 2: Core destinations */}
           <div>
             <h3 className="text-neutral-200 font-semibold tracking-wider uppercase text-[11px] mb-3">
               Core Pages
@@ -70,6 +70,11 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
               <li>
                 <a href="/properties" onClick={(e) => navigateTo('properties', e)} className="hover:text-white transition-colors">
                   03. Properties & Real Estate
+                </a>
+              </li>
+              <li>
+                <a href="/affordable-housing" onClick={(e) => navigateTo('affordable-housing', e)} className="hover:text-white transition-colors">
+                  Affordable Housing Guide
                 </a>
               </li>
               <li>
@@ -206,7 +211,7 @@ export const Footer: React.FC<FooterProps> = ({ setActivePage }) => {
         <div className="mt-8 pt-6 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
           <p>© {new Date().getFullYear()} FaridabadMasterPlan.in. All original research and editorial content preserved.</p>
           <div className="flex items-center gap-4">
-            <span className="text-neutral-600">Reorganized from ~50 legacy pages into exactly 7 master destinations</span>
+            <span className="text-neutral-600">Reorganized from ~50 legacy pages into 7 core destinations plus dedicated topic guides</span>
           </div>
         </div>
 

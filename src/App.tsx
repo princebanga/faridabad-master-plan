@@ -8,6 +8,7 @@ import { MapsPage } from './pages/MapsPage';
 import { ResourcesPage } from './pages/ResourcesPage';
 import { GuidesPage } from './pages/GuidesPage';
 import { ToolsPage } from './pages/ToolsPage';
+import { AffordableHousingPage } from './pages/AffordableHousingPage';
 import { ALL_PROJECTS, PropertyProject } from './data/projectsData';
 import { MessageCircle, Phone, ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -34,6 +35,8 @@ export default function App() {
       // 1. Direct Page Routing
       if (path === '/' || path === '/home' || path === '/index.html') {
         setActivePage('home');
+      } else if (path.includes('affordable-housing')) {
+        setActivePage('affordable-housing');
       } else if (path.includes('master-plan') || path.includes('faridabad-master-plan-2031')) {
         setActivePage('master-plan');
       } else if (
@@ -154,6 +157,9 @@ export default function App() {
                 onNavigate={handleNavigate} 
                 onSelectProject={handleSelectProject} 
               />
+            )}
+            {activePage === 'affordable-housing' && (
+              <AffordableHousingPage onSelectProject={handleSelectProject} />
             )}
             {activePage === 'master-plan' && (
               <MasterPlanPage onNavigate={handleNavigate} />

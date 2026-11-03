@@ -8,16 +8,7 @@ import { ALL_PROJECTS } from '../data/projectsData';
 
 export const ToolsPage: React.FC = () => {
   // Tool selector
-  const [activeTool, setActiveTool] = useState<'calculator' | 'clp' | 'converter' | 'videos' | 'about' | 'contact'>('calculator');
-
-  // 1. Affordable Flat Calculator
-  const [carpetArea, setCarpetArea] = useState<number>(645.52);
-  const baseRate = 5450;
-  const balconyCharge = 130000;
-  const flatBsp = Math.round(carpetArea * baseRate);
-  const flatSubtotal = flatBsp + balconyCharge;
-  const flatGst = Math.round(flatSubtotal * 0.01);
-  const flatTotal = flatSubtotal + flatGst;
+  const [activeTool, setActiveTool] = useState<'clp' | 'converter' | 'videos' | 'about' | 'contact'>('clp');
 
   // 2. CLP Calculator
   const [clpTotalBsp, setClpTotalBsp] = useState<number>(3500000);
@@ -88,21 +79,16 @@ export const ToolsPage: React.FC = () => {
           Tools, Help & Contact
         </h1>
         <p className="text-neutral-600 text-base sm:text-lg leading-relaxed">
-          Interactive real estate cost calculators, area unit converters, video walkthroughs, 
-          and verified advisory consultation with Prince Banga (Apka Apna Property Advisor).
+          Construction-linked payment planning, area unit conversion, video walkthroughs, 
+          and direct advisory consultation with Prince Banga (Apka Apna Property Advisor). Affordable housing pricing and policy tools now live in the dedicated Affordable Housing guide.
         </p>
+        <a href="/affordable-housing" onClick={(e) => { e.preventDefault(); window.history.pushState({ page: 'affordable-housing' }, '', '/affordable-housing'); window.dispatchEvent(new PopStateEvent('popstate')); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="inline-flex items-center gap-2 rounded-xl border border-teal-200 bg-teal-50 px-4 py-3 text-sm font-bold text-teal-900 hover:bg-teal-100">
+          Affordable Housing guide, cost calculator & policy details <ArrowRight className="h-4 w-4" />
+        </a>
       </div>
 
       {/* Segmented Section Navigation */}
       <div className="flex items-center gap-1 p-1 bg-neutral-200/80 rounded-xl overflow-x-auto">
-        <button
-          onClick={() => setActiveTool('calculator')}
-          className={`px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap ${
-            activeTool === 'calculator' ? 'bg-white text-neutral-900 shadow-sm' : 'text-neutral-600 hover:text-neutral-900'
-          }`}
-        >
-          01. Affordable Flat Calculator
-        </button>
         <button
           onClick={() => setActiveTool('clp')}
           className={`px-4 py-2.5 text-xs font-semibold rounded-lg transition-colors whitespace-nowrap ${
@@ -117,7 +103,7 @@ export const ToolsPage: React.FC = () => {
             activeTool === 'converter' ? 'bg-white text-neutral-900 shadow-sm' : 'text-neutral-600 hover:text-neutral-900'
           }`}
         >
-          03. Land Area Converter
+          02. Land Area Converter
         </button>
         <button
           onClick={() => setActiveTool('videos')}
@@ -125,7 +111,7 @@ export const ToolsPage: React.FC = () => {
             activeTool === 'videos' ? 'bg-white text-neutral-900 shadow-sm' : 'text-neutral-600 hover:text-neutral-900'
           }`}
         >
-          04. Video Library ({VIDEO_LIBRARY.length})
+          03. Video Library ({VIDEO_LIBRARY.length})
         </button>
         <button
           onClick={() => setActiveTool('about')}
@@ -133,7 +119,7 @@ export const ToolsPage: React.FC = () => {
             activeTool === 'about' ? 'bg-white text-neutral-900 shadow-sm' : 'text-neutral-600 hover:text-neutral-900'
           }`}
         >
-          05. About Publisher
+          04. About Publisher
         </button>
         <button
           onClick={() => setActiveTool('contact')}
@@ -141,68 +127,12 @@ export const ToolsPage: React.FC = () => {
             activeTool === 'contact' ? 'bg-white text-neutral-900 shadow-sm' : 'text-neutral-600 hover:text-neutral-900'
           }`}
         >
-          06. Direct Consultation
+          05. Direct Consultation
         </button>
       </div>
 
-      {/* 1. AFFORDABLE FLAT CALCULATOR */}
-      {activeTool === 'calculator' && (
-        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-neutral-200 shadow-sm space-y-8">
-          <div className="max-w-2xl space-y-2">
-            <h2 className="text-2xl font-bold text-neutral-900">
-              Haryana Affordable Housing Pricing Calculator
-            </h2>
-            <p className="text-xs sm:text-sm text-neutral-500">
-              Formula: (Carpet Area × ₹5,450) + ₹1,30,000 Balcony + 1% GST on the aggregate sum.
-            </p>
-          </div>
+      {/* 1. CONSTRUCTION-LINKED PAYMENT PLAN CALCULATOR */}
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <div className="p-6 bg-neutral-50 rounded-2xl border border-neutral-200 space-y-4">
-              <label className="block text-xs font-bold uppercase tracking-wider text-neutral-700">
-                Unit Carpet Area (Sq.Ft.)
-              </label>
-              <input
-                type="number"
-                step="0.01"
-                value={carpetArea}
-                onChange={(e) => setCarpetArea(Number(e.target.value))}
-                className="w-full bg-white border border-neutral-300 rounded-xl px-4 py-3 text-sm font-semibold text-neutral-900 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-              <div className="space-y-1 text-xs text-neutral-500">
-                <div>Standard 3 BHK: <strong>645.52 sq.ft.</strong></div>
-                <div>Standard 2 BHK: <strong>532.38 sq.ft.</strong></div>
-                <div>Compact 2 BHK: <strong>496.33 sq.ft.</strong></div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-2 bg-neutral-900 text-white p-8 rounded-2xl border border-neutral-800 space-y-4 font-mono text-xs sm:text-sm">
-              <div className="flex justify-between py-2 border-b border-neutral-800">
-                <span className="text-neutral-400 font-sans">Basic Flat Price ({carpetArea} × ₹5,450)</span>
-                <strong className="text-white">₹{flatBsp.toLocaleString('en-IN')}</strong>
-              </div>
-              <div className="flex justify-between py-2 border-b border-neutral-800">
-                <span className="text-neutral-400 font-sans">Fixed Balcony Charge</span>
-                <strong className="text-white">₹{balconyCharge.toLocaleString('en-IN')}</strong>
-              </div>
-              <div className="flex justify-between py-2 border-b border-neutral-800">
-                <span className="text-neutral-400 font-sans">Subtotal (Before GST)</span>
-                <strong className="text-neutral-200">₹{flatSubtotal.toLocaleString('en-IN')}</strong>
-              </div>
-              <div className="flex justify-between py-2 border-b border-neutral-800">
-                <span className="text-neutral-400 font-sans">Statutory GST (1%)</span>
-                <strong className="text-amber-400">₹{flatGst.toLocaleString('en-IN')}</strong>
-              </div>
-              <div className="flex justify-between pt-4 text-base sm:text-lg font-bold text-teal-400 border-t border-neutral-700">
-                <span className="font-sans">Total Estimated All-In Cost</span>
-                <strong className="text-white text-xl">₹{flatTotal.toLocaleString('en-IN')}</strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 2. CLP CALCULATOR */}
       {activeTool === 'clp' && (
         <div className="bg-white p-8 sm:p-12 rounded-3xl border border-neutral-200 shadow-sm space-y-6">
           <div className="max-w-2xl space-y-2">

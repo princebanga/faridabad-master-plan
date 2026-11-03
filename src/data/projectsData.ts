@@ -10,6 +10,7 @@ export interface PropertyProject {
   status: 'Ongoing' | 'Approved & OC Received' | 'LOI Received' | 'RERA Approved' | 'Upcoming';
   reraNumber?: string;
   reraId?: string;
+  reraUrl?: string;
   landArea?: string;
   units?: string;
   towers?: string;
@@ -411,6 +412,30 @@ export const ALL_PROJECTS: PropertyProject[] = [
     contactPhone: "+919818811971",
     contactWa: "https://wa.me/919818811971?text=Hi%20Prince,%20I%20want%20information%20on%20Soha%20Olive%20Homes%20Sector%2098.",
     coordinates: { x: 1071.3, y: 428.4 }
+  },
+  {
+    id: "maulshree-heights-84",
+    name: "Maulshree Heights",
+    developer: "Arttech Affordable Housing LLP",
+    sector: "Sector 84",
+    location: "Village Kheri Kalan, Sector 84, Faridabad",
+    category: "Affordable",
+    price: "Current unit-wise price and availability: confirm from the latest project cost sheet",
+    status: "RERA Approved",
+    reraNumber: "HRERA-PKL-FBD-391-2023 (Project ID RERA-PKL-1050-2022)",
+    reraUrl: "https://haryanarera.gov.in/view_project/searchprojectDetail/1939",
+    landArea: "7.33125 acres | 14 towers | 1,012 units (as stated in HRERA's 7 Aug 2024 resolution)",
+    configurations: ["Affordable group-housing units; confirm current unit-wise configurations from the promoter's approved documents"],
+    keyHighlights: [
+      "HRERA registration certificate issued on 16 January 2023; the Authority’s 2024 resolution records validity up to 31 October 2027",
+      "HRERA resolution records Affordable Housing Project licence No. 112 of 2021 dated 17 December 2021",
+      "HRERA's 7 August 2024 resolution records 14 towers and 1,012 units in the sanctioned building plan",
+      "HRERA considered permission for Mivan construction and a Construction-Linked Plan; check the latest approved demand schedule before payment"
+    ],
+    description: "Maulshree Heights is an Affordable Housing Project by Arttech Affordable Housing LLP in Sector 84, Faridabad. The project is registered with Haryana RERA. This listing uses the Authority's project record and 2024 resolution; current prices, inventory, unit mix, construction progress and payment milestones should be confirmed from the latest promoter documents.",
+    image: "",
+    contactPhone: "+919818811971",
+    contactWa: "https://wa.me/919818811971?text=Hi%2C%20please%20share%20verified%20details%20and%20current%20availability%20for%20Maulshree%20Heights%20Sector%2084."
   },
   {
     id: "mansha-senior-living-119",
