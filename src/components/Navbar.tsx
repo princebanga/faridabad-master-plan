@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
               <span>Faridabad<span className="text-teal-400 font-light">MasterPlan</span>.in</span>
             </a>
 
-            {/* Zone 2: EXACTLY 7 Desktop Navigation Links */}
+            {/* Primary desktop navigation links */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-medium">
               {navLinks.map((link) => {
                 const isActive = activePage === link.id;
