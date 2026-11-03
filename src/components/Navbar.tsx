@@ -77,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
             </a>
 
             {/* Primary desktop navigation links */}
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-medium">
+            <nav className="hidden lg:flex items-center gap-3 xl:gap-5 text-xs xl:text-sm font-medium">
               {navLinks.map((link) => {
                 const isActive = activePage === link.id;
                 return (
