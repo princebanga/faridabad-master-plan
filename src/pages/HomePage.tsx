@@ -424,14 +424,23 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
               className="bg-white rounded-2xl border border-neutral-200 overflow-hidden hover:shadow-xl transition-all cursor-pointer flex flex-col group"
             >
               <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/assets/aistudio/anantya-true-habitat-sector-110a-faridabad-site_0be08361.jpg';
-                  }}
-                />
+                {project.id === 'townfit-70' && project.layoutPdf ? (
+                  <iframe
+                    src={`${project.layoutPdf}#page=1&view=FitH`}
+                    title={`${project.name} master layout preview`}
+                    className="w-full h-full border-0 pointer-events-none"
+                    loading="lazy"
+                  />
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/assets/aistudio/anantya-true-habitat-sector-110a-faridabad-site_0be08361.jpg';
+                    }}
+                  />
+                )}
                 <div className="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-md">
                   {project.category}
                 </div>
