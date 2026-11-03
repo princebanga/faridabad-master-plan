@@ -133,7 +133,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
           {projects.map((project) => (
             <motion.article key={project.id} whileHover={{ y: -4 }} className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm hover:shadow-xl transition-shadow">
               <div className="relative aspect-[16/9] overflow-hidden bg-neutral-100">
-                <img src={project.image} alt={project.name} className="h-full w-full object-cover" loading="lazy" />
+                {project.image ? <img src={project.image} alt={project.name} className="h-full w-full object-cover" loading="lazy" /> : <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-teal-50 to-neutral-100 px-4 text-center text-sm font-semibold text-neutral-500">Project image pending verification</div>}
                 <span className="absolute left-3 top-3 rounded-md bg-neutral-950/85 px-2.5 py-1 text-[10px] font-bold text-white">{project.status}</span>
               </div>
               <div className="p-5 space-y-3">
@@ -143,7 +143,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
                 <p className="text-xs leading-relaxed text-neutral-600">{project.description}</p>
                 <div className="space-y-1 border-t border-neutral-100 pt-3 text-xs text-neutral-600">
                   <p><strong>Configuration:</strong> {project.configurations.join(' · ')}</p>
-                  {project.reraNumber && <p><strong>RERA reference:</strong> {project.reraNumber}</p>}
+                  {project.reraNumber && <p><strong>RERA reference:</strong> {project.reraNumber} {project.reraUrl && <a href={project.reraUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-800 underline">Verify on HRERA</a>}</p>}
                   {project.landArea && <p><strong>Project scale:</strong> {project.landArea}</p>}
                 </div>
                 {project.keyHighlights.length > 0 && <ul className="space-y-1.5 text-xs text-neutral-600">
