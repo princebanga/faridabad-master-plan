@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Search, ArrowRight, ShieldCheck, MapPin, Building2, 
-  Compass, FileText, BookOpen, Download, ExternalLink,
+  Compass, FileText, BookOpen, Calculator, Download, ExternalLink,
   CheckCircle2, Sparkles, Navigation, Layers, ChevronRight, Eye
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
