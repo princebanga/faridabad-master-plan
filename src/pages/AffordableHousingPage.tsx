@@ -160,6 +160,12 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
             </motion.article>
           ))}
         </div>
+        <article className="mt-5 rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div><p className="text-xs font-bold uppercase tracking-wider text-teal-700">Additional Faridabad affordable-housing draw archive</p><h3 className="mt-1 text-lg font-bold text-neutral-900">Advitya Homes-II · Sector 143</h3><p className="mt-1 text-sm text-neutral-600">Project ID 220 · Draw recorded 10 June 2026 · The website holds winner and waiting-list PDFs. Verify the exact scheme and current status in the original records.</p></div>
+            <div className="flex flex-wrap gap-2"><a href="/assets/aistudio/Advitya_Winner_83b5a856.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-3 py-2.5 text-xs font-bold text-white">Winner list <ExternalLink className="h-3.5 w-3.5" /></a><a href="/assets/aistudio/Advitya_waiting_6983e013.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-neutral-200 px-3 py-2.5 text-xs font-bold text-neutral-700">Waiting list <ExternalLink className="h-3.5 w-3.5" /></a></div>
+          </div>
+        </article>
       </section>
 
       <section id="calculator" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
@@ -261,7 +267,7 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
               <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" /><span><strong>Priority 2:</strong> other identified PMAY beneficiaries in Haryana.</span></li>
               <li className="flex gap-2"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-teal-700" /><span><strong>Next eligible group:</strong> applicants meeting the policy's stated no-property ownership condition.</span></li>
             </ul>
-            <p className="mt-4 text-xs leading-relaxed text-neutral-500">The 2013 policy and its amendments must be read together. Do not assume that every project or separate Housing for All scheme follows identical preference tiers. The current project brochure, official notification and application form govern.</p>
+            <p className="mt-4 text-xs leading-relaxed text-neutral-500">The amended 2013 policy priority sequence above does not create a universal fourth preference tier. A fourth preference shown on a promoter's form is a separate ranked-choice field. Do not assume that every project or separate Housing for All scheme follows identical preference tiers. The current project brochure, official notification and application form govern.</p>
           </div>
         </div>
       </section>
@@ -282,9 +288,6 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
           </article>)}
           <article className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Project ID 230</p><h3 className="mt-1 text-lg font-bold text-neutral-900">Anantya by True Habitat</h3><p className="mt-1 text-xs text-neutral-500">Sector 110A · Draw recorded: 16 October 2026</p><div className="mt-4 grid grid-cols-2 gap-3"><div className="rounded-xl bg-neutral-50 p-3"><p className="text-xs text-neutral-500">Reported winners</p><p className="text-xl font-extrabold text-neutral-900">680</p></div><div className="rounded-xl bg-neutral-50 p-3"><p className="text-xs text-neutral-500">Reported waitlist</p><p className="text-xl font-extrabold text-neutral-900">163</p></div></div><p className="mt-3 text-xs leading-relaxed text-amber-800">The current document index does not yet contain verified Anantya winner and waitlist PDFs. We have deliberately not linked the brochure or payment-plan PDF as draw results.</p>
-          </article>
-          <article className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Additional Faridabad draw record</p><h3 className="mt-1 text-lg font-bold text-neutral-900">Advitya Homes-II</h3><p className="mt-1 text-xs text-neutral-500">Sector 143, Mathura Road · Draw: 10 June 2026 · Project ID 220</p><p className="mt-3 text-sm text-neutral-600">Included because the website stores its official draw and waiting-list PDFs. Confirm its applicable scheme and current project status from the underlying official documents.</p><div className="mt-4 flex flex-wrap gap-2"><a href="/assets/aistudio/Advitya_Winner_83b5a856.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg bg-neutral-900 px-3 py-2.5 text-xs font-bold text-white">Winner list PDF <ExternalLink className="h-3.5 w-3.5" /></a><a href="/assets/aistudio/Advitya_waiting_6983e013.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-lg border border-neutral-200 px-3 py-2.5 text-xs font-bold text-neutral-700">Waiting list PDF <ExternalLink className="h-3.5 w-3.5" /></a></div>
           </article>
         </div>
       </section>
@@ -338,6 +341,8 @@ export const AffordableHousingPage: React.FC<AffordableHousingPageProps> = ({ on
           <p className="mt-2 text-sm leading-relaxed text-neutral-600">Use the official portals to verify the latest policy notifications, project registrations and statutory records. This page is an independent guide and is not a substitute for official documents or professional advice.</p>
           <div className="mt-5 flex flex-col gap-3 text-sm font-semibold">
             <a href="https://haryanarera.gov.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-teal-800 hover:text-teal-950">Haryana RERA portal <ExternalLink className="h-3.5 w-3.5" /></a>
+            <a href="https://pmay-urban.gov.in/material/component1/Notification_AFFORDABLE_HOUSING_POLICY_2013_Finalised%2018_08_2013.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-teal-800 hover:text-teal-950">Affordable Housing Policy 2013 (notification PDF) <ExternalLink className="h-3.5 w-3.5" /></a>
+            <a href="https://ulbharyana.gov.in/img/pdf/Affordable%20Housing%20Policy%20under%20Housing%20for%20All%20for%20Core%20Area_Notified%20on%2026.6.2018.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-teal-800 hover:text-teal-950">Housing for All 2018 policy (core area) <ExternalLink className="h-3.5 w-3.5" /></a>
             <a href="https://tcpharyana.gov.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-teal-800 hover:text-teal-950">Town & Country Planning Haryana <ExternalLink className="h-3.5 w-3.5" /></a>
           </div>
         </div>
