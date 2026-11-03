@@ -352,7 +352,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                 Property Guides, Rules & Knowledge
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                20-point plot buying checklist, title chain verification, Freehold vs Leasehold, OC vs CC, and Haryana affordable policy rules.
+                20-point plot buying checklist, title chain verification, Freehold vs Leasehold, OC vs CC, and key Haryana property regulations.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-semibold text-purple-600">
@@ -375,7 +375,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
                 Interactive Tools & Advisor Helpdesk
               </h3>
               <p className="text-xs text-neutral-600 leading-relaxed">
-                Affordable pricing calculator, CLP milestone schedule estimator, area unit converter, video tours, and direct inquiry with Prince Banga.
+                Payment-plan tools, area unit converter, video tours, and direct property enquiries.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-neutral-100 flex items-center justify-between text-xs font-semibold text-rose-600">
@@ -557,7 +557,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         </div>
       </section>
 
-      {/* 6. COMMERCIAL PROPERTY SPOTLIGHT — residential affordable inventory is intentionally not promoted on the homepage */}
+      {/* 6. COMMERCIAL PROPERTY SPOTLIGHT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
