@@ -93,7 +93,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
                 <DropLink label="Buyer Guides" page="guides" />
                 <DropLink label="Tools & Calculators" page="tools" />
                 <a href="tel:+919818811971" className="block rounded-lg px-3 py-2.5 text-sm text-neutral-300 hover:bg-neutral-800 hover:text-teal-300">Contact Us · 98188 11971</a>
-                <DropLink label="About Us" page="tools" />
               </Dropdown>
             </nav>
 
@@ -138,7 +137,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
                 <button onClick={() => navigate('guides')} className="block w-full text-left px-3 py-2 text-sm text-neutral-400">Buyer Guides</button>
                 <button onClick={() => navigate('tools')} className="block w-full text-left px-3 py-2 text-sm text-neutral-400">Tools & Calculators</button>
                 <a href="tel:+919818811971" className="block px-3 py-2 text-sm text-neutral-400">Contact Us · 98188 11971</a>
-                <button onClick={() => navigate('tools')} className="block w-full text-left px-3 py-2 text-sm text-neutral-400">About Us</button>
               </div>
             </details>
             <div className="pt-4 border-t border-neutral-800 flex flex-col gap-2">
