@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 7 Primary Destinations -->
   <url>
     <loc>https://faridabadmasterplan.in/</loc>
     <lastmod>2026-10-25</lastmod>
@@ -43,9 +42,15 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>\n    <loc>https://faridabadmasterplan.in/adore-legend-v-sector-119-faridabad.html</loc>\n    <lastmod>2026-11-04</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.85</priority>\n  </url>\n  <url>
+  <url>
+    <loc>https://faridabadmasterplan.in/adore-legend-v-sector-119-faridabad.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://faridabadmasterplan.in/emerald-sector-109a-faridabad-plots.html</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
