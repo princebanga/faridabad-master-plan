@@ -179,11 +179,11 @@ export const SECTORS_DATA: SectorInfo[] = [
     sector: "Sector 70",
     name: "Sector 70 — Plotted Townships & Industrial Hub",
     tagline: "Townfit 70 and Brickklin Silicon Valley with massive central parks",
-    groundView: "Sector 70 is directly linked to the IMT industrial corridor and Tigaon Road. Featuring Townfit 70 (102-acre township with 8-acre central park) and Brickklin Silicon Valley (OC received, 99 plots), it is a major plotted residential stronghold.",
+    groundView: "Sector 70 is directly linked to the IMT industrial corridor and Tigaon Road. Featuring Townfit 70 (102-acre township with 8-acre central park) and Brickklin Silicon Valley (OC approval expected soon; awaited, 99 plots), it is a major plotted residential stronghold.",
     matureRating: "Industrial & Plotted Core",
     keyEcosystems: [
       "Townfit 70 (Ferrous Megapolis Phase 1)",
-      "Brickklin Silicon Valley (HRERA-PKL-FBD-311-2022, OC Received)",
+      "Brickklin Silicon Valley (HRERA-PKL-FBD-311-2022, OC approval expected soon)",
       "Propex City and IMT corporate campuses"
     ],
     connectivityHighlights: [
