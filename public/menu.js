@@ -162,6 +162,7 @@ const globalMenuHTML = `
                             <div class="sub-dropdown-content">
                                 <a href="runningprojects.html">Ongoing Group Housing Projects</a>
                                 <a href="aanandam-residency-sector-89-faridabad.html">Aanandam Residency – Sector 89</a>
+                                <a href="tarang-atlantis-sector-31-faridabad.html">Tarang Atlantis – Sector 31 (3 &amp; 4 BHK + Resale)</a>
                             </div>
                         </div>
 
@@ -341,6 +342,7 @@ const globalMenuHTML = `
             </details>
         </details>
         <a href="runningprojects.html">🏗️ Ongoing Group Housing Projects</a>
+        <a href="tarang-atlantis-sector-31-faridabad.html">✨ Tarang Atlantis – Sector 31 (3 &amp; 4 BHK)</a>
         <a href="aanandam-residency-sector-89-faridabad.html">🏙️ Aanandam Residency – Sector 89</a>
         <a href="true-habitat.html">🏠 Affordable Flats – True Habitat</a>
         <a href="sohaolivehomes.html">🏠 Soha Olive Homes</a>
