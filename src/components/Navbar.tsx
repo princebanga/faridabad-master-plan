@@ -73,7 +73,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
                 <DropLink label="Explore Plots & Properties" page="properties" />
                 <DropLink label="Sector-wise Property Listings" page="maps" />
               </Dropdown>
-              <button onClick={() => navigate('properties')} className={linkClass('properties')}>Group Housing</button>
+              <Dropdown label="Group Housing" active={activePage === 'properties'}>
+                <DropLink label="Explore Group Housing Projects" page="properties" />
+                <a href="/tarang-atlantis-sector-31-faridabad.html" className="block rounded-lg px-3 py-2.5 text-sm text-neutral-300 hover:bg-neutral-800 hover:text-teal-300">Tarang Atlantis · Sector 31 · 3 & 4 BHK + Resale</a>
+              </Dropdown>
               <Dropdown label="Affordable Housing" active={activePage === 'affordable-housing'}>
                 <DropLink label="Affordable Housing Overview" page="affordable-housing" />
                 <DropLink label="Affordable Projects" page="affordable-housing" hash="projects" />
@@ -114,7 +117,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activePage, setActivePage }) => 
               <summary className="flex cursor-pointer list-none items-center justify-between px-3 py-2.5 text-sm font-semibold text-neutral-200">Plots <ChevronDown className="w-4 h-4" /></summary>
               <div className="pl-3"><button onClick={() => navigate('properties')} className="block w-full text-left px-3 py-2 text-sm text-neutral-400">Explore Plots & Properties</button><button onClick={() => navigate('maps')} className="block w-full text-left px-3 py-2 text-sm text-neutral-400">Sector-wise Listings</button></div>
             </details>
-            <button onClick={() => navigate('properties')} className="block w-full text-left px-3 py-2.5 rounded-lg text-sm text-neutral-300 hover:bg-neutral-800">Group Housing</button>
+            <details className="group rounded-lg"><summary className="flex cursor-pointer list-none items-center justify-between px-3 py-2.5 text-sm font-semibold text-neutral-200">Group Housing <ChevronDown className="w-4 h-4" /></summary><div className="pl-3"><button onClick={() => navigate('properties')} className="block w-full text-left px-3 py-2 text-sm text-neutral-400">Explore Group Housing Projects</button><a href="/tarang-atlantis-sector-31-faridabad.html" className="block px-3 py-2 text-sm text-teal-300">Tarang Atlantis · Sector 31 · 3 &amp; 4 BHK + Resale</a></div></details>
             <details className="group rounded-lg">
               <summary className="flex cursor-pointer list-none items-center justify-between px-3 py-2.5 text-sm font-semibold text-neutral-200">Affordable Housing <ChevronDown className="w-4 h-4" /></summary>
               <div className="pl-3">
