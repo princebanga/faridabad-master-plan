@@ -404,6 +404,25 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProject 
         </div>
       </section>
 
+      {/* Featured Tarang Atlantis direct lead-generation card */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href="/tarang-atlantis-sector-31-faridabad.html" className="group block overflow-hidden rounded-3xl border border-amber-700/40 bg-gradient-to-r from-neutral-950 via-stone-900 to-neutral-800 shadow-2xl transition-transform hover:-translate-y-1">
+          <div className="grid md:grid-cols-[1.2fr_.8fr] items-center gap-6 p-7 sm:p-10">
+            <div>
+              <div className="text-xs font-bold uppercase tracking-[.22em] text-amber-300">Featured Group Housing · Sector 31</div>
+              <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-white">Tarang Atlantis, Faridabad</h2>
+              <p className="mt-3 max-w-2xl text-sm sm:text-base leading-relaxed text-neutral-300">3 BHK homes &amp; 4 BHK penthouse · Ground floor completed (latest advisor update) · Approx. 500m from Mewala Maharajpur Metro · Builder offer and resale options.</p>
+              <div className="mt-5 flex flex-wrap gap-3"><span className="rounded-lg bg-amber-300 px-4 py-2 text-sm font-bold text-neutral-950">View Project Details →</span><span className="rounded-lg border border-white/20 px-4 py-2 text-sm font-semibold text-white">Builder pricing &amp; resale</span></div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-white">
+              <div className="text-xs uppercase tracking-widest text-amber-200">Indicative builder rates after 5% discount</div>
+              <div className="mt-3 grid grid-cols-2 gap-4"><div><div className="text-2xl font-bold">₹5,795</div><div className="text-xs text-neutral-400">/sq.ft. from ₹6,100</div></div><div><div className="text-2xl font-bold">₹6,175</div><div className="text-xs text-neutral-400">/sq.ft. from ₹6,500</div></div></div>
+              <div className="mt-4 border-t border-white/10 pt-3 text-sm text-neutral-300">Resale premium indicative: ₹20–30 lakh. Confirm unit-wise dues and availability.</div>
+            </div>
+          </div>
+        </a>
+      </section>
+
       {/* 4. FEATURED PROJECTS SPOTLIGHT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
