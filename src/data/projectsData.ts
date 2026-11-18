@@ -7,7 +7,7 @@ export interface PropertyProject {
   category: 'High-Rise' | 'Plots' | 'Low-Rise' | 'Affordable' | 'Commercial';
   price: string;
   baseRate?: string;
-  status: 'Ongoing' | 'Approved & OC Received' | 'LOI Received' | 'RERA Approved' | 'Upcoming';
+  status: 'Ongoing' | 'Approved & OC Received' | 'OC Approval Expected Soon' | 'LOI Received' | 'RERA Approved' | 'Upcoming';
   reraNumber?: string;
   reraId?: string;
   reraUrl?: string;
@@ -362,18 +362,18 @@ export const ALL_PROJECTS: PropertyProject[] = [
     category: "Plots",
     price: "₹1.05 Lakh per sq. yard onwards*",
     baseRate: "₹1.05L/sq.yd.",
-    status: "Approved & OC Received",
+    status: "OC Approval Expected Soon",
     reraNumber: "HRERA-PKL-FBD-311-2022 (Project ID RERA-PKL-1042-2022)",
     landArea: "5.406 Acres | 99 Freehold Plots",
     configurations: ["112 Sq. Yds", "135 Sq. Yds (Executive)", "145 Sq. Yds (Corner)", "100-150+ Sq. Yds"],
     keyHighlights: [
-      "Occupation Certificate (OC) received; fully completed gated township",
+      "OC approval is awaited; expected soon, subject to official confirmation",
       "Stilt + 4 Floors independent residential construction allowed",
       "9-meter wide dense asphalt internal roads with underground electrical cables",
       "Zero KM from IMT Core; approx 3.0 KM to Raja Nahar Singh (Ballabgarh) Metro Station",
       "Dual water supply network, central green park and 24/7 security guard post"
     ],
-    description: "Brickklin Silicon Valley is an OC-received, gated DDJAY plotted colony in Sector 70, Mujeri, Faridabad. Complete with 99 freehold units, stilt+4 building permissions, and ready infrastructure.",
+    description: "Brickklin Silicon Valley is a gated DDJAY plotted colony in Sector 70, Mujeri, Faridabad, with 99 freehold units and stilt+4 building permissions. OC approval is awaited and expected soon; buyers should verify the latest status with the relevant authority before proceeding.",
     image: "/assets/aistudio/anantya-true-habitat-sector-110a-faridabad-site_0be08361.jpg",
     layoutPdf: "/assets/aistudio/siliconValley_9e8c34c8.pdf",
     virtualTour360: "https://teliportme.com/view/2593980",
