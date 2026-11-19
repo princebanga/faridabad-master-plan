@@ -22,6 +22,53 @@
 /* Audience-first refresh: stronger hierarchy, pricing cards and mobile conversion */
 .hero{min-height:740px}.hero:after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,#17130f55);pointer-events:none}.heroIn{max-width:760px}.hero h1{max-width:720px}.hero p{font-size:18px;line-height:1.7}.hero .eyebrow{display:inline-block;border:1px solid #c49a7066;padding:9px 13px;background:#17130f66}.facts{gap:18px}.facts>div{padding:16px 20px;background:#ffffff12;border:1px solid #ffffff35;backdrop-filter:blur(8px);min-width:150px}.sectionHead h2{letter-spacing:-.025em}.priceSpot{background:linear-gradient(135deg,#251d17,#473322);color:#fff}.priceSpot .sectionHead p{color:#d8cabb}.priceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.priceCard{background:#fffefa;color:var(--ink);padding:28px;border:1px solid #d7c4ad;box-shadow:0 18px 45px #0002;position:relative;overflow:hidden}.priceCard.featured{background:#efe2d1;border:2px solid var(--bronze2);transform:translateY(-8px)}.priceCard.resale{background:#30271f;color:#fff;border-color:#9a6b42}.priceCard .tag{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--bronze);font-weight:800}.priceCard h3{font:clamp(28px,3vw,38px) Georgia,serif;margin:18px 0 2px}.priceCard p{font-size:13px;color:var(--muted);min-height:42px}.priceCard.resale p{color:#d7c9ba}.priceCard .after{font:34px Georgia,serif;color:#8a5a31;margin-top:18px}.priceCard.resale .after{color:#e5bd91}.priceCard .after small{display:block;font:12px Arial,sans-serif;color:var(--muted);margin-top:4px}.priceCard.resale .after small{color:#d7c9ba}.priceNote{margin-top:20px;padding:18px 22px;background:#ffffff12;border:1px solid #ffffff35;color:#e9ded2;font-size:13px}.priceNote b{color:#e8bd91}.btn{box-shadow:0 8px 22px #1b120b22}.card,.plan,.stat,.amenity{transition:transform .25s,box-shadow .25s}.card:hover,.plan:hover,.stat:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.sectionHead{margin-bottom:42px}.enquiry{border:1px solid #9a6b42;box-shadow:0 22px 65px #21180f22}.mobileCta .btn{max-width:560px}
 @media(max-width:760px){.hero{min-height:680px}.heroIn{padding:78px 0}.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px}.facts>div{min-width:0;padding:13px}.facts b{font-size:21px}.priceGrid{grid-template-columns:1fr}.priceCard.featured{transform:none}.priceCard p{min-height:0}.hero p{font-size:15px}}
+/* Premium contemporary visual refresh */
+:root{--ink:#eaf0f7;--muted:#aebdce;--paper:#081321;--white:#101f30;--bronze:#39b6c8;--bronze2:#83e0e4;--line:#263b50;--shadow:0 24px 70px #0006}
+html{scroll-padding-top:90px}body{background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.7}
+a{color:inherit}.top{background:#081321eF;border-bottom:1px solid #294257;backdrop-filter:blur(18px)}
+.brand{font-family:Inter,Arial,sans-serif;font-weight:800;letter-spacing:.08em;font-size:18px}.brand small{color:#91a8bc;letter-spacing:.2em}
+.links{color:#c1d0df}.links a:hover{color:var(--bronze2)}
+.btn{background:linear-gradient(135deg,#1b9fb4,#42c6ce);color:#04131d;border-radius:7px;padding:13px 21px;box-shadow:0 8px 25px #22b7c533;letter-spacing:.04em}
+.btn:hover{background:linear-gradient(135deg,#39c1ce,#8ae5e6);color:#04131d}
+.btn.outline{background:#07132180;color:#f2f8fc;border:1px solid #8bdde2}
+.hero{min-height:760px;background:#06111d}
+.hero:before{background:linear-gradient(90deg,#06111df2 0%,#071827d9 42%,#07182738 100%),url('https://thetaranggroup.com/wp-content/uploads/2024/08/tarang-atlantics-1.jpg') center 44%/cover no-repeat}
+.hero:after{height:220px;background:linear-gradient(transparent,#081321)}
+.heroIn{max-width:790px}.hero .eyebrow{color:#9ce9ec;border:1px solid #8bdde255;background:#07132199;border-radius:30px;padding:10px 16px}
+.hero h1{font-family:Georgia,serif;font-weight:400;letter-spacing:-.055em;font-size:clamp(58px,8vw,104px);line-height:.94}
+.hero p{color:#d1deea;max-width:620px;font-size:18px}
+.facts>div{background:#071827b8;border:1px solid #8bdde244;border-radius:10px;backdrop-filter:blur(12px)}
+.facts b{color:#a6eef0}.facts span{color:#c2d1df}
+.section{padding:100px 0}.section.white{background:#0d1b2a}.section.dark{background:#06111d;color:#f1f6fa}
+.sectionHead h2,.copy h3{color:#f0f6fb}.sectionHead p,.copy p{color:var(--muted)}
+.eyebrow{color:#7cdae0;letter-spacing:.2em}
+.visual{border:1px solid #30475d;border-radius:14px;box-shadow:0 30px 80px #0006;overflow:hidden}
+.visual img{filter:saturate(.88)}
+.stat{background:#102337;border:1px solid #2b465d;border-radius:10px}
+.stat b{color:#83e0e4}.stat span{color:#afc1d1}
+.priceSpot{background:radial-gradient(ellipse at 85% 10%,#17465a 0%,#10283b 35%,#081321 75%);border-block:1px solid #29485c}
+.priceCard{background:#f1f7f8;color:#102233;border:1px solid #b9d4d8;border-radius:12px;box-shadow:0 18px 45px #0003}
+.priceCard.featured{background:linear-gradient(145deg,#dff8f7,#f5fbfa);border:2px solid #43bdc7;transform:translateY(-10px)}
+.priceCard.resale{background:linear-gradient(145deg,#132b40,#0b1c2c);color:#f2f8fc;border:1px solid #3c7888}
+.priceCard p,.priceCard .after small{color:#64798b}.priceCard.resale p,.priceCard.resale .after small{color:#c0d0dc}
+.priceCard .after{color:#087f91}.priceCard.resale .after{color:#8ee5e7}
+.priceNote{background:#0c2132;border:1px solid #315267;border-radius:10px;color:#c6d7e4}
+.card,.plan{background:#102337;border:1px solid #2b465d;border-radius:12px;color:#edf5fa}
+.card p,.plan p{color:#afc1d1}.card .num{color:#83e0e4}.plan strong{color:#83e0e4}.plan a{color:#8de3e6}
+.amenity{background:#102337;border:1px solid #2b465d;border-radius:10px;color:#edf5fa}
+.amenity span{color:#aebfd0}
+.tableWrap{background:#102337;border:1px solid #2b465d;border-radius:12px;overflow:hidden}
+table{background:#102337}th{background:#173249;color:#8de3e6}td{color:#e1ebf3;border-color:#294156}th,td{padding:16px 18px}
+.note{background:#142d40;border-left:3px solid #43bdc7;border-radius:0 8px 8px 0;color:#c9d8e4}
+.mapbox{background:#102337;border:1px solid #2b465d;border-radius:12px;color:#edf5fa}.mapbox p{color:#afc1d1}.mapbox a{color:#8de3e6}
+.routeProof img{border-radius:8px;border-color:#355268}
+.faq details{border-color:#2a4359;padding:21px 4px}.faq summary{color:#f1f7fb;font-family:Inter,Arial,sans-serif;font-size:17px;font-weight:650;list-style:none;display:flex;justify-content:space-between;gap:18px}.faq summary:after{content:"+";color:#80dfe4;font-size:23px;line-height:1}.faq details[open] summary:after{content:"−"}.faq p{color:#b8c8d6}
+.enquiry{background:linear-gradient(120deg,#102c40,#0a1b2a);border:1px solid #347080;border-radius:14px;box-shadow:0 25px 75px #0005}.enquiry p{color:#bdcedb}
+.footer{color:#9fb1c2}.footer a{color:#8de3e6}
+.mobileCta{background:#071523f2;border-top:1px solid #294257;backdrop-filter:blur(14px)}
+.whatsappBtn{background:#19a76a;color:#fff}.whatsappBtn:hover{background:#22c47c;color:#fff}
+@media(max-width:760px){.hero{min-height:690px}.hero:before{background:linear-gradient(90deg,#06111deF,#07182791),url('https://thetaranggroup.com/wp-content/uploads/2024/08/tarang-atlantics-1.jpg') 58% center/cover}.section{padding:70px 0}.priceCard.featured{transform:none}.nav .btn{padding:11px 14px;font-size:10px}}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ApartmentComplex","name":"Tarang Atlantis","telephone":"+91-98188-11971","url":"https://faridabadmasterplan.in/tarang-atlantis-sector-31-faridabad.html","address":{"@type":"PostalAddress","streetAddress":"Village Itmadpur, Sector 31","addressLocality":"Faridabad","addressRegion":"Haryana","postalCode":"121003","addressCountry":"IN"},"image":"https://thetaranggroup.com/wp-content/uploads/2024/08/tarang-atlantics-1.jpg","developer":{"@type":"Organization","name":"Ambarvan Homes LLP"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Swimming pool"},{"@type":"LocationFeatureSpecification","name":"Yoga room"},{"@type":"LocationFeatureSpecification","name":"Gymnasium"},{"@type":"LocationFeatureSpecification","name":"Cricket net"},{"@type":"LocationFeatureSpecification","name":"Walking track"},{"@type":"LocationFeatureSpecification","name":"Library / TV lounge"},{"@type":"LocationFeatureSpecification","name":"Indoor games"}],"url":"https://faridabadmasterplan.in/tarang-atlantis-sector-31-faridabad.html"}
