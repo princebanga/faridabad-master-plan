@@ -356,13 +356,21 @@ const globalMenuHTML = `
         <a href="dreamscape-affordable-project.html">🏠 DREAMSCAPE – Affordable Housing</a>
         <a href="compare.html">⚖️ Advitya / Olive Homes Comparison</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🚀 Emerald High Rise – Sector 97</a>
-        <a href="dameera.html">🌳 DaMeera City</a>
-        <a href="bhumika-the-mayfair-sector-114-faridabad-plots.html">🏡 Bhumika – The Mayfair · Sector 114</a>
-        <a href="107th-avenue-sector-107-faridabad-plots.html">🌳 107th Avenue – Sector 107 Plots</a>
-        <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
+        <details class="mobile-education-links">
+            <summary style="color:#f8fafc;padding:11px 8px;font-weight:700;cursor:pointer">🌳 Plots</summary>
+            <a href="dameera.html">🌳 DaMeera City</a>
+            <a href="bhumika-the-mayfair-sector-114-faridabad-plots.html">🏡 Bhumika – The Mayfair · Sector 114</a>
+            <a href="107th-avenue-sector-107-faridabad-plots.html">🌳 107th Avenue – Sector 107 Plots</a>
+            <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
+            <a href="emerald-sector-97-faridabad-plots.html">🌳 Emerald Sector 97 – Residential Plots</a>
+            <a href="advitya-puram-industrial-plots-sohna.html">🏭 Advitya Puram – Industrial Plots, Sohna</a>
+        </details>
+
+
+
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🏙️ Emerald High Rise – Sector 97</a>
-        <a href="emerald-sector-97-faridabad-plots.html">🌳 Emerald Sector 97 – Residential Plots</a>
-        <a href="advitya-puram-industrial-plots-sohna.html">🏭 Advitya Puram – Industrial Plots, Sohna</a>
+
+
         <a href="bptp-skynest-sector-80-faridabad.html">☁️ BPTP Skynest Sector 80</a>
         <a href="property-in-sector-97-faridabad.html">📍 Sector 97 Ground View</a>
         <a href="sector-80-faridabad-property.html">📍 Sector 80 Ground View</a>
