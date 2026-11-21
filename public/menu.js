@@ -146,7 +146,7 @@ const globalMenuHTML = `
                                 <a href="dameera.html">DaMeera City</a>
                                 <a href="bhumika-the-mayfair-sector-114-faridabad-plots.html">Bhumika – The Mayfair · Sector 114</a>
                                 <a href="gulmohar-maple.html">GulMohar by Emerald</a>
-                                <a href="emerald-sector-97-faridabad-plots.html">Emerald Sector 97 · Residential Plots</a>
+                                <a href="emerald-sector-97-faridabad-plots.html">EMERALD GARDENIA · Sector 97 Residential Plots</a>
                                 <a href="townfit-project.html">TownFit70</a>
                                 <a href="silicon-valley-project.html">Silicon Valley</a>
                                 <a href="107th-avenue-sector-107-faridabad-plots.html">107th Avenue – Sector 107</a>
@@ -367,7 +367,7 @@ const globalMenuHTML = `
             <a href="bhumika-the-mayfair-sector-114-faridabad-plots.html">🏡 Bhumika – The Mayfair · Sector 114</a>
             <a href="107th-avenue-sector-107-faridabad-plots.html">🌳 107th Avenue – Sector 107 Plots</a>
             <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
-            <a href="emerald-sector-97-faridabad-plots.html">🌳 Emerald Sector 97 – Residential Plots</a>
+            <a href="emerald-sector-97-faridabad-plots.html">🌳 EMERALD GARDENIA – Sector 97 Plots</a>
         </details>
         <details class="mobile-education-links">
             <summary style="color:#f8fafc;padding:11px 8px;font-weight:700;cursor:pointer">🏭 Industrial Plots</summary>
