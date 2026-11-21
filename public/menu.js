@@ -178,7 +178,6 @@ const globalMenuHTML = `
                                 <a href="compare.html">Advitya / Olive Homes Comparison</a>
                                 <a href="adore-legend-ii-sector-119-faridabad.html">Adore Legend-II – Sector 119 (3 BHK MQ)</a>
                                 <a href="adore-legend-v-sector-119-faridabad.html">Adore Legend V – Sector 119</a>
-                                <a href="dreamscape-affordable-project.html">DREAMSCAPE – Affordable Housing</a>
                             </div>
                         </div>
 
@@ -187,6 +186,7 @@ const globalMenuHTML = `
                             <div class="sub-dropdown-content">
                                 <a href="emerald-sector-87-faridabad.html">Emerald Low-Rise Sector 87</a>
                                 <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">Emerald High Rise – Sector 97</a>
+                                <a href="dreamscape-affordable-project.html">DREAMSCAPE – Affordable Housing</a>
                             </div>
                         </div>
                     </div>
