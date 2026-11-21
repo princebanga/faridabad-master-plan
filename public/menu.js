@@ -147,10 +147,15 @@ const globalMenuHTML = `
                                 <a href="bhumika-the-mayfair-sector-114-faridabad-plots.html">Bhumika – The Mayfair · Sector 114</a>
                                 <a href="gulmohar-maple.html">GulMohar by Emerald</a>
                                 <a href="emerald-sector-97-faridabad-plots.html">Emerald Sector 97 · Residential Plots</a>
-                                <a href="advitya-puram-industrial-plots-sohna.html">Advitya Puram · Industrial Plots (Sohna)</a>
                                 <a href="townfit-project.html">TownFit70</a>
                                 <a href="silicon-valley-project.html">Silicon Valley</a>
                                 <a href="107th-avenue-sector-107-faridabad-plots.html">107th Avenue – Sector 107</a>
+                            </div>
+                        </div>
+                        <div class="sub-dropdown">
+                            <a href="javascript:void(0)">Industrial Plots <span class="sub-arrow">▸</span></a>
+                            <div class="sub-dropdown-content">
+                                <a href="advitya-puram-industrial-plots-sohna.html">Advitya Puram · Industrial Plots (Sohna)</a>
                             </div>
                         </div>
                     </div>
@@ -363,7 +368,10 @@ const globalMenuHTML = `
             <a href="107th-avenue-sector-107-faridabad-plots.html">🌳 107th Avenue – Sector 107 Plots</a>
             <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
             <a href="emerald-sector-97-faridabad-plots.html">🌳 Emerald Sector 97 – Residential Plots</a>
-            <a href="advitya-puram-industrial-plots-sohna.html">🏭 Advitya Puram – Industrial Plots, Sohna</a>
+        </details>
+        <details class="mobile-education-links">
+            <summary style="color:#f8fafc;padding:11px 8px;font-weight:700;cursor:pointer">🏭 Industrial Plots</summary>
+            <a href="advitya-puram-industrial-plots-sohna.html">Advitya Puram – Industrial Plots, Sohna</a>
         </details>
 
 
