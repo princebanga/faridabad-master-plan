@@ -144,6 +144,7 @@ const globalMenuHTML = `
                             <a href="javascript:void(0)">Ongoing Plot Projects <span class="sub-arrow">▸</span></a>
                             <div class="sub-dropdown-content">
                                 <a href="dameera.html">DaMeera City</a>
+                                <a href="bhumika-the-mayfair-sector-114-faridabad-plots.html">Bhumika – The Mayfair · Sector 114</a>
                                 <a href="gulmohar-maple.html">GulMohar by Emerald</a>
                                 <a href="townfit-project.html">TownFit70</a>
                                 <a href="silicon-valley-project.html">Silicon Valley</a>
@@ -352,6 +353,7 @@ const globalMenuHTML = `
         <a href="compare.html">⚖️ Advitya / Olive Homes Comparison</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🚀 Emerald High Rise – Sector 97</a>
         <a href="dameera.html">🌳 DaMeera City</a>
+        <a href="bhumika-the-mayfair-sector-114-faridabad-plots.html">🏡 Bhumika – The Mayfair · Sector 114</a>
         <a href="107th-avenue-sector-107-faridabad-plots.html">🌳 107th Avenue – Sector 107 Plots</a>
         <a href="gulmohar-maple.html">🏘️ GulMohar / Maple</a>
         <a href="upcoming-emerald-high-rise-2bhk-3bhk.html">🏙️ Emerald Sector 97</a>
