@@ -168,6 +168,8 @@ const globalMenuHTML = `
                         <div class="sub-dropdown">
                             <a href="javascript:void(0)">Ongoing Projects <span class="sub-arrow">▸</span></a>
                             <div class="sub-dropdown-content">
+                                <a href="3-bhk-flats-in-faridabad.html">3 BHK Flats in Faridabad – All Budgets</a>
+                                <a href="4-bhk-flats-in-faridabad.html">Premium 4 BHK Flats in Faridabad</a>
                                 <a href="runningprojects.html">Ongoing Group Housing Projects</a>
                                 <a href="aanandam-residency-sector-89-faridabad.html">Aanandam Residency – Sector 89</a>
                                 <a href="tarang-atlantis-sector-31-faridabad.html">Tarang Atlantis – Sector 31 (3 &amp; 4 BHK + Resale)</a>
@@ -291,6 +293,8 @@ const globalMenuHTML = `
     </nav>
     <div class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Mobile navigation">
         <a href="index.html">🏠 Home</a>
+        <a href="3-bhk-flats-in-faridabad.html">🏠 3 BHK Flats in Faridabad</a>
+        <a href="4-bhk-flats-in-faridabad.html">✨ Premium 4 BHK Flats in Faridabad</a>
         <details class="mobile-education-links">
             <summary style="color:#f8fafc;padding:11px 8px;font-weight:700;cursor:pointer">📚 Education & Research — Browse by Topic</summary>
             <details class="mobile-education-group">
